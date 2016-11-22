@@ -8,12 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAA01DE43912007D27C8 /* AppDelegate.swift */; };
-		81FADAA31DE43912007D27C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAA21DE43912007D27C8 /* ViewController.swift */; };
-		81FADAA61DE43912007D27C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAA41DE43912007D27C8 /* Main.storyboard */; };
+		81FADAA61DE43912007D27C8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAA41DE43912007D27C8 /* Login.storyboard */; };
 		81FADAA81DE43912007D27C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAA71DE43912007D27C8 /* Assets.xcassets */; };
-		81FADAAB1DE43912007D27C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAA91DE43912007D27C8 /* LaunchScreen.storyboard */; };
 		81FADAB61DE43912007D27C8 /* NYP25Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAB51DE43912007D27C8 /* NYP25Tests.swift */; };
 		81FADAC11DE43912007D27C8 /* NYP25UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAC01DE43912007D27C8 /* NYP25UITests.swift */; };
+		81FADAD61DE43970007D27C8 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADACE1DE43970007D27C8 /* FirebaseAnalytics.framework */; };
+		81FADAD71DE43970007D27C8 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADACF1DE43970007D27C8 /* FirebaseInstanceID.framework */; };
+		81FADAD81DE43970007D27C8 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAD01DE43970007D27C8 /* GoogleInterchangeUtilities.framework */; };
+		81FADAD91DE43970007D27C8 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAD11DE43970007D27C8 /* GoogleSymbolUtilities.framework */; };
+		81FADADA1DE43970007D27C8 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAD21DE43970007D27C8 /* GoogleUtilities.framework */; };
+		81FADADB1DE43970007D27C8 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAD31DE43970007D27C8 /* FirebaseDatabase.framework */; };
+		81FADADE1DE439C7007D27C8 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADADD1DE439C7007D27C8 /* libicucore.tbd */; };
+		81FADAE01DE439F3007D27C8 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADADF1DE439F3007D27C8 /* AddressBook.framework */; };
+		81FADAE21DE43A04007D27C8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAE11DE43A04007D27C8 /* libc++.tbd */; };
+		81FADAE41DE43A0F007D27C8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAE31DE43A0E007D27C8 /* libsqlite3.tbd */; };
+		81FADAE61DE43CD8007D27C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAE51DE43CD8007D27C8 /* GoogleService-Info.plist */; };
+		81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */; };
+		81FADAF51DE44497007D27C8 /* UserEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF41DE44497007D27C8 /* UserEvent.storyboard */; };
+		81FADAF71DE444A3007D27C8 /* UserSocial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF61DE444A3007D27C8 /* UserSocial.storyboard */; };
+		81FADAF91DE444C1007D27C8 /* UserLeaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF81DE444C1007D27C8 /* UserLeaderboard.storyboard */; };
+		81FADAFB1DE444EF007D27C8 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFA1DE444EF007D27C8 /* UserProfile.storyboard */; };
+		81FADAFD1DE44510007D27C8 /* UserInbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFC1DE44510007D27C8 /* UserInbox.storyboard */; };
+		81FADAFF1DE4453E007D27C8 /* AdminHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFE1DE4453E007D27C8 /* AdminHome.storyboard */; };
+		81FADB011DE4459E007D27C8 /* AdminEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADB001DE4459E007D27C8 /* AdminEvent.storyboard */; };
+		81FADB031DE445F5007D27C8 /* AdminBadges.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADB021DE445F5007D27C8 /* AdminBadges.storyboard */; };
+		81FADB051DE44601007D27C8 /* AdminStatistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADB041DE44601007D27C8 /* AdminStatistics.storyboard */; };
+		81FADB071DE44614007D27C8 /* AdminProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADB061DE44614007D27C8 /* AdminProfile.storyboard */; };
+		81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +57,8 @@
 /* Begin PBXFileReference section */
 		81FADA9D1DE43912007D27C8 /* NYP25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYP25.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FADAA01DE43912007D27C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		81FADAA21DE43912007D27C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		81FADAA51DE43912007D27C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		81FADAA51DE43912007D27C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		81FADAA71DE43912007D27C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		81FADAAA1DE43912007D27C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81FADAAC1DE43912007D27C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81FADAB11DE43912007D27C8 /* NYP25Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYP25Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FADAB51DE43912007D27C8 /* NYP25Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYP25Tests.swift; sourceTree = "<group>"; };
@@ -47,6 +66,31 @@
 		81FADABC1DE43912007D27C8 /* NYP25UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYP25UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FADAC01DE43912007D27C8 /* NYP25UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYP25UITests.swift; sourceTree = "<group>"; };
 		81FADAC21DE43912007D27C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81FADACE1DE43970007D27C8 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		81FADACF1DE43970007D27C8 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		81FADAD01DE43970007D27C8 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		81FADAD11DE43970007D27C8 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		81FADAD21DE43970007D27C8 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		81FADAD31DE43970007D27C8 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
+		81FADAD41DE43970007D27C8 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		81FADAD51DE43970007D27C8 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		81FADADD1DE439C7007D27C8 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		81FADADF1DE439F3007D27C8 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		81FADAE11DE43A04007D27C8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		81FADAE31DE43A0E007D27C8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		81FADAE51DE43CD8007D27C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		81FADAF41DE44497007D27C8 /* UserEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserEvent.storyboard; sourceTree = "<group>"; };
+		81FADAF61DE444A3007D27C8 /* UserSocial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserSocial.storyboard; sourceTree = "<group>"; };
+		81FADAF81DE444C1007D27C8 /* UserLeaderboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserLeaderboard.storyboard; sourceTree = "<group>"; };
+		81FADAFA1DE444EF007D27C8 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
+		81FADAFC1DE44510007D27C8 /* UserInbox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInbox.storyboard; sourceTree = "<group>"; };
+		81FADAFE1DE4453E007D27C8 /* AdminHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminHome.storyboard; sourceTree = "<group>"; };
+		81FADB001DE4459E007D27C8 /* AdminEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminEvent.storyboard; sourceTree = "<group>"; };
+		81FADB021DE445F5007D27C8 /* AdminBadges.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminBadges.storyboard; sourceTree = "<group>"; };
+		81FADB041DE44601007D27C8 /* AdminStatistics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminStatistics.storyboard; sourceTree = "<group>"; };
+		81FADB061DE44614007D27C8 /* AdminProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminProfile.storyboard; sourceTree = "<group>"; };
+		81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +98,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81FADAE41DE43A0F007D27C8 /* libsqlite3.tbd in Frameworks */,
+				81FADAE21DE43A04007D27C8 /* libc++.tbd in Frameworks */,
+				81FADAE01DE439F3007D27C8 /* AddressBook.framework in Frameworks */,
+				81FADADE1DE439C7007D27C8 /* libicucore.tbd in Frameworks */,
+				81FADADB1DE43970007D27C8 /* FirebaseDatabase.framework in Frameworks */,
+				81FADAD81DE43970007D27C8 /* GoogleInterchangeUtilities.framework in Frameworks */,
+				81FADAD61DE43970007D27C8 /* FirebaseAnalytics.framework in Frameworks */,
+				81FADAD91DE43970007D27C8 /* GoogleSymbolUtilities.framework in Frameworks */,
+				81FADADA1DE43970007D27C8 /* GoogleUtilities.framework in Frameworks */,
+				81FADAD71DE43970007D27C8 /* FirebaseInstanceID.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +135,7 @@
 				81FADAB41DE43912007D27C8 /* NYP25Tests */,
 				81FADABF1DE43912007D27C8 /* NYP25UITests */,
 				81FADA9E1DE43912007D27C8 /* Products */,
+				81FADADC1DE439C7007D27C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,11 +152,14 @@
 		81FADA9F1DE43912007D27C8 /* NYP25 */ = {
 			isa = PBXGroup;
 			children = (
-				81FADAA01DE43912007D27C8 /* AppDelegate.swift */,
-				81FADAA21DE43912007D27C8 /* ViewController.swift */,
-				81FADAA41DE43912007D27C8 /* Main.storyboard */,
+				81FADAF11DE44205007D27C8 /* Application */,
+				81FADAEF1DE44095007D27C8 /* Library */,
+				81FADAED1DE4407B007D27C8 /* Resources */,
+				81FADAEC1DE4404B007D27C8 /* Controllers */,
+				81FADAEB1DE44043007D27C8 /* Views */,
+				81FADAEA1DE4403B007D27C8 /* Models */,
+				81FADAE51DE43CD8007D27C8 /* GoogleService-Info.plist */,
 				81FADAA71DE43912007D27C8 /* Assets.xcassets */,
-				81FADAA91DE43912007D27C8 /* LaunchScreen.storyboard */,
 				81FADAAC1DE43912007D27C8 /* Info.plist */,
 			);
 			path = NYP25;
@@ -123,6 +181,81 @@
 				81FADAC21DE43912007D27C8 /* Info.plist */,
 			);
 			path = NYP25UITests;
+			sourceTree = "<group>";
+		};
+		81FADADC1DE439C7007D27C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81FADAE31DE43A0E007D27C8 /* libsqlite3.tbd */,
+				81FADAE11DE43A04007D27C8 /* libc++.tbd */,
+				81FADADF1DE439F3007D27C8 /* AddressBook.framework */,
+				81FADADD1DE439C7007D27C8 /* libicucore.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		81FADAEA1DE4403B007D27C8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		81FADAEB1DE44043007D27C8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		81FADAEC1DE4404B007D27C8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		81FADAED1DE4407B007D27C8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		81FADAEF1DE44095007D27C8 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				81FADAD41DE43970007D27C8 /* Firebase.h */,
+				81FADAD51DE43970007D27C8 /* module.modulemap */,
+				81FADACE1DE43970007D27C8 /* FirebaseAnalytics.framework */,
+				81FADACF1DE43970007D27C8 /* FirebaseInstanceID.framework */,
+				81FADAD01DE43970007D27C8 /* GoogleInterchangeUtilities.framework */,
+				81FADAD11DE43970007D27C8 /* GoogleSymbolUtilities.framework */,
+				81FADAD21DE43970007D27C8 /* GoogleUtilities.framework */,
+				81FADAD31DE43970007D27C8 /* FirebaseDatabase.framework */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		81FADAF11DE44205007D27C8 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				81FADAA01DE43912007D27C8 /* AppDelegate.swift */,
+				81FADAA41DE43912007D27C8 /* Login.storyboard */,
+				81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */,
+				81FADAF41DE44497007D27C8 /* UserEvent.storyboard */,
+				81FADAF61DE444A3007D27C8 /* UserSocial.storyboard */,
+				81FADAF81DE444C1007D27C8 /* UserLeaderboard.storyboard */,
+				81FADAFC1DE44510007D27C8 /* UserInbox.storyboard */,
+				81FADAFA1DE444EF007D27C8 /* UserProfile.storyboard */,
+				81FADAFE1DE4453E007D27C8 /* AdminHome.storyboard */,
+				81FADB001DE4459E007D27C8 /* AdminEvent.storyboard */,
+				81FADB021DE445F5007D27C8 /* AdminBadges.storyboard */,
+				81FADB041DE44601007D27C8 /* AdminStatistics.storyboard */,
+				81FADB061DE44614007D27C8 /* AdminProfile.storyboard */,
+			);
+			name = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +365,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81FADAAB1DE43912007D27C8 /* LaunchScreen.storyboard in Resources */,
+				81FADB031DE445F5007D27C8 /* AdminBadges.storyboard in Resources */,
+				81FADAE61DE43CD8007D27C8 /* GoogleService-Info.plist in Resources */,
+				81FADB051DE44601007D27C8 /* AdminStatistics.storyboard in Resources */,
+				81FADB011DE4459E007D27C8 /* AdminEvent.storyboard in Resources */,
+				81FADB071DE44614007D27C8 /* AdminProfile.storyboard in Resources */,
+				81FADAFF1DE4453E007D27C8 /* AdminHome.storyboard in Resources */,
 				81FADAA81DE43912007D27C8 /* Assets.xcassets in Resources */,
-				81FADAA61DE43912007D27C8 /* Main.storyboard in Resources */,
+				81FADAF71DE444A3007D27C8 /* UserSocial.storyboard in Resources */,
+				81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */,
+				81FADAA61DE43912007D27C8 /* Login.storyboard in Resources */,
+				81FADAFB1DE444EF007D27C8 /* UserProfile.storyboard in Resources */,
+				81FADAF91DE444C1007D27C8 /* UserLeaderboard.storyboard in Resources */,
+				81FADAF51DE44497007D27C8 /* UserEvent.storyboard in Resources */,
+				81FADAFD1DE44510007D27C8 /* UserInbox.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81FADAA31DE43912007D27C8 /* ViewController.swift in Sources */,
+				81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */,
 				81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,20 +440,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		81FADAA41DE43912007D27C8 /* Main.storyboard */ = {
+		81FADAA41DE43912007D27C8 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				81FADAA51DE43912007D27C8 /* Base */,
 			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		81FADAA91DE43912007D27C8 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				81FADAAA1DE43912007D27C8 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -412,11 +548,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NYP25",
+				);
 				INFOPLIST_FILE = NYP25/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nyp.sake.NYP25;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/NYP25/";
 			};
 			name = Debug;
 		};
@@ -424,11 +566,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/NYP25",
+				);
 				INFOPLIST_FILE = NYP25/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nyp.sake.NYP25;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/NYP25/";
 			};
 			name = Release;
 		};
