@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		811BDA4F1DE8300E00D2D448 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */; };
+		811BDA501DE8300E00D2D448 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4A1DE8300E00D2D448 /* FirebaseInstanceID.framework */; };
+		811BDA511DE8300E00D2D448 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4B1DE8300E00D2D448 /* GoogleInterchangeUtilities.framework */; };
+		811BDA521DE8300E00D2D448 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4C1DE8300E00D2D448 /* GoogleSymbolUtilities.framework */; };
+		811BDA531DE8300E00D2D448 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4D1DE8300E00D2D448 /* GoogleUtilities.framework */; };
+		811BDA541DE8300E00D2D448 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4E1DE8300E00D2D448 /* FirebaseDatabase.framework */; };
+		811BDA561DE8309700D2D448 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 811BDA551DE8309700D2D448 /* GoogleService-Info.plist */; };
 		81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAA01DE43912007D27C8 /* AppDelegate.swift */; };
 		81FADAA61DE43912007D27C8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAA41DE43912007D27C8 /* Login.storyboard */; };
 		81FADAA81DE43912007D27C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAA71DE43912007D27C8 /* Assets.xcassets */; };
 		81FADAB61DE43912007D27C8 /* NYP25Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAB51DE43912007D27C8 /* NYP25Tests.swift */; };
 		81FADAC11DE43912007D27C8 /* NYP25UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAC01DE43912007D27C8 /* NYP25UITests.swift */; };
-		81FADAD61DE43970007D27C8 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADACE1DE43970007D27C8 /* FirebaseAnalytics.framework */; };
-		81FADAD71DE43970007D27C8 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADACF1DE43970007D27C8 /* FirebaseInstanceID.framework */; };
-		81FADAD81DE43970007D27C8 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAD01DE43970007D27C8 /* GoogleInterchangeUtilities.framework */; };
-		81FADAD91DE43970007D27C8 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAD11DE43970007D27C8 /* GoogleSymbolUtilities.framework */; };
-		81FADADA1DE43970007D27C8 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAD21DE43970007D27C8 /* GoogleUtilities.framework */; };
-		81FADADB1DE43970007D27C8 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAD31DE43970007D27C8 /* FirebaseDatabase.framework */; };
 		81FADADE1DE439C7007D27C8 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADADD1DE439C7007D27C8 /* libicucore.tbd */; };
 		81FADAE01DE439F3007D27C8 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADADF1DE439F3007D27C8 /* AddressBook.framework */; };
 		81FADAE21DE43A04007D27C8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAE11DE43A04007D27C8 /* libc++.tbd */; };
 		81FADAE41DE43A0F007D27C8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAE31DE43A0E007D27C8 /* libsqlite3.tbd */; };
-		81FADAE61DE43CD8007D27C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAE51DE43CD8007D27C8 /* GoogleService-Info.plist */; };
 		81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */; };
 		81FADAF51DE44497007D27C8 /* UserEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF41DE44497007D27C8 /* UserEvent.storyboard */; };
 		81FADAF71DE444A3007D27C8 /* UserSocial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF61DE444A3007D27C8 /* UserSocial.storyboard */; };
@@ -55,6 +55,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		811BDA471DE82FF800D2D448 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
+		811BDA481DE82FF800D2D448 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		811BDA4A1DE8300E00D2D448 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		811BDA4B1DE8300E00D2D448 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
+		811BDA4C1DE8300E00D2D448 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
+		811BDA4D1DE8300E00D2D448 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
+		811BDA4E1DE8300E00D2D448 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
+		811BDA551DE8309700D2D448 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		81FADA9D1DE43912007D27C8 /* NYP25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYP25.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FADAA01DE43912007D27C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81FADAA51DE43912007D27C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
@@ -66,19 +75,10 @@
 		81FADABC1DE43912007D27C8 /* NYP25UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYP25UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FADAC01DE43912007D27C8 /* NYP25UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYP25UITests.swift; sourceTree = "<group>"; };
 		81FADAC21DE43912007D27C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		81FADACE1DE43970007D27C8 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		81FADACF1DE43970007D27C8 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		81FADAD01DE43970007D27C8 /* GoogleInterchangeUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleInterchangeUtilities.framework; sourceTree = "<group>"; };
-		81FADAD11DE43970007D27C8 /* GoogleSymbolUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSymbolUtilities.framework; sourceTree = "<group>"; };
-		81FADAD21DE43970007D27C8 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
-		81FADAD31DE43970007D27C8 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
-		81FADAD41DE43970007D27C8 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
-		81FADAD51DE43970007D27C8 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		81FADADD1DE439C7007D27C8 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		81FADADF1DE439F3007D27C8 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		81FADAE11DE43A04007D27C8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		81FADAE31DE43A0E007D27C8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		81FADAE51DE43CD8007D27C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		81FADAF41DE44497007D27C8 /* UserEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserEvent.storyboard; sourceTree = "<group>"; };
 		81FADAF61DE444A3007D27C8 /* UserSocial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserSocial.storyboard; sourceTree = "<group>"; };
@@ -98,16 +98,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				811BDA531DE8300E00D2D448 /* GoogleUtilities.framework in Frameworks */,
+				811BDA511DE8300E00D2D448 /* GoogleInterchangeUtilities.framework in Frameworks */,
 				81FADAE41DE43A0F007D27C8 /* libsqlite3.tbd in Frameworks */,
+				811BDA521DE8300E00D2D448 /* GoogleSymbolUtilities.framework in Frameworks */,
+				811BDA541DE8300E00D2D448 /* FirebaseDatabase.framework in Frameworks */,
+				811BDA501DE8300E00D2D448 /* FirebaseInstanceID.framework in Frameworks */,
 				81FADAE21DE43A04007D27C8 /* libc++.tbd in Frameworks */,
 				81FADAE01DE439F3007D27C8 /* AddressBook.framework in Frameworks */,
 				81FADADE1DE439C7007D27C8 /* libicucore.tbd in Frameworks */,
-				81FADADB1DE43970007D27C8 /* FirebaseDatabase.framework in Frameworks */,
-				81FADAD81DE43970007D27C8 /* GoogleInterchangeUtilities.framework in Frameworks */,
-				81FADAD61DE43970007D27C8 /* FirebaseAnalytics.framework in Frameworks */,
-				81FADAD91DE43970007D27C8 /* GoogleSymbolUtilities.framework in Frameworks */,
-				81FADADA1DE43970007D27C8 /* GoogleUtilities.framework in Frameworks */,
-				81FADAD71DE43970007D27C8 /* FirebaseInstanceID.framework in Frameworks */,
+				811BDA4F1DE8300E00D2D448 /* FirebaseAnalytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,9 +158,9 @@
 				81FADAEC1DE4404B007D27C8 /* Controllers */,
 				81FADAEB1DE44043007D27C8 /* Views */,
 				81FADAEA1DE4403B007D27C8 /* Models */,
-				81FADAE51DE43CD8007D27C8 /* GoogleService-Info.plist */,
 				81FADAA71DE43912007D27C8 /* Assets.xcassets */,
 				81FADAAC1DE43912007D27C8 /* Info.plist */,
+				811BDA551DE8309700D2D448 /* GoogleService-Info.plist */,
 			);
 			path = NYP25;
 			sourceTree = "<group>";
@@ -226,14 +226,14 @@
 		81FADAEF1DE44095007D27C8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				81FADAD41DE43970007D27C8 /* Firebase.h */,
-				81FADAD51DE43970007D27C8 /* module.modulemap */,
-				81FADACE1DE43970007D27C8 /* FirebaseAnalytics.framework */,
-				81FADACF1DE43970007D27C8 /* FirebaseInstanceID.framework */,
-				81FADAD01DE43970007D27C8 /* GoogleInterchangeUtilities.framework */,
-				81FADAD11DE43970007D27C8 /* GoogleSymbolUtilities.framework */,
-				81FADAD21DE43970007D27C8 /* GoogleUtilities.framework */,
-				81FADAD31DE43970007D27C8 /* FirebaseDatabase.framework */,
+				811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */,
+				811BDA4A1DE8300E00D2D448 /* FirebaseInstanceID.framework */,
+				811BDA4B1DE8300E00D2D448 /* GoogleInterchangeUtilities.framework */,
+				811BDA4C1DE8300E00D2D448 /* GoogleSymbolUtilities.framework */,
+				811BDA4D1DE8300E00D2D448 /* GoogleUtilities.framework */,
+				811BDA4E1DE8300E00D2D448 /* FirebaseDatabase.framework */,
+				811BDA471DE82FF800D2D448 /* Firebase.h */,
+				811BDA481DE82FF800D2D448 /* module.modulemap */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -321,7 +321,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = NYP;
 				TargetAttributes = {
 					81FADA9C1DE43912007D27C8 = {
@@ -366,7 +366,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FADB031DE445F5007D27C8 /* AdminBadges.storyboard in Resources */,
-				81FADAE61DE43CD8007D27C8 /* GoogleService-Info.plist in Resources */,
 				81FADB051DE44601007D27C8 /* AdminStatistics.storyboard in Resources */,
 				81FADB011DE4459E007D27C8 /* AdminEvent.storyboard in Resources */,
 				81FADB071DE44614007D27C8 /* AdminProfile.storyboard in Resources */,
@@ -379,6 +378,7 @@
 				81FADAF91DE444C1007D27C8 /* UserLeaderboard.storyboard in Resources */,
 				81FADAF51DE44497007D27C8 /* UserEvent.storyboard in Resources */,
 				81FADAFD1DE44510007D27C8 /* UserInbox.storyboard in Resources */,
+				811BDA561DE8309700D2D448 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +469,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -491,7 +492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -519,6 +520,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -535,7 +537,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -653,6 +655,7 @@
 				81FADAC71DE43912007D27C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81FADAC81DE43912007D27C8 /* Build configuration list for PBXNativeTarget "NYP25Tests" */ = {
 			isa = XCConfigurationList;
@@ -661,6 +664,7 @@
 				81FADACA1DE43912007D27C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		81FADACB1DE43912007D27C8 /* Build configuration list for PBXNativeTarget "NYP25UITests" */ = {
 			isa = XCConfigurationList;
@@ -669,6 +673,7 @@
 				81FADACD1DE43912007D27C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
