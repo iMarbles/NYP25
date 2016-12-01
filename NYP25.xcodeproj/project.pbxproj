@@ -14,6 +14,7 @@
 		811BDA531DE8300E00D2D448 /* GoogleUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4D1DE8300E00D2D448 /* GoogleUtilities.framework */; };
 		811BDA541DE8300E00D2D448 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4E1DE8300E00D2D448 /* FirebaseDatabase.framework */; };
 		811BDA561DE8309700D2D448 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 811BDA551DE8309700D2D448 /* GoogleService-Info.plist */; };
+		811DA5581DEFF34100817B71 /* LoginDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811DA5571DEFF34100817B71 /* LoginDM.swift */; };
 		8175B12B1DEFDE8100FCB205 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B12A1DEFDE8100FCB205 /* User.swift */; };
 		8175B12F1DEFE18000FCB205 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B12E1DEFE18000FCB205 /* Student.swift */; };
 		81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAA01DE43912007D27C8 /* AppDelegate.swift */; };
@@ -66,6 +67,7 @@
 		811BDA4D1DE8300E00D2D448 /* GoogleUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = "<group>"; };
 		811BDA4E1DE8300E00D2D448 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
 		811BDA551DE8309700D2D448 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		811DA5571DEFF34100817B71 /* LoginDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDM.swift; sourceTree = "<group>"; };
 		8175B12A1DEFDE8100FCB205 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8175B12E1DEFE18000FCB205 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		81FADA9D1DE43912007D27C8 /* NYP25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYP25.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +137,7 @@
 		8175B1301DEFE50600FCB205 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
+				811DA5571DEFF34100817B71 /* LoginDM.swift */,
 			);
 			name = DataManager;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */,
 				81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */,
 				8175B12B1DEFDE8100FCB205 /* User.swift in Sources */,
+				811DA5581DEFF34100817B71 /* LoginDM.swift in Sources */,
 				8175B12F1DEFE18000FCB205 /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
