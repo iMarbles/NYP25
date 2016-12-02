@@ -15,6 +15,10 @@
 		811BDA541DE8300E00D2D448 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4E1DE8300E00D2D448 /* FirebaseDatabase.framework */; };
 		811BDA561DE8309700D2D448 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 811BDA551DE8309700D2D448 /* GoogleService-Info.plist */; };
 		811DA5581DEFF34100817B71 /* LoginDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811DA5571DEFF34100817B71 /* LoginDM.swift */; };
+		816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 816A87B91DF1467300232C08 /* BridgingHeader.m */; };
+		816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A87BB1DF1568700232C08 /* GlobalDM.swift */; };
+		816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */; };
+		816A87C01DF170E000232C08 /* UserEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A87BF1DF170E000232C08 /* UserEventViewController.swift */; };
 		8175B12B1DEFDE8100FCB205 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B12A1DEFDE8100FCB205 /* User.swift */; };
 		8175B12F1DEFE18000FCB205 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B12E1DEFE18000FCB205 /* Student.swift */; };
 		81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAA01DE43912007D27C8 /* AppDelegate.swift */; };
@@ -27,16 +31,12 @@
 		81FADAE21DE43A04007D27C8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAE11DE43A04007D27C8 /* libc++.tbd */; };
 		81FADAE41DE43A0F007D27C8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAE31DE43A0E007D27C8 /* libsqlite3.tbd */; };
 		81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */; };
-		81FADAF51DE44497007D27C8 /* UserEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF41DE44497007D27C8 /* UserEvent.storyboard */; };
+		81FADAF51DE44497007D27C8 /* UserHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF41DE44497007D27C8 /* UserHome.storyboard */; };
 		81FADAF71DE444A3007D27C8 /* UserSocial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF61DE444A3007D27C8 /* UserSocial.storyboard */; };
 		81FADAF91DE444C1007D27C8 /* UserLeaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF81DE444C1007D27C8 /* UserLeaderboard.storyboard */; };
 		81FADAFB1DE444EF007D27C8 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFA1DE444EF007D27C8 /* UserProfile.storyboard */; };
 		81FADAFD1DE44510007D27C8 /* UserInbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFC1DE44510007D27C8 /* UserInbox.storyboard */; };
 		81FADAFF1DE4453E007D27C8 /* AdminHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFE1DE4453E007D27C8 /* AdminHome.storyboard */; };
-		81FADB011DE4459E007D27C8 /* AdminEvent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADB001DE4459E007D27C8 /* AdminEvent.storyboard */; };
-		81FADB031DE445F5007D27C8 /* AdminBadges.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADB021DE445F5007D27C8 /* AdminBadges.storyboard */; };
-		81FADB051DE44601007D27C8 /* AdminStatistics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADB041DE44601007D27C8 /* AdminStatistics.storyboard */; };
-		81FADB071DE44614007D27C8 /* AdminProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADB061DE44614007D27C8 /* AdminProfile.storyboard */; };
 		81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +68,12 @@
 		811BDA4E1DE8300E00D2D448 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
 		811BDA551DE8309700D2D448 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		811DA5571DEFF34100817B71 /* LoginDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDM.swift; sourceTree = "<group>"; };
+		816A87B71DF1467200232C08 /* NYP25-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NYP25-Bridging-Header.h"; sourceTree = "<group>"; };
+		816A87B81DF1467300232C08 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		816A87B91DF1467300232C08 /* BridgingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgingHeader.m; sourceTree = "<group>"; };
+		816A87BB1DF1568700232C08 /* GlobalDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDM.swift; sourceTree = "<group>"; };
+		816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
+		816A87BF1DF170E000232C08 /* UserEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventViewController.swift; sourceTree = "<group>"; };
 		8175B12A1DEFDE8100FCB205 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8175B12E1DEFE18000FCB205 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		81FADA9D1DE43912007D27C8 /* NYP25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYP25.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,16 +92,12 @@
 		81FADAE11DE43A04007D27C8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		81FADAE31DE43A0E007D27C8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		81FADAF41DE44497007D27C8 /* UserEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserEvent.storyboard; sourceTree = "<group>"; };
+		81FADAF41DE44497007D27C8 /* UserHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserHome.storyboard; sourceTree = "<group>"; };
 		81FADAF61DE444A3007D27C8 /* UserSocial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserSocial.storyboard; sourceTree = "<group>"; };
 		81FADAF81DE444C1007D27C8 /* UserLeaderboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserLeaderboard.storyboard; sourceTree = "<group>"; };
 		81FADAFA1DE444EF007D27C8 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		81FADAFC1DE44510007D27C8 /* UserInbox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInbox.storyboard; sourceTree = "<group>"; };
 		81FADAFE1DE4453E007D27C8 /* AdminHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminHome.storyboard; sourceTree = "<group>"; };
-		81FADB001DE4459E007D27C8 /* AdminEvent.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminEvent.storyboard; sourceTree = "<group>"; };
-		81FADB021DE445F5007D27C8 /* AdminBadges.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminBadges.storyboard; sourceTree = "<group>"; };
-		81FADB041DE44601007D27C8 /* AdminStatistics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminStatistics.storyboard; sourceTree = "<group>"; };
-		81FADB061DE44614007D27C8 /* AdminProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminProfile.storyboard; sourceTree = "<group>"; };
 		81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				811DA5571DEFF34100817B71 /* LoginDM.swift */,
+				816A87BB1DF1568700232C08 /* GlobalDM.swift */,
 			);
 			name = DataManager;
 			sourceTree = "<group>";
@@ -229,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */,
+				816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */,
+				816A87BF1DF170E000232C08 /* UserEventViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -251,6 +256,9 @@
 				811BDA4E1DE8300E00D2D448 /* FirebaseDatabase.framework */,
 				811BDA471DE82FF800D2D448 /* Firebase.h */,
 				811BDA481DE82FF800D2D448 /* module.modulemap */,
+				816A87B81DF1467300232C08 /* BridgingHeader.h */,
+				816A87B91DF1467300232C08 /* BridgingHeader.m */,
+				816A87B71DF1467200232C08 /* NYP25-Bridging-Header.h */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -261,16 +269,12 @@
 				81FADAA01DE43912007D27C8 /* AppDelegate.swift */,
 				81FADAA41DE43912007D27C8 /* Login.storyboard */,
 				81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */,
-				81FADAF41DE44497007D27C8 /* UserEvent.storyboard */,
+				81FADAF41DE44497007D27C8 /* UserHome.storyboard */,
 				81FADAF61DE444A3007D27C8 /* UserSocial.storyboard */,
 				81FADAF81DE444C1007D27C8 /* UserLeaderboard.storyboard */,
 				81FADAFC1DE44510007D27C8 /* UserInbox.storyboard */,
 				81FADAFA1DE444EF007D27C8 /* UserProfile.storyboard */,
 				81FADAFE1DE4453E007D27C8 /* AdminHome.storyboard */,
-				81FADB001DE4459E007D27C8 /* AdminEvent.storyboard */,
-				81FADB021DE445F5007D27C8 /* AdminBadges.storyboard */,
-				81FADB041DE44601007D27C8 /* AdminStatistics.storyboard */,
-				81FADB061DE44614007D27C8 /* AdminProfile.storyboard */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -343,6 +347,7 @@
 				TargetAttributes = {
 					81FADA9C1DE43912007D27C8 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 					81FADAB01DE43912007D27C8 = {
@@ -382,10 +387,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81FADB031DE445F5007D27C8 /* AdminBadges.storyboard in Resources */,
-				81FADB051DE44601007D27C8 /* AdminStatistics.storyboard in Resources */,
-				81FADB011DE4459E007D27C8 /* AdminEvent.storyboard in Resources */,
-				81FADB071DE44614007D27C8 /* AdminProfile.storyboard in Resources */,
 				81FADAFF1DE4453E007D27C8 /* AdminHome.storyboard in Resources */,
 				81FADAA81DE43912007D27C8 /* Assets.xcassets in Resources */,
 				81FADAF71DE444A3007D27C8 /* UserSocial.storyboard in Resources */,
@@ -393,7 +394,7 @@
 				81FADAA61DE43912007D27C8 /* Login.storyboard in Resources */,
 				81FADAFB1DE444EF007D27C8 /* UserProfile.storyboard in Resources */,
 				81FADAF91DE444C1007D27C8 /* UserLeaderboard.storyboard in Resources */,
-				81FADAF51DE44497007D27C8 /* UserEvent.storyboard in Resources */,
+				81FADAF51DE44497007D27C8 /* UserHome.storyboard in Resources */,
 				81FADAFD1DE44510007D27C8 /* UserInbox.storyboard in Resources */,
 				811BDA561DE8309700D2D448 /* GoogleService-Info.plist in Resources */,
 			);
@@ -421,7 +422,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */,
+				816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */,
 				81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */,
+				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
+				816A87C01DF170E000232C08 /* UserEventViewController.swift in Sources */,
+				816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */,
 				8175B12B1DEFDE8100FCB205 /* User.swift in Sources */,
 				811DA5581DEFF34100817B71 /* LoginDM.swift in Sources */,
 				8175B12F1DEFE18000FCB205 /* Student.swift in Sources */,
@@ -570,6 +575,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NYP25",
@@ -579,6 +585,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nyp.sake.NYP25;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NYP25/NYP25-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/NYP25/";
 			};
@@ -588,6 +596,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NYP25",
@@ -597,6 +606,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nyp.sake.NYP25;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NYP25/NYP25-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/NYP25/";
 			};

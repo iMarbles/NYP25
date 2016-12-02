@@ -9,10 +9,13 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    @IBOutlet weak var usernameTb: UITextField!
+    @IBOutlet weak var passwordTb: UITextField!
+    @IBOutlet weak var invalidLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +24,23 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func loginBtnPressed(_ sender: Any) {
+        LoginDM.loginUser(username: usernameTb.text!, password: passwordTb.text!, onComplete: {
+            if(GlobalDM.CurrentUser!.userId  == "NIL"){
+                self.invalidLbl.isHidden = false
+                self.passwordTb.text = ""
+            }else{
+                //To handle segue
+                var viewController : UIViewController
+                if(GlobalDM.CurrentUser!.isAdmin == 1){
+                    viewController = UIStoryboard(name: "AdminHome", bundle: nil).instantiateViewController(withIdentifier: "AdminHome") as UIViewController
+                }else{
+                     viewController = UIStoryboard(name: "UserHome", bundle: nil).instantiateViewController(withIdentifier: "UserHome") as UIViewController
+                }
+                self.present(viewController, animated: false, completion: nil)
+            }
+        })
+    }
 
     /*
     // MARK: - Navigation
