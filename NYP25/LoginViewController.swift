@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
                 //To handle segue
                 var viewController : UIViewController
                 if(GlobalDM.CurrentUser!.isAdmin == 1){
-                    viewController = UIStoryboard(name: "AdminHome", bundle: nil).instantiateViewController(withIdentifier: "AdminHome") as UIViewController
+                    viewController = UIStoryboard(name: "AdminMain", bundle: nil).instantiateViewController(withIdentifier: "AdminTab") as UIViewController
                 }else{
                      viewController = UIStoryboard(name: "UserHome", bundle: nil).instantiateViewController(withIdentifier: "UserHome") as UIViewController
                 }

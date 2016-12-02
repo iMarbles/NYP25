@@ -36,7 +36,7 @@
 		81FADAF91DE444C1007D27C8 /* UserLeaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF81DE444C1007D27C8 /* UserLeaderboard.storyboard */; };
 		81FADAFB1DE444EF007D27C8 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFA1DE444EF007D27C8 /* UserProfile.storyboard */; };
 		81FADAFD1DE44510007D27C8 /* UserInbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFC1DE44510007D27C8 /* UserInbox.storyboard */; };
-		81FADAFF1DE4453E007D27C8 /* AdminHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFE1DE4453E007D27C8 /* AdminHome.storyboard */; };
+		81FADAFF1DE4453E007D27C8 /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */; };
 		81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +97,7 @@
 		81FADAF81DE444C1007D27C8 /* UserLeaderboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserLeaderboard.storyboard; sourceTree = "<group>"; };
 		81FADAFA1DE444EF007D27C8 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		81FADAFC1DE44510007D27C8 /* UserInbox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInbox.storyboard; sourceTree = "<group>"; };
-		81FADAFE1DE4453E007D27C8 /* AdminHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminHome.storyboard; sourceTree = "<group>"; };
+		81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
 		81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -274,7 +274,7 @@
 				81FADAF81DE444C1007D27C8 /* UserLeaderboard.storyboard */,
 				81FADAFC1DE44510007D27C8 /* UserInbox.storyboard */,
 				81FADAFA1DE444EF007D27C8 /* UserProfile.storyboard */,
-				81FADAFE1DE4453E007D27C8 /* AdminHome.storyboard */,
+				81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -387,7 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81FADAFF1DE4453E007D27C8 /* AdminHome.storyboard in Resources */,
+				81FADAFF1DE4453E007D27C8 /* AdminMain.storyboard in Resources */,
 				81FADAA81DE43912007D27C8 /* Assets.xcassets in Resources */,
 				81FADAF71DE444A3007D27C8 /* UserSocial.storyboard in Resources */,
 				81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */,
