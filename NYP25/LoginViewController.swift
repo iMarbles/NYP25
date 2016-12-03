@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
                 if(GlobalDM.CurrentUser!.isAdmin == 1){
                     viewController = UIStoryboard(name: "AdminMain", bundle: nil).instantiateViewController(withIdentifier: "AdminTab") as UIViewController
                 }else{
-                     viewController = UIStoryboard(name: "UserHome", bundle: nil).instantiateViewController(withIdentifier: "UserHome") as UIViewController
+                     viewController = UIStoryboard(name: "UserMain", bundle: nil).instantiateViewController(withIdentifier: "UserMain") as UIViewController
                 }
                 self.present(viewController, animated: false, completion: nil)
             }

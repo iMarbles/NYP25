@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27B88D7C1DF2B9B80045C98B /* UserMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */; };
+		27B88D7E1DF2B9CD0045C98B /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */; };
+		27B88D801DF2B9DD0045C98B /* UserInbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D7F1DF2B9DD0045C98B /* UserInbox.storyboard */; };
+		27B88D821DF2B9ED0045C98B /* UserLeaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D811DF2B9ED0045C98B /* UserLeaderboard.storyboard */; };
+		27B88D841DF2B9F80045C98B /* UserEvents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D831DF2B9F80045C98B /* UserEvents.storyboard */; };
+		27B88D861DF2BA040045C98B /* UserSocial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D851DF2BA040045C98B /* UserSocial.storyboard */; };
 		811BDA4F1DE8300E00D2D448 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */; };
 		811BDA501DE8300E00D2D448 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4A1DE8300E00D2D448 /* FirebaseInstanceID.framework */; };
 		811BDA511DE8300E00D2D448 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4B1DE8300E00D2D448 /* GoogleInterchangeUtilities.framework */; };
@@ -31,11 +37,6 @@
 		81FADAE21DE43A04007D27C8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAE11DE43A04007D27C8 /* libc++.tbd */; };
 		81FADAE41DE43A0F007D27C8 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADAE31DE43A0E007D27C8 /* libsqlite3.tbd */; };
 		81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */; };
-		81FADAF51DE44497007D27C8 /* UserHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF41DE44497007D27C8 /* UserHome.storyboard */; };
-		81FADAF71DE444A3007D27C8 /* UserSocial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF61DE444A3007D27C8 /* UserSocial.storyboard */; };
-		81FADAF91DE444C1007D27C8 /* UserLeaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF81DE444C1007D27C8 /* UserLeaderboard.storyboard */; };
-		81FADAFB1DE444EF007D27C8 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFA1DE444EF007D27C8 /* UserProfile.storyboard */; };
-		81FADAFD1DE44510007D27C8 /* UserInbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFC1DE44510007D27C8 /* UserInbox.storyboard */; };
 		81FADAFF1DE4453E007D27C8 /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */; };
 		81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserMain.storyboard; sourceTree = "<group>"; };
+		27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
+		27B88D7F1DF2B9DD0045C98B /* UserInbox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInbox.storyboard; sourceTree = "<group>"; };
+		27B88D811DF2B9ED0045C98B /* UserLeaderboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserLeaderboard.storyboard; sourceTree = "<group>"; };
+		27B88D831DF2B9F80045C98B /* UserEvents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserEvents.storyboard; sourceTree = "<group>"; };
+		27B88D851DF2BA040045C98B /* UserSocial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserSocial.storyboard; sourceTree = "<group>"; };
 		811BDA471DE82FF800D2D448 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		811BDA481DE82FF800D2D448 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
@@ -92,11 +99,6 @@
 		81FADAE11DE43A04007D27C8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		81FADAE31DE43A0E007D27C8 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		81FADAF41DE44497007D27C8 /* UserHome.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserHome.storyboard; sourceTree = "<group>"; };
-		81FADAF61DE444A3007D27C8 /* UserSocial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserSocial.storyboard; sourceTree = "<group>"; };
-		81FADAF81DE444C1007D27C8 /* UserLeaderboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserLeaderboard.storyboard; sourceTree = "<group>"; };
-		81FADAFA1DE444EF007D27C8 /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
-		81FADAFC1DE44510007D27C8 /* UserInbox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInbox.storyboard; sourceTree = "<group>"; };
 		81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
 		81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -266,14 +268,15 @@
 		81FADAF11DE44205007D27C8 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */,
+				27B88D851DF2BA040045C98B /* UserSocial.storyboard */,
+				27B88D831DF2B9F80045C98B /* UserEvents.storyboard */,
+				27B88D811DF2B9ED0045C98B /* UserLeaderboard.storyboard */,
+				27B88D7F1DF2B9DD0045C98B /* UserInbox.storyboard */,
+				27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */,
 				81FADAA01DE43912007D27C8 /* AppDelegate.swift */,
 				81FADAA41DE43912007D27C8 /* Login.storyboard */,
 				81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */,
-				81FADAF41DE44497007D27C8 /* UserHome.storyboard */,
-				81FADAF61DE444A3007D27C8 /* UserSocial.storyboard */,
-				81FADAF81DE444C1007D27C8 /* UserLeaderboard.storyboard */,
-				81FADAFC1DE44510007D27C8 /* UserInbox.storyboard */,
-				81FADAFA1DE444EF007D27C8 /* UserProfile.storyboard */,
 				81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */,
 			);
 			name = Application;
@@ -387,15 +390,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27B88D821DF2B9ED0045C98B /* UserLeaderboard.storyboard in Resources */,
+				27B88D7E1DF2B9CD0045C98B /* UserProfile.storyboard in Resources */,
 				81FADAFF1DE4453E007D27C8 /* AdminMain.storyboard in Resources */,
+				27B88D801DF2B9DD0045C98B /* UserInbox.storyboard in Resources */,
 				81FADAA81DE43912007D27C8 /* Assets.xcassets in Resources */,
-				81FADAF71DE444A3007D27C8 /* UserSocial.storyboard in Resources */,
+				27B88D861DF2BA040045C98B /* UserSocial.storyboard in Resources */,
+				27B88D7C1DF2B9B80045C98B /* UserMain.storyboard in Resources */,
+				27B88D841DF2B9F80045C98B /* UserEvents.storyboard in Resources */,
 				81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */,
 				81FADAA61DE43912007D27C8 /* Login.storyboard in Resources */,
-				81FADAFB1DE444EF007D27C8 /* UserProfile.storyboard in Resources */,
-				81FADAF91DE444C1007D27C8 /* UserLeaderboard.storyboard in Resources */,
-				81FADAF51DE44497007D27C8 /* UserHome.storyboard in Resources */,
-				81FADAFD1DE44510007D27C8 /* UserInbox.storyboard in Resources */,
 				811BDA561DE8309700D2D448 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
