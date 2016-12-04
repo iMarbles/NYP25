@@ -11,7 +11,6 @@
         <!--Social-->
         <scene sceneID="t6L-ph-K65">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xgk-HK-j1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="UserSocial" id="RQE-6E-VbP" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H4B-QT-d5h"/>
@@ -55,6 +54,7 @@
                     <tabBarItem key="tabBarItem" title="Social" image="My Topic-30" id="nqa-cS-CMS"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xgk-HK-j1Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-250.40000000000001" y="-1311.0944527736133"/>
         </scene>
