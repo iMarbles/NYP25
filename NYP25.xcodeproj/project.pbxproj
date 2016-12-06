@@ -26,7 +26,6 @@
 		8166BC471DF6839000FAA37C /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC461DF6839000FAA37C /* Badge.swift */; };
 		8166BC491DF6840600FAA37C /* EventAttendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC481DF6840600FAA37C /* EventAttendance.swift */; };
 		8166BC4B1DF6847100FAA37C /* EventFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC4A1DF6847100FAA37C /* EventFeedback.swift */; };
-		8166BC4D1DF6851E00FAA37C /* EventTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC4C1DF6851E00FAA37C /* EventTag.swift */; };
 		8166BC4F1DF685AD00FAA37C /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC4E1DF685AD00FAA37C /* Leaderboard.swift */; };
 		8166BC511DF6862100FAA37C /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC501DF6862100FAA37C /* Social.swift */; };
 		8166BC551DF6891000FAA37C /* PhotoLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC541DF6891000FAA37C /* PhotoLike.swift */; };
@@ -93,7 +92,6 @@
 		8166BC461DF6839000FAA37C /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		8166BC481DF6840600FAA37C /* EventAttendance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAttendance.swift; sourceTree = "<group>"; };
 		8166BC4A1DF6847100FAA37C /* EventFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventFeedback.swift; sourceTree = "<group>"; };
-		8166BC4C1DF6851E00FAA37C /* EventTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTag.swift; sourceTree = "<group>"; };
 		8166BC4E1DF685AD00FAA37C /* Leaderboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 		8166BC501DF6862100FAA37C /* Social.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		8166BC541DF6891000FAA37C /* PhotoLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLike.swift; sourceTree = "<group>"; };
@@ -250,7 +248,6 @@
 				8166BC461DF6839000FAA37C /* Badge.swift */,
 				8166BC481DF6840600FAA37C /* EventAttendance.swift */,
 				8166BC4A1DF6847100FAA37C /* EventFeedback.swift */,
-				8166BC4C1DF6851E00FAA37C /* EventTag.swift */,
 				8166BC4E1DF685AD00FAA37C /* Leaderboard.swift */,
 				8166BC501DF6862100FAA37C /* Social.swift */,
 				8166BC541DF6891000FAA37C /* PhotoLike.swift */,
@@ -478,7 +475,6 @@
 				8166BC5D1DF68DFE00FAA37C /* EventRsvp.swift in Sources */,
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
 				816A87C01DF170E000232C08 /* UserEventViewController.swift in Sources */,
-				8166BC4D1DF6851E00FAA37C /* EventTag.swift in Sources */,
 				8166BC491DF6840600FAA37C /* EventAttendance.swift in Sources */,
 				8166BC5B1DF68B1E00FAA37C /* UserEvent.swift in Sources */,
 				816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */,

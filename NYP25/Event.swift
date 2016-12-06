@@ -13,7 +13,7 @@ class Event: NSObject {
     var name : String = ""
     var address : String = ""
     var imageUrl : String = ""
-    var badgeId : Int = 0
+    var badgeId : String = ""
     var desc : String = ""
     var startDate : String = ""
     var endDate : String = ""
@@ -21,5 +21,4 @@ class Event: NSObject {
     var endTime : String = ""
     var feedbackList : [EventFeedback]?
     var rsvpList : [EventRsvp]?
-    var tagList : [EventTag]?
 }
