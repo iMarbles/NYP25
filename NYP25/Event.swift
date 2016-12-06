@@ -19,6 +19,7 @@ class Event: NSObject {
     var endDate : String = ""
     var startTime : String = ""
     var endTime : String = ""
+    var status : String = "O"
     var feedbackList : [EventFeedback]?
     var rsvpList : [EventRsvp]?
 }

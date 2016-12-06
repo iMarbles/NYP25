@@ -37,6 +37,7 @@ class AdminEventDM: NSObject {
                 e.endDate = r.childSnapshot(forPath: "endDate").value as! String
                 e.startTime = r.childSnapshot(forPath: "startTime").value as! String
                 e.endTime = r.childSnapshot(forPath: "endTime").value as! String
+                e.status = r.childSnapshot(forPath: "status").value as! String
                 
                 //Child node of feedbacks
                 let feedbacks = r.childSnapshot(forPath: "feedbacks").children
