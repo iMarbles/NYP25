@@ -201,7 +201,6 @@
 				8175B1301DEFE50600FCB205 /* DataManager */,
 				81FADAF11DE44205007D27C8 /* Application */,
 				81FADAEF1DE44095007D27C8 /* Library */,
-				81FADAED1DE4407B007D27C8 /* Resources */,
 				81FADAEC1DE4404B007D27C8 /* Controllers */,
 				81FADAEB1DE44043007D27C8 /* Views */,
 				81FADAEA1DE4403B007D27C8 /* Models */,
@@ -277,13 +276,6 @@
 				816A87BF1DF170E000232C08 /* UserEventViewController.swift */,
 			);
 			name = Controllers;
-			sourceTree = "<group>";
-		};
-		81FADAED1DE4407B007D27C8 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		81FADAEF1DE44095007D27C8 /* Library */ = {

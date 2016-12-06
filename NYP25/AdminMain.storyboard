@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Badges" id="G8e-9r-X3l"/>
+                    <tabBarItem key="tabBarItem" title="Badges" image="Star-30" id="G8e-9r-X3l"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VwN-YE-D4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Statistics" id="KaA-Qz-4Na"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="Combo Chart-30" id="KaA-Qz-4Na"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4lG-9E-Ftt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,7 +59,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Profile" id="yEH-uU-x7n"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Profile" image="Circled User Male-30" id="yEH-uU-x7n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xZ-KW-k9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -78,7 +78,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Events" id="Wr3-1T-eA3"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="Calendar-30" id="Wr3-1T-eA3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1pp-6j-Jhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,7 +97,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="2yA-4j-Yv8"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home-30" id="2yA-4j-Yv8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFt-W2-KZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -125,4 +125,11 @@
             <point key="canvasLocation" x="-1830" y="1636"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Calendar-30" width="30" height="30"/>
+        <image name="Circled User Male-30" width="30" height="30"/>
+        <image name="Combo Chart-30" width="30" height="30"/>
+        <image name="Home-30" width="30" height="30"/>
+        <image name="Star-30" width="30" height="30"/>
+    </resources>
 </document>
