@@ -21,6 +21,19 @@
 		811BDA541DE8300E00D2D448 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4E1DE8300E00D2D448 /* FirebaseDatabase.framework */; };
 		811BDA561DE8309700D2D448 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 811BDA551DE8309700D2D448 /* GoogleService-Info.plist */; };
 		811DA5581DEFF34100817B71 /* LoginDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811DA5571DEFF34100817B71 /* LoginDM.swift */; };
+		8166BC431DF67E5700FAA37C /* AdminEventDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC421DF67E5700FAA37C /* AdminEventDM.swift */; };
+		8166BC451DF67FB900FAA37C /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC441DF67FB900FAA37C /* Event.swift */; };
+		8166BC471DF6839000FAA37C /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC461DF6839000FAA37C /* Badge.swift */; };
+		8166BC491DF6840600FAA37C /* EventAttendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC481DF6840600FAA37C /* EventAttendance.swift */; };
+		8166BC4B1DF6847100FAA37C /* EventFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC4A1DF6847100FAA37C /* EventFeedback.swift */; };
+		8166BC4D1DF6851E00FAA37C /* EventTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC4C1DF6851E00FAA37C /* EventTag.swift */; };
+		8166BC4F1DF685AD00FAA37C /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC4E1DF685AD00FAA37C /* Leaderboard.swift */; };
+		8166BC511DF6862100FAA37C /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC501DF6862100FAA37C /* Social.swift */; };
+		8166BC551DF6891000FAA37C /* PhotoLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC541DF6891000FAA37C /* PhotoLike.swift */; };
+		8166BC571DF6896000FAA37C /* PhotoComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC561DF6896000FAA37C /* PhotoComment.swift */; };
+		8166BC591DF68A9000FAA37C /* UserBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC581DF68A9000FAA37C /* UserBadge.swift */; };
+		8166BC5B1DF68B1E00FAA37C /* UserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC5A1DF68B1E00FAA37C /* UserEvent.swift */; };
+		8166BC5D1DF68DFE00FAA37C /* EventRsvp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC5C1DF68DFE00FAA37C /* EventRsvp.swift */; };
 		816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 816A87B91DF1467300232C08 /* BridgingHeader.m */; };
 		816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A87BB1DF1568700232C08 /* GlobalDM.swift */; };
 		816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */; };
@@ -75,6 +88,19 @@
 		811BDA4E1DE8300E00D2D448 /* FirebaseDatabase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseDatabase.framework; sourceTree = "<group>"; };
 		811BDA551DE8309700D2D448 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		811DA5571DEFF34100817B71 /* LoginDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginDM.swift; sourceTree = "<group>"; };
+		8166BC421DF67E5700FAA37C /* AdminEventDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventDM.swift; sourceTree = "<group>"; };
+		8166BC441DF67FB900FAA37C /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		8166BC461DF6839000FAA37C /* Badge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		8166BC481DF6840600FAA37C /* EventAttendance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAttendance.swift; sourceTree = "<group>"; };
+		8166BC4A1DF6847100FAA37C /* EventFeedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventFeedback.swift; sourceTree = "<group>"; };
+		8166BC4C1DF6851E00FAA37C /* EventTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTag.swift; sourceTree = "<group>"; };
+		8166BC4E1DF685AD00FAA37C /* Leaderboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		8166BC501DF6862100FAA37C /* Social.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
+		8166BC541DF6891000FAA37C /* PhotoLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLike.swift; sourceTree = "<group>"; };
+		8166BC561DF6896000FAA37C /* PhotoComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoComment.swift; sourceTree = "<group>"; };
+		8166BC581DF68A9000FAA37C /* UserBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBadge.swift; sourceTree = "<group>"; };
+		8166BC5A1DF68B1E00FAA37C /* UserEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEvent.swift; sourceTree = "<group>"; };
+		8166BC5C1DF68DFE00FAA37C /* EventRsvp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventRsvp.swift; sourceTree = "<group>"; };
 		816A87B71DF1467200232C08 /* NYP25-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NYP25-Bridging-Header.h"; sourceTree = "<group>"; };
 		816A87B81DF1467300232C08 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		816A87B91DF1467300232C08 /* BridgingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgingHeader.m; sourceTree = "<group>"; };
@@ -143,6 +169,7 @@
 			children = (
 				811DA5571DEFF34100817B71 /* LoginDM.swift */,
 				816A87BB1DF1568700232C08 /* GlobalDM.swift */,
+				8166BC421DF67E5700FAA37C /* AdminEventDM.swift */,
 			);
 			name = DataManager;
 			sourceTree = "<group>";
@@ -219,6 +246,18 @@
 			children = (
 				8175B12A1DEFDE8100FCB205 /* User.swift */,
 				8175B12E1DEFE18000FCB205 /* Student.swift */,
+				8166BC441DF67FB900FAA37C /* Event.swift */,
+				8166BC461DF6839000FAA37C /* Badge.swift */,
+				8166BC481DF6840600FAA37C /* EventAttendance.swift */,
+				8166BC4A1DF6847100FAA37C /* EventFeedback.swift */,
+				8166BC4C1DF6851E00FAA37C /* EventTag.swift */,
+				8166BC4E1DF685AD00FAA37C /* Leaderboard.swift */,
+				8166BC501DF6862100FAA37C /* Social.swift */,
+				8166BC541DF6891000FAA37C /* PhotoLike.swift */,
+				8166BC561DF6896000FAA37C /* PhotoComment.swift */,
+				8166BC581DF68A9000FAA37C /* UserBadge.swift */,
+				8166BC5A1DF68B1E00FAA37C /* UserEvent.swift */,
+				8166BC5C1DF68DFE00FAA37C /* EventRsvp.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -426,12 +465,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */,
+				8166BC4F1DF685AD00FAA37C /* Leaderboard.swift in Sources */,
+				8166BC4B1DF6847100FAA37C /* EventFeedback.swift in Sources */,
+				8166BC591DF68A9000FAA37C /* UserBadge.swift in Sources */,
+				8166BC571DF6896000FAA37C /* PhotoComment.swift in Sources */,
+				8166BC471DF6839000FAA37C /* Badge.swift in Sources */,
+				8166BC451DF67FB900FAA37C /* Event.swift in Sources */,
+				8166BC551DF6891000FAA37C /* PhotoLike.swift in Sources */,
 				816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */,
 				81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */,
+				8166BC511DF6862100FAA37C /* Social.swift in Sources */,
+				8166BC5D1DF68DFE00FAA37C /* EventRsvp.swift in Sources */,
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
 				816A87C01DF170E000232C08 /* UserEventViewController.swift in Sources */,
+				8166BC4D1DF6851E00FAA37C /* EventTag.swift in Sources */,
+				8166BC491DF6840600FAA37C /* EventAttendance.swift in Sources */,
+				8166BC5B1DF68B1E00FAA37C /* UserEvent.swift in Sources */,
 				816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */,
 				8175B12B1DEFDE8100FCB205 /* User.swift in Sources */,
+				8166BC431DF67E5700FAA37C /* AdminEventDM.swift in Sources */,
 				811DA5581DEFF34100817B71 /* LoginDM.swift in Sources */,
 				8175B12F1DEFE18000FCB205 /* Student.swift in Sources */,
 			);

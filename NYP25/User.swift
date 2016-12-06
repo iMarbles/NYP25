@@ -9,9 +9,8 @@
 import UIKit
 
 class User: NSObject {
-    var userId: String?;
-    var isAdmin: Int?;
-    var password: String?;
-    var school: String?;
-    
+    var userId: String = ""
+    var isAdmin: Int = 0
+    var password: String = ""
+    var school: String = ""
 }
