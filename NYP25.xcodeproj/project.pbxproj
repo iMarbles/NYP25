@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		271F23491DF6EB7C00F20E79 /* UploadEventPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F23481DF6EB7C00F20E79 /* UploadEventPhotoViewController.swift */; };
 		27B88D7C1DF2B9B80045C98B /* UserMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */; };
 		27B88D7E1DF2B9CD0045C98B /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */; };
 		27B88D801DF2B9DD0045C98B /* UserInbox.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D7F1DF2B9DD0045C98B /* UserInbox.storyboard */; };
@@ -71,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		271F23481DF6EB7C00F20E79 /* UploadEventPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadEventPhotoViewController.swift; sourceTree = "<group>"; };
 		27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserMain.storyboard; sourceTree = "<group>"; };
 		27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		27B88D7F1DF2B9DD0045C98B /* UserInbox.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserInbox.storyboard; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 		81FADAEC1DE4404B007D27C8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				271F23481DF6EB7C00F20E79 /* UploadEventPhotoViewController.swift */,
 				81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */,
 				816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */,
 				816A87BF1DF170E000232C08 /* UserEventViewController.swift */,
@@ -462,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */,
+				271F23491DF6EB7C00F20E79 /* UploadEventPhotoViewController.swift in Sources */,
 				8166BC4F1DF685AD00FAA37C /* Leaderboard.swift in Sources */,
 				8166BC4B1DF6847100FAA37C /* EventFeedback.swift in Sources */,
 				8166BC591DF68A9000FAA37C /* UserBadge.swift in Sources */,
