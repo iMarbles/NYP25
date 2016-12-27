@@ -47,11 +47,17 @@ class AdminEventsTableViewController: UITableViewController
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! AdminEventTableViewCell
 
         // Configure the cell...
-        cell.imageView?.image = nil;
+        cell.eventImg.image = nil
         let e = eventsList[(indexPath as IndexPath).row]
         cell.titleLabel.text = e.name
+        cell.dateLabel.text = e.date
+        cell.locationLabel.text = e.address
         
-        loadEventImage(imageView: cell.eventImg, url: e.imageUrl)
+        if(e.imageUrl != nil){
+            loadEventImage(imageView: cell.eventImg, url: e.imageUrl!) 
+        }else{
+            cell.eventImg.image = nil
+        }
         
         return cell
     }

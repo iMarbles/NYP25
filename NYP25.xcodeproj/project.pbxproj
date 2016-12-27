@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046C5C251E12449B001B7C61 /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C231E12449B001B7C61 /* FirebaseStorage.framework */; };
+		046C5C261E12449B001B7C61 /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */; };
 		04D725451E0D5C8200603CCA /* AdminEventsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */; };
 		04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */; };
+		04EF86891E10DAE600842FC4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF86881E10DAE600842FC4 /* CoreLocation.framework */; };
+		04EF868B1E10DAF800842FC4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF868A1E10DAF800842FC4 /* MapKit.framework */; };
+		04EF868F1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */; };
+		04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF86901E10E01400842FC4 /* AdminEventsMapViewController.swift */; };
 		04F2694B1E0D33BD00361510 /* AdminEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2694A1E0D33BD00361510 /* AdminEventsTableViewController.swift */; };
 		04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2694C1E0D3ACA00361510 /* AdminEventTableViewCell.swift */; };
 		271F23491DF6EB7C00F20E79 /* UploadEventPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271F23481DF6EB7C00F20E79 /* UploadEventPhotoViewController.swift */; };
@@ -76,8 +82,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		046C5C231E12449B001B7C61 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = "<group>"; };
+		046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
 		04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsNewViewController.swift; sourceTree = "<group>"; };
 		04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsDetailViewController.swift; sourceTree = "<group>"; };
+		04EF86881E10DAE600842FC4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		04EF868A1E10DAF800842FC4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsLocationSearchTableViewController.swift; sourceTree = "<group>"; };
+		04EF86901E10E01400842FC4 /* AdminEventsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsMapViewController.swift; sourceTree = "<group>"; };
 		04F2694A1E0D33BD00361510 /* AdminEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsTableViewController.swift; sourceTree = "<group>"; };
 		04F2694C1E0D3ACA00361510 /* AdminEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventTableViewCell.swift; sourceTree = "<group>"; };
 		271F23481DF6EB7C00F20E79 /* UploadEventPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadEventPhotoViewController.swift; sourceTree = "<group>"; };
@@ -142,16 +154,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04EF868B1E10DAF800842FC4 /* MapKit.framework in Frameworks */,
+				04EF86891E10DAE600842FC4 /* CoreLocation.framework in Frameworks */,
 				811BDA531DE8300E00D2D448 /* GoogleUtilities.framework in Frameworks */,
 				811BDA511DE8300E00D2D448 /* GoogleInterchangeUtilities.framework in Frameworks */,
 				81FADAE41DE43A0F007D27C8 /* libsqlite3.tbd in Frameworks */,
 				811BDA521DE8300E00D2D448 /* GoogleSymbolUtilities.framework in Frameworks */,
 				811BDA541DE8300E00D2D448 /* FirebaseDatabase.framework in Frameworks */,
 				811BDA501DE8300E00D2D448 /* FirebaseInstanceID.framework in Frameworks */,
+				046C5C261E12449B001B7C61 /* GoogleNetworkingUtilities.framework in Frameworks */,
 				81FADAE21DE43A04007D27C8 /* libc++.tbd in Frameworks */,
 				81FADAE01DE439F3007D27C8 /* AddressBook.framework in Frameworks */,
 				81FADADE1DE439C7007D27C8 /* libicucore.tbd in Frameworks */,
 				811BDA4F1DE8300E00D2D448 /* FirebaseAnalytics.framework in Frameworks */,
+				046C5C251E12449B001B7C61 /* FirebaseStorage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +256,8 @@
 		81FADADC1DE439C7007D27C8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04EF868A1E10DAF800842FC4 /* MapKit.framework */,
+				04EF86881E10DAE600842FC4 /* CoreLocation.framework */,
 				81FADAE31DE43A0E007D27C8 /* libsqlite3.tbd */,
 				81FADAE11DE43A04007D27C8 /* libc++.tbd */,
 				81FADADF1DE439F3007D27C8 /* AddressBook.framework */,
@@ -286,6 +304,8 @@
 				04F2694A1E0D33BD00361510 /* AdminEventsTableViewController.swift */,
 				04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */,
 				04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */,
+				04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */,
+				04EF86901E10E01400842FC4 /* AdminEventsMapViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -293,6 +313,8 @@
 		81FADAEF1DE44095007D27C8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				046C5C231E12449B001B7C61 /* FirebaseStorage.framework */,
+				046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */,
 				811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */,
 				811BDA4A1DE8300E00D2D448 /* FirebaseInstanceID.framework */,
 				811BDA4B1DE8300E00D2D448 /* GoogleInterchangeUtilities.framework */,
@@ -481,12 +503,14 @@
 				8166BC551DF6891000FAA37C /* PhotoLike.swift in Sources */,
 				816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */,
 				04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */,
+				04EF868F1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift in Sources */,
 				81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */,
 				8166BC511DF6862100FAA37C /* Social.swift in Sources */,
 				8166BC5D1DF68DFE00FAA37C /* EventRsvp.swift in Sources */,
 				04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */,
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
 				816A87C01DF170E000232C08 /* UserEventViewController.swift in Sources */,
+				04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */,
 				8166BC491DF6840600FAA37C /* EventAttendance.swift in Sources */,
 				8166BC5B1DF68B1E00FAA37C /* UserEvent.swift in Sources */,
 				816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */,

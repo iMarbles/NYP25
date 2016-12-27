@@ -8,9 +8,78 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class AdminEventDM: NSObject {
+    //Upload event image
+    static func uploadEventImage(eventImage : NSData, eventId : String) {
+        let storage = FIRStorage.storage().reference().child("/EventPhoto/\(eventId)")
+        
+        storage.put(eventImage as Data, metadata: nil){(metaData,error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }else{
+                //store downloadURL
+                let downloadURL = metaData!.downloadURL()!.absoluteString
+
+                //store downloadURL at database
+                FIRDatabase.database().reference().child("events/\(eventId)").updateChildValues(["image" : downloadURL])
+            }
+            
+        }
+    }
+    
+    //Create badge
+    static func uploadEventBadge(eventBadge: NSData, eventId : String){
+        let storage = FIRStorage.storage().reference().child("/Badges/\(eventId)")
+        
+        storage.put(eventBadge as Data, metadata: nil){(metaData,error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }else{
+                //store downloadURL
+                let downloadURL = metaData!.downloadURL()!.absoluteString
+        
+                //Create badge
+                let badgeId = FIRDatabase.database().reference().child("badges").childByAutoId().key
+                FIRDatabase.database().reference().child("badges/\(badgeId)").setValue([
+                    "icon": downloadURL,
+                    "isAchievement": 0])
+                
+                //store badge for event
+                FIRDatabase.database().reference().child("events/\(eventId)").updateChildValues(["badge" : badgeId])
+            }
+            
+        }
+    }
+    
     //Create event
+    static func createEvent(event : Event, eventImage : NSData?, eventBadge : NSData?){
+        let key = FIRDatabase.database().reference().child("events").childByAutoId().key
+        let ref = FIRDatabase.database().reference().child("events/\(key)/")
+        
+        ref.setValue([
+            "name" : event.name,
+            "address" : event.address,
+            "description" : event.desc,
+            "date" : event.date,
+            "startTime" : event.startTime,
+            "endTime" : event.endTime,
+            "status" : event.status
+            ])
+        
+        //Upload the image
+        if(eventImage != nil){
+            uploadEventImage(eventImage: eventImage!, eventId: key)
+        }
+        
+        //Upload the badge
+        if(eventBadge != nil){
+            uploadEventBadge(eventBadge: eventBadge!, eventId: key)
+        }
+    }
     
     //Retrieve all events
     static func retrieveAllEvents(onComplete: @escaping ([Event])->Void){
@@ -19,23 +88,28 @@ class AdminEventDM: NSObject {
         var rsvpList : [EventRsvp] = []
         
         let ref = FIRDatabase.database().reference().child("events/")
-        
+
         ref.observe(FIRDataEventType.value, with:{
             (snapshot) in
+            
+            eventList = []
+            feedbackList = []
+            rsvpList = []
+            
             for record in snapshot.children{
                 let r = record as! FIRDataSnapshot
                 
                 let e = Event()
                 
                 e.eventId = r.key
-                e.name = r.childSnapshot(forPath: "name").value as! String
-                e.address = r.childSnapshot(forPath: "address").value as! String
-                e.imageUrl = r.childSnapshot(forPath: "image").value as! String
-                e.badgeId = r.childSnapshot(forPath: "badge").value as! String
-                e.desc = r.childSnapshot(forPath: "description").value as! String
-                e.date = r.childSnapshot(forPath: "date").value as! String
-                e.startTime = r.childSnapshot(forPath: "startTime").value as! String
-                e.endTime = r.childSnapshot(forPath: "endTime").value as! String
+                e.name = r.childSnapshot(forPath: "name").value as? String
+                e.address = r.childSnapshot(forPath: "address").value as? String
+                e.imageUrl = r.childSnapshot(forPath: "image").value as? String
+                e.badgeId = r.childSnapshot(forPath: "badge").value as? String
+                e.desc = r.childSnapshot(forPath: "description").value as? String
+                e.date = r.childSnapshot(forPath: "date").value as? String
+                e.startTime = r.childSnapshot(forPath: "startTime").value as? String
+                e.endTime = r.childSnapshot(forPath: "endTime").value as? String
                 e.status = r.childSnapshot(forPath: "status").value as! String
                 
                 //Child node of feedbacks
