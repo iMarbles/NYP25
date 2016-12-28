@@ -51,10 +51,13 @@ class LoginDM: NSObject {
                             if(u.childSnapshot(forPath: "isAdmin").value as! Int == 0){
                                 GlobalDM.CurrentUser!.userId = u.key
                                 GlobalDM.CurrentUser!.isAdmin = 0
+                                //Might add additional fields to load user data
                             }else if(u.childSnapshot(forPath: "isAdmin").value as! Int == 1){
                                 //Is Admin
                                 GlobalDM.CurrentUser!.userId = u.key
                                 GlobalDM.CurrentUser!.isAdmin = 1
+                                GlobalDM.CurrentUser!.password = u.childSnapshot(forPath: "password").value as! String
+                                GlobalDM.CurrentUser!.school = u.childSnapshot(forPath: "school").value as! String
                             }
                             break;
                         }
@@ -63,5 +66,29 @@ class LoginDM: NSObject {
                 
                 onComplete()
             })
+    }
+    
+    //Admin checking of password
+    static func checkPassword(password : String) -> Bool {
+        var same = false
+        
+        let shaData = sha256(password)
+        let shaHex =  shaData!.map { String(format: "%02hhx", $0) }.joined()
+        
+        if shaHex == GlobalDM.CurrentUser!.password{
+            same = true
+        }
+        
+        return same
+    }
+    
+    //Admin changing of password
+    static func changePasswordTo(newPwd : String){
+        let shaData = sha256(newPwd)
+        let shaHex =  shaData!.map { String(format: "%02hhx", $0) }.joined()
+        
+         let ref = FIRDatabase.database().reference().child("users/\(GlobalDM.CurrentUser!.userId)")
+        
+        ref.updateChildValues(["password" : shaHex])
     }
 }

@@ -21,6 +21,8 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
     
     var event : Event? = nil
     var isEventImage : Bool = true
+    
+    var tapped : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +40,9 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         
         //To dismiss keyboard on tap
         self.hideKeyboardWhenTappedAround()
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -63,6 +66,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         event?.date = dbFormat.string(from: sender.date)
     }
     
+    //Time related
     @IBAction func selectStartTime(sender: UITextField) {
         let datePickerView  : UIDatePicker = UIDatePicker()
         datePickerView.datePickerMode = UIDatePickerMode.time
@@ -150,6 +154,8 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
             textView.text = ""
             textView.textColor = UIColor.black
         }
+        
+         self.view.frame.origin.y -= 150
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -157,7 +163,10 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
             textView.text = "Enter event description"
             textView.textColor = UIColor.lightGray
         }
+        
+        self.view.frame.origin.y += 150
     }
+    
     
     //Saving of event
     @IBAction func saveEvent(){

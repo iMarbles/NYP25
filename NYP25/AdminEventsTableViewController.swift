@@ -51,12 +51,24 @@ class AdminEventsTableViewController: UITableViewController
         let e = eventsList[(indexPath as IndexPath).row]
         cell.titleLabel.text = e.name
         cell.dateLabel.text = e.date
+        if e.date != nil && e.startTime != nil{
+            let day = GlobalDM.getDayNameBy(stringDate: e.date!)
+            let time = GlobalDM.getTimeInHrBy(stringTime: e.startTime!)
+            cell.dateLabel.text = "\(day), \(time)"
+        }
+        
         cell.locationLabel.text = e.address
         
         if(e.imageUrl != nil){
             loadEventImage(imageView: cell.eventImg, url: e.imageUrl!) 
         }else{
             cell.eventImg.image = nil
+        }
+        
+        if e.status == "C"{
+            cell.visibleIcon.isHidden = true
+        }else{
+            cell.visibleIcon.isHidden = false
         }
         
         return cell
