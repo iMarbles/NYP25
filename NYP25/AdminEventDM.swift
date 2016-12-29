@@ -14,8 +14,12 @@ class AdminEventDM: NSObject {
     //Upload event image
     static func uploadEventImage(eventImage : NSData, eventId : String) {
         let storage = FIRStorage.storage().reference().child("/EventPhoto/\(eventId)")
+      
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
         
-        storage.put(eventImage as Data, metadata: nil){(metaData,error) in
+        
+        storage.put(eventImage as Data, metadata: metadata){(metaData,error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
@@ -34,7 +38,10 @@ class AdminEventDM: NSObject {
     static func uploadEventBadge(eventBadge: NSData, eventId : String){
         let storage = FIRStorage.storage().reference().child("/Badges/\(eventId)")
         
-        storage.put(eventBadge as Data, metadata: nil){(metaData,error) in
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        storage.put(eventBadge as Data, metadata: metadata){(metaData,error) in
             if let error = error {
                 print(error.localizedDescription)
                 return
@@ -54,6 +61,22 @@ class AdminEventDM: NSObject {
             
         }
     }
+    
+    //Retrieve badge by ID (only for admin events)
+    static func retrieveBadgeByEventId(id: String, onComplete: @escaping (Badge)->Void){
+        let ref = FIRDatabase.database().reference().child("badges/\(id)/")
+        
+        ref.observeSingleEvent(of: .value, with:
+            { (snapshot) in
+                let badge = Badge()
+                badge.badgeId = snapshot.key
+                badge.icon = snapshot.childSnapshot(forPath: "icon").value as! String
+                badge.isAchievement = snapshot.childSnapshot(forPath: "isAchievement").value as! Int
+                
+                onComplete(badge)
+        })
+    }
+    
     
     //Create event
     static func createEvent(event : Event, eventImage : NSData?, eventBadge : NSData?){
@@ -151,6 +174,29 @@ class AdminEventDM: NSObject {
     }
     
     //Update event
+    static func updateEvent(event : Event, eventImage : NSData?, eventBadge : NSData?){
+        let ref = FIRDatabase.database().reference().child("events/\(event.eventId)/")
+        
+        ref.updateChildValues([
+            "name" : event.name!,
+            "address" : event.address!,
+            "description" : event.desc!,
+            "date" : event.date!,
+            "startTime" : event.startTime!,
+            "endTime" : event.endTime!,
+            "status" : event.status
+            ])
+        
+        //Upload the image
+        if(eventImage != nil){
+            uploadEventImage(eventImage: eventImage!, eventId: event.eventId)
+        }
+        
+        //Upload the badge
+        if(eventBadge != nil){
+            uploadEventBadge(eventBadge: eventBadge!, eventId: event.eventId)
+        }
+    }
     
     //Delete event
 }

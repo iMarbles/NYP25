@@ -20,6 +20,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var visbleSwitch : UISwitch!
     
     var event : Event? = nil
+    var isNewEvent = false
     var isEventImage : Bool = true
     
     var tapped : Bool = false
@@ -36,6 +37,9 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         
         if event == nil{
             event = Event()
+            isNewEvent = true
+        }else{
+            loadEventDetails()
         }
         
         //To dismiss keyboard on tap
@@ -46,6 +50,73 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //To show details (existing event)
+    func loadEventDetails(){
+        self.navigationItem.title = "Edit Details"
+        
+        if event?.imageUrl != nil{
+            loadAndDisplayImage(imageView: eventImage, url: (event?.imageUrl)!)
+            eventImage.isHidden = false
+        }
+        
+        nameTb.text = event?.name
+        formatDbDate(dateStored: event?.date)
+        formatDbTimeFor(textField : startTimeTb, dbTime : event?.startTime)
+        formatDbTimeFor(textField : endTimeTb, dbTime : event?.endTime)
+        
+        //badge
+        if event?.badgeId != nil{
+            AdminEventDM.retrieveBadgeByEventId(id: (event?.badgeId)!, onComplete: {(badge) in
+                self.loadAndDisplayImage(imageView: self.badgeImage, url: badge.icon)
+            })
+        }
+
+        if event?.desc != nil{
+            descTb.text = event?.desc
+            descTb.textColor = UIColor.black
+        }
+        
+        if event?.status == "O"{
+            visbleSwitch.isOn = true
+        }else{
+            visbleSwitch.isOn = false
+        }
+        
+    }
+    
+    func loadAndDisplayImage(imageView: UIImageView, url: String)
+    {
+        DispatchQueue.global(qos: .background).async
+            {
+                let nurl = URL(string: url)
+                var imageBinary : Data?
+                if nurl != nil
+                {
+                    do
+                    {
+                        imageBinary = try Data(contentsOf: nurl!)
+                    }
+                    catch
+                    {
+                        return
+                    }
+                }
+                
+                DispatchQueue.main.async
+                    {
+                        var img : UIImage?
+                        if imageBinary != nil
+                        {
+                            img = UIImage(data: imageBinary!)
+                        }
+                        
+                        imageView.image = img
+                        
+                }
+                
+        }
     }
     
     //Date related
@@ -64,6 +135,17 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         let dbFormat = DateFormatter()
         dbFormat.dateFormat = "yyyyMMdd"
         event?.date = dbFormat.string(from: sender.date)
+    }
+    
+    func formatDbDate(dateStored: String?){
+        if dateStored != nil{
+            let df  = DateFormatter()
+            df.dateFormat = "yyyyMMdd"
+            
+            let date = df.date(from: dateStored!)!
+            df.dateFormat = "dd MMM yyyy"
+            dateTb.text = df.string(from: date);
+        }
     }
     
     //Time related
@@ -106,6 +188,20 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         
         let formatTime = dateFormatter.string(from: time.date)
         return formatTime
+    }
+    
+    func formatDbTimeFor(textField : UITextField, dbTime : String?){
+        if dbTime != nil{
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HHmm"
+            
+            let dateFromDb = dateFormatter.date(from: dbTime!)
+            
+            let displayFormat = DateFormatter()
+            displayFormat.dateFormat = "HH:mm"
+            
+            textField.text = displayFormat.string(from: dateFromDb!)
+        }
     }
     
     //Uploading of images
@@ -192,7 +288,21 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
             if(validateFields() == ""){
                 event?.status = "O"
                 
-                AdminEventDM.createEvent(event: event!, eventImage: eventData, eventBadge: badgeData)
+                if isNewEvent{
+                    AdminEventDM.createEvent(event: event!, eventImage: eventData, eventBadge: badgeData)
+                    
+                    self.navigationController?.popViewController(animated: true)
+                }else{
+                    //Update event details instead
+                    AdminEventDM.updateEvent(event: event!, eventImage: eventData, eventBadge: badgeData)
+                    //Show successful update
+                    let uiAlert = UIAlertController(title: "Success", message: "Event details have been updated", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    uiAlert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                    
+                    self.present(uiAlert, animated: true, completion: nil)
+                }
+               
             }else{
                 //Failed validation
                 let uiAlert = UIAlertController(title: "Incomplete Fields", message: validateFields(), preferredStyle: UIAlertControllerStyle.alert)
@@ -205,10 +315,22 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
             //No need to validate, just save
             event?.status = "C"
             
-            AdminEventDM.createEvent(event: event!, eventImage: eventData, eventBadge: badgeData)
+            if isNewEvent{
+                 AdminEventDM.createEvent(event: event!, eventImage: eventData, eventBadge: badgeData)
+                
+                self.navigationController?.popViewController(animated: true)
+            }else{
+                //Update event details instead
+                AdminEventDM.updateEvent(event: event!, eventImage: eventData, eventBadge: badgeData)
+                //Show successful update
+                let uiAlert = UIAlertController(title: "Success", message: "Event details have been updated", preferredStyle: UIAlertControllerStyle.alert)
+                
+                uiAlert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                
+                self.present(uiAlert, animated: true, completion: nil)
+            }
+           
         }
-        
-        self.navigationController?.popViewController(animated: true)
     }
     
     func validateFields() -> String{

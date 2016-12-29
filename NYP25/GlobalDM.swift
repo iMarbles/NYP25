@@ -31,4 +31,6 @@ class GlobalDM: NSObject {
         df.dateFormat = "h:mm a"
         return df.string(from: date);
     }
+    
+    
 }
