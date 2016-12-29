@@ -9,16 +9,92 @@
 import UIKit
 
 class AdminEventsDetailViewController: UIViewController {
+    @IBOutlet weak var eventImg : UIImageView!
+    @IBOutlet weak var nameLbl : UILabel!
+    @IBOutlet weak var dateLbl : UILabel!
+    @IBOutlet weak var timeLbl : UILabel!
+    @IBOutlet weak var locationLbl : UILabel!
+    @IBOutlet weak var descLbl : UILabel!
+    @IBOutlet weak var badgeImg : UIImageView!
 
+    var event : Event?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        loadEventDetails()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadEventDetails(){
+        if event?.imageUrl != nil{
+            loadEventImage(imageView: eventImg, url: (event?.imageUrl)!)
+        }else{
+            eventImg.isHidden = true
+        }
+        
+        nameLbl.text = event?.name
+        if event?.date != nil{
+            dateLbl.text = GlobalDM.getDayNameBy(stringDate: (event?.date)!)
+        }
+        if event?.startTime != nil && event?.endTime != nil{
+            timeLbl.text = "\(GlobalDM.getTimeInHrBy(stringTime: (event?.startTime)!)) to \(GlobalDM.getTimeInHrBy(stringTime: (event?.endTime)!))"
+        }
+        
+        if event?.address != nil{
+            locationLbl.text = event?.address
+        }
+
+        
+        if event?.desc != ""{
+            descLbl.text = event?.desc
+        }
+      
+        
+        if event?.badgeId != nil{
+            AdminEventDM.retrieveBadgeByEventId(id: (event?.eventId)!, onComplete: { (badge) in
+                self.loadEventImage(imageView: self.badgeImg, url: badge.icon)
+            })
+        }
+    }
+    
+    func loadEventImage(imageView: UIImageView, url: String)
+    {
+        DispatchQueue.global(qos: .background).async
+            {
+                let nurl = URL(string: url)
+                var imageBinary : Data?
+                if nurl != nil
+                {
+                    do
+                    {
+                        imageBinary = try Data(contentsOf: nurl!)
+                    }
+                    catch
+                    {
+                        return
+                    }
+                }
+                
+                DispatchQueue.main.async
+                    {
+                        var img : UIImage?
+                        if imageBinary != nil
+                        {
+                            img = UIImage(data: imageBinary!)
+                        }
+                        
+                        imageView.image = img
+                        imageView.isHidden = false
+                        
+                }
+                
+        }
     }
     
 

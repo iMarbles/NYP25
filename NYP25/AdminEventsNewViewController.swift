@@ -44,7 +44,10 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         
         //To dismiss keyboard on tap
         self.hideKeyboardWhenTappedAround()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadEventDetails()
     }
     
     override func didReceiveMemoryWarning() {
@@ -73,9 +76,12 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
             })
         }
 
-        if event?.desc != nil{
+        if event?.desc != ""{
             descTb.text = event?.desc
             descTb.textColor = UIColor.black
+        }else{
+            descTb.text = "Enter event description"
+            descTb.textColor = UIColor.lightGray
         }
         
         if event?.status == "O"{

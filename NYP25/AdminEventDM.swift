@@ -50,13 +50,12 @@ class AdminEventDM: NSObject {
                 let downloadURL = metaData!.downloadURL()!.absoluteString
         
                 //Create badge
-                let badgeId = FIRDatabase.database().reference().child("badges").childByAutoId().key
-                FIRDatabase.database().reference().child("badges/\(badgeId)").setValue([
+                FIRDatabase.database().reference().child("badges/\(eventId)").setValue([
                     "icon": downloadURL,
                     "isAchievement": 0])
                 
                 //store badge for event
-                FIRDatabase.database().reference().child("events/\(eventId)").updateChildValues(["badge" : badgeId])
+                FIRDatabase.database().reference().child("events/\(eventId)").updateChildValues(["badge" : eventId])
             }
             
         }

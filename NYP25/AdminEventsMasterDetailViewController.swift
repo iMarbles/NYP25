@@ -21,6 +21,13 @@ class AdminEventsMasterDetailViewController: UIViewController, UIToolbarDelegate
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if(event?.name != nil){
+            self.navigationItem.title = event?.name
+        }else{
+            self.navigationItem.title = "Event Details"
+        }
+        
+        
         self.galleryContainer.alpha = 0
         self.reviewContainer.alpha = 0
     }
@@ -75,6 +82,15 @@ class AdminEventsMasterDetailViewController: UIViewController, UIToolbarDelegate
                 editController.event = self.event
             }
         }
+        
+        if nextView == "EventDetail"{
+            let vc = segue.destination as! AdminEventsDetailViewController
+            
+            if event != nil {
+                vc.event = self.event
+            }
+        }
+        
     }
 
 }
