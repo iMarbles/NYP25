@@ -73,6 +73,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		04EBD7F51E16958500FE9D05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 043E16221E16618500BD7DCD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		04EBD7F71E16958500FE9D05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 043E16221E16618500BD7DCD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120D51D811E6200D14B02;
+			remoteInfo = ChartsRealm;
+		};
+		04EBD7F91E16958500FE9D05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 043E16221E16618500BD7DCD /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
 		81FADAB21DE43912007D27C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 81FADA951DE43912007D27C8 /* Project object */;
@@ -219,6 +240,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04EBD7F01E16958500FE9D05 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04EBD7F61E16958500FE9D05 /* Charts.framework */,
+				04EBD7F81E16958500FE9D05 /* ChartsRealm.framework */,
+				04EBD7FA1E16958500FE9D05 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8175B1301DEFE50600FCB205 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +512,12 @@
 			mainGroup = 81FADA941DE43912007D27C8;
 			productRefGroup = 81FADA9E1DE43912007D27C8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 04EBD7F01E16958500FE9D05 /* Products */;
+					ProjectRef = 043E16221E16618500BD7DCD /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				81FADA9C1DE43912007D27C8 /* NYP25 */,
@@ -489,6 +526,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		04EBD7F61E16958500FE9D05 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 04EBD7F51E16958500FE9D05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04EBD7F81E16958500FE9D05 /* ChartsRealm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChartsRealm.framework;
+			remoteRef = 04EBD7F71E16958500FE9D05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		04EBD7FA1E16958500FE9D05 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 04EBD7F91E16958500FE9D05 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		81FADA9B1DE43912007D27C8 /* Resources */ = {
