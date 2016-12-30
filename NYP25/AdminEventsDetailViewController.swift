@@ -90,8 +90,6 @@ class AdminEventsDetailViewController: UIViewController {
                         }
                         
                         imageView.image = img
-                        imageView.isHidden = false
-                        
                 }
                 
         }

@@ -91,6 +91,20 @@ class AdminEventsMasterDetailViewController: UIViewController, UIToolbarDelegate
             }
         }
         
+        if nextView == "EventGallery"{
+            let vc = segue.destination as! AdminEventsGalleryViewController
+            if event != nil{
+                vc.event = self.event
+            }
+        }
+        
+        if nextView == "EventReview"{
+            let vc = segue.destination as! AdminEventsReviewViewController
+            if event != nil{
+                vc.event = self.event
+            }
+        }
+        
     }
 
 }

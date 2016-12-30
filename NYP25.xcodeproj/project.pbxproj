@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043E16331E16624A00BD7DCD /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 043E16321E16624A00BD7DCD /* Charts.framework */; };
+		043E16341E16624A00BD7DCD /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 043E16321E16624A00BD7DCD /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		046C5C251E12449B001B7C61 /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C231E12449B001B7C61 /* FirebaseStorage.framework */; };
 		046C5C261E12449B001B7C61 /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */; };
 		046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */; };
+		04A4ACA81E15718000884164 /* AdminEventReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4ACA71E15718000884164 /* AdminEventReviewTableViewCell.swift */; };
 		04D725451E0D5C8200603CCA /* AdminEventsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */; };
 		04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */; };
+		04E6489B1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */; };
 		04EA47351E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */; };
 		04EA47371E13DB1F006797D9 /* AdminEventsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */; };
 		04EA47391E1401E3006797D9 /* AdminEventsReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */; };
+		04EA63AE1E1626DE00CBE4A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04EA63AD1E1626DE00CBE4A9 /* Assets.xcassets */; };
 		04EF86891E10DAE600842FC4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF86881E10DAE600842FC4 /* CoreLocation.framework */; };
 		04EF868B1E10DAF800842FC4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF868A1E10DAF800842FC4 /* MapKit.framework */; };
 		04EF868F1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */; };
@@ -56,7 +61,6 @@
 		8175B12F1DEFE18000FCB205 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B12E1DEFE18000FCB205 /* Student.swift */; };
 		81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAA01DE43912007D27C8 /* AppDelegate.swift */; };
 		81FADAA61DE43912007D27C8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAA41DE43912007D27C8 /* Login.storyboard */; };
-		81FADAA81DE43912007D27C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAA71DE43912007D27C8 /* Assets.xcassets */; };
 		81FADAB61DE43912007D27C8 /* NYP25Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAB51DE43912007D27C8 /* NYP25Tests.swift */; };
 		81FADAC11DE43912007D27C8 /* NYP25UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAC01DE43912007D27C8 /* NYP25UITests.swift */; };
 		81FADADE1DE439C7007D27C8 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADADD1DE439C7007D27C8 /* libicucore.tbd */; };
@@ -85,15 +89,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		043E16351E16624A00BD7DCD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				043E16341E16624A00BD7DCD /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		043E16221E16618500BD7DCD /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		043E16321E16624A00BD7DCD /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		046C5C231E12449B001B7C61 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = "<group>"; };
 		046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
 		046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminProfileViewController.swift; sourceTree = "<group>"; };
+		04A4ACA71E15718000884164 /* AdminEventReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventReviewTableViewCell.swift; sourceTree = "<group>"; };
 		04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsNewViewController.swift; sourceTree = "<group>"; };
 		04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsDetailViewController.swift; sourceTree = "<group>"; };
+		04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsMasterDetailViewController.swift; sourceTree = "<group>"; };
 		04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryViewController.swift; sourceTree = "<group>"; };
 		04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsReviewViewController.swift; sourceTree = "<group>"; };
+		04EA63AD1E1626DE00CBE4A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04EF86881E10DAE600842FC4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		04EF868A1E10DAF800842FC4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsLocationSearchTableViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +163,6 @@
 		81FADA9D1DE43912007D27C8 /* NYP25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYP25.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FADAA01DE43912007D27C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81FADAA51DE43912007D27C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
-		81FADAA71DE43912007D27C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81FADAAC1DE43912007D27C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81FADAB11DE43912007D27C8 /* NYP25Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYP25Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FADAB51DE43912007D27C8 /* NYP25Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYP25Tests.swift; sourceTree = "<group>"; };
@@ -174,6 +196,7 @@
 				81FADAE21DE43A04007D27C8 /* libc++.tbd in Frameworks */,
 				81FADAE01DE439F3007D27C8 /* AddressBook.framework in Frameworks */,
 				81FADADE1DE439C7007D27C8 /* libicucore.tbd in Frameworks */,
+				043E16331E16624A00BD7DCD /* Charts.framework in Frameworks */,
 				811BDA4F1DE8300E00D2D448 /* FirebaseAnalytics.framework in Frameworks */,
 				046C5C251E12449B001B7C61 /* FirebaseStorage.framework in Frameworks */,
 			);
@@ -236,9 +259,9 @@
 				81FADAEC1DE4404B007D27C8 /* Controllers */,
 				81FADAEB1DE44043007D27C8 /* Views */,
 				81FADAEA1DE4403B007D27C8 /* Models */,
-				81FADAA71DE43912007D27C8 /* Assets.xcassets */,
 				81FADAAC1DE43912007D27C8 /* Info.plist */,
 				811BDA551DE8309700D2D448 /* GoogleService-Info.plist */,
+				04EA63AD1E1626DE00CBE4A9 /* Assets.xcassets */,
 			);
 			path = NYP25;
 			sourceTree = "<group>";
@@ -298,6 +321,8 @@
 			isa = PBXGroup;
 			children = (
 				04F2694C1E0D3ACA00361510 /* AdminEventTableViewCell.swift */,
+				04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */,
+				04A4ACA71E15718000884164 /* AdminEventReviewTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -325,6 +350,8 @@
 		81FADAEF1DE44095007D27C8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				043E16221E16618500BD7DCD /* Charts.xcodeproj */,
+				043E16321E16624A00BD7DCD /* Charts.framework */,
 				046C5C231E12449B001B7C61 /* FirebaseStorage.framework */,
 				046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */,
 				811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */,
@@ -369,6 +396,7 @@
 				81FADA991DE43912007D27C8 /* Sources */,
 				81FADA9A1DE43912007D27C8 /* Frameworks */,
 				81FADA9B1DE43912007D27C8 /* Resources */,
+				043E16351E16624A00BD7DCD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -469,9 +497,9 @@
 			files = (
 				27B88D821DF2B9ED0045C98B /* UserLeaderboard.storyboard in Resources */,
 				27B88D7E1DF2B9CD0045C98B /* UserProfile.storyboard in Resources */,
+				04EA63AE1E1626DE00CBE4A9 /* Assets.xcassets in Resources */,
 				81FADAFF1DE4453E007D27C8 /* AdminMain.storyboard in Resources */,
 				27B88D801DF2B9DD0045C98B /* UserInbox.storyboard in Resources */,
-				81FADAA81DE43912007D27C8 /* Assets.xcassets in Resources */,
 				27B88D861DF2BA040045C98B /* UserSocial.storyboard in Resources */,
 				27B88D7C1DF2B9B80045C98B /* UserMain.storyboard in Resources */,
 				27B88D841DF2B9F80045C98B /* UserEvents.storyboard in Resources */,
@@ -502,11 +530,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E6489B1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift in Sources */,
 				81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */,
 				271F23491DF6EB7C00F20E79 /* UploadEventPhotoViewController.swift in Sources */,
 				04EA47351E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift in Sources */,
 				8166BC4F1DF685AD00FAA37C /* Leaderboard.swift in Sources */,
 				8166BC4B1DF6847100FAA37C /* EventFeedback.swift in Sources */,
+				04A4ACA81E15718000884164 /* AdminEventReviewTableViewCell.swift in Sources */,
 				8166BC591DF68A9000FAA37C /* UserBadge.swift in Sources */,
 				8166BC571DF6896000FAA37C /* PhotoComment.swift in Sources */,
 				8166BC471DF6839000FAA37C /* Badge.swift in Sources */,
