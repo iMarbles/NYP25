@@ -11,8 +11,6 @@
 		046C5C261E12449B001B7C61 /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */; };
 		046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */; };
 		04A4ACA81E15718000884164 /* AdminEventReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4ACA71E15718000884164 /* AdminEventReviewTableViewCell.swift */; };
-		04AEEFF21E1698D6005E13A8 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AEEFED1E1698C1005E13A8 /* Charts.framework */; };
-		04AEEFF31E1698D6005E13A8 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04AEEFED1E1698C1005E13A8 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		04D725451E0D5C8200603CCA /* AdminEventsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */; };
 		04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */; };
 		04E6489B1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */; };
@@ -33,6 +31,9 @@
 		27B88D821DF2B9ED0045C98B /* UserLeaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D811DF2B9ED0045C98B /* UserLeaderboard.storyboard */; };
 		27B88D841DF2B9F80045C98B /* UserEvents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D831DF2B9F80045C98B /* UserEvents.storyboard */; };
 		27B88D861DF2BA040045C98B /* UserSocial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D851DF2BA040045C98B /* UserSocial.storyboard */; };
+		611C501B1E16CC140044E359 /* UserSocialPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C501A1E16CC140044E359 /* UserSocialPhotoViewController.swift */; };
+		61296A9C1E16B706007CA079 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; };
+		61296A9D1E16B706007CA079 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		811BDA4F1DE8300E00D2D448 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */; };
 		811BDA501DE8300E00D2D448 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4A1DE8300E00D2D448 /* FirebaseInstanceID.framework */; };
 		811BDA511DE8300E00D2D448 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4B1DE8300E00D2D448 /* GoogleInterchangeUtilities.framework */; };
@@ -73,33 +74,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		04AEEFEC1E1698C1005E13A8 /* PBXContainerItemProxy */ = {
+		61296A9E1E16B706007CA079 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 04AEEFE61E1698C1005E13A8 /* Charts.xcodeproj */;
+			containerPortal = 61985AF41E16A65600D7AB37 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
+		61985AFA1E16A65700D7AB37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61985AF41E16A65600D7AB37 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06165F241D8110E600722320;
 			remoteInfo = Charts;
 		};
-		04AEEFEE1E1698C1005E13A8 /* PBXContainerItemProxy */ = {
+		61985AFC1E16A65700D7AB37 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 04AEEFE61E1698C1005E13A8 /* Charts.xcodeproj */;
+			containerPortal = 61985AF41E16A65600D7AB37 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06B120D51D811E6200D14B02;
 			remoteInfo = ChartsRealm;
 		};
-		04AEEFF01E1698C1005E13A8 /* PBXContainerItemProxy */ = {
+		61985AFE1E16A65700D7AB37 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 04AEEFE61E1698C1005E13A8 /* Charts.xcodeproj */;
+			containerPortal = 61985AF41E16A65600D7AB37 /* Charts.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 06165F2E1D8110E600722320;
 			remoteInfo = ChartsTests;
-		};
-		04AEEFF41E1698D6005E13A8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 04AEEFE61E1698C1005E13A8 /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 06165F231D8110E600722320;
-			remoteInfo = Charts;
 		};
 		81FADAB21DE43912007D27C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -124,7 +125,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				04AEEFF31E1698D6005E13A8 /* Charts.framework in Embed Frameworks */,
+				61296A9D1E16B706007CA079 /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,7 +137,6 @@
 		046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
 		046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminProfileViewController.swift; sourceTree = "<group>"; };
 		04A4ACA71E15718000884164 /* AdminEventReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventReviewTableViewCell.swift; sourceTree = "<group>"; };
-		04AEEFE61E1698C1005E13A8 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
 		04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsNewViewController.swift; sourceTree = "<group>"; };
 		04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsDetailViewController.swift; sourceTree = "<group>"; };
 		04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -157,6 +157,8 @@
 		27B88D811DF2B9ED0045C98B /* UserLeaderboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserLeaderboard.storyboard; sourceTree = "<group>"; };
 		27B88D831DF2B9F80045C98B /* UserEvents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserEvents.storyboard; sourceTree = "<group>"; };
 		27B88D851DF2BA040045C98B /* UserSocial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserSocial.storyboard; sourceTree = "<group>"; };
+		611C501A1E16CC140044E359 /* UserSocialPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialPhotoViewController.swift; sourceTree = "<group>"; };
+		61985AF41E16A65600D7AB37 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
 		811BDA471DE82FF800D2D448 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		811BDA481DE82FF800D2D448 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
@@ -223,7 +225,7 @@
 				81FADAE21DE43A04007D27C8 /* libc++.tbd in Frameworks */,
 				81FADAE01DE439F3007D27C8 /* AddressBook.framework in Frameworks */,
 				81FADADE1DE439C7007D27C8 /* libicucore.tbd in Frameworks */,
-				04AEEFF21E1698D6005E13A8 /* Charts.framework in Frameworks */,
+				61296A9C1E16B706007CA079 /* Charts.framework in Frameworks */,
 				811BDA4F1DE8300E00D2D448 /* FirebaseAnalytics.framework in Frameworks */,
 				046C5C251E12449B001B7C61 /* FirebaseStorage.framework in Frameworks */,
 			);
@@ -246,12 +248,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04AEEFE71E1698C1005E13A8 /* Products */ = {
+		61985AF51E16A65600D7AB37 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04AEEFED1E1698C1005E13A8 /* Charts.framework */,
-				04AEEFEF1E1698C1005E13A8 /* ChartsRealm.framework */,
-				04AEEFF11E1698C1005E13A8 /* ChartsTests.xctest */,
+				61985AFB1E16A65700D7AB37 /* Charts.framework */,
+				61985AFD1E16A65700D7AB37 /* ChartsRealm.framework */,
+				61985AFF1E16A65700D7AB37 /* ChartsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -380,6 +382,7 @@
 				04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */,
 				04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */,
 				04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */,
+				611C501A1E16CC140044E359 /* UserSocialPhotoViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -387,7 +390,7 @@
 		81FADAEF1DE44095007D27C8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				04AEEFE61E1698C1005E13A8 /* Charts.xcodeproj */,
+				61985AF41E16A65600D7AB37 /* Charts.xcodeproj */,
 				046C5C231E12449B001B7C61 /* FirebaseStorage.framework */,
 				046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */,
 				811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */,
@@ -437,7 +440,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				04AEEFF51E1698D6005E13A8 /* PBXTargetDependency */,
+				61296A9F1E16B706007CA079 /* PBXTargetDependency */,
 			);
 			name = NYP25;
 			productName = NYP25;
@@ -520,8 +523,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 04AEEFE71E1698C1005E13A8 /* Products */;
-					ProjectRef = 04AEEFE61E1698C1005E13A8 /* Charts.xcodeproj */;
+					ProductGroup = 61985AF51E16A65600D7AB37 /* Products */;
+					ProjectRef = 61985AF41E16A65600D7AB37 /* Charts.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -534,25 +537,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		04AEEFED1E1698C1005E13A8 /* Charts.framework */ = {
+		61985AFB1E16A65700D7AB37 /* Charts.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Charts.framework;
-			remoteRef = 04AEEFEC1E1698C1005E13A8 /* PBXContainerItemProxy */;
+			remoteRef = 61985AFA1E16A65700D7AB37 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		04AEEFEF1E1698C1005E13A8 /* ChartsRealm.framework */ = {
+		61985AFD1E16A65700D7AB37 /* ChartsRealm.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = ChartsRealm.framework;
-			remoteRef = 04AEEFEE1E1698C1005E13A8 /* PBXContainerItemProxy */;
+			remoteRef = 61985AFC1E16A65700D7AB37 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		04AEEFF11E1698C1005E13A8 /* ChartsTests.xctest */ = {
+		61985AFF1E16A65700D7AB37 /* ChartsTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = ChartsTests.xctest;
-			remoteRef = 04AEEFF01E1698C1005E13A8 /* PBXContainerItemProxy */;
+			remoteRef = 61985AFE1E16A65700D7AB37 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -624,6 +627,7 @@
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
 				816A87C01DF170E000232C08 /* UserEventViewController.swift in Sources */,
 				04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */,
+				611C501B1E16CC140044E359 /* UserSocialPhotoViewController.swift in Sources */,
 				8166BC491DF6840600FAA37C /* EventAttendance.swift in Sources */,
 				8166BC5B1DF68B1E00FAA37C /* UserEvent.swift in Sources */,
 				816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */,
@@ -653,10 +657,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		04AEEFF51E1698D6005E13A8 /* PBXTargetDependency */ = {
+		61296A9F1E16B706007CA079 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Charts;
-			targetProxy = 04AEEFF41E1698D6005E13A8 /* PBXContainerItemProxy */;
+			targetProxy = 61296A9E1E16B706007CA079 /* PBXContainerItemProxy */;
 		};
 		81FADAB31DE43912007D27C8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

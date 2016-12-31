@@ -26,7 +26,7 @@ class UploadEventPhotoViewController: UIViewController, UIImagePickerControllerD
         {
             // If not, we will just hide the takePicture button 
             //
-            takePicture.isHidden = true
+            //takePicture.isHidden = true
         }
     }
 
