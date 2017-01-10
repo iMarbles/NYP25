@@ -57,8 +57,10 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
     
     //To show details (existing event)
     func loadEventDetails(){
-        self.navigationItem.title = "Edit Details"
-        
+        if(!isNewEvent){
+            self.navigationItem.title = "Edit Details"
+        }
+
         if event?.imageUrl != nil{
             loadAndDisplayImage(imageView: eventImage, url: (event?.imageUrl)!)
             eventImage.isHidden = false
@@ -307,6 +309,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
                     uiAlert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                     
                     self.present(uiAlert, animated: true, completion: nil)
+                    
                 }
                
             }else{
