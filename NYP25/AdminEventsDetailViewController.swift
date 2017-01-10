@@ -25,6 +25,9 @@ class AdminEventsDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         loadEventDetails()
     }
+    override func viewWillAppear(_ animated: Bool) {
+            loadEventDetails()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
