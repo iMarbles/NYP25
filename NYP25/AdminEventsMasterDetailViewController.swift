@@ -9,7 +9,7 @@
 
 import UIKit
 
-class AdminEventsMasterDetailViewController: UIViewController, UIToolbarDelegate {
+class AdminEventsMasterDetailViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var detailContainer : UIView!
     @IBOutlet weak var galleryContainer : UIView!
@@ -54,10 +54,6 @@ class AdminEventsMasterDetailViewController: UIViewController, UIToolbarDelegate
                 self.reviewContainer.alpha = 1
             })
         }
-    }
-    
-    func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return UIBarPosition.topAttached
     }
 
     override func didReceiveMemoryWarning() {

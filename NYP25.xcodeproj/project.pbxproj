@@ -18,6 +18,9 @@
 		04EA47371E13DB1F006797D9 /* AdminEventsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */; };
 		04EA47391E1401E3006797D9 /* AdminEventsReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */; };
 		04EA63AE1E1626DE00CBE4A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04EA63AD1E1626DE00CBE4A9 /* Assets.xcassets */; };
+		04ED18391E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED18381E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift */; };
+		04ED183B1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED183A1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift */; };
+		04ED183D1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED183C1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift */; };
 		04EF86891E10DAE600842FC4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF86881E10DAE600842FC4 /* CoreLocation.framework */; };
 		04EF868B1E10DAF800842FC4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF868A1E10DAF800842FC4 /* MapKit.framework */; };
 		04EF868F1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */; };
@@ -144,6 +147,9 @@
 		04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryViewController.swift; sourceTree = "<group>"; };
 		04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsReviewViewController.swift; sourceTree = "<group>"; };
 		04EA63AD1E1626DE00CBE4A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04ED18381E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsMasterViewController.swift; sourceTree = "<group>"; };
+		04ED183A1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsOneViewController.swift; sourceTree = "<group>"; };
+		04ED183C1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsTwoViewController.swift; sourceTree = "<group>"; };
 		04EF86881E10DAE600842FC4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		04EF868A1E10DAF800842FC4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsLocationSearchTableViewController.swift; sourceTree = "<group>"; };
@@ -383,6 +389,9 @@
 				04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */,
 				04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */,
 				611C501A1E16CC140044E359 /* UserSocialPhotoViewController.swift */,
+				04ED18381E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift */,
+				04ED183A1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift */,
+				04ED183C1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -604,6 +613,7 @@
 				81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */,
 				271F23491DF6EB7C00F20E79 /* UploadEventPhotoViewController.swift in Sources */,
 				04EA47351E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift in Sources */,
+				04ED183B1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift in Sources */,
 				8166BC4F1DF685AD00FAA37C /* Leaderboard.swift in Sources */,
 				8166BC4B1DF6847100FAA37C /* EventFeedback.swift in Sources */,
 				04A4ACA81E15718000884164 /* AdminEventReviewTableViewCell.swift in Sources */,
@@ -617,6 +627,7 @@
 				816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */,
 				046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */,
 				04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */,
+				04ED183D1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift in Sources */,
 				04EA47391E1401E3006797D9 /* AdminEventsReviewViewController.swift in Sources */,
 				04EA47371E13DB1F006797D9 /* AdminEventsGalleryViewController.swift in Sources */,
 				04EF868F1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift in Sources */,
@@ -627,6 +638,7 @@
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
 				816A87C01DF170E000232C08 /* UserEventViewController.swift in Sources */,
 				04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */,
+				04ED18391E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift in Sources */,
 				611C501B1E16CC140044E359 /* UserSocialPhotoViewController.swift in Sources */,
 				8166BC491DF6840600FAA37C /* EventAttendance.swift in Sources */,
 				8166BC5B1DF68B1E00FAA37C /* UserEvent.swift in Sources */,
