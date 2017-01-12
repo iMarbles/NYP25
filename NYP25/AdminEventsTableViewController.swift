@@ -47,7 +47,7 @@ class AdminEventsTableViewController: UITableViewController
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! AdminEventTableViewCell
 
         // Configure the cell...
-        cell.eventImg.image = nil
+        cell.eventImg.image = UIImage(named: "Ellipsis-100")
         let e = eventsList[(indexPath as IndexPath).row]
         cell.titleLabel.text = e.name
         cell.dateLabel.text = e.date
@@ -62,7 +62,7 @@ class AdminEventsTableViewController: UITableViewController
         if(e.imageUrl != nil){
             loadEventImage(imageView: cell.eventImg, url: e.imageUrl!) 
         }else{
-            cell.eventImg.image = nil
+            cell.eventImg.image = UIImage(named: "Ellipsis-100")
         }
         
         if e.status == "C"{
