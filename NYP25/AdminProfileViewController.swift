@@ -30,7 +30,7 @@ class AdminProfileViewController: UIViewController {
     
     @IBAction func logoutButtonPressed(_ sender : AnyObject){
         GlobalDM.CurrentUser = User()
-        let viewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login") as UIViewController
+        let viewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "LoginNav") as UIViewController
         self.present(viewController, animated: false, completion: nil)
     }
     
