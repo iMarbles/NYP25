@@ -1,5 +1,5 @@
 //
-//  UploadEventPhotoViewController.swift
+//  UserSocialPhotoUploadViewController.swift
 //  NYP25
 //
 //  Created by TAN on 6/12/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UploadEventPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class UserSocialPhotoUploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet var imageView: UIImageView!
     @IBOutlet weak var takePicture: UIButton!
