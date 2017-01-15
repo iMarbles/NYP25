@@ -36,6 +36,7 @@
 		611C501B1E16CC140044E359 /* UserSocialPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C501A1E16CC140044E359 /* UserSocialPhotoViewController.swift */; };
 		61296A9C1E16B706007CA079 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; };
 		61296A9D1E16B706007CA079 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		61ABEC491E2B392500786152 /* UserSocialSelectImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */; };
 		61C130C11E289901006E4191 /* UserSocialDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C130BC1E289901006E4191 /* UserSocialDM.swift */; };
 		61C130C21E289901006E4191 /* UserSocialGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C130BD1E289901006E4191 /* UserSocialGalleryCollectionViewCell.swift */; };
 		61C130C41E289901006E4191 /* UserSocialPhotoUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C130BF1E289901006E4191 /* UserSocialPhotoUploadViewController.swift */; };
@@ -168,6 +169,7 @@
 		27B88D851DF2BA040045C98B /* UserSocial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserSocial.storyboard; sourceTree = "<group>"; };
 		611C501A1E16CC140044E359 /* UserSocialPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialPhotoViewController.swift; sourceTree = "<group>"; };
 		61985AF41E16A65600D7AB37 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
+		61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialSelectImageViewController.swift; sourceTree = "<group>"; };
 		61C130BC1E289901006E4191 /* UserSocialDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialDM.swift; sourceTree = "<group>"; };
 		61C130BD1E289901006E4191 /* UserSocialGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		61C130BF1E289901006E4191 /* UserSocialPhotoUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialPhotoUploadViewController.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				611C501A1E16CC140044E359 /* UserSocialPhotoViewController.swift */,
 				61C130C01E289901006E4191 /* UserSocialViewController.swift */,
 				61FDA8451E289F02001F24F3 /* UserSocialGalleryViewController.swift */,
+				61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61ABEC491E2B392500786152 /* UserSocialSelectImageViewController.swift in Sources */,
 				04E6489B1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift in Sources */,
 				81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */,
 				61C130C11E289901006E4191 /* UserSocialDM.swift in Sources */,

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Social-->
+        <!--Social Storyboard Entrypoint-->
         <scene sceneID="t6L-ph-K65">
             <objects>
-                <viewController storyboardIdentifier="UserSocial" id="RQE-6E-VbP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserSocial" title="Social Storyboard Entrypoint" id="RQE-6E-VbP" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H4B-QT-d5h"/>
                         <viewControllerLayoutGuide type="bottom" id="Xet-cK-l9l"/>
@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="-250.40000000000001" y="-1311.0944527736133"/>
         </scene>
-        <!--User Social Photo View Controller-->
+        <!--User Social Main Page-->
         <scene sceneID="Pqt-aB-PuY">
             <objects>
-                <viewController id="BLa-87-pEM" customClass="UserSocialPhotoViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="User Social Main Page" id="BLa-87-pEM" customClass="UserSocialPhotoViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nbP-uN-Dwt"/>
                         <viewControllerLayoutGuide type="bottom" id="LYG-jU-0wj"/>
@@ -122,10 +122,10 @@
             </objects>
             <point key="canvasLocation" x="1023.2" y="-1483.3583208395803"/>
         </scene>
-        <!--Table View Controller-->
+        <!--User Social Main List View-->
         <scene sceneID="SgU-hH-7wB">
             <objects>
-                <tableViewController id="o1x-Yn-gfv" sceneMemberID="viewController">
+                <tableViewController title="User Social Main List View" id="o1x-Yn-gfv" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="281" sectionHeaderHeight="28" sectionFooterHeight="28" id="AfG-IF-aw6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,10 +183,10 @@
             </objects>
             <point key="canvasLocation" x="2040.8" y="-1939.4302848575715"/>
         </scene>
-        <!--User Social Gallery View Controller-->
+        <!--User Social Main Grid View-->
         <scene sceneID="e04-QZ-DHD">
             <objects>
-                <viewController id="DZj-yY-C2G" customClass="UserSocialGalleryViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="User Social Main Grid View" id="DZj-yY-C2G" customClass="UserSocialGalleryViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bnd-KP-9M3"/>
                         <viewControllerLayoutGuide type="bottom" id="2Z6-2O-bSH"/>
@@ -256,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="-250" y="-575"/>
         </scene>
-        <!--Upload/Take Event Photos-->
+        <!--User Social Select/Upload Photos-->
         <scene sceneID="mo9-aZ-Aek">
             <objects>
-                <viewController title="Upload/Take Event Photos" id="Wrt-JP-xIr" customClass="UserSocialPhotoUploadViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="User Social Select/Upload Photos" id="Wrt-JP-xIr" customClass="UserSocialSelectImageViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uat-lw-gi8"/>
                         <viewControllerLayoutGuide type="bottom" id="Quf-pA-TPw"/>
@@ -273,33 +273,35 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWS-ks-CT1">
-                                <rect key="frame" x="193" y="517" width="60" height="60"/>
+                                <rect key="frame" x="123" y="515" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="SLR Camera-30"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8k-x9-1uV">
-                                <rect key="frame" x="122" y="517" width="60" height="60"/>
+                                <rect key="frame" x="191" y="515" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="Stack of Photos-30"/>
+                                <connections>
+                                    <action selector="loadImageButtonTappedWithSender:" destination="Wrt-JP-xIr" eventType="touchUpInside" id="PDu-c5-Oxm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="jvO-9y-g47" id="Wao-7J-8Bm"/>
-                        <outlet property="selectPicture" destination="Q8k-x9-1uV" id="hnw-sj-6HA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7D-vI-stO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="720.79999999999995" y="-626.53673163418296"/>
         </scene>
-        <!--User's Social Profile-->
+        <!--User Social Profile Page-->
         <scene sceneID="U65-lH-VZh">
             <objects>
-                <viewController title="User's Social Profile" id="tI1-4u-KnM" customClass="UserSocialViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="User Social Profile Page" id="tI1-4u-KnM" customClass="UserSocialViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VUi-Tt-qLb"/>
                         <viewControllerLayoutGuide type="bottom" id="qrX-lU-ou0"/>
