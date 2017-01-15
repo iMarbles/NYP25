@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ghx-A1-dqB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ghx-A1-dqB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,25 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Admin Badge-->
-        <scene sceneID="N25-jo-hOD">
-            <objects>
-                <viewController storyboardIdentifier="AdminBadgesMain" title="Admin Badge" id="I43-OR-Zbw" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4aG-Jp-a9m"/>
-                        <viewControllerLayoutGuide type="bottom" id="ubq-Ta-0Kx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oLL-sx-6p1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Badges" image="Star-30" id="G8e-9r-X3l"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VwN-YE-D4F" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="25" y="1696"/>
-        </scene>
         <!--Admin Statistics-->
         <scene sceneID="u1r-ek-GT1">
             <objects>
@@ -373,7 +354,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mtj-ah-m75" id="C8t-iY-qVh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bir-k1-b3j">
@@ -466,7 +447,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kh6-H5-SAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1632.8" y="622.93853073463276"/>
+            <point key="canvasLocation" x="945" y="515"/>
         </scene>
         <!--Event Name-->
         <scene sceneID="2jz-S5-ghD">
@@ -550,7 +531,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FFY-XB-HiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2820" y="1153.6731634182909"/>
+            <point key="canvasLocation" x="1966" y="691"/>
         </scene>
         <!--Admin Events Detail View Controller-->
         <scene sceneID="DaQ-z1-Vdm">
@@ -568,7 +549,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-O0-PQi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="295.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="296"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ellipsis-100" translatesAutoresizingMaskIntoConstraints="NO" id="Ou4-5J-Y98">
                                                 <rect key="frame" x="10" y="0.0" width="355" height="171"/>
@@ -698,7 +679,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No description available" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pga-Bk-wDi">
-                                                <rect key="frame" x="10" y="275" width="355" height="20.5"/>
+                                                <rect key="frame" x="10" y="275" width="355" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -738,7 +719,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UBD-b5-4Si" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3637.5999999999999" y="929.2353823088456"/>
+            <point key="canvasLocation" x="3177" y="620"/>
         </scene>
         <!--Admin Events Review View Controller-->
         <scene sceneID="Foa-Hq-VEi">
@@ -866,7 +847,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="375" height="91"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zVG-0T-JEH" id="jaf-SR-OoK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="WDE-dF-Hrx">
@@ -995,7 +976,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pLv-Hv-9tO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2820" y="1990.704647676162"/>
+            <point key="canvasLocation" x="2425" y="1565"/>
         </scene>
         <!--Admin Events Gallery View Controller-->
         <scene sceneID="OXx-5n-tzE">
@@ -1013,7 +994,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="AcD-xO-UYr" customClass="AdminEventGalleryCollectionViewCell" customModule="NYP25" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="88" y="0.0" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -1038,7 +1019,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BQI-JR-Ebj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3637.5999999999999" y="1624.5877061469266"/>
+            <point key="canvasLocation" x="3177" y="1294"/>
         </scene>
         <!--New Event-->
         <scene sceneID="oqt-yG-Lte">
@@ -1401,7 +1382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OEx-6z-fO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2820" y="261.31934032983509"/>
+            <point key="canvasLocation" x="1966" y="-95"/>
         </scene>
         <!--Admin Events Location Search Table View Controller-->
         <scene sceneID="IVj-Jw-VjK">
@@ -1416,18 +1397,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0pM-W8-Dnu" id="8k2-zG-OAh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QsT-jU-jMv">
-                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LdN-gX-JOh">
-                                            <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -1445,7 +1426,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u59-zH-Q7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4418" y="260"/>
+            <point key="canvasLocation" x="3562" y="-97"/>
         </scene>
         <!--Admin Events Map View Controller-->
         <scene sceneID="OVm-zR-q3a">
@@ -1477,7 +1458,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ujg-xt-2Bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3639.1999999999998" y="259.52023988005999"/>
+            <point key="canvasLocation" x="2785" y="-97"/>
         </scene>
         <!--Events-->
         <scene sceneID="B6d-c3-Eli">
@@ -1494,26 +1475,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ab4-Kl-Lh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="602" y="623"/>
-        </scene>
-        <!--Admin Home-->
-        <scene sceneID="KLc-g8-KLh">
-            <objects>
-                <viewController title="Admin Home" id="hfE-Fb-nsN" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="JPY-Ju-3wh"/>
-                        <viewControllerLayoutGuide type="bottom" id="73e-BK-2W2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="JAI-gD-kL9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="Home-30" id="2yA-4j-Yv8"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EFt-W2-KZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-767" y="183"/>
+            <point key="canvasLocation" x="-231" y="515"/>
         </scene>
         <!--Admin Tab Bar-->
         <scene sceneID="vt9-cl-qdN">
@@ -1525,9 +1487,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="hfE-Fb-nsN" kind="relationship" relationship="viewControllers" id="5Kr-NE-BHc"/>
                         <segue destination="lWX-lG-3xH" kind="relationship" relationship="viewControllers" id="2eq-hJ-XKB"/>
-                        <segue destination="I43-OR-Zbw" kind="relationship" relationship="viewControllers" id="EuC-3u-358"/>
                         <segue destination="XzO-FP-dY0" kind="relationship" relationship="viewControllers" id="1Ws-Pt-1Ga"/>
                         <segue destination="Idg-im-0ZW" kind="relationship" relationship="viewControllers" id="3Ve-6e-SO6"/>
                     </connections>
@@ -1562,16 +1522,14 @@
         <image name="Circled User Male-30" width="30" height="30"/>
         <image name="Combo Chart-30" width="30" height="30"/>
         <image name="Ellipsis-100" width="100" height="100"/>
-        <image name="Home-30" width="30" height="30"/>
         <image name="Lock Filled-50" width="50" height="50"/>
         <image name="Marker-50" width="50" height="50"/>
-        <image name="Star-30" width="30" height="30"/>
         <image name="Star-50" width="50" height="50"/>
         <image name="Upload-30" width="30" height="30"/>
         <image name="User-48" width="48" height="48"/>
         <image name="Visible-50" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UtG-fM-RC0"/>
+        <segue reference="ahw-M9-9pg"/>
     </inferredMetricsTieBreakers>
 </document>
