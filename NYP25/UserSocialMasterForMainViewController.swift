@@ -1,15 +1,34 @@
 //
-//  UserEventViewController.swift
+//  UserSocialMasterForMainViewController.swift
 //  NYP25
 //
-//  Created by iOS on 2/12/16.
+//  Created by Evelyn Tan on 31/12/16.
 //  Copyright © 2016 NYP. All rights reserved.
 //
 
 import UIKit
 
-class UserEventViewController: UIViewController {
+class UserSocialMasterForMainViewController: UIViewController {
 
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var listView: UIView!
+    @IBOutlet weak var gridView: UIView!
+    
+    @IBAction func indexChanged(sender: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            listView.isHidden = false
+            gridView.isHidden = true
+            
+        case 1:
+            listView.isHidden = true
+            gridView.isHidden = false
+            
+        default:
+            break;
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
