@@ -1,5 +1,5 @@
 //
-//  UserSocialGalleryViewController.swift
+//  UserSocialMainGridViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 13/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserSocialGalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class UserSocialMainGridViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()

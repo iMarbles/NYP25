@@ -48,7 +48,7 @@
         <!--User Social Main Page-->
         <scene sceneID="Pqt-aB-PuY">
             <objects>
-                <viewController title="User Social Main Page" id="BLa-87-pEM" customClass="UserSocialPhotoViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="User Social Main Page" id="BLa-87-pEM" customClass="UserSocialMasterForMainViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nbP-uN-Dwt"/>
                         <viewControllerLayoutGuide type="bottom" id="LYG-jU-0wj"/>
@@ -96,7 +96,7 @@
                             </connections>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Cbz-oB-7Ls">
-                            <rect key="frame" x="112.5" y="7" width="150" height="30"/>
+                            <rect key="frame" x="113" y="7" width="150" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="List"/>
@@ -186,7 +186,7 @@
         <!--User Social Main Grid View-->
         <scene sceneID="e04-QZ-DHD">
             <objects>
-                <viewController title="User Social Main Grid View" id="DZj-yY-C2G" customClass="UserSocialGalleryViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="User Social Main Grid View" id="DZj-yY-C2G" customClass="UserSocialMainGridViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bnd-KP-9M3"/>
                         <viewControllerLayoutGuide type="bottom" id="2Z6-2O-bSH"/>
@@ -322,7 +322,7 @@
         <!--User Social Profile Page-->
         <scene sceneID="U65-lH-VZh">
             <objects>
-                <viewController title="User Social Profile Page" id="tI1-4u-KnM" customClass="UserSocialViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="User Social Profile Page" id="tI1-4u-KnM" customClass="UserSocialProfilePageViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VUi-Tt-qLb"/>
                         <viewControllerLayoutGuide type="bottom" id="qrX-lU-ou0"/>

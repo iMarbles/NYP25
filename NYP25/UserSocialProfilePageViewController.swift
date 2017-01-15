@@ -1,28 +1,30 @@
 //
-//  UserSocialPhotoViewController.swift
+//  UserSocialProfilePageViewController.swift
 //  NYP25
 //
-//  Created by Evelyn Tan on 31/12/16.
-//  Copyright © 2016 NYP. All rights reserved.
+//  Created by Evelyn Tan on 13/1/17.
+//  Copyright © 2017 NYP. All rights reserved.
 //
 
 import UIKit
 
-class UserSocialPhotoViewController: UIViewController {
+class UserSocialProfilePageViewController: UIViewController {
 
+    var socialList : [Social] = []
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var listView: UIView!
-    @IBOutlet weak var gridView: UIView!
+    @IBOutlet weak var likedPhotosView: UIView!
+    @IBOutlet weak var selfUploadView: UIView!
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            listView.isHidden = false
-            gridView.isHidden = true
+            likedPhotosView.isHidden = false
+            selfUploadView.isHidden = true
             
         case 1:
-            listView.isHidden = true
-            gridView.isHidden = false
+            likedPhotosView.isHidden = true
+            selfUploadView.isHidden = false
             
         default:
             break;
@@ -32,7 +34,10 @@ class UserSocialPhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        UserSocialDM.retrieveAllSocial { (listFromDb) in
+            self.socialList = listFromDb
+//            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
