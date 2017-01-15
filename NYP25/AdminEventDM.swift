@@ -51,8 +51,7 @@ class AdminEventDM: NSObject {
         
                 //Create badge
                 FIRDatabase.database().reference().child("badges/\(eventId)").setValue([
-                    "icon": downloadURL,
-                    "isAchievement": 0])
+                    "icon": downloadURL])
                 
                 //store badge for event
                 FIRDatabase.database().reference().child("events/\(eventId)").updateChildValues(["badge" : eventId])
@@ -70,8 +69,7 @@ class AdminEventDM: NSObject {
                 let badge = Badge()
                 badge.badgeId = snapshot.key
                 badge.icon = snapshot.childSnapshot(forPath: "icon").value as! String
-                badge.isAchievement = snapshot.childSnapshot(forPath: "isAchievement").value as! Int
-                
+                        
                 onComplete(badge)
         })
     }

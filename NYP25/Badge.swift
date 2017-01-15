@@ -10,10 +10,5 @@ import UIKit
 
 class Badge: NSObject {
     var badgeId : String = ""
-    var title : String = ""
     var icon : String = ""
-    var desc: String = ""
-    var isAchievement : Int = 0
-    var target : String = "I"
-    var unlockCriteria : Int = 0
 }
