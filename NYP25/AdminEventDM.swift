@@ -105,7 +105,7 @@ class AdminEventDM: NSObject {
     static func retrieveAllEvents(onComplete: @escaping ([Event])->Void){
         var eventList : [Event] = []
         var feedbackList : [EventFeedback] = []
-        var rsvpList : [EventRsvp] = []
+        //var rsvpList : [EventRsvp] = []
         
         let ref = FIRDatabase.database().reference().child("events/")
 
@@ -114,7 +114,7 @@ class AdminEventDM: NSObject {
             
             eventList = []
             feedbackList = []
-            rsvpList = []
+            //rsvpList = []
             
             for record in snapshot.children{
                 let r = record as! FIRDataSnapshot
@@ -146,6 +146,7 @@ class AdminEventDM: NSObject {
                     feedbackList.append(f)
                 }
                 
+                /*
                 //Child node of rsvp list
                 let rsvps = r.childSnapshot(forPath: "rsvpList").children
                 for rsvp in rsvps{
@@ -158,10 +159,11 @@ class AdminEventDM: NSObject {
                     
                     rsvpList.append(res)
                 }
+            
+                e.rsvpList = rsvpList
+                */
                 
                 e.feedbackList = feedbackList
-                e.rsvpList = rsvpList
-                
                 eventList.append(e)
                 
                 onComplete(eventList)

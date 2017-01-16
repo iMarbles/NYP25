@@ -9,7 +9,7 @@
 import UIKit
 
 class EventAttendance: NSObject {
-    var eventId : String = ""
-    var school : String = ""
-    var noOfPeople : Int = 0
+    var adminNo : String = ""
+    var school = ""
+    var events : [EventsInAttendance] = []
 }

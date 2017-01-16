@@ -59,11 +59,11 @@
 		8166BC551DF6891000FAA37C /* PhotoLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC541DF6891000FAA37C /* PhotoLike.swift */; };
 		8166BC571DF6896000FAA37C /* PhotoComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC561DF6896000FAA37C /* PhotoComment.swift */; };
 		8166BC591DF68A9000FAA37C /* UserBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC581DF68A9000FAA37C /* UserBadge.swift */; };
-		8166BC5B1DF68B1E00FAA37C /* UserEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC5A1DF68B1E00FAA37C /* UserEvent.swift */; };
-		8166BC5D1DF68DFE00FAA37C /* EventRsvp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC5C1DF68DFE00FAA37C /* EventRsvp.swift */; };
 		816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 816A87B91DF1467300232C08 /* BridgingHeader.m */; };
 		816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A87BB1DF1568700232C08 /* GlobalDM.swift */; };
 		816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */; };
+		81740FF41E2C7B460047B985 /* AdminStatsDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81740FF31E2C7B460047B985 /* AdminStatsDM.swift */; };
+		81740FF81E2C864E0047B985 /* EventsInAttendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81740FF71E2C864E0047B985 /* EventsInAttendance.swift */; };
 		8175B12B1DEFDE8100FCB205 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B12A1DEFDE8100FCB205 /* User.swift */; };
 		8175B12F1DEFE18000FCB205 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B12E1DEFE18000FCB205 /* Student.swift */; };
 		81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAA01DE43912007D27C8 /* AppDelegate.swift */; };
@@ -192,13 +192,13 @@
 		8166BC541DF6891000FAA37C /* PhotoLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLike.swift; sourceTree = "<group>"; };
 		8166BC561DF6896000FAA37C /* PhotoComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoComment.swift; sourceTree = "<group>"; };
 		8166BC581DF68A9000FAA37C /* UserBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBadge.swift; sourceTree = "<group>"; };
-		8166BC5A1DF68B1E00FAA37C /* UserEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEvent.swift; sourceTree = "<group>"; };
-		8166BC5C1DF68DFE00FAA37C /* EventRsvp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventRsvp.swift; sourceTree = "<group>"; };
 		816A87B71DF1467200232C08 /* NYP25-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NYP25-Bridging-Header.h"; sourceTree = "<group>"; };
 		816A87B81DF1467300232C08 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		816A87B91DF1467300232C08 /* BridgingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgingHeader.m; sourceTree = "<group>"; };
 		816A87BB1DF1568700232C08 /* GlobalDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDM.swift; sourceTree = "<group>"; };
 		816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
+		81740FF31E2C7B460047B985 /* AdminStatsDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatsDM.swift; sourceTree = "<group>"; };
+		81740FF71E2C864E0047B985 /* EventsInAttendance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsInAttendance.swift; sourceTree = "<group>"; };
 		8175B12A1DEFDE8100FCB205 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8175B12E1DEFE18000FCB205 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		81FADA9D1DE43912007D27C8 /* NYP25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYP25.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -277,6 +277,7 @@
 				816A87BB1DF1568700232C08 /* GlobalDM.swift */,
 				8166BC421DF67E5700FAA37C /* AdminEventDM.swift */,
 				61C130BC1E289901006E4191 /* UserSocialDM.swift */,
+				81740FF31E2C7B460047B985 /* AdminStatsDM.swift */,
 			);
 			name = DataManager;
 			sourceTree = "<group>";
@@ -363,8 +364,7 @@
 				8166BC541DF6891000FAA37C /* PhotoLike.swift */,
 				8166BC561DF6896000FAA37C /* PhotoComment.swift */,
 				8166BC581DF68A9000FAA37C /* UserBadge.swift */,
-				8166BC5A1DF68B1E00FAA37C /* UserEvent.swift */,
-				8166BC5C1DF68DFE00FAA37C /* EventRsvp.swift */,
+				81740FF71E2C864E0047B985 /* EventsInAttendance.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -633,6 +633,7 @@
 				8166BC471DF6839000FAA37C /* Badge.swift in Sources */,
 				04F2694B1E0D33BD00361510 /* AdminEventsTableViewController.swift in Sources */,
 				8166BC451DF67FB900FAA37C /* Event.swift in Sources */,
+				81740FF81E2C864E0047B985 /* EventsInAttendance.swift in Sources */,
 				04D725451E0D5C8200603CCA /* AdminEventsNewViewController.swift in Sources */,
 				8166BC551DF6891000FAA37C /* PhotoLike.swift in Sources */,
 				816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */,
@@ -644,16 +645,15 @@
 				04EF868F1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift in Sources */,
 				81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */,
 				8166BC511DF6862100FAA37C /* Social.swift in Sources */,
-				8166BC5D1DF68DFE00FAA37C /* EventRsvp.swift in Sources */,
 				04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */,
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
 				61CCEC7F1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift in Sources */,
+				81740FF41E2C7B460047B985 /* AdminStatsDM.swift in Sources */,
 				61CCEC9E1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift in Sources */,
 				04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */,
 				04ED18391E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift in Sources */,
 				611C501B1E16CC140044E359 /* UserSocialMasterForMainViewController.swift in Sources */,
 				8166BC491DF6840600FAA37C /* EventAttendance.swift in Sources */,
-				8166BC5B1DF68B1E00FAA37C /* UserEvent.swift in Sources */,
 				816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */,
 				8175B12B1DEFDE8100FCB205 /* User.swift in Sources */,
 				8166BC431DF67E5700FAA37C /* AdminEventDM.swift in Sources */,

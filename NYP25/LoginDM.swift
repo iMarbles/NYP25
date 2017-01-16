@@ -47,7 +47,7 @@ class LoginDM: NSObject {
                         if(shaHex == u.childSnapshot(forPath: "password").value as! String){
                             //Check if user is admin, save uId, password
                             //Not admin
-                            print("IsAdmin: \(u.childSnapshot(forPath: "isAdmin").value as! Int)")
+                            //print("IsAdmin: \(u.childSnapshot(forPath: "isAdmin").value as! Int)")
                             if(u.childSnapshot(forPath: "isAdmin").value as! Int == 0){
                                 GlobalDM.CurrentUser!.userId = u.key
                                 GlobalDM.CurrentUser!.isAdmin = 0

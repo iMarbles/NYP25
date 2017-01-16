@@ -28,9 +28,9 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginBtnPressed(_ sender: Any) {
         //For quick login
-        //usernameTb.text = "admin1"
+        usernameTb.text = "admin1"
         //usernameTb.text = "142519G"
-        //passwordTb.text = "P@ssw0rd"
+        passwordTb.text = "P@ssw0rd"
         
         LoginDM.loginUser(username: usernameTb.text!, password: passwordTb.text!, onComplete: {
             if(GlobalDM.CurrentUser!.userId  == "NIL"){

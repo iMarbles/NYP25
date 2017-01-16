@@ -16,6 +16,4 @@ class Student: User {
     var displayBadge : String?
     var displayPhoto : String?
     var badges : [UserBadge]?
-    var events : [UserEvent]?
-    
 }
