@@ -17,7 +17,7 @@ class UsersSocialMainGridCollectionViewController: UICollectionViewController, U
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        if(socialPhotos.count!= 0){
+        if(socialPhotos.count != 0){
             UserSocialDM.retrieveEventPhotos(eventId: (social?.eventId)!, onComplete: { (photos) in
                 self.socialPhotos = photos
                 self.collectionView?.reloadData()
