@@ -33,4 +33,27 @@ class UserSocialDM: NSObject {
                 }
         })
     }
+    
+    static func uploadEventImage(socialPhotos : NSData) {
+        let eventId = FIRDatabase.database().reference().child("events").childByAutoId().key
+        let storage = FIRStorage.storage().reference().child("/SocialPhoto/\(eventId)")
+        
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        
+        storage.put(socialPhotos as Data, metadata: metadata){(metaData,error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }else{
+                //store downloadURL
+                let downloadURL = metaData!.downloadURL()!.absoluteString
+                
+                //store downloadURL at database
+                FIRDatabase.database().reference().child("social/\(eventId)").updateChildValues(["photoUrl" : downloadURL])
+            }
+            
+        }
+    }
 }

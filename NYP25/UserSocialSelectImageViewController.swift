@@ -48,6 +48,11 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
     @IBAction func btnSave(sender: AnyObject) {
         var imageData = UIImageJPEGRepresentation(imageView.image!, 0.6)
         var compressedJPGImage = UIImage(data: imageData!)
+        
+        UserSocialDM.uploadEventImage(socialPhotos: imageData! as NSData)
+        
+        
+        
         UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, nil, nil, nil)
         
         var alert = UIAlertView(title: "Wow",
