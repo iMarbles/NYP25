@@ -1,5 +1,5 @@
 //
-//  UserSocialProfilePageViewController.swift
+//  UserSocialProfileViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 13/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserSocialProfilePageViewController: UIViewController {
+class UserSocialProfileViewController: UIViewController {
 
     var socialList : [Social] = []
     

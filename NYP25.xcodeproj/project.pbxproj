@@ -40,7 +40,7 @@
 		61C130C11E289901006E4191 /* UserSocialDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C130BC1E289901006E4191 /* UserSocialDM.swift */; };
 		61C130C51E289901006E4191 /* UserSocialProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C130C01E289901006E4191 /* UserSocialProfilePageViewController.swift */; };
 		61CCEC7F1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CCEC7E1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift */; };
-		61FDA8461E289F02001F24F3 /* UserSocialMainGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61FDA8451E289F02001F24F3 /* UserSocialMainGridViewController.swift */; };
+		61CCEC9E1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CCEC9D1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift */; };
 		811BDA4F1DE8300E00D2D448 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */; };
 		811BDA501DE8300E00D2D448 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4A1DE8300E00D2D448 /* FirebaseInstanceID.framework */; };
 		811BDA511DE8300E00D2D448 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4B1DE8300E00D2D448 /* GoogleInterchangeUtilities.framework */; };
@@ -171,7 +171,7 @@
 		61C130BC1E289901006E4191 /* UserSocialDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialDM.swift; sourceTree = "<group>"; };
 		61C130C01E289901006E4191 /* UserSocialProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfilePageViewController.swift; sourceTree = "<group>"; };
 		61CCEC7E1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
-		61FDA8451E289F02001F24F3 /* UserSocialMainGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainGridViewController.swift; sourceTree = "<group>"; };
+		61CCEC9D1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSocialMainGridCollectionViewController.swift; sourceTree = "<group>"; };
 		811BDA471DE82FF800D2D448 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		811BDA481DE82FF800D2D448 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
@@ -399,8 +399,8 @@
 				81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */,
 				611C501A1E16CC140044E359 /* UserSocialMasterForMainViewController.swift */,
 				61C130C01E289901006E4191 /* UserSocialProfilePageViewController.swift */,
-				61FDA8451E289F02001F24F3 /* UserSocialMainGridViewController.swift */,
 				61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */,
+				61CCEC9D1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -633,7 +633,6 @@
 				8166BC471DF6839000FAA37C /* Badge.swift in Sources */,
 				04F2694B1E0D33BD00361510 /* AdminEventsTableViewController.swift in Sources */,
 				8166BC451DF67FB900FAA37C /* Event.swift in Sources */,
-				61FDA8461E289F02001F24F3 /* UserSocialMainGridViewController.swift in Sources */,
 				04D725451E0D5C8200603CCA /* AdminEventsNewViewController.swift in Sources */,
 				8166BC551DF6891000FAA37C /* PhotoLike.swift in Sources */,
 				816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */,
@@ -649,6 +648,7 @@
 				04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */,
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
 				61CCEC7F1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift in Sources */,
+				61CCEC9E1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift in Sources */,
 				04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */,
 				04ED18391E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift in Sources */,
 				611C501B1E16CC140044E359 /* UserSocialMasterForMainViewController.swift in Sources */,

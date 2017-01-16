@@ -9,5 +9,7 @@
 import UIKit
 
 class UserSocialGalleryCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var myLabel: UILabel!
+//    @IBOutlet weak var myLabel: UILabel!
+    @IBOutlet weak var eventImage : UIImageView!
+
 }
