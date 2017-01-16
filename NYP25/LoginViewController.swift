@@ -27,6 +27,10 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginBtnPressed(_ sender: Any) {
+        //For quick login
+        //usernameTb.text = "admin1"
+        //passwordTb.text = "P@ssw0rd"
+        
         LoginDM.loginUser(username: usernameTb.text!, password: passwordTb.text!, onComplete: {
             if(GlobalDM.CurrentUser!.userId  == "NIL"){
                 self.invalidLbl.isHidden = false
