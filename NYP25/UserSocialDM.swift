@@ -13,10 +13,10 @@ import FirebaseStorage
 class UserSocialDM: NSObject {
     
     //Retrieve all images of event by ID
-    static func retrieveEventPhotos(eventId : String, onComplete: @escaping ([Social])->Void){
+    static func retrieveEventPhotos(onComplete: @escaping ([Social])->Void){
         var socialPhotos : [Social] = []
         
-        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "eventId").queryStarting(atValue: eventId).queryEnding(atValue: eventId)
+        let ref = FIRDatabase.database().reference().child("social/")
         
         ref.observeSingleEvent(of: .value, with:
             {(snapshot) in

@@ -16,7 +16,21 @@ class UsersSocialMainGridCollectionViewController: UICollectionViewController, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UserSocialDM.retrieveEventPhotos(onComplete: { (photos) in
+            self.socialPhotos = photos
+            self.collectionView?.reloadData()
+            
+            if(self.socialPhotos.count == 0){
+                let alert = UIAlertView(title: "",
+                                        message: "No Photos Available Currently",
+                                        delegate: nil,
+                                        cancelButtonTitle: "Ok")
+                alert.show()
+
+            }
+        })
         // Do any additional setup after loading the view.
+        /*
         if(socialPhotos.count != 0){
             UserSocialDM.retrieveEventPhotos(eventId: (social?.eventId)!, onComplete: { (photos) in
                 self.socialPhotos = photos
@@ -29,6 +43,7 @@ class UsersSocialMainGridCollectionViewController: UICollectionViewController, U
                                     cancelButtonTitle: "Ok")
             alert.show()
         }
+         */
     }
     
     override func didReceiveMemoryWarning() {
