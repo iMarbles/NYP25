@@ -62,7 +62,6 @@
 		816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 816A87B91DF1467300232C08 /* BridgingHeader.m */; };
 		816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A87BB1DF1568700232C08 /* GlobalDM.swift */; };
 		816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */; };
-		81740FF41E2C7B460047B985 /* AdminStatsDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81740FF31E2C7B460047B985 /* AdminStatsDM.swift */; };
 		81740FF81E2C864E0047B985 /* EventsInAttendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81740FF71E2C864E0047B985 /* EventsInAttendance.swift */; };
 		8175B12B1DEFDE8100FCB205 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B12A1DEFDE8100FCB205 /* User.swift */; };
 		8175B12F1DEFE18000FCB205 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B12E1DEFE18000FCB205 /* Student.swift */; };
@@ -197,7 +196,6 @@
 		816A87B91DF1467300232C08 /* BridgingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgingHeader.m; sourceTree = "<group>"; };
 		816A87BB1DF1568700232C08 /* GlobalDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDM.swift; sourceTree = "<group>"; };
 		816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminHomeViewController.swift; sourceTree = "<group>"; };
-		81740FF31E2C7B460047B985 /* AdminStatsDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatsDM.swift; sourceTree = "<group>"; };
 		81740FF71E2C864E0047B985 /* EventsInAttendance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsInAttendance.swift; sourceTree = "<group>"; };
 		8175B12A1DEFDE8100FCB205 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8175B12E1DEFE18000FCB205 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
@@ -277,7 +275,6 @@
 				816A87BB1DF1568700232C08 /* GlobalDM.swift */,
 				8166BC421DF67E5700FAA37C /* AdminEventDM.swift */,
 				61C130BC1E289901006E4191 /* UserSocialDM.swift */,
-				81740FF31E2C7B460047B985 /* AdminStatsDM.swift */,
 			);
 			name = DataManager;
 			sourceTree = "<group>";
@@ -648,7 +645,6 @@
 				04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */,
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
 				61CCEC7F1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift in Sources */,
-				81740FF41E2C7B460047B985 /* AdminStatsDM.swift in Sources */,
 				61CCEC9E1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift in Sources */,
 				04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */,
 				04ED18391E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift in Sources */,

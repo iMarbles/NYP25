@@ -165,9 +165,10 @@ class AdminEventDM: NSObject {
                 
                 e.feedbackList = feedbackList
                 eventList.append(e)
-                
-                onComplete(eventList)
             }
+            
+            
+            onComplete(eventList)
         })
     
     }
@@ -213,11 +214,50 @@ class AdminEventDM: NSObject {
                     //To add-on as needed
                     
                     socialPhotos.append(photo)
-                    
-                    onComplete(socialPhotos)
                 }
+                onComplete(socialPhotos)
         })
     }
     
     //Delete event
+    
+    //Admin Stats
+    static func retrieveAllEventAttendance(onComplete: @escaping([EventAttendance])->Void){
+        var attendanceList : [EventAttendance] = []
+        var eventsInAttendanceList : [EventsInAttendance] = []
+        
+        let ref = FIRDatabase.database().reference().child("eventAttendance/")
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            attendanceList = []
+            eventsInAttendanceList = []
+            
+            for record in snapshot.children{
+                let r = record as! FIRDataSnapshot
+                
+                let a = EventAttendance()
+                a.adminNo = r.key
+                a.school = r.childSnapshot(forPath: "school").value as! String
+                
+                //Child nodes of events
+                let events = r.childSnapshot(forPath: "events").children
+                for event in events{
+                    let eFromDb = event as! FIRDataSnapshot
+                    
+                    let e = EventsInAttendance()
+                    e.eventID = eFromDb.key
+                    e.checkIn = eFromDb.childSnapshot(forPath: "checkIn").value as? String
+                    e.rsvp = eFromDb.childSnapshot(forPath: "rsvp").value as? String
+                    
+                    eventsInAttendanceList.append(e)
+                }
+                
+                a.events = eventsInAttendanceList
+                attendanceList.append(a)
+            }
+            
+            onComplete(attendanceList)
+        })
+    }
 }
