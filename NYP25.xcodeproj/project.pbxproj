@@ -37,6 +37,10 @@
 		612647051E2E3955008DC73A /* UserSocialUploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */; };
 		6126470A1E2E64DA008DC73A /* UserSocialMainListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612647091E2E64DA008DC73A /* UserSocialMainListTableViewController.swift */; };
 		6126470E1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */; };
+		612647101E2E86D6008DC73A /* UserSocialProfileOwnCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6126470F1E2E86D6008DC73A /* UserSocialProfileOwnCollectionViewCell.swift */; };
+		612647131E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612647111E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift */; };
+		612647161E2E8771008DC73A /* UserSocialProfileLikedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612647151E2E8771008DC73A /* UserSocialProfileLikedCollectionViewController.swift */; };
+		612647181E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612647171E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift */; };
 		61296A9C1E16B706007CA079 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; };
 		61296A9D1E16B706007CA079 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61ABEC491E2B392500786152 /* UserSocialSelectImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */; };
@@ -171,6 +175,10 @@
 		612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialUploadImageViewController.swift; sourceTree = "<group>"; };
 		612647091E2E64DA008DC73A /* UserSocialMainListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainListTableViewController.swift; sourceTree = "<group>"; };
 		6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainListTableViewCell.swift; sourceTree = "<group>"; };
+		6126470F1E2E86D6008DC73A /* UserSocialProfileOwnCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileOwnCollectionViewCell.swift; sourceTree = "<group>"; };
+		612647111E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileLikedCollectionViewCell.swift; sourceTree = "<group>"; };
+		612647151E2E8771008DC73A /* UserSocialProfileLikedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileLikedCollectionViewController.swift; sourceTree = "<group>"; };
+		612647171E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileOwnCollectionViewController.swift; sourceTree = "<group>"; };
 		61985AF41E16A65600D7AB37 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
 		61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialSelectImageViewController.swift; sourceTree = "<group>"; };
 		61C130BC1E289901006E4191 /* UserSocialDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialDM.swift; sourceTree = "<group>"; };
@@ -375,11 +383,13 @@
 		81FADAEB1DE44043007D27C8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				61CCEC7E1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift */,
-				04F2694C1E0D3ACA00361510 /* AdminEventTableViewCell.swift */,
 				04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */,
 				04A4ACA71E15718000884164 /* AdminEventReviewTableViewCell.swift */,
+				04F2694C1E0D3ACA00361510 /* AdminEventTableViewCell.swift */,
+				61CCEC7E1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift */,
 				6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */,
+				612647111E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift */,
+				6126470F1E2E86D6008DC73A /* UserSocialProfileOwnCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -401,12 +411,14 @@
 				04ED183A1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift */,
 				04ED183C1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift */,
 				81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */,
+				612647091E2E64DA008DC73A /* UserSocialMainListTableViewController.swift */,
 				611C501A1E16CC140044E359 /* UserSocialMasterForMainViewController.swift */,
 				61C130C01E289901006E4191 /* UserSocialProfilePageViewController.swift */,
 				61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */,
 				612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */,
 				61CCEC9D1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift */,
-				612647091E2E64DA008DC73A /* UserSocialMainListTableViewController.swift */,
+				612647151E2E8771008DC73A /* UserSocialProfileLikedCollectionViewController.swift */,
+				612647171E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -644,6 +656,7 @@
 				04D725451E0D5C8200603CCA /* AdminEventsNewViewController.swift in Sources */,
 				612647051E2E3955008DC73A /* UserSocialUploadImageViewController.swift in Sources */,
 				8166BC551DF6891000FAA37C /* PhotoLike.swift in Sources */,
+				612647131E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift in Sources */,
 				816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */,
 				046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */,
 				04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */,
@@ -654,6 +667,7 @@
 				04EF868F1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift in Sources */,
 				6126470A1E2E64DA008DC73A /* UserSocialMainListTableViewController.swift in Sources */,
 				81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */,
+				612647181E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift in Sources */,
 				8166BC511DF6862100FAA37C /* Social.swift in Sources */,
 				04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */,
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
@@ -662,10 +676,12 @@
 				04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */,
 				04ED18391E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift in Sources */,
 				611C501B1E16CC140044E359 /* UserSocialMasterForMainViewController.swift in Sources */,
+				612647161E2E8771008DC73A /* UserSocialProfileLikedCollectionViewController.swift in Sources */,
 				8166BC491DF6840600FAA37C /* EventAttendance.swift in Sources */,
 				816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */,
 				8175B12B1DEFDE8100FCB205 /* User.swift in Sources */,
 				8166BC431DF67E5700FAA37C /* AdminEventDM.swift in Sources */,
+				612647101E2E86D6008DC73A /* UserSocialProfileOwnCollectionViewCell.swift in Sources */,
 				811DA5581DEFF34100817B71 /* LoginDM.swift in Sources */,
 				8175B12F1DEFE18000FCB205 /* Student.swift in Sources */,
 			);

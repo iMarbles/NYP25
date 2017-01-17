@@ -49,6 +49,11 @@ class UserSocialMainListTableViewController: UITableViewController {
 
         let s = socialList[(indexPath as IndexPath).row]
         
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.medium
+        let result = formatter.string(from: date)
+        
         if (cell == nil)
         {
             cell =
@@ -58,7 +63,13 @@ class UserSocialMainListTableViewController: UITableViewController {
         
         cell.usernameLbl.text = s.uploader
         cell.captionLbl.text = s.caption
-        cell.dateLbl.text = s.postedDateTime
+        
+        if s.postedDateTime == result{
+            cell.dateLbl.text = "today"
+        }else{
+            cell.dateLbl.text = s.postedDateTime
+        }
+        
 //        cell.mainListImageView.image = UIImage(named: (social?.photoUrl)!)
         loadSocialImage(imageView: cell.mainListImageView, url: s.photoUrl!)
 

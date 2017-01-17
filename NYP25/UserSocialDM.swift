@@ -11,12 +11,21 @@ import Firebase
 import FirebaseStorage
 
 class UserSocialDM: NSObject {
+
+
     
     //Retrieve all events
     static func retrieveAllSocial(onComplete: @escaping ([Social])->Void){
         var socialList : [Social] = []
         
-        let ref = FIRDatabase.database().reference().child("social/")
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.medium
+        let result = formatter.string(from: date)
+        
+//        let ref = FIRDatabase.database().reference().child("social/")
+//        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
+        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime").queryEnding(atValue: result)
         
         ref.observe(FIRDataEventType.value, with:{
             (snapshot) in
@@ -29,7 +38,7 @@ class UserSocialDM: NSObject {
                 let s = Social()
                 
                 s.eventId = r.key
-                s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as! String
+                s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
                 s.uploader = r.childSnapshot(forPath: "uploader").value as? String
                 s.caption = r.childSnapshot(forPath: "caption").value as? String
                 s.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
@@ -39,14 +48,10 @@ class UserSocialDM: NSObject {
                 socialList.append(s)
             }
             
-            
             onComplete(socialList)
         })
         
     }
-
-    
-    
     
     //Retrieve all images of event by ID
     static func retrieveEventPhotos(onComplete: @escaping ([Social])->Void){
@@ -74,13 +79,22 @@ class UserSocialDM: NSObject {
         let key = FIRDatabase.database().reference().child("social").childByAutoId().key
         let ref = FIRDatabase.database().reference().child("social/\(key)/")
         
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.medium
+        let result = formatter.string(from: date)
+
+        
         ref.setValue([
             "caption" : social.caption!,
             "uploader" : social.uploader!,
-            "postedDateTime" : social.postedDateTime!,
+            "postedDateTime" : result,
             "isFlagged" : social.isFlagged,
             "flagReason" : social.flagReason!
             ])
+
+//        print("Timestamp: \(Timestamp)")
+
 
 //        ref.setValue([ "caption" : "\(social.caption!)" ])
         
