@@ -48,7 +48,7 @@ class UsersSocialMainGridCollectionViewController: UICollectionViewController, U
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! UserSocialGalleryCollectionViewCell
         
-        loadSocialImage(imageView: cell.eventImage, url: socialPhotos[(indexPath as IndexPath).row].photoUrl)
+        loadSocialImage(imageView: cell.eventImage, url: socialPhotos[(indexPath as IndexPath).row].photoUrl!)
         return cell
     }
     

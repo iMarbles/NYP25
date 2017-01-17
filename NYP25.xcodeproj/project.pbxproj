@@ -34,6 +34,9 @@
 		27B88D841DF2B9F80045C98B /* UserEvents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D831DF2B9F80045C98B /* UserEvents.storyboard */; };
 		27B88D861DF2BA040045C98B /* UserSocial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D851DF2BA040045C98B /* UserSocial.storyboard */; };
 		611C501B1E16CC140044E359 /* UserSocialMasterForMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C501A1E16CC140044E359 /* UserSocialMasterForMainViewController.swift */; };
+		612647051E2E3955008DC73A /* UserSocialUploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */; };
+		6126470A1E2E64DA008DC73A /* UserSocialMainListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612647091E2E64DA008DC73A /* UserSocialMainListTableViewController.swift */; };
+		6126470E1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */; };
 		61296A9C1E16B706007CA079 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; };
 		61296A9D1E16B706007CA079 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61ABEC491E2B392500786152 /* UserSocialSelectImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */; };
@@ -165,6 +168,9 @@
 		27B88D831DF2B9F80045C98B /* UserEvents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserEvents.storyboard; sourceTree = "<group>"; };
 		27B88D851DF2BA040045C98B /* UserSocial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserSocial.storyboard; sourceTree = "<group>"; };
 		611C501A1E16CC140044E359 /* UserSocialMasterForMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMasterForMainViewController.swift; sourceTree = "<group>"; };
+		612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialUploadImageViewController.swift; sourceTree = "<group>"; };
+		612647091E2E64DA008DC73A /* UserSocialMainListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainListTableViewController.swift; sourceTree = "<group>"; };
+		6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainListTableViewCell.swift; sourceTree = "<group>"; };
 		61985AF41E16A65600D7AB37 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
 		61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialSelectImageViewController.swift; sourceTree = "<group>"; };
 		61C130BC1E289901006E4191 /* UserSocialDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialDM.swift; sourceTree = "<group>"; };
@@ -373,6 +379,7 @@
 				04F2694C1E0D3ACA00361510 /* AdminEventTableViewCell.swift */,
 				04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */,
 				04A4ACA71E15718000884164 /* AdminEventReviewTableViewCell.swift */,
+				6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -397,7 +404,9 @@
 				611C501A1E16CC140044E359 /* UserSocialMasterForMainViewController.swift */,
 				61C130C01E289901006E4191 /* UserSocialProfilePageViewController.swift */,
 				61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */,
+				612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */,
 				61CCEC9D1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift */,
+				612647091E2E64DA008DC73A /* UserSocialMainListTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -510,6 +519,7 @@
 				TargetAttributes = {
 					81FADA9C1DE43912007D27C8 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 92EHW4TQR2;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -632,6 +642,7 @@
 				8166BC451DF67FB900FAA37C /* Event.swift in Sources */,
 				81740FF81E2C864E0047B985 /* EventsInAttendance.swift in Sources */,
 				04D725451E0D5C8200603CCA /* AdminEventsNewViewController.swift in Sources */,
+				612647051E2E3955008DC73A /* UserSocialUploadImageViewController.swift in Sources */,
 				8166BC551DF6891000FAA37C /* PhotoLike.swift in Sources */,
 				816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */,
 				046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */,
@@ -639,7 +650,9 @@
 				04ED183D1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift in Sources */,
 				04EA47391E1401E3006797D9 /* AdminEventsReviewViewController.swift in Sources */,
 				04EA47371E13DB1F006797D9 /* AdminEventsGalleryViewController.swift in Sources */,
+				6126470E1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift in Sources */,
 				04EF868F1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift in Sources */,
+				6126470A1E2E64DA008DC73A /* UserSocialMainListTableViewController.swift in Sources */,
 				81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */,
 				8166BC511DF6862100FAA37C /* Social.swift in Sources */,
 				04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */,
@@ -807,6 +820,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 92EHW4TQR2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NYP25",
@@ -829,6 +843,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = 92EHW4TQR2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NYP25",

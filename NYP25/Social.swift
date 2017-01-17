@@ -10,7 +10,7 @@ import UIKit
 
 class Social: NSObject {
     var eventId : String = ""
-    var photoUrl : String = ""
+    var photoUrl : String?
     var uploader : String?
     var caption : String?
     var postedDateTime : String?

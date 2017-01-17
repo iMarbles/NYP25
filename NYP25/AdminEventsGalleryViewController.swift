@@ -39,7 +39,7 @@ class AdminEventsGalleryViewController: UICollectionViewController, UICollection
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! AdminEventGalleryCollectionViewCell
         
-        loadSocialImage(imageView: cell.eventImage, url: eventPhotos[(indexPath as IndexPath).row].photoUrl)
+        loadSocialImage(imageView: cell.eventImage, url: eventPhotos[(indexPath as IndexPath).row].photoUrl!)
             return cell
     }
     
