@@ -9,5 +9,5 @@
 import UIKit
 
 class UserSocialProfileLikedCollectionViewCell: UICollectionViewCell {
-    
+    @IBOutlet weak var socialLikedImage : UIImageView!
 }

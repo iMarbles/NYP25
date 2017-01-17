@@ -13,12 +13,16 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var btnSave: UIButton!
     
+    var socialImg : Social? = nil
+
     var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        socialImg = Social()
+        
         btnSave.isHidden = true;
+        
         imageView.layer.masksToBounds = true
     }
     
@@ -30,7 +34,19 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
         } else {
-            noCamera()
+            let alertVC = UIAlertController(
+                title: "No Camera",
+                message: "Sorry, this device has no camera",
+                preferredStyle: .alert)
+            let okAction = UIAlertAction(
+                title: "OK",
+                style:.default,
+                handler: nil)
+            alertVC.addAction(okAction)
+            present(
+                alertVC,
+                animated: true,
+                completion: nil)
         }
     }
     
@@ -45,23 +61,6 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
         }
     }
     
-    @IBAction func btnSave(sender: AnyObject) {
-        var imageData = UIImageJPEGRepresentation(imageView.image!, 0.6)
-        var compressedJPGImage = UIImage(data: imageData!)
-        
-        UserSocialDM.uploadEventImage(socialPhotos: imageData! as NSData)
-        
-        
-        
-        UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, nil, nil, nil)
-        
-        var alert = UIAlertView(title: "Wow",
-                                message: "Your image has been saved to Photo Library!",
-                                delegate: nil,
-                                cancelButtonTitle: "Ok")
-        alert.show()
-    }
-
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [String : Any]!) {
         
         imageView.contentMode = .scaleAspectFit
@@ -71,20 +70,27 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
         
         btnSave.isHidden = false;
     }
-    
-    func noCamera(){
-        let alertVC = UIAlertController(
-            title: "No Camera",
-            message: "Sorry, this device has no camera",
-            preferredStyle: .alert)
-        let okAction = UIAlertAction(
-            title: "OK",
-            style:.default,
-            handler: nil)
-        alertVC.addAction(okAction)
-        present(
-            alertVC,
-            animated: true,
-            completion: nil)
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "UserSocialUploadImage" {
+            let dvc = segue.destination as! UserSocialUploadImageViewController
+            dvc.newImage = imageView.image
+        }
     }
+    
+//    func noCamera(){
+//        let alertVC = UIAlertController(
+//            title: "No Camera",
+//            message: "Sorry, this device has no camera",
+//            preferredStyle: .alert)
+//        let okAction = UIAlertAction(
+//            title: "OK",
+//            style:.default,
+//            handler: nil)
+//        alertVC.addAction(okAction)
+//        present(
+//            alertVC,
+//            animated: true,
+//            completion: nil)
+//    }
 }

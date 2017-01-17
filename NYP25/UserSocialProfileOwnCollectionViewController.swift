@@ -1,18 +1,20 @@
 //
-//  UsersSocialMainGridCollectionViewController.swift
+//  UserSocialProfileOwnCollectionViewController.swift
 //  NYP25
 //
-//  Created by Evelyn Tan on 16/1/17.
+//  Created by Evelyn Tan on 18/1/17.
 //  Copyright © 2017 NYP. All rights reserved.
 //
 
 import UIKit
 
-class UsersSocialMainGridCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+private let reuseIdentifier = "ProfilePageOwnCell"
+
+class UserSocialProfileOwnCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var social : Social?
     var socialPhotos : [Social] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,7 +32,7 @@ class UsersSocialMainGridCollectionViewController: UICollectionViewController, U
                                         delegate: nil,
                                         cancelButtonTitle: "Ok")
                 alert.show()
-
+                
             }
         })
         // Do any additional setup after loading the view.
@@ -46,9 +48,9 @@ class UsersSocialMainGridCollectionViewController: UICollectionViewController, U
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! UserSocialGalleryCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfilePageOwnCell", for: indexPath) as! UserSocialProfileOwnCollectionViewCell
         
-        loadSocialImage(imageView: cell.eventImage, url: socialPhotos[(indexPath as IndexPath).row].photoUrl!)
+        loadSocialImage(imageView: cell.socialOwnImage, url: socialPhotos[(indexPath as IndexPath).row].photoUrl!)
         return cell
     }
     
