@@ -74,6 +74,7 @@ class AdminStatisticsOneViewController: UIViewController {
     
     func createPieChart(){
         //Need to show number of attendees per school (Not unique, total)
+        let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SiDM"]
         var sbm = 0
         var scl = 0
         var sdn = 0
@@ -81,6 +82,39 @@ class AdminStatisticsOneViewController: UIViewController {
         var shs = 0
         var sit = 0
         var sidm = 0
+        
+        for attendance in attendanceList{
+            let s = attendance.school
+            let count = attendance.events.count
+            
+            if s == "SBM"{
+                sbm += count
+            }
+            if s == "SCL"{
+                scl += count
+            }
+            if s == "SDN"{
+                sdn += count
+            }
+            if s == "SEG"{
+                seg += count
+            }
+            if s == "SHS"{
+                shs += count
+            }
+            if s == "SIT"{
+                sit += count
+            }
+            if s == "SIDM"{
+                sidm += count
+            }
+        }
+        
+        let countArr = [sbm, scl, sdn, seg, shs, sit, sidm]
+        
+        //To represent as pie chart
+        setPieChartFor(schools: schools, withValues: countArr)
+        
     }
     
     func createRatings(){
@@ -95,6 +129,36 @@ class AdminStatisticsOneViewController: UIViewController {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         return numberFormatter.string(from: NSNumber(value: toComma))!
+    }
+    
+    //Pie Chart
+    func setPieChartFor(schools: [String], withValues : [Int]){
+        var dataEntries : [ChartDataEntry] = []
+        
+        for i in 0 ..< schools.count{
+           let dataEntry = ChartDataEntry(x: Double(i), y: Double(withValues[i]))
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = PieChartDataSet(values: dataEntries, label: "No. of Attendees")
+        let chartData = PieChartData(dataSet: chartDataSet)
+        
+        schoolChart.data = chartData
+        
+        //Customization
+        let red = UIColor.red
+        let orange = UIColor.orange
+        let yellow = UIColor(red:0.87, green:0.87, blue:0.13, alpha:1.0)
+        let lightGreen = UIColor(red:0.20, green:0.80, blue:0.20, alpha:1.0)
+        let darkGreen = UIColor(red:0.00, green:0.40, blue:0.00, alpha:1.0)
+        let colors = [red, orange, yellow, lightGreen, darkGreen, red, orange]
+        
+        chartDataSet.colors = colors
+        
+        schoolChart.legend.enabled = false
+        schoolChart.chartDescription?.text = ""
+        
+        schoolChart.isUserInteractionEnabled = false
     }
     
     //Rating numbers
