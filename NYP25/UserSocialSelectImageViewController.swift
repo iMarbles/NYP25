@@ -11,14 +11,17 @@ import UIKit
 class UserSocialSelectImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet var btnSave: UIButton!
+//    @IBOutlet var btnSave: UIButton!
     
+//    var social : Social
+    var socialImg : Social? = nil
+
     var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        btnSave.isHidden = true;
+        socialImg = Social()
+//        btnSave.isHidden = true;
         imageView.layer.masksToBounds = true
     }
     
@@ -44,22 +47,29 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
+    @IBOutlet weak var txtTesting: UITextField!
     
-    @IBAction func btnSave(sender: AnyObject) {
-        var imageData = UIImageJPEGRepresentation(imageView.image!, 0.6)
-        var compressedJPGImage = UIImage(data: imageData!)
+    @IBAction func btnSave() {
+        var imageData : NSData?
+        imageData = UIImageJPEGRepresentation(imageView.image!, 0.6)! as NSData
+//        var compressedJPGImage = UIImage(data: imageData! as Data)
+
         
-        UserSocialDM.uploadEventImage(socialPhotos: imageData! as NSData)
+        socialImg?.caption = txtTesting.text
+
+//        UserSocialDM.uploadEventImage(eventId: social.eventId, socialPhotos: imageData! as NSData)
+//        UserSocialDM.createPost(social: social!, socialPhotos: imageData! as NSData)
+        if socialImg != nil{
+            UserSocialDM.createPost(social: socialImg!, socialPhotos: imageData)
+        }
+
+//        UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, nil, nil, nil)
         
-        
-        
-        UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, nil, nil, nil)
-        
-        var alert = UIAlertView(title: "Wow",
-                                message: "Your image has been saved to Photo Library!",
-                                delegate: nil,
-                                cancelButtonTitle: "Ok")
-        alert.show()
+//        var alert = UIAlertView(title: "Wow",
+//                                message: "Your image has been saved to Photo Library!",
+//                                delegate: nil,
+//                                cancelButtonTitle: "Ok")
+//        alert.show()
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [String : Any]!) {
@@ -69,7 +79,7 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
         
         self.dismiss(animated: true, completion: nil);
         
-        btnSave.isHidden = false;
+//        btnSave.isHidden = false;
     }
     
     func noCamera(){

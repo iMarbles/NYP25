@@ -28,8 +28,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginBtnPressed(_ sender: Any) {
         //For quick login
-        usernameTb.text = "admin1"
-        //usernameTb.text = "142519G"
+//        usernameTb.text = "admin1"
+        usernameTb.text = "142519G"
         passwordTb.text = "P@ssw0rd"
         
         LoginDM.loginUser(username: usernameTb.text!, password: passwordTb.text!, onComplete: {
@@ -48,15 +48,4 @@ class LoginViewController: UIViewController {
             }
         })
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
