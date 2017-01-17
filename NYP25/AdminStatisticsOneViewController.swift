@@ -29,6 +29,8 @@ class AdminStatisticsOneViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        schoolChart.noDataText = "No event data available"
+        ratingChart.noDataText = "No event data available"
         loadEventAttendance()
     }
 
@@ -71,7 +73,14 @@ class AdminStatisticsOneViewController: UIViewController {
     }
     
     func createPieChart(){
-        
+        //Need to show number of attendees per school (Not unique, total)
+        var sbm = 0
+        var scl = 0
+        var sdn = 0
+        var seg = 0
+        var shs = 0
+        var sit = 0
+        var sidm = 0
     }
     
     func createRatings(){
@@ -147,9 +156,7 @@ class AdminStatisticsOneViewController: UIViewController {
     
     //Rating chart
     func setRatingChart(values : [Int]){
-        ratingChart.noDataText = "No rating available"
-        
-        let chartRatings = [1, 2, 3, 4,5]
+        let chartRatings = [1, 2, 3, 4, 5]
         
         var dataEntries : [BarChartDataEntry] = []
         for i in 0 ..< chartRatings.count{
