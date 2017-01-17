@@ -9,11 +9,11 @@
 import UIKit
 
 class Social: NSObject {
-    var uploader : String = ""
     var eventId : String = ""
     var photoUrl : String = ""
+    var uploader : String?
     var caption : String?
-    var postedDateTime : String = ""
+    var postedDateTime : String?
     var isFlagged : Int = 0
     var flagReason : String?
     var likes : [PhotoLike]?

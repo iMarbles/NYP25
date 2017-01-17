@@ -11,9 +11,8 @@ import UIKit
 class UserSocialSelectImageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     @IBOutlet var imageView: UIImageView!
-//    @IBOutlet var btnSave: UIButton!
+    @IBOutlet var btnSave: UIButton!
     
-//    var social : Social
     var socialImg : Social? = nil
 
     var imagePicker = UIImagePickerController()
@@ -21,7 +20,9 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
     override func viewDidLoad() {
         super.viewDidLoad()
         socialImg = Social()
-//        btnSave.isHidden = true;
+        
+        btnSave.isHidden = true;
+        
         imageView.layer.masksToBounds = true
     }
     
@@ -49,22 +50,22 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
     }
     @IBOutlet weak var txtTesting: UITextField!
     
-    @IBAction func btnSave() {
+    @IBAction func btnSave(sender: AnyObject) {
         var imageData : NSData?
         imageData = UIImageJPEGRepresentation(imageView.image!, 0.6)! as NSData
 //        var compressedJPGImage = UIImage(data: imageData! as Data)
-
         
         socialImg?.caption = txtTesting.text
-
-//        UserSocialDM.uploadEventImage(eventId: social.eventId, socialPhotos: imageData! as NSData)
-//        UserSocialDM.createPost(social: social!, socialPhotos: imageData! as NSData)
+        socialImg?.flagReason = txtTesting.text
+        socialImg?.postedDateTime = txtTesting.text
+        socialImg?.uploader = GlobalDM.CurrentUser!.userId
+        socialImg?.isFlagged = 0;
+        
         if socialImg != nil{
             UserSocialDM.createPost(social: socialImg!, socialPhotos: imageData)
         }
 
 //        UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, nil, nil, nil)
-        
 //        var alert = UIAlertView(title: "Wow",
 //                                message: "Your image has been saved to Photo Library!",
 //                                delegate: nil,
@@ -79,7 +80,7 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
         
         self.dismiss(animated: true, completion: nil);
         
-//        btnSave.isHidden = false;
+        btnSave.isHidden = false;
     }
     
     func noCamera(){

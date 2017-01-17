@@ -37,31 +37,21 @@ class UserSocialDM: NSObject {
     static func createPost(social : Social, socialPhotos : NSData?){
         let key = FIRDatabase.database().reference().child("social").childByAutoId().key
         let ref = FIRDatabase.database().reference().child("social/\(key)/")
-
-//        ref.setValue(["caption" : social.caption])
         
-        
-//
-//        ref.setValue([
-//            "name" : social.name,
-//            "address" : social.address,
-//            "description" : social.desc,
-//            "date" : social.date,
-//            "startTime" : social.startTime,
-//            "endTime" : social.endTime,
-//            "status" : social.status
-//            ])
-//
         ref.setValue([
-            "caption" : "\(social.caption!)"
+            "caption" : social.caption!,
+            "uploader" : social.uploader!,
+            "postedDateTime" : social.postedDateTime!,
+            "isFlagged" : social.isFlagged,
+            "flagReason" : social.flagReason!
             ])
+
+//        ref.setValue([ "caption" : "\(social.caption!)" ])
         
         uploadEventImage(eventId: key, socialPhotos: socialPhotos!)
     }
 
     static func uploadEventImage(eventId : String, socialPhotos : NSData){
-        
-//        let eventId = FIRDatabase.database().reference().child("social").childByAutoId().key
         let storage = FIRStorage.storage().reference().child("/SocialPhoto/\(eventId)/")
         
         let metadata = FIRStorageMetadata()
