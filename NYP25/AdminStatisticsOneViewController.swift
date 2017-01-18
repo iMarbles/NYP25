@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class AdminStatisticsOneViewController: UIViewController {
+class AdminStatisticsOneViewController: UIViewController, IValueFormatter {
     @IBOutlet weak var totalAttendanceLbl : UILabel!
     @IBOutlet weak var uniqueLbl : UILabel!
     @IBOutlet weak var ratingLbl : UILabel!
@@ -24,6 +24,10 @@ class AdminStatisticsOneViewController: UIViewController {
     
     var eventList : [Event] = []
     var attendanceList : [EventAttendance] = []
+    
+    let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SiDM"]
+    var schoolCount : [Int] = []
+    var sumOfAttendees = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +69,7 @@ class AdminStatisticsOneViewController: UIViewController {
         }
         
         //Show the attendance
+        sumOfAttendees = count
         totalAttendanceLbl.text = formatNumber(toComma: count)
     }
     
@@ -74,7 +79,6 @@ class AdminStatisticsOneViewController: UIViewController {
     
     func createPieChart(){
         //Need to show number of attendees per school (Not unique, total)
-        let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SiDM"]
         var sbm = 0
         var scl = 0
         var sdn = 0
@@ -85,8 +89,13 @@ class AdminStatisticsOneViewController: UIViewController {
         
         for attendance in attendanceList{
             let s = attendance.school
-            let count = attendance.events.count
-            
+            var count = 0
+            for event in attendance.events{
+                if event.checkIn != nil{
+                    count += 1
+                }
+            }
+
             if s == "SBM"{
                 sbm += count
             }
@@ -110,11 +119,10 @@ class AdminStatisticsOneViewController: UIViewController {
             }
         }
         
-        let countArr = [sbm, scl, sdn, seg, shs, sit, sidm]
+        schoolCount = [sbm, scl, sdn, seg, shs, sit, sidm]
         
         //To represent as pie chart
-        setPieChartFor(schools: schools, withValues: countArr)
-        
+        setPieChartFor(schools: schools, withValues: schoolCount)
     }
     
     func createRatings(){
@@ -129,6 +137,21 @@ class AdminStatisticsOneViewController: UIViewController {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         return numberFormatter.string(from: NSNumber(value: toComma))!
+    }
+    
+    //Formatting numbers for pie chart
+    func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
+        //To show percentage
+        // x / sum * 100
+        let asPercent = (value / Double(sumOfAttendees)) * 100.0
+    
+        let s = "\(asPercent)% \n " + schools[Int(entry.x)]
+        
+        if value != 0{
+            return s
+        }else{
+            return ""
+        }
     }
     
     //Pie Chart
@@ -146,12 +169,15 @@ class AdminStatisticsOneViewController: UIViewController {
         schoolChart.data = chartData
         
         //Customization
-        let red = UIColor.red
-        let orange = UIColor.orange
-        let yellow = UIColor(red:0.87, green:0.87, blue:0.13, alpha:1.0)
-        let lightGreen = UIColor(red:0.20, green:0.80, blue:0.20, alpha:1.0)
-        let darkGreen = UIColor(red:0.00, green:0.40, blue:0.00, alpha:1.0)
-        let colors = [red, orange, yellow, lightGreen, darkGreen, red, orange]
+        let sbmCol = UIColor.purple
+        let sclCol = UIColor.yellow
+        let sdnCol = UIColor.orange
+        let segCol = UIColor.red
+        let shsCol = UIColor.green
+        let sitCol = UIColor.blue
+        let sidmCol = UIColor.magenta
+        
+        let colors = [sbmCol, sclCol, sdnCol, segCol, shsCol, sitCol, sidmCol]
         
         chartDataSet.colors = colors
         
@@ -159,6 +185,23 @@ class AdminStatisticsOneViewController: UIViewController {
         schoolChart.chartDescription?.text = ""
         
         schoolChart.isUserInteractionEnabled = false
+        
+        let centerText = NSMutableAttributedString()
+        let numberText = NSMutableAttributedString(string: "Attendance", attributes: [NSForegroundColorAttributeName:UIColor.black,NSFontAttributeName: UIFont(name: "Arial",size:25)!])
+        let descriptionText = NSMutableAttributedString(string: "\n    by School", attributes: [NSForegroundColorAttributeName:UIColor.black,NSFontAttributeName: UIFont(name: "Arial",size:20)!])
+        centerText.append(numberText)
+        centerText.append(descriptionText)
+        schoolChart.centerAttributedText = centerText
+        
+        schoolChart.data?.setValueFormatter(self)
+        /*
+         let circleColor = UIColor.black
+         let textColor = UIColor.white
+         schoolChart.holeRadiusPercent = 0.3
+         schoolChart.transparentCircleRadiusPercent = 0.0
+         schoolChart.centerTextRadiusPercent = 1.0
+         schoolChart.holeColor = circleColor
+         */
     }
     
     //Rating numbers
