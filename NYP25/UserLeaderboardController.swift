@@ -42,15 +42,15 @@ class UserLeaderboardController: UIViewController {
     @IBOutlet weak var leaderboardChart: HorizontalBarChartView!
     
     
-    let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SiDM"]
-    var schoolCount : [Int] = []
+//    let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SiDM"]
+//    var schoolCount : [Int] = []
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        leaderboardChart.noDataText = "No event data available"
+//        leaderboardChart.noDataText = "No event data available"
         
     }
     

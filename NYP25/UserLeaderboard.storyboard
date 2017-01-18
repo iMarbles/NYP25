@@ -228,6 +228,7 @@
                         <outlet property="sitLbl" destination="P44-8t-JmB" id="fLJ-Y6-DR2"/>
                         <outlet property="sitScoreLbl" destination="AzY-Oj-ZpI" id="ymu-hK-0Ma"/>
                         <outlet property="thirdLbl" destination="xyx-kt-uIR" id="EMZ-Yq-Tfh"/>
+                        <outlet property="yellow" destination="jPW-GR-P9b" id="oxh-tq-kmJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azt-ZS-ODI" userLabel="First Responder" sceneMemberID="firstResponder"/>
