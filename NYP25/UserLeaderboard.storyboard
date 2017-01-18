@@ -11,7 +11,7 @@
         <!--Leaderboard-->
         <scene sceneID="vXB-0e-lEY">
             <objects>
-                <viewController storyboardIdentifier="UserLeaderboard" id="fCp-Np-qxh" customClass="UserLeaderboardController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserLeaderboard" id="fCp-Np-qxh" customClass="UserLeaderboardController" customModule="NYP25" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nvs-mB-DbB"/>
                         <viewControllerLayoutGuide type="bottom" id="VkX-yz-lAV"/>
