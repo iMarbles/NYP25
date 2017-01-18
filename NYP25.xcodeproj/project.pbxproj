@@ -89,6 +89,7 @@
 		81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */; };
 		81FADAFF1DE4453E007D27C8 /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */; };
 		81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */; };
+		AFF70B951E2FB7DD00FF1A92 /* UserLeaderboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF70B941E2FB7DD00FF1A92 /* UserLeaderboardController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -242,6 +243,7 @@
 		81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
 		81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AFF70B941E2FB7DD00FF1A92 /* UserLeaderboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLeaderboardController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,6 +439,7 @@
 				612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */,
 				61CCEC9D1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift */,
 				61F216571E2F5E08009321B5 /* UserSocialProfilePhotoTableViewController.swift */,
+				AFF70B941E2FB7DD00FF1A92 /* UserLeaderboardController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				612647131E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift in Sources */,
 				816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */,
 				046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */,
+				AFF70B951E2FB7DD00FF1A92 /* UserLeaderboardController.swift in Sources */,
 				04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */,
 				61B149F91E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift in Sources */,
 				04ED183D1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift in Sources */,
