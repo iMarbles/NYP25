@@ -42,7 +42,8 @@ class UserSocialUploadImageViewController: UIViewController {
         socialImg?.isFlagged = 0;
         
         if socialImg != nil{
-            UserSocialDM.createPost(social: socialImg!, socialPhotos: imageData)
+//            UserSocialDM.createPost(social: socialImg!, socialPhotos: imageData)
+            UserSocialDM.createPost(eventId: (GlobalDM.CurrentUser?.userId)!, social: socialImg!, socialPhotos: imageData)
         }
         
 //        UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, nil, nil, nil)

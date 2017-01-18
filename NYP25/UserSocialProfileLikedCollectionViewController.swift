@@ -19,6 +19,10 @@ class UserSocialProfileLikedCollectionViewController: UICollectionViewController
         super.viewDidLoad()
         
         loadPhotos()
+        
+//        self.automaticallyAdjustsScrollViewInsets = false
+//        self.collectionView?.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0)
+
     }
     
     func loadPhotos(){
