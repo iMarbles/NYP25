@@ -146,12 +146,15 @@ class AdminStatisticsOneViewController: UIViewController {
         schoolChart.data = chartData
         
         //Customization
-        let red = UIColor.red
-        let orange = UIColor.orange
-        let yellow = UIColor(red:0.87, green:0.87, blue:0.13, alpha:1.0)
-        let lightGreen = UIColor(red:0.20, green:0.80, blue:0.20, alpha:1.0)
-        let darkGreen = UIColor(red:0.00, green:0.40, blue:0.00, alpha:1.0)
-        let colors = [red, orange, yellow, lightGreen, darkGreen, red, orange]
+        let sbmCol = UIColor.purple
+        let sclCol = UIColor.yellow
+        let sdnCol = UIColor.orange
+        let segCol = UIColor.red
+        let shsCol = UIColor.green
+        let sitCol = UIColor.blue
+        let sidmCol = UIColor.magenta
+        
+        let colors = [sbmCol, sclCol, sdnCol, segCol, shsCol, sitCol, sidmCol]
         
         chartDataSet.colors = colors
         
