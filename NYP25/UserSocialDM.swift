@@ -11,26 +11,70 @@ import Firebase
 import FirebaseStorage
 
 class UserSocialDM: NSObject {
+    static func createPost(eventId : String, social : Social, socialPhotos : NSData?){
+        let key = FIRDatabase.database().reference().child("social").childByAutoId().key
+        let ref = FIRDatabase.database().reference().child("social/\(key)/")
+        let storage = FIRStorage.storage().reference().child("/SocialPhoto/\(eventId)/")
+        
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        let currentDate = NSDate()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd, HH:mm"
+        
+        let result = dateFormatter.string(from: currentDate as Date)
+        
+        storage.put(socialPhotos as! Data, metadata: metadata){(metaData,error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }else{
+                //store downloadURL
+                let downloadURL = metaData!.downloadURL()!.absoluteString
+                
+                //store downloadURL at database
+                ref.setValue([
+                    "caption" : social.caption!,
+                    "uploader" : social.uploader!,
+                    "postedDateTime" : result,
+                    "isFlagged" : social.isFlagged,
+                    "flagReason" : social.flagReason!,
+                    "photoUrl" : downloadURL
+                    ])
+            }
+        }
+    }
 
+    //Retrieve current user info
+    static func retrieveAllUserInfo(userId : String, onComplete: @escaping (Student)->Void){
+        let ref = FIRDatabase.database().reference().child("users/\(userId)/")
+
+        ref.observeSingleEvent(of: .value, with:
+            { (snapshot) in
+                let s = Student()
+                
+                s.userId = snapshot.key
+                s.username = (snapshot.childSnapshot(forPath: "username").value as? String)!
+                s.displayPhotoUrl = snapshot.childSnapshot(forPath: "displayPhotoUrl").value as? String
+            
+                onComplete(s)
+        })
+    }
+    
     //Retrieve all events
     static func retrieveAllSocial(onComplete: @escaping ([Social])->Void){
         var socialList : [Social] = []
         
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateStyle = DateFormatter.Style.medium
-        let result = formatter.string(from: date)
-        
-//        let ref = FIRDatabase.database().reference().child("social/")
-//        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
-        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime").queryEnding(atValue: result)
+        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
         
         ref.observe(FIRDataEventType.value, with:{
             (snapshot) in
             
             socialList = []
             
-            for record in snapshot.children{
+            //.reversed() - for descending order
+            for record in snapshot.children.reversed(){
                 let r = record as! FIRDataSnapshot
                 
                 let s = Social()
@@ -101,73 +145,47 @@ class UserSocialDM: NSObject {
         })
     }
     
-    static func createPost(social : Social, socialPhotos : NSData?){
-        let key = FIRDatabase.database().reference().child("social").childByAutoId().key
-        let ref = FIRDatabase.database().reference().child("social/\(key)/")
-        
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateStyle = DateFormatter.Style.medium
-        let result = formatter.string(from: date)
-
-        
-        ref.setValue([
-            "caption" : social.caption!,
-            "uploader" : social.uploader!,
-            "postedDateTime" : result,
-            "isFlagged" : social.isFlagged,
-            "flagReason" : social.flagReason!
-            ])
-
-//        ref.setValue([ "caption" : "\(social.caption!)" ])
-        
-        uploadEventImage(eventId: key, socialPhotos: socialPhotos!)
-    }
-
-    static func uploadEventImage(eventId : String, socialPhotos : NSData){
-        let storage = FIRStorage.storage().reference().child("/SocialPhoto/\(eventId)/")
-        
-        let metadata = FIRStorageMetadata()
-        metadata.contentType = "image/jpeg"
-        
-        storage.put(socialPhotos as Data, metadata: metadata){(metaData,error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }else{
-                //store downloadURL
-                let downloadURL = metaData!.downloadURL()!.absoluteString
-                
-                //store downloadURL at database
-                FIRDatabase.database().reference().child("social/\(eventId)").updateChildValues(["photoUrl" : downloadURL])
-            }
-            
-        }
-    }
+    //    static func createPost(social : Social, socialPhotos : NSData?){
+    //        let key = FIRDatabase.database().reference().child("social").childByAutoId().key
+    //        let ref = FIRDatabase.database().reference().child("social/\(key)/")
+    //
+    //        let currentDate = NSDate()
+    //        let dateFormatter = DateFormatter()
+    //        dateFormatter.dateFormat = "yyyyMMdd, HH:mm"
+    //
+    //        let result = dateFormatter.string(from: currentDate as Date)
+    //
+    //        ref.setValue([
+    //            "caption" : social.caption!,
+    //            "uploader" : social.uploader!,
+    //            "postedDateTime" : result,
+    //            "isFlagged" : social.isFlagged,
+    //            "flagReason" : social.flagReason!
+    //            ])
+    //
+    //        //        ref.setValue([ "caption" : "\(social.caption!)" ])
+    //
+    //        uploadEventImage(eventId: key, socialPhotos: socialPhotos!)
+    //    }
     
-    //Retrieve Profile Photo
-    static func retrieveUserProfilePhoto(onComplete: @escaping ([Student])->Void){
-        var userList : [Student] = []
-
-        let ref = FIRDatabase.database().reference().child("users/")
-        
-        ref.observe(FIRDataEventType.value, with:{
-            (snapshot) in
-                    
-            for record in snapshot.children{
-                let r = record as! FIRDataSnapshot
-                
-                let stud = Student()
-                
-                stud.userId = r.key
-                stud.name = (r.childSnapshot(forPath: "name").value as? String)!
-                stud.displayPhotoUrl = r.childSnapshot(forPath: "displayPhoto").value as? String
-                stud.username = (r.childSnapshot(forPath: "username").value as? String)!
-                
-                userList.append(stud)
-            }
-            
-            onComplete(userList)
-        })
-    }
+    //    static func uploadEventImage(eventId : String, socialPhotos : NSData){
+    //        let storage = FIRStorage.storage().reference().child("/SocialPhoto/\(eventId)/")
+    //
+    //        let metadata = FIRStorageMetadata()
+    //        metadata.contentType = "image/jpeg"
+    //
+    //        storage.put(socialPhotos as Data, metadata: metadata){(metaData,error) in
+    //            if let error = error {
+    //                print(error.localizedDescription)
+    //                return
+    //            }else{
+    //                //store downloadURL
+    //                let downloadURL = metaData!.downloadURL()!.absoluteString
+    //
+    //                //store downloadURL at database
+    //                FIRDatabase.database().reference().child("social/\(eventId)").updateChildValues(["photoUrl" : downloadURL])
+    //            }
+    //            
+    //        }
+    //    }
 }
