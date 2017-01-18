@@ -9,11 +9,18 @@
 import UIKit
 
 class AdminStatisticsTwoViewController: UIViewController {
-
+    @IBOutlet weak var expectedView : UIView!
+    @IBOutlet weak var turnoutView : UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        expectedView.layer.borderColor = UIColor.black.cgColor
+        expectedView.layer.borderWidth = 1.0
+        expectedView.clipsToBounds = true
+    
     }
 
     override func didReceiveMemoryWarning() {
