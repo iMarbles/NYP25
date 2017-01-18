@@ -1,5 +1,5 @@
 //
-//  UserSocialProfileLikedCollectionViewController.swift
+//  UserSocialMainAlbumCollectionViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 18/1/17.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-private let reuseIdentifier = "likedPhotosCell"
+private let reuseIdentifier = "AlbumViewCell"
 
-class UserSocialProfileLikedCollectionViewController: UICollectionViewController , UICollectionViewDelegateFlowLayout {
+class UserSocialMainAlbumCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var social : Social?
     var socialPhotos : [Social] = []
@@ -42,15 +42,16 @@ class UserSocialProfileLikedCollectionViewController: UICollectionViewController
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return socialPhotos.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "likedPhotosCell", for: indexPath) as! UserSocialProfileLikedCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumViewCell", for: indexPath) as! UserSocialMainAlbumCollectionViewCell
         
-        loadSocialImage(imageView: cell.socialLikedImage, url: socialPhotos[(indexPath as IndexPath).row].photoUrl!)
+        loadSocialImage(imageView: cell.socialPhoto, url: socialPhotos[(indexPath as IndexPath).row].photoUrl!)
         return cell
     }
     

@@ -12,8 +12,6 @@ import FirebaseStorage
 
 class UserSocialDM: NSObject {
 
-
-    
     //Retrieve all events
     static func retrieveAllSocial(onComplete: @escaping ([Social])->Void){
         var socialList : [Social] = []
@@ -50,8 +48,36 @@ class UserSocialDM: NSObject {
             
             onComplete(socialList)
         })
-        
     }
+    
+    //Retrieve all social album
+    static func retrieveAllSocialAlbum(onComplete: @escaping ([Social])->Void){
+        var socialList : [Social] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/")
+        
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            socialList = []
+            
+            for record in snapshot.children{
+                let r = record as! FIRDataSnapshot
+                
+                let s = Social()
+                
+                s.eventId = r.key
+                s.uploader = r.childSnapshot(forPath: "uploader").value as? String
+                s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
+
+                socialList.append(s)
+            }
+            
+            onComplete(socialList)
+        })
+    }
+    
+    
     
     //Retrieve all images of event by ID
     static func retrieveEventPhotos(onComplete: @escaping ([Social])->Void){
@@ -93,9 +119,6 @@ class UserSocialDM: NSObject {
             "flagReason" : social.flagReason!
             ])
 
-//        print("Timestamp: \(Timestamp)")
-
-
 //        ref.setValue([ "caption" : "\(social.caption!)" ])
         
         uploadEventImage(eventId: key, socialPhotos: socialPhotos!)
@@ -120,5 +143,31 @@ class UserSocialDM: NSObject {
             }
             
         }
+    }
+    
+    //Retrieve Profile Photo
+    static func retrieveUserProfilePhoto(onComplete: @escaping ([Student])->Void){
+        var userList : [Student] = []
+
+        let ref = FIRDatabase.database().reference().child("users/")
+        
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+                    
+            for record in snapshot.children{
+                let r = record as! FIRDataSnapshot
+                
+                let stud = Student()
+                
+                stud.userId = r.key
+                stud.name = (r.childSnapshot(forPath: "name").value as? String)!
+                stud.displayPhotoUrl = r.childSnapshot(forPath: "displayPhoto").value as? String
+                stud.username = (r.childSnapshot(forPath: "username").value as? String)!
+                
+                userList.append(stud)
+            }
+            
+            onComplete(userList)
+        })
     }
 }

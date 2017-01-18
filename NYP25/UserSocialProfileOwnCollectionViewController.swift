@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let reuseIdentifier = "ProfilePageOwnCell"
+private let reuseIdentifier = "ownPhotosCell"
 
 class UserSocialProfileOwnCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -48,7 +48,7 @@ class UserSocialProfileOwnCollectionViewController: UICollectionViewController, 
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfilePageOwnCell", for: indexPath) as! UserSocialProfileOwnCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ownPhotosCell", for: indexPath) as! UserSocialProfileOwnCollectionViewCell
         
         loadSocialImage(imageView: cell.socialOwnImage, url: socialPhotos[(indexPath as IndexPath).row].photoUrl!)
         return cell
