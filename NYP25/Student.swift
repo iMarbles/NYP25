@@ -13,7 +13,7 @@ class Student: User {
     var username : String = ""
     var points : Int = 0
     var bio : String?
-    var displayBadge : String?
-    var displayPhoto : String?
+    var displayBadgeUrl : String?
+    var displayPhotoUrl : String?
     var badges : [UserBadge]?
 }

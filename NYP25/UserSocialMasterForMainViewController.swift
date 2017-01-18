@@ -13,16 +13,24 @@ class UserSocialMasterForMainViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var listView: UIView!
     @IBOutlet weak var gridView: UIView!
+    @IBOutlet weak var albumView: UIView!
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             listView.isHidden = false
             gridView.isHidden = true
+            albumView.isHidden = true
             
         case 1:
             listView.isHidden = true
             gridView.isHidden = false
+            albumView.isHidden = true
+            
+        case 2:
+            listView.isHidden = true
+            gridView.isHidden = true
+            albumView.isHidden = false
             
         default:
             break;
