@@ -194,6 +194,8 @@ class AdminStatisticsOneViewController: UIViewController, IValueFormatter {
         schoolChart.centerAttributedText = centerText
         
         schoolChart.data?.setValueFormatter(self)
+        
+        schoolChart.animate(xAxisDuration: 1.0)
         /*
          let circleColor = UIColor.black
          let textColor = UIColor.white
