@@ -39,13 +39,28 @@ class UserLeaderboardController: UIViewController {
     @IBOutlet weak var secondLbl: UILabel!
     @IBOutlet weak var thirdLbl: UILabel!
     
+    @IBOutlet weak var leaderboardChart: HorizontalBarChartView!
+    
+    
+    let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SiDM"]
+    var schoolCount : [Int] = []
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        leaderboardChart.noDataText = "No event data available"
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
+    
+    
 }
