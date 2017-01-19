@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import Charts
 
 class AdminStatisticsTwoViewController: UIViewController {
+    @IBOutlet weak var percentLbl : UILabel!
+    @IBOutlet weak var expectedLbl : UILabel!
+    @IBOutlet weak var upcomingEventLbl : UILabel!
+    @IBOutlet weak var schoolChart : BarChartView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +26,10 @@ class AdminStatisticsTwoViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func schoolChartPressed(sender: Any){
+        
     }
     
 
