@@ -16,25 +16,41 @@ class UserSocialMasterForProfileViewController: UIViewController {
     @IBOutlet weak var usernameLbl: UILabel!
     @IBOutlet weak var profilePhotoView: UIImageView!
     
-    @IBAction func indexChanged(sender: UISegmentedControl) {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            likedPhotosView.isHidden = true
-            selfUploadView.isHidden = false
-            
-        case 1:
-            likedPhotosView.isHidden = false
-            selfUploadView.isHidden = true
-            
-        default:
-            break;
-        }
+//    @IBOutlet weak var likedPhotosBtn: UIButton!
+//    @IBOutlet weak var selfUploadBtn: UIButton!
+    
+    @IBAction func likedPhotoBtn(sender: UIButton){
+        likedPhotosView.isHidden = true
+        selfUploadView.isHidden = false
     }
+    
+    @IBAction func selfUploadBtn(sender: UIButton){
+        likedPhotosView.isHidden = false
+        selfUploadView.isHidden = true
+    }
+    
+//    @IBAction func indexChanged(sender: UISegmentedControl) {
+//        switch segmentedControl.selectedSegmentIndex {
+//        case 0:
+//            likedPhotosView.isHidden = true
+//            selfUploadView.isHidden = false
+//            
+//        case 1:
+//            likedPhotosView.isHidden = false
+//            selfUploadView.isHidden = true
+//            
+//        default:
+//            break;
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Circle Profile Photo
+        likedPhotosView.isHidden = true
+        selfUploadView.isHidden = false
+        
+        /* Circle Profile Photo */
 //        profilePhotoView.layer.borderWidth = 1
         profilePhotoView.layer.masksToBounds = false
 //        profilePhotoView.layer.borderColor = UIColor.white.cgColor
@@ -44,6 +60,7 @@ class UserSocialMasterForProfileViewController: UIViewController {
         UserSocialDM.retrieveAllUserInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (user) in
             self.loadSocialImage(imageView: self.profilePhotoView, url: user.displayPhotoUrl!)
             self.usernameLbl.text = user.username
+            self.title =  user.username
         })
     }
     
