@@ -106,7 +106,10 @@ class AdminStatisticsMoreTableViewController: UITableViewController, IValueForma
         schoolChart.isUserInteractionEnabled = false
         
         lineChartDataSet.colors = [colors[atIndex]]
-        lineChartDataSet.drawCirclesEnabled = false
+        lineChartDataSet.circleColors = [colors[atIndex]]
+        lineChartDataSet.circleRadius = 5
+        lineChartDataSet.circleHoleRadius = 0
+        //lineChartDataSet.drawCirclesEnabled = false
         lineChartDataSet.drawFilledEnabled = true
         lineChartDataSet.fillColor = colors[atIndex]
         
