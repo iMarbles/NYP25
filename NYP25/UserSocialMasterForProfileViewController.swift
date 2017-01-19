@@ -29,21 +29,6 @@ class UserSocialMasterForProfileViewController: UIViewController {
         selfUploadView.isHidden = true
     }
     
-//    @IBAction func indexChanged(sender: UISegmentedControl) {
-//        switch segmentedControl.selectedSegmentIndex {
-//        case 0:
-//            likedPhotosView.isHidden = true
-//            selfUploadView.isHidden = false
-//            
-//        case 1:
-//            likedPhotosView.isHidden = false
-//            selfUploadView.isHidden = true
-//            
-//        default:
-//            break;
-//        }
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,9 +36,7 @@ class UserSocialMasterForProfileViewController: UIViewController {
         selfUploadView.isHidden = false
         
         /* Circle Profile Photo */
-//        profilePhotoView.layer.borderWidth = 1
         profilePhotoView.layer.masksToBounds = false
-//        profilePhotoView.layer.borderColor = UIColor.white.cgColor
         profilePhotoView.layer.cornerRadius = profilePhotoView.frame.height/2
         profilePhotoView.clipsToBounds = true
         
@@ -61,6 +44,8 @@ class UserSocialMasterForProfileViewController: UIViewController {
             self.loadSocialImage(imageView: self.profilePhotoView, url: user.displayPhotoUrl!)
             self.usernameLbl.text = user.username
             self.title =  user.username
+            
+//            self.likedPhotosBtn.setTitle("Button Title", for: UIControlState.normal)
         })
     }
     
@@ -101,4 +86,19 @@ class UserSocialMasterForProfileViewController: UIViewController {
                 
         }
     }
+    
+    //    @IBAction func indexChanged(sender: UISegmentedControl) {
+    //        switch segmentedControl.selectedSegmentIndex {
+    //        case 0:
+    //            likedPhotosView.isHidden = true
+    //            selfUploadView.isHidden = false
+    //
+    //        case 1:
+    //            likedPhotosView.isHidden = false
+    //            selfUploadView.isHidden = true
+    //
+    //        default:
+    //            break;
+    //        }
+    //    }
 }

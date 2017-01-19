@@ -497,7 +497,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="174.5" height="174.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="175" height="174"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="174" height="174"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="huo-kA-NLc">
@@ -777,31 +777,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="490"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hE-oy-aw0">
-                                <rect key="frame" x="8" y="72" width="359" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hE-oy-aw0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.31288343558282211" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Upload Photo"/>
                                 <connections>
                                     <action selector="btnSaveWithSender:" destination="0qj-GX-TnX" eventType="touchUpInside" id="Fk3-Ck-2A3"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SiH-en-Krc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SiH-en-Krc">
                                 <rect key="frame" x="8" y="261" width="359" height="329"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="329" id="heK-tO-6Du"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cIe-6a-zky">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cIe-6a-zky">
                                 <rect key="frame" x="8" y="145" width="359" height="108"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.23606057363013699" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="108" id="PpJ-aO-DJT"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RiO-ll-p51">
-                                <rect key="frame" x="0.0" y="99" width="375" height="38"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RiO-ll-p51">
+                                <rect key="frame" x="8" y="38" width="359" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="99" id="Rtx-Hs-DeQ"/>
+                                </constraints>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cIe-6a-zky" firstAttribute="top" secondItem="RiO-ll-p51" secondAttribute="bottom" constant="8" symbolic="YES" id="232-ql-3C9"/>
+                            <constraint firstItem="RiO-ll-p51" firstAttribute="top" secondItem="9hE-oy-aw0" secondAttribute="bottom" constant="8" symbolic="YES" id="5Sa-W7-Xru"/>
+                            <constraint firstItem="9hE-oy-aw0" firstAttribute="top" secondItem="5NI-9d-6lc" secondAttribute="bottom" id="Ada-5r-rUI"/>
+                            <constraint firstAttribute="trailing" secondItem="9hE-oy-aw0" secondAttribute="trailing" id="Ivf-rN-KZw"/>
+                            <constraint firstItem="cIe-6a-zky" firstAttribute="leading" secondItem="Zrv-Zq-GIJ" secondAttribute="leading" constant="8" id="O4c-Un-Flq"/>
+                            <constraint firstItem="SiH-en-Krc" firstAttribute="top" secondItem="cIe-6a-zky" secondAttribute="bottom" constant="8" symbolic="YES" id="Qao-fL-sD3"/>
+                            <constraint firstItem="cIe-6a-zky" firstAttribute="leading" secondItem="SiH-en-Krc" secondAttribute="leading" id="Sbg-JM-vD9"/>
+                            <constraint firstAttribute="trailing" secondItem="cIe-6a-zky" secondAttribute="trailing" constant="8" id="aoq-yh-Oef"/>
+                            <constraint firstAttribute="trailing" secondItem="RiO-ll-p51" secondAttribute="trailing" constant="8" id="e7F-0S-SIX"/>
+                            <constraint firstItem="RiO-ll-p51" firstAttribute="leading" secondItem="Zrv-Zq-GIJ" secondAttribute="leading" constant="8" id="jhZ-tN-O7E"/>
+                            <constraint firstItem="9hE-oy-aw0" firstAttribute="leading" secondItem="Zrv-Zq-GIJ" secondAttribute="leading" id="pUC-wk-mA3"/>
+                            <constraint firstItem="cIe-6a-zky" firstAttribute="trailing" secondItem="SiH-en-Krc" secondAttribute="trailing" id="rOW-G0-fL7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Post" id="Vbi-Zb-xqH"/>
                     <connections>
@@ -811,7 +831,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uOs-4h-zLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3812" y="-756"/>
+            <point key="canvasLocation" x="3812" y="-756.52173913043487"/>
         </scene>
         <!--User Social Profile Page-->
         <scene sceneID="FFr-18-7bK">
@@ -916,6 +936,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mj5-go-B7N"/>
-        <segue reference="y7g-fu-owB"/>
+        <segue reference="kjK-3Z-7E9"/>
     </inferredMetricsTieBreakers>
 </document>
