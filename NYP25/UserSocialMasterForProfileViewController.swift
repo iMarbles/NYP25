@@ -19,12 +19,12 @@ class UserSocialMasterForProfileViewController: UIViewController {
     @IBAction func indexChanged(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            likedPhotosView.isHidden = false
-            selfUploadView.isHidden = true
-            
-        case 1:
             likedPhotosView.isHidden = true
             selfUploadView.isHidden = false
+            
+        case 1:
+            likedPhotosView.isHidden = false
+            selfUploadView.isHidden = true
             
         default:
             break;
@@ -33,7 +33,14 @@ class UserSocialMasterForProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //Circle Profile Photo
+//        profilePhotoView.layer.borderWidth = 1
+        profilePhotoView.layer.masksToBounds = false
+//        profilePhotoView.layer.borderColor = UIColor.white.cgColor
+        profilePhotoView.layer.cornerRadius = profilePhotoView.frame.height/2
+        profilePhotoView.clipsToBounds = true
+        
         UserSocialDM.retrieveAllUserInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (user) in
             self.loadSocialImage(imageView: self.profilePhotoView, url: user.displayPhotoUrl!)
             self.usernameLbl.text = user.username
