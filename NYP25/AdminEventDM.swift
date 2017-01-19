@@ -210,7 +210,7 @@ class AdminEventDM: NSObject {
                     let r = record as! FIRDataSnapshot
                     
                     let photo = Social()
-                    photo.photoUrl = r.childSnapshot(forPath: "photoUrl").value as! String
+                    photo.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
                     //To add-on as needed
                     
                     socialPhotos.append(photo)
@@ -218,8 +218,6 @@ class AdminEventDM: NSObject {
                 onComplete(socialPhotos)
         })
     }
-    
-    //Delete event
     
     //Admin Stats
     static func retrieveAllEventAttendance(onComplete: @escaping([EventAttendance])->Void){
