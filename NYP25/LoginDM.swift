@@ -90,5 +90,7 @@ class LoginDM: NSObject {
          let ref = FIRDatabase.database().reference().child("users/\(GlobalDM.CurrentUser!.userId)")
         
         ref.updateChildValues(["password" : shaHex])
+        
+        GlobalDM.CurrentUser?.password = shaHex
     }
 }

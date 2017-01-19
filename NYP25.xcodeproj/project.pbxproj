@@ -18,6 +18,8 @@
 		04EA47371E13DB1F006797D9 /* AdminEventsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */; };
 		04EA47391E1401E3006797D9 /* AdminEventsReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */; };
 		04EA63AE1E1626DE00CBE4A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04EA63AD1E1626DE00CBE4A9 /* Assets.xcassets */; };
+		04ECCCCF1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ECCCCE1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift */; };
+		04ECCCD11E30B3FA00BEB70C /* AdminStatisticsMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ECCCD01E30B3FA00BEB70C /* AdminStatisticsMoreTableViewCell.swift */; };
 		04ED18391E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED18381E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift */; };
 		04ED183B1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED183A1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift */; };
 		04ED183D1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED183C1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift */; };
@@ -161,6 +163,8 @@
 		04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryViewController.swift; sourceTree = "<group>"; };
 		04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsReviewViewController.swift; sourceTree = "<group>"; };
 		04EA63AD1E1626DE00CBE4A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04ECCCCE1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsMoreTableViewController.swift; sourceTree = "<group>"; };
+		04ECCCD01E30B3FA00BEB70C /* AdminStatisticsMoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsMoreTableViewCell.swift; sourceTree = "<group>"; };
 		04ED18381E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsMasterViewController.swift; sourceTree = "<group>"; };
 		04ED183A1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsOneViewController.swift; sourceTree = "<group>"; };
 		04ED183C1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsTwoViewController.swift; sourceTree = "<group>"; };
@@ -402,6 +406,7 @@
 				6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */,
 				612647111E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift */,
 				6126470F1E2E86D6008DC73A /* UserSocialProfileOwnCollectionViewCell.swift */,
+				04ECCCD01E30B3FA00BEB70C /* AdminStatisticsMoreTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 				04ED18381E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift */,
 				04ED183A1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift */,
 				04ED183C1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift */,
+				04ECCCCE1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift */,
 				81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */,
 				61B149F81E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift */,
 				61B149FE1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift */,
@@ -655,6 +661,7 @@
 				61ABEC491E2B392500786152 /* UserSocialSelectImageViewController.swift in Sources */,
 				04E6489B1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift in Sources */,
 				81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */,
+				04ECCCD11E30B3FA00BEB70C /* AdminStatisticsMoreTableViewCell.swift in Sources */,
 				61C130C11E289901006E4191 /* UserSocialDM.swift in Sources */,
 				04EA47351E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift in Sources */,
 				04ED183B1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift in Sources */,
@@ -686,6 +693,7 @@
 				81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */,
 				612647181E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift in Sources */,
 				8166BC511DF6862100FAA37C /* Social.swift in Sources */,
+				04ECCCCF1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift in Sources */,
 				04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */,
 				61B149FF1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift in Sources */,
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
