@@ -168,16 +168,7 @@ class AdminStatisticsOneViewController: UIViewController, IValueFormatter {
         
         schoolChart.data = chartData
         
-        //Customization
-        let sbmCol = UIColor.purple
-        let sclCol = UIColor.yellow
-        let sdnCol = UIColor.orange
-        let segCol = UIColor.red
-        let shsCol = UIColor.green
-        let sitCol = UIColor.blue
-        let sidmCol = UIColor.magenta
-        
-        let colors = [sbmCol, sclCol, sdnCol, segCol, shsCol, sitCol, sidmCol]
+        let colors = [GlobalDM.sbmCol, GlobalDM.sclCol, GlobalDM.sdnCol, GlobalDM.segCol, GlobalDM.shsCol, GlobalDM.sitCol, GlobalDM.sidmCol]
         
         chartDataSet.colors = colors
         

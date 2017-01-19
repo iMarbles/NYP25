@@ -12,6 +12,15 @@ class GlobalDM: NSObject {
     static var CurrentUser : User?
     static var CurrentStudent : Student?
     
+    //School colours
+    static var sbmCol : UIColor = UIColor.purple
+    static var sclCol : UIColor = UIColor(red:0.80, green:0.80, blue:0.00, alpha:1.0)
+    static var sdnCol : UIColor = UIColor.orange
+    static var segCol : UIColor = UIColor.red
+    static var shsCol : UIColor = UIColor(red:0.20, green:0.80, blue:0.20, alpha:1.0)
+    static var sitCol : UIColor = UIColor.blue
+    static var sidmCol : UIColor = UIColor.magenta
+    
     static func getDayNameBy(stringDate: String) -> String
     {
         let df  = DateFormatter()

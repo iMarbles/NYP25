@@ -15,6 +15,7 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
     @IBOutlet weak var upcomingEventLbl : UILabel!
     @IBOutlet weak var schoolChart : BarChartView!
     
+    var eventList : [Event] = []
     var attendanceList : [EventAttendance] = []
     
     let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SiDM"]
@@ -35,6 +36,9 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
 
     //Loading of all events first
     func loadEventAttendance(){
+        AdminEventDM.retrieveAllEvents(onComplete: {(listFromDb) in
+            self.eventList = listFromDb
+        })
         AdminEventDM.retrieveAllEventAttendance(onComplete: { (attendanceFromDb) in
             self.attendanceList = attendanceFromDb
             
@@ -105,15 +109,8 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
         schoolChart.data = chartData
         
         //Customization
-        let sbmCol = UIColor.purple
-        let sclCol = UIColor.yellow
-        let sdnCol = UIColor.orange
-        let segCol = UIColor.red
-        let shsCol = UIColor.green
-        let sitCol = UIColor.blue
-        let sidmCol = UIColor.magenta
-        
-        let colors = [sbmCol, sclCol, sdnCol, segCol, shsCol, sitCol, sidmCol]
+        let colors = [GlobalDM.sbmCol, GlobalDM.sclCol, GlobalDM.sdnCol, GlobalDM.segCol, GlobalDM.shsCol, GlobalDM.sitCol, GlobalDM.sidmCol]
+
         
         chartDataSet.colors = colors
         
@@ -141,14 +138,18 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
         return ""
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "StatsMore"{
+            let moreController = segue.destination as! AdminStatisticsMoreTableViewController
+            moreController.eventList = self.eventList
+            moreController.attendanceList = self.attendanceList
+        }
     }
-    */
 
 }

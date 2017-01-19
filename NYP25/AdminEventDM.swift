@@ -244,7 +244,7 @@ class AdminEventDM: NSObject {
                     let eFromDb = event as! FIRDataSnapshot
                     
                     let e = EventsInAttendance()
-                    e.eventID = eFromDb.key
+                    e.eventId = eFromDb.key
                     e.checkIn = eFromDb.childSnapshot(forPath: "checkIn").value as? String
                     e.rsvp = eFromDb.childSnapshot(forPath: "rsvp").value as? String
                     

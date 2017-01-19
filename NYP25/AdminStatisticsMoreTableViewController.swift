@@ -9,11 +9,15 @@
 import UIKit
 import Charts
 
-class AdminStatisticsMoreTableViewController: UITableViewController {
+class AdminStatisticsMoreTableViewController: UITableViewController, IValueFormatter {
     let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SiDM"]
-    let schoolColors = [UIColor.purple, UIColor.yellow, UIColor.orange, UIColor.red, UIColor.green, UIColor.blue, UIColor.magenta]
+    
+    let colors = [GlobalDM.sbmCol, GlobalDM.sclCol, GlobalDM.sdnCol, GlobalDM.segCol, GlobalDM.shsCol, GlobalDM.sitCol, GlobalDM.sidmCol]
+
+
     
     var eventList : [Event] = []
+    var attendanceList : [EventAttendance] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +27,8 @@ class AdminStatisticsMoreTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        loadAllEventsForUse()
-    
+        
+        sortEvents()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,24 +54,70 @@ class AdminStatisticsMoreTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.schoolLbl.text = schools[(indexPath as IndexPath).row]
+        cell.schoolLbl.textColor = colors[(indexPath as IndexPath).row]
+        createChartFor(schoolChart: cell.lineChart, atIndex: (indexPath as IndexPath).row)
         
         cell.isUserInteractionEnabled = false
 
         return cell
     }
     
-    func createChartForSchool(){
+    func createChartFor(schoolChart: LineChartView, atIndex : Int){
+        //Get number of people per event by school
+        let sch = schools[atIndex]
+        var numInEvent : [Int] = []
         
+        for event in eventList{
+            let eventId = event.eventId
+            var eventCount = 0
+            
+            for attendee in attendanceList{
+                if attendee.school == sch {
+                    let local = attendee.events.first(where: {$0.eventId == eventId})
+                    
+                    if local != nil{
+                        eventCount += 1
+                    }
+                }
+            }
+            
+            numInEvent.append(eventCount)
+        }
+    
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0..<eventList.count {
+            let dataEntry = ChartDataEntry(x: Double(i), y: Double(numInEvent[i]))
+            dataEntries.append(dataEntry)
+        }
+        
+        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Attendees")
+        let lineChartData = LineChartData(dataSet: lineChartDataSet)
+        schoolChart.data = lineChartData
+        
+        //Customization
+        schoolChart.legend.enabled = false
+        schoolChart.chartDescription?.text = ""
+        
+        schoolChart.xAxis.enabled = false
+        schoolChart.leftAxis.enabled = false
+        schoolChart.rightAxis.enabled = false
+        
+        schoolChart.isUserInteractionEnabled = false
+        
+        lineChartDataSet.colors = [colors[atIndex]]
+        lineChartDataSet.drawCirclesEnabled = false
+        lineChartDataSet.drawFilledEnabled = true
+        lineChartDataSet.fillColor = colors[atIndex]
+        
+        schoolChart.lineData?.setValueFormatter(self)
+    }
+    
+    func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
+        return ""
     }
     
     //For onload
-    func loadAllEventsForUse(){
-        AdminEventDM.retrieveAllEvents(onComplete: { (listFromDb) in
-            self.eventList = listFromDb
-            self.sortEvents()
-        })
-    }
-    
     func sortEvents(){
         var tempList : [Event] = []
         for event in eventList{
