@@ -121,9 +121,19 @@ class AdminStatisticsMoreTableViewController: UITableViewController, IValueForma
     func sortEvents(){
         var tempList : [Event] = []
         for event in eventList{
-            //Conditions for it to appear on graph (later on to include visbility)
+            //Conditions for it to appear on graph
+            
+            //Only after event has passed ->
+            let today = Date()
+            let formatter = DateFormatter()
+            
+            formatter.dateFormat = "yyyyMMdd"
+            let formatDate = formatter.string(from: today)
+
             if event.date != nil{
-                tempList.append(event)
+                if event.date! <= formatDate{
+                    tempList.append(event)
+                }
             }
         }
         
