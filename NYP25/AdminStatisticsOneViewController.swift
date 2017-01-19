@@ -144,8 +144,9 @@ class AdminStatisticsOneViewController: UIViewController, IValueFormatter {
         //To show percentage
         // x / sum * 100
         let asPercent = (value / Double(sumOfAttendees)) * 100.0
-    
-        let s = "\(asPercent)% \n " + schools[Int(entry.x)]
+        let percentStr = String(format: "%.01f", asPercent)
+        
+        let s = "\(percentStr)% \n " + schools[Int(entry.x)]
         
         if value != 0{
             return s
