@@ -73,24 +73,8 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UserSocialUploadImage" {
-            let dvc = segue.destination as! UserSocialUploadImageViewController
-            dvc.newImage = imageView.image
+            let a = segue.destination as! UserSocialUploadImageViewController
+            a.newImage = imageView.image
         }
     }
-    
-//    func noCamera(){
-//        let alertVC = UIAlertController(
-//            title: "No Camera",
-//            message: "Sorry, this device has no camera",
-//            preferredStyle: .alert)
-//        let okAction = UIAlertAction(
-//            title: "OK",
-//            style:.default,
-//            handler: nil)
-//        alertVC.addAction(okAction)
-//        present(
-//            alertVC,
-//            animated: true,
-//            completion: nil)
-//    }
 }
