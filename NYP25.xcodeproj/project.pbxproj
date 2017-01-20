@@ -465,16 +465,16 @@
 		81FADAF11DE44205007D27C8 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */,
-				27B88D851DF2BA040045C98B /* UserSocial.storyboard */,
-				27B88D831DF2B9F80045C98B /* UserEvents.storyboard */,
-				27B88D811DF2B9ED0045C98B /* UserLeaderboard.storyboard */,
-				27B88D7F1DF2B9DD0045C98B /* UserInbox.storyboard */,
-				27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */,
-				81FADAA01DE43912007D27C8 /* AppDelegate.swift */,
-				81FADAA41DE43912007D27C8 /* Login.storyboard */,
-				81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */,
 				81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */,
+				81FADAA01DE43912007D27C8 /* AppDelegate.swift */,
+				81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */,
+				81FADAA41DE43912007D27C8 /* Login.storyboard */,
+				27B88D831DF2B9F80045C98B /* UserEvents.storyboard */,
+				27B88D7F1DF2B9DD0045C98B /* UserInbox.storyboard */,
+				27B88D811DF2B9ED0045C98B /* UserLeaderboard.storyboard */,
+				27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */,
+				27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */,
+				27B88D851DF2BA040045C98B /* UserSocial.storyboard */,
 			);
 			name = Application;
 			sourceTree = "<group>";
