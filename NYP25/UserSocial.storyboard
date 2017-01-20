@@ -229,7 +229,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="170"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" tableViewCell="fcz-3Z-oym" id="Gd0-bc-we9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MmC-DE-nhy">
@@ -320,7 +320,7 @@
         <scene sceneID="4Tv-vd-pi4">
             <objects>
                 <collectionViewController id="lwE-du-OsJ" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="bR0-95-VN0">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bR0-95-VN0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="379"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -403,7 +403,7 @@
                                 <rect key="frame" x="0.0" y="28" width="359" height="492"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y9x-4d-TzT" id="WtE-Zi-P6b">
-                                    <rect key="frame" x="0.0" y="0.0" width="359" height="491"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="492"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32G-XQ-jar">
@@ -778,7 +778,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hE-oy-aw0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.31288343558282211" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Upload Photo"/>
                                 <connections>
@@ -800,31 +800,38 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RiO-ll-p51">
-                                <rect key="frame" x="8" y="38" width="359" height="99"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="99" id="Rtx-Hs-DeQ"/>
-                                </constraints>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AA3-AM-L3F">
+                                <rect key="frame" x="0.0" y="38" width="375" height="99"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="0qj-GX-TnX" id="o9F-8h-KiC"/>
+                                    <outlet property="delegate" destination="0qj-GX-TnX" id="bBU-KW-agp"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cIe-6a-zky" firstAttribute="top" secondItem="RiO-ll-p51" secondAttribute="bottom" constant="8" symbolic="YES" id="232-ql-3C9"/>
-                            <constraint firstItem="RiO-ll-p51" firstAttribute="top" secondItem="9hE-oy-aw0" secondAttribute="bottom" constant="8" symbolic="YES" id="5Sa-W7-Xru"/>
                             <constraint firstItem="9hE-oy-aw0" firstAttribute="top" secondItem="5NI-9d-6lc" secondAttribute="bottom" id="Ada-5r-rUI"/>
+                            <constraint firstItem="AA3-AM-L3F" firstAttribute="leading" secondItem="Zrv-Zq-GIJ" secondAttribute="leading" id="Htx-ut-LGp"/>
                             <constraint firstAttribute="trailing" secondItem="9hE-oy-aw0" secondAttribute="trailing" id="Ivf-rN-KZw"/>
                             <constraint firstItem="cIe-6a-zky" firstAttribute="leading" secondItem="Zrv-Zq-GIJ" secondAttribute="leading" constant="8" id="O4c-Un-Flq"/>
                             <constraint firstItem="SiH-en-Krc" firstAttribute="top" secondItem="cIe-6a-zky" secondAttribute="bottom" constant="8" symbolic="YES" id="Qao-fL-sD3"/>
                             <constraint firstItem="cIe-6a-zky" firstAttribute="leading" secondItem="SiH-en-Krc" secondAttribute="leading" id="Sbg-JM-vD9"/>
+                            <constraint firstItem="cIe-6a-zky" firstAttribute="top" secondItem="Zrv-Zq-GIJ" secondAttribute="top" constant="145" id="Zfp-1k-X7m"/>
+                            <constraint firstItem="AA3-AM-L3F" firstAttribute="top" secondItem="Zrv-Zq-GIJ" secondAttribute="top" constant="38" id="a1S-gD-X7D"/>
                             <constraint firstAttribute="trailing" secondItem="cIe-6a-zky" secondAttribute="trailing" constant="8" id="aoq-yh-Oef"/>
-                            <constraint firstAttribute="trailing" secondItem="RiO-ll-p51" secondAttribute="trailing" constant="8" id="e7F-0S-SIX"/>
-                            <constraint firstItem="RiO-ll-p51" firstAttribute="leading" secondItem="Zrv-Zq-GIJ" secondAttribute="leading" constant="8" id="jhZ-tN-O7E"/>
+                            <constraint firstItem="AA3-AM-L3F" firstAttribute="leading" secondItem="Zrv-Zq-GIJ" secondAttribute="leading" id="ivs-XK-0Rh"/>
+                            <constraint firstAttribute="bottom" secondItem="AA3-AM-L3F" secondAttribute="bottom" constant="353" id="lQV-LG-gaK"/>
+                            <constraint firstItem="AA3-AM-L3F" firstAttribute="top" secondItem="9hE-oy-aw0" secondAttribute="bottom" id="o3x-Xy-1nV"/>
                             <constraint firstItem="9hE-oy-aw0" firstAttribute="leading" secondItem="Zrv-Zq-GIJ" secondAttribute="leading" id="pUC-wk-mA3"/>
                             <constraint firstItem="cIe-6a-zky" firstAttribute="trailing" secondItem="SiH-en-Krc" secondAttribute="trailing" id="rOW-G0-fL7"/>
+                            <constraint firstAttribute="trailing" secondItem="AA3-AM-L3F" secondAttribute="trailing" id="seb-U4-lw0"/>
+                            <constraint firstAttribute="trailing" secondItem="AA3-AM-L3F" secondAttribute="trailing" id="t5v-Cd-dgl"/>
+                            <constraint firstItem="AA3-AM-L3F" firstAttribute="top" secondItem="9hE-oy-aw0" secondAttribute="bottom" id="uhs-cJ-8rG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Post" id="Vbi-Zb-xqH"/>
                     <connections>
+                        <outlet property="eventsPickerView" destination="AA3-AM-L3F" id="8US-f4-3Vc"/>
                         <outlet property="imageView" destination="SiH-en-Krc" id="GB5-YF-X3u"/>
                         <outlet property="txtCaption" destination="cIe-6a-zky" id="hIN-6G-CIF"/>
                     </connections>

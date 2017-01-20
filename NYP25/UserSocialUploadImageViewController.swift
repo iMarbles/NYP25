@@ -8,20 +8,17 @@
 
 import UIKit
 
-class UserSocialUploadImageViewController: UIViewController {
+class UserSocialUploadImageViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    
     @IBOutlet var imageView: UIImageView!
-//    @IBOutlet weak var txtCaption: UITextField!
     @IBOutlet weak var txtCaption: UITextView!
     
     var socialImg : Social? = nil
-    
     var newImage: UIImage!
 
-//    var eventNames : [Event] = []
+    var eventNames : [Event] = []
     
-//    @IBOutlet weak var eventsPickerView: UIPickerView!
-    
-//    var pickerDataSource = ["White", "Red", "Green", "Blue"];
+    @IBOutlet weak var eventsPickerView: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,38 +26,33 @@ class UserSocialUploadImageViewController: UIViewController {
         socialImg = Social()
         imageView.image = newImage
     
-//            loadEventNames()
+        loadEventNames()
     }
     
-//    func loadPhotos(){
-//        AdminEventDM.retrieveAllEvents { (eventNamesDB) in
-//            self.eventNames = eventNamesDB
-//            self.eventsPickerView.reloadAllComponents()
-//        }
-//        UserSocialDM.retrieveAllEventsName(onComplete: { (name) in
-//            self.eventNames = name
-//            self.eventsPickerView.reloadAllComponents()
-//
-//        })
-//    }
+    func loadEventNames(){
+        UserSocialDM.retrieveEventNames(onComplete: {(name) in
+            self.eventNames = name
+            self.eventsPickerView.reloadAllComponents()
+        })
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-//    
-//    func numberOfComponentsInPickerView(eventsPickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//    
-//    func pickerView(eventsPickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return pickerDataSource.count;
-//    }
-//    
-//    func pickerView(eventsPickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-//        return pickerDataSource[row]
-//    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return eventNames.count;
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String {
+        return String(describing: eventNames[row])
+    }
+    
     
     @IBAction func btnSave(sender: AnyObject) {
         var imageData : NSData?
