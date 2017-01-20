@@ -46,10 +46,41 @@ class UserSocialDM: NSObject {
         }
     }
 
+//    //Retrieve current user info
+//    static func retrieveAllUserInfo(userId : String, onComplete: @escaping (Student)->Void){
+//        var studentList : [Student] = []
+//
+//        let ref = FIRDatabase.database().reference().child("users/\(userId)/")
+//
+//        ref.observe(FIRDataEventType.value, with:{
+//            (snapshot) in
+//                studentList = []
+//
+//            for record in snapshot.children.reversed(){
+//                let r = record as! FIRDataSnapshot
+//                
+//                let s = Student()
+//                
+//                    s.userId = r.key
+//                    s.username = (r.childSnapshot(forPath: "username").value as? String)!
+//                    s.displayPhotoUrl = r.childSnapshot(forPath: "displayPhotoUrl").value as? String
+//                    s.bio = r.childSnapshot(forPath: "bio").value as? String
+//                    s.name = (r.childSnapshot(forPath: "name").value as? String)!
+//                    s.password = (r.childSnapshot(forPath: "password").value as? String)!
+//                    s.points = (r.childSnapshot(forPath: "points").value as? Int)!
+//                    s.school = (r.childSnapshot(forPath: "school").value as? String)!
+//                    
+//                    studentList.append(s)
+//            }
+//            
+//            onComplete(studentList)
+//        })
+//    }
+    
     //Retrieve current user info
     static func retrieveAllUserInfo(userId : String, onComplete: @escaping (Student)->Void){
         let ref = FIRDatabase.database().reference().child("users/\(userId)/")
-
+        
         ref.observeSingleEvent(of: .value, with:
             { (snapshot) in
                 let s = Student()
@@ -57,7 +88,12 @@ class UserSocialDM: NSObject {
                 s.userId = snapshot.key
                 s.username = (snapshot.childSnapshot(forPath: "username").value as? String)!
                 s.displayPhotoUrl = snapshot.childSnapshot(forPath: "displayPhotoUrl").value as? String
-            
+                s.bio = snapshot.childSnapshot(forPath: "bio").value as? String
+                s.name = (snapshot.childSnapshot(forPath: "name").value as? String)!
+                s.password = (snapshot.childSnapshot(forPath: "password").value as? String)!
+                s.points = (snapshot.childSnapshot(forPath: "points").value as? Int)!
+                s.school = (snapshot.childSnapshot(forPath: "school").value as? String)!
+                
                 onComplete(s)
         })
     }
