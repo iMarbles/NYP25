@@ -9,6 +9,7 @@
 import UIKit
 
 class AdminEventsGalleryViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    @IBOutlet weak var noLbl : UILabel!
     
     var event : Event?
     var eventPhotos : [Social] = []
@@ -28,7 +29,13 @@ class AdminEventsGalleryViewController: UICollectionViewController, UICollection
     func loadPhotos(){
         AdminEventDM.retrieveEventPhotos(eventId: (event?.eventId)!, onComplete: { (photos) in
             self.eventPhotos = photos
-            self.collectionView?.reloadData()
+            
+            if(self.eventPhotos.count == 0){
+                //Show nothing
+                self.noLbl.isHidden = false
+            }else{
+                self.collectionView?.reloadData()
+            }
         })
     }
     
