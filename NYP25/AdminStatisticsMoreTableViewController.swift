@@ -55,14 +55,14 @@ class AdminStatisticsMoreTableViewController: UITableViewController, IValueForma
         // Configure the cell...
         cell.schoolLbl.text = schools[(indexPath as IndexPath).row]
         cell.schoolLbl.textColor = colors[(indexPath as IndexPath).row]
-        createChartFor(schoolChart: cell.lineChart, atIndex: (indexPath as IndexPath).row)
+        createChartFor(schoolChart: cell.lineChart, percentChange: cell.percentLbl, atIndex: (indexPath as IndexPath).row)
         
         cell.isUserInteractionEnabled = false
 
         return cell
     }
     
-    func createChartFor(schoolChart: LineChartView, atIndex : Int){
+    func createChartFor(schoolChart: LineChartView, percentChange: UILabel, atIndex : Int){
         //Get number of people per event by school
         let sch = schools[atIndex]
         var numInEvent : [Int] = []
@@ -76,12 +76,48 @@ class AdminStatisticsMoreTableViewController: UITableViewController, IValueForma
                     let local = attendee.events.first(where: {$0.eventId == eventId})
                     
                     if local != nil{
-                        eventCount += 1
+                        if local?.checkIn != nil{
+                            eventCount += 1
+                        }
                     }
                 }
             }
             
             numInEvent.append(eventCount)
+        }
+        
+        //Get last two events, get the difference
+        if numInEvent.count >= 2{
+            let secondLastEvent = numInEvent[numInEvent.count - 2]
+            let lastEvent = numInEvent[numInEvent.count - 1]
+            
+            //Calculate the change
+            if lastEvent > secondLastEvent{
+                //Positive change
+                if secondLastEvent != 0{
+                    let diff = lastEvent - secondLastEvent
+                    let change = (Double(diff)/Double(secondLastEvent)) * 100
+                    
+                    percentChange.text = "+" + String(format: "%.02f", change) + "%"
+                }else{
+                    percentChange.text = "-%"
+                }
+                percentChange.textColor = UIColor(red: 0, green: 0.6, blue: 0.2, alpha: 1.0)
+                
+            }else if lastEvent < secondLastEvent{
+                //Negative change
+                let diff = secondLastEvent - lastEvent
+                let change = (Double(diff)/Double(lastEvent)) * 100
+                
+                percentChange.text = "-" + String(format: "%.02f", change) + "%"
+                percentChange.textColor = UIColor.red
+            }else{
+                percentChange.textColor = UIColor.black
+                percentChange.text = "No Change"
+            }
+        }else{
+            percentChange.textColor = UIColor.black
+            percentChange.text = "No Change"
         }
     
         var dataEntries: [ChartDataEntry] = []
