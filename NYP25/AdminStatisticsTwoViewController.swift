@@ -96,10 +96,76 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
             
             //Upcoming event
             upcomingEventLbl.text = tempListUpcoming[0].name
+            
+            var expectedCount = 0
+            var prevCount = 0
+
+            for attendee in attendanceList{
+                //Get expected turnout based on current RSVPs
+                let isPresent = attendee.events.first(where: {$0.eventId == tempListUpcoming[0].eventId})
+                
+                if isPresent != nil{
+                    if isPresent?.rsvp != nil{
+                        expectedCount += 1
+                    }
+                }
+                
+                //Get previous event turnout
+                let isPrev = attendee.events.first(where: {$0.eventId == tempListPast[0].eventId})
+                if isPrev != nil{
+                    if isPrev?.checkIn != nil{
+                        prevCount += 1
+                    }
+                }
+            }
+            
+            expectedLbl.text = "\(expectedCount)"
+            
+            //Get the percent involved
+            if expectedCount > prevCount{
+                //Positve change
+                if prevCount != 0{
+                    let diff = expectedCount - prevCount
+                    let percent = (Double(diff)/Double(prevCount)) * 100
+                    
+                    if checkIfDecimal(number: percent){
+                        percentLbl.text = "+" + String(format: "%.02f", percent) + "%"
+                    }else{
+                        percentLbl.text = "+" + String(format: "%.00f", percent) + "%"
+                    }
+                    
+                }else{
+                    percentLbl.text = "-%"
+                }
+                percentLbl.textColor = UIColor(red: 0, green: 0.6, blue: 0.2, alpha: 1.0)
+            } else if expectedCount < prevCount{
+                let diff = prevCount - expectedCount
+                let percent = (Double(diff)/Double(prevCount)) * 100
+                
+                if checkIfDecimal(number: percent){
+                    percentLbl.text = "-" + String(format: "%.02f", percent) + "%"
+                }else{
+                    percentLbl.text = "-" + String(format: "%.00f", percent) + "%"
+                }
+                percentLbl.textColor = UIColor.red
+            }else{
+                percentLbl.textColor = UIColor.black
+                percentLbl.text = "No Change"
+            }
+            
+            
         }else{
             percentLbl.text = "-%"
             expectedLbl.text = "0"
             upcomingEventLbl.text = "No Upcoming Event"
+        }
+    }
+    
+    func checkIfDecimal(number: Double) -> Bool{
+        if (number - floor(number) > 0.000001) {
+            return true
+        }else{
+            return false
         }
     }
     
