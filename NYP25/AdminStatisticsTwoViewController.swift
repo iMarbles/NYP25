@@ -17,6 +17,7 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
     
     var eventList : [Event] = []
     var attendanceList : [EventAttendance] = []
+    var listToPass : [Event] = []
     
     let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SiDM"]
     var schoolCount : [Int] = []
@@ -38,12 +39,44 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
     func loadEventAttendance(){
         AdminEventDM.retrieveAllEvents(onComplete: {(listFromDb) in
             self.eventList = listFromDb
+            self.listToPass = listFromDb
         })
         AdminEventDM.retrieveAllEventAttendance(onComplete: { (attendanceFromDb) in
             self.attendanceList = attendanceFromDb
             
             self.createPieChart()
+            self.calculatePredictions()
         })
+    }
+    
+    func calculatePredictions(){
+        
+    }
+    
+    func sortEvents(){
+        var tempList : [Event] = []
+        for event in eventList{
+            let today = Date()
+            let formatter = DateFormatter()
+            
+            formatter.dateFormat = "yyyyMMdd"
+            let formatDate = formatter.string(from: today)
+            
+            if event.date != nil{
+                tempList.append(event)
+            }
+        }
+        
+        tempList.sort { (a, b) -> Bool in
+            if a.date! < b.date!{
+                return true
+            }else{
+                return false
+            }
+        }
+        
+        eventList = tempList
+
     }
     
     func createPieChart(){
@@ -147,7 +180,7 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
         // Pass the selected object to the new view controller.
         if segue.identifier == "StatsMore"{
             let moreController = segue.destination as! AdminStatisticsMoreTableViewController
-            moreController.eventList = self.eventList
+            moreController.eventList = self.listToPass
             moreController.attendanceList = self.attendanceList
         }
     }
