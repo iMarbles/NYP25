@@ -30,10 +30,17 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
 
         // Do any additional setup after loading the view.
         descTb.delegate = self
+        descTb.text = "Enter event description"
         descTb.textColor = UIColor.lightGray
         descTb.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         descTb.layer.borderWidth = 1.0;
         descTb.layer.cornerRadius = 5.0;
+        
+        badgeImage.layer.masksToBounds = false
+        badgeImage.layer.cornerRadius = badgeImage.frame.height/2
+        badgeImage.clipsToBounds = true
+        badgeImage.layer.borderWidth = 1
+        badgeImage.layer.borderColor = UIColor.black.cgColor
         
         if event == nil{
             event = Event()
@@ -78,7 +85,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
             })
         }
 
-        if event?.desc != ""{
+        if event?.desc != nil && event?.desc != ""{
             descTb.text = event?.desc
             descTb.textColor = UIColor.black
         }else{

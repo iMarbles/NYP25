@@ -98,7 +98,13 @@ class AdminStatisticsMoreTableViewController: UITableViewController, IValueForma
                     let diff = lastEvent - secondLastEvent
                     let change = (Double(diff)/Double(secondLastEvent)) * 100
                     
-                    percentChange.text = "+" + String(format: "%.02f", change) + "%"
+                    if checkIfDecimal(number: change){
+                        percentChange.text = "+" + String(format: "%.02f", change) + "%"
+                    }else{
+                        percentChange.text = "+" + String(format: "%.00f", change) + "%"
+                    }
+
+                    
                 }else{
                     percentChange.text = "-%"
                 }
@@ -109,7 +115,12 @@ class AdminStatisticsMoreTableViewController: UITableViewController, IValueForma
                 let diff = secondLastEvent - lastEvent
                 let change = (Double(diff)/Double(lastEvent)) * 100
                 
-                percentChange.text = "-" + String(format: "%.02f", change) + "%"
+                if checkIfDecimal(number: change){
+                    percentChange.text = "-" + String(format: "%.02f", change) + "%"
+                }else{
+                    percentChange.text = "-" + String(format: "%.00f", change) + "%"
+                }
+                
                 percentChange.textColor = UIColor.red
             }else{
                 percentChange.textColor = UIColor.black
@@ -154,6 +165,14 @@ class AdminStatisticsMoreTableViewController: UITableViewController, IValueForma
     
     func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
         return ""
+    }
+    
+    func checkIfDecimal(number: Double) -> Bool{
+        if (number - floor(number) > 0.000001) {
+            return true
+        }else{
+            return false
+        }
     }
     
     //For onload

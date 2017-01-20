@@ -21,13 +21,6 @@ class AdminEventsMasterDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if(event?.name != nil){
-            self.navigationItem.title = event?.name
-        }else{
-            self.navigationItem.title = "Event Details"
-        }
-        
-        
         self.galleryContainer.alpha = 0
         self.reviewContainer.alpha = 0
     }

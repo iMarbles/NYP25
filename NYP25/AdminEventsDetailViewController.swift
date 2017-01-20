@@ -62,6 +62,12 @@ class AdminEventsDetailViewController: UIViewController {
         if event?.badgeId != nil{
             AdminEventDM.retrieveBadgeByEventId(id: (event?.eventId)!, onComplete: { (badge) in
                 self.loadEventImage(imageView: self.badgeImg, url: badge.icon)
+                
+                self.badgeImg.layer.masksToBounds = false
+                self.badgeImg.layer.cornerRadius = self.badgeImg.frame.height/2
+                self.badgeImg.clipsToBounds = true
+                self.badgeImg.layer.borderWidth = 1
+                self.badgeImg.layer.borderColor = UIColor.black.cgColor
             })
         }
     }
