@@ -17,7 +17,10 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
     
     var eventList : [Event] = []
     var attendanceList : [EventAttendance] = []
-    var listToPass : [Event] = []
+
+    //For predictions
+    var tempListUpcoming : [Event] = []
+    var tempListPast : [Event] = []
     
     let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SiDM"]
     var schoolCount : [Int] = []
@@ -39,7 +42,7 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
     func loadEventAttendance(){
         AdminEventDM.retrieveAllEvents(onComplete: {(listFromDb) in
             self.eventList = listFromDb
-            self.listToPass = listFromDb
+            self.calculatePredictions()
         })
         AdminEventDM.retrieveAllEventAttendance(onComplete: { (attendanceFromDb) in
             self.attendanceList = attendanceFromDb
@@ -50,33 +53,54 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
     }
     
     func calculatePredictions(){
+        tempListPast = []
+        tempListUpcoming = []
         
-    }
-    
-    func sortEvents(){
-        var tempList : [Event] = []
+        let today = Date()
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "yyyyMMdd"
+        let formatDate = formatter.string(from: today)
+        
         for event in eventList{
-            let today = Date()
-            let formatter = DateFormatter()
-            
-            formatter.dateFormat = "yyyyMMdd"
-            let formatDate = formatter.string(from: today)
-            
-            if event.date != nil{
-                tempList.append(event)
+            if event.status == "O"{
+                //Check if event has passed
+                if event.date! <= formatDate{
+                    tempListPast.append(event)
+                }else{
+                    tempListUpcoming.append(event)
+                }
             }
         }
         
-        tempList.sort { (a, b) -> Bool in
-            if a.date! < b.date!{
-                return true
-            }else{
-                return false
-            }
+        //Sort both event lists by date
+        //Latest event that is upcoming
+        if tempListUpcoming.count != 0{
+            //Latest event (that has passed) at the front
+            tempListPast.sort(by: { (a, b) -> Bool in
+                if a.date! > b.date!{
+                    return true
+                }else{
+                    return false
+                }
+            })
+            
+            //Latest (upcoming) event at the front
+            tempListUpcoming.sort(by: { (a, b) -> Bool in
+                if a.date! < b.date!{
+                    return true
+                }else{
+                    return false
+                }
+            })
+            
+            //Upcoming event
+            upcomingEventLbl.text = tempListUpcoming[0].name
+        }else{
+            percentLbl.text = "-%"
+            expectedLbl.text = "0"
+            upcomingEventLbl.text = "No Upcoming Event"
         }
-        
-        eventList = tempList
-
     }
     
     func createPieChart(){
@@ -180,7 +204,7 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
         // Pass the selected object to the new view controller.
         if segue.identifier == "StatsMore"{
             let moreController = segue.destination as! AdminStatisticsMoreTableViewController
-            moreController.eventList = self.listToPass
+            moreController.eventList = self.eventList
             moreController.attendanceList = self.attendanceList
         }
     }

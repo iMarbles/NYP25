@@ -59,6 +59,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
     func loadEventDetails(){
         if(!isNewEvent){
             self.navigationItem.title = "Edit Details"
+            nameTb.text = event?.name
         }
 
         if event?.imageUrl != nil{
@@ -66,7 +67,6 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
             eventImage.isHidden = false
         }
         
-        nameTb.text = event?.name
         formatDbDate(dateStored: event?.date)
         formatDbTimeFor(textField : startTimeTb, dbTime : event?.startTime)
         formatDbTimeFor(textField : endTimeTb, dbTime : event?.endTime)
