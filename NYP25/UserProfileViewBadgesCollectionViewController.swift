@@ -12,15 +12,28 @@ import UIKit
 
 class UserProfileViewBadgesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    var profileGallery : [Social] = []
+    var profileGallery : [Badge] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserSocialDM.retrieveEventPhotos(onComplete: { (photos) in
-            self.profileGallery = photos
+//        UserSocialDM.retrieveEventPhotos(onComplete: { (photos) in
+//            self.profileGallery = photos
+//            self.collectionView?.reloadData()
+//            
+//            if(self.profileGallery.count == 0){
+//                let alert = UIAlertView(title: "",
+//                                        message: "No Photos Available Currently",
+//                                        delegate: nil,
+//                                        cancelButtonTitle: "Ok")
+//                alert.show()
+//                
+//            }
+//        })
+        
+        UserProfileDM.retrieveAllUsersBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(badges) in
+            self.profileGallery = badges
             self.collectionView?.reloadData()
-            
             if(self.profileGallery.count == 0){
                 let alert = UIAlertView(title: "",
                                         message: "No Photos Available Currently",
@@ -30,6 +43,7 @@ class UserProfileViewBadgesCollectionViewController: UICollectionViewController,
                 
             }
         })
+        
         // Do any additional setup after loading the view.
     }
     
@@ -46,7 +60,7 @@ class UserProfileViewBadgesCollectionViewController: UICollectionViewController,
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "badgeCell", for: indexPath) as! UserProfileViewBadgesCollectionViewCell
         
-        loadGallery(imageView: cell.badgePhotos, url: profileGallery[(indexPath as IndexPath).row].photoUrl!)
+        loadGallery(imageView: cell.badgePhotos, url: profileGallery[(indexPath as IndexPath).row].icon)
         return cell
     }
     
