@@ -11,10 +11,14 @@ import Firebase
 import FirebaseStorage
 
 class UserSocialDM: NSObject {
-    static func createPost(eventId : String, social : Social, socialPhotos : NSData?){
+//    static func createPost(eventId : String, social : Social, socialPhotos : NSData?, likedBy : PhotoLike, currentUserId : String, comments : PhotoComment){
+    static func createPost(eventId : String, social : Social, socialPhotos : NSData?, likedBy : PhotoLike, currentUserId : String){
         let key = FIRDatabase.database().reference().child("social").childByAutoId().key
         let ref = FIRDatabase.database().reference().child("social/\(key)/")
         let storage = FIRStorage.storage().reference().child("/SocialPhoto/\(eventId)/")
+        
+        let refLikedBy = FIRDatabase.database().reference().child("social/\(key)/likedBy/\(currentUserId)/")
+//        let refComments = FIRDatabase.database().reference().child("social/\(key)/likedBy/\(currentUserId)/comments/\(key)/")
         
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
@@ -40,8 +44,19 @@ class UserSocialDM: NSObject {
                     "postedDateTime" : result,
                     "isFlagged" : social.isFlagged,
                     "flagReason" : social.flagReason!,
-                    "photoUrl" : downloadURL
+                    "photoUrl" : downloadURL,
+                    "eventId" : social.eventId
                     ])
+                
+                refLikedBy.setValue([
+                    "isLiked" : likedBy.isLike
+                    ])
+                
+//                refComments.setValue([
+//                    "comment" : comments.comment,
+//                    "postedDateTime" : comments.timestamp,
+//                    "username" : comments.username
+//                    ])
             }
         }
     }
