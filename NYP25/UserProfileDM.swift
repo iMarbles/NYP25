@@ -12,44 +12,6 @@ import FirebaseStorage
 
 class UserProfileDM: NSObject {
     
-    //Retrieve all images of event by ID
-    static func retrieveEventPhotos(userId : String, onComplete: @escaping ([Social])->Void){
-        var socialPhotos : [Social] = []
-        
-        let ref = FIRDatabase.database().reference().child("social/\(userId)/")
-        
-        ref.observeSingleEvent(of: .value, with:
-            {(snapshot) in
-                for record in snapshot.children{
-                    let r = record as! FIRDataSnapshot
-                    
-                    let s = Social()
-                    s.eventId = r.key
-                    s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
-                    
-                    socialPhotos.append(s)
-                    
-                    onComplete(socialPhotos)
-                }
-        })
-    }
-    
-//    //Retrieve current user info
-//    static func retrieveAllUserInfo(userId : String, onComplete: @escaping (Student)->Void){
-//        let ref = FIRDatabase.database().reference().child("users/\(userId)/")
-//        
-//        ref.observeSingleEvent(of: .value, with:
-//            { (snapshot) in
-//                let s = Student()
-//                
-//                s.userId = snapshot.key
-//                s.username = (snapshot.childSnapshot(forPath: "username").value as? String)!
-//                s.displayPhotoUrl = snapshot.childSnapshot(forPath: "displayPhotoUrl").value as? String
-//                
-//                onComplete(s)
-//        })
-//    }
-    
     //Retrieve all events
     static func retrieveUsersInfo(userId : String, onComplete: @escaping (Student)->Void){
         let ref = FIRDatabase.database().reference().child("users/\(userId)/")
@@ -67,6 +29,35 @@ class UserProfileDM: NSObject {
                 s.school = (snapshot.childSnapshot(forPath: "school").value as? String)!
                 
                 onComplete(s)
+        })
+    }
+    
+    //Retrieve all images of event by ID
+    static func retrieveAllUsersBadge(userId : String, onComplete: @escaping ([Badge])->Void){
+        var badgeList : [Badge] = []
+        
+        let ref = FIRDatabase.database().reference().child("users/\(userId)/badges/")
+ 
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            badgeList = []
+            
+            for record in snapshot.children{
+                let r = record as! FIRDataSnapshot
+                
+                let u = Badge()
+                u.badgeId = r.key
+                u.isDisplay = r.childSnapshot(forPath: "isDisplay").value as! Int
+                u.icon = (r.childSnapshot(forPath: "icon").value as? String)!
+                
+                if(u.isDisplay == 1){
+                    badgeList.append(u)
+                }
+                
+        
+            }
+            onComplete(badgeList)
         })
     }
 }

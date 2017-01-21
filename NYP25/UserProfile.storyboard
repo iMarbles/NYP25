@@ -35,7 +35,7 @@
         <!--Profile Home-->
         <scene sceneID="pph-Tj-6BF">
             <objects>
-                <viewController title="Profile Home" id="f5Q-ju-9mf" customClass="UserProfileViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileHome" title="Profile Home" id="f5Q-ju-9mf" customClass="UserProfileViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wAU-JV-eEX"/>
                         <viewControllerLayoutGuide type="bottom" id="gWH-pX-j1k"/>
@@ -98,7 +98,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISPLAY CURRENT POINTS/RANK HERE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVz-3G-Lxb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="current points" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVz-3G-Lxb">
                                 <rect key="frame" x="258" y="72" width="101" height="125"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -191,7 +191,7 @@
         <scene sceneID="uNL-Ik-XNc">
             <objects>
                 <collectionViewController title="BADGES" id="BFq-aH-8qK" customClass="UserProfileViewBadgesCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Ztx-cq-POk">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Ztx-cq-POk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.49362432956695557" blue="0.47423690557479858" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -243,7 +243,7 @@
         <scene sceneID="dF3-fS-n6O">
             <objects>
                 <collectionViewController title="OWN" id="78t-Vg-g9D" customClass="UserProfileViewOwnPhotosCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="CRN-E2-8zS">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CRN-E2-8zS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.83111804723739624" green="0.98357635736465454" blue="0.47417277097702026" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -295,7 +295,7 @@
         <scene sceneID="L39-9V-ScO">
             <objects>
                 <collectionViewController title="LIKED" id="QjI-Kv-rrd" customClass="UserProfileViewLikedPhotosCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="ToT-Ck-Eci">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ToT-Ck-Eci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="331"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.45167505741119385" green="0.98651820421218872" blue="0.84075480699539185" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>

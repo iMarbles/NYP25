@@ -1,4 +1,4 @@
-//
+
 //  UserProfileViewController.swift
 //  NYP25
 //
@@ -18,8 +18,8 @@ class UserProfileViewController: UIViewController {
     
     @IBOutlet weak var currentPoints : UILabel?
     @IBOutlet weak var selectedBadge : UIImageView?
-
-    var profileGallery : [Social] = []
+    
+    var profileGallery : [Badge] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,10 @@ class UserProfileViewController: UIViewController {
             self.loadProfileImage(imageView: self.profilePhotoView!, url: user.displayPhotoUrl!)
         })
 
+        UserProfileDM.retrieveAllUsersBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (u) in
+            self.profileGallery = u
+            self.loadProfileImage(imageView: self.selectedBadge!, url: u[0].icon)
+        })
     }
 
     override func didReceiveMemoryWarning() {
