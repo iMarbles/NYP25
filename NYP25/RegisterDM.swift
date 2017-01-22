@@ -16,6 +16,11 @@ class RegisterDM: NSObject {
         return digestData
     }
     
+    static func createUser(user : String) {
+//        let ref = FIRDatabase.database().reference()
+//        ref.child("users/").child("new").setValue(user)
+    }
+    
     //Login User
     static func getUsers(admin: String, username: String, onComplete: @escaping (Array<Student>) -> Void) {
 

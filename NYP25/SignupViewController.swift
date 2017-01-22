@@ -66,9 +66,10 @@ class SignupViewController: UIViewController {
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
-            
+            // shit works
+//            RegisterDM.createUser(user : "hello");
             print("======");
-            // shit doesnt work 
+            // shit doesnt work
 //            RegisterDM.getUsers(admin: admTf.text!, username: unTf.text!, onComplete: {(Array<Student>) in
 //                
 //            })
