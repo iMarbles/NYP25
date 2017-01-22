@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, UITableViewDelegate, UITableViewDataSource, HideableHairlineViewController {
+class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, HideableHairlineViewController {
     @IBOutlet weak var segmentedControl : UISegmentedControl!
     @IBOutlet weak var tableView : UITableView!
     
@@ -16,15 +16,64 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
     var isPast = false
     var isDraft = false
     
+    //For normal usage
     var eventsList : [Event] = []
     var filterList : [Event] = []
     
+    //For searching purposes
+    var searchList : [Event] = []
+    var retainButtons : [UIBarButtonItem]? = nil
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+        searchController.searchBar.delegate = self
+        
         isUpcoming = true
         loadEvents()
+    }
+    
+    @IBAction func searchButtonSelected(sender: Any){
+        //For searching purposes
+        retainButtons = self.navigationItem.rightBarButtonItems
+        navigationItem.rightBarButtonItems = nil
+        
+        //Creating search bar
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.definesPresentationContext = true
+        searchController.hidesNavigationBarDuringPresentation = false
+        
+        navigationItem.titleView = searchController.searchBar
+        searchController.isActive = true
+        perform(#selector(showKeyboard), with: nil, afterDelay: 0.1)
+    }
+    
+    func showKeyboard(){
+        searchController.searchBar.becomeFirstResponder()
+    }
+    
+    //Logic for filtering
+    func filterEventsBy(searchText: String){
+        searchList = filterList.filter({ (event) -> Bool in
+            return (event.name?.lowercased().contains(searchText.lowercased()))!
+        })
+
+        tableView.reloadData()
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterEventsBy(searchText: searchController.searchBar.text!)
+    }
+    
+    //When cancel search selected
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        navigationItem.titleView = nil
+        navigationItem.title = "Events"
+        navigationItem.rightBarButtonItems = retainButtons
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,13 +110,13 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
         }
         
         filterEvents()
+        tableView.reloadData()
     }
     
     func loadEvents(){
         AdminEventDM.retrieveAllEvents { (listFromDb) in
             self.eventsList = listFromDb
             self.filterEvents()
-            self.tableView.reloadData()
         }
     }
     
@@ -121,6 +170,10 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
             }
         }
         
+        if searchController.isActive && searchController.searchBar.text != ""{
+            filterEventsBy(searchText: searchController.searchBar.text!)
+        }
+
         tableView.reloadData()
     }
     
@@ -133,6 +186,9 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if searchController.isActive && searchController.searchBar.text != ""{
+            return searchList.count
+        }
         return filterList.count
     }
     
@@ -141,7 +197,12 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
         
         // Configure the cell...
         cell.eventImg.image = UIImage(named: "Ellipsis-100")
-        let e = filterList[(indexPath as IndexPath).row]
+        let e : Event
+        if searchController.isActive && searchController.searchBar.text != ""{
+           e = searchList[(indexPath as IndexPath).row]
+        }else{
+           e = filterList[(indexPath as IndexPath).row]
+        }
         cell.titleLabel.text = e.name
         cell.titleLabel.adjustsFontSizeToFitWidth = true
         cell.titleLabel.minimumScaleFactor = 0.5
@@ -207,7 +268,12 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
             let indexPath = self.tableView.indexPathForSelectedRow
             
             if indexPath != nil{
-                let eventItem = filterList[indexPath!.row]
+                let eventItem : Event
+                if searchController.isActive && searchController.searchBar.text != ""{
+                    eventItem = searchList[indexPath!.row]
+                }else{
+                    eventItem = filterList[indexPath!.row]
+                }
                 eventDetailController.event = eventItem
             }
         }
