@@ -48,6 +48,20 @@ class AdminEventsMapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func doneBtnClick(sender: Any){
+        if mapView.annotations.count == 0{
+            let uiAlert = UIAlertController(title: "Error", message: "No location entered", preferredStyle: UIAlertControllerStyle.alert)
+            
+            uiAlert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+            
+            self.present(uiAlert, animated: true, completion: nil)
+            
+            event?.address = nil
+        }else{
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     func searchLocation(){
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = event?.address
