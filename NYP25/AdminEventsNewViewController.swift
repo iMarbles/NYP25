@@ -360,12 +360,28 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         }
         if dateTb.text == ""{
             errMsg += "Please enter date \n"
+        }else{
+            let today = Date()
+            let formatter = DateFormatter()
+            
+            formatter.dateFormat = "yyyyMMdd"
+            let formatDate = formatter.string(from: today)
+            
+            if (event?.date)! <= formatDate{
+                errMsg += "Date has to be after today \n"
+            }
         }
         if startTimeTb.text == "" {
             errMsg += "Please enter start time \n"
         }
         if endTimeTb.text == ""{
             errMsg += "Please enter end time \n"
+        }else{
+            let timeResult : ComparisonResult = (event?.startTime)!.compare((event?.endTime)!)
+            
+            if timeResult == ComparisonResult.orderedDescending || timeResult == ComparisonResult.orderedSame{
+                errMsg += "End time must be after start time \n"
+            }
         }
         if locationTb.text == ""{
             errMsg += "Please select a location \n"
@@ -373,7 +389,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         if badgeImage.image == nil{
             errMsg += "Please upload a badge icon"
         }
-        if descTb.text == ""{
+        if event?.desc == ""{
             errMsg += "Please enter a description"
         }
         
