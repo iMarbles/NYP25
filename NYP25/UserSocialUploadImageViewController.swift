@@ -78,7 +78,7 @@ class UserSocialUploadImageViewController: UIViewController, UIPickerViewDataSou
                 eventId: (GlobalDM.CurrentUser?.userId)!,
                 social: socialImg!,
                 socialPhotos: imageData,
-                likedBy : likedBy!,
+//                likedBy : likedBy!,
                 currentUserId: (GlobalDM.CurrentUser?.userId)!
 //                comments : comments!
             )

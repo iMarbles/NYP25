@@ -12,12 +12,12 @@ import FirebaseStorage
 
 class UserSocialDM: NSObject {
 //    static func createPost(eventId : String, social : Social, socialPhotos : NSData?, likedBy : PhotoLike, currentUserId : String, comments : PhotoComment){
-    static func createPost(eventId : String, social : Social, socialPhotos : NSData?, likedBy : PhotoLike, currentUserId : String){
+    static func createPost(eventId : String, social : Social, socialPhotos : NSData?, currentUserId : String){
         let key = FIRDatabase.database().reference().child("social").childByAutoId().key
         let ref = FIRDatabase.database().reference().child("social/\(key)/")
         let storage = FIRStorage.storage().reference().child("/SocialPhoto/\(eventId)/")
         
-        let refLikedBy = FIRDatabase.database().reference().child("social/\(key)/likedBy/\(currentUserId)/")
+//        let refLikedBy = FIRDatabase.database().reference().child("social/\(key)/likedBy/\(currentUserId)/")
 //        let refComments = FIRDatabase.database().reference().child("social/\(key)/likedBy/\(currentUserId)/comments/\(key)/")
         
         let metadata = FIRStorageMetadata()
@@ -48,9 +48,9 @@ class UserSocialDM: NSObject {
                     "eventId" : social.eventId
                     ])
                 
-                refLikedBy.setValue([
-                    "isLiked" : likedBy.isLike
-                    ])
+//                refLikedBy.setValue([
+//                    "isLiked" : likedBy.isLike
+//                    ])
                 
 //                refComments.setValue([
 //                    "comment" : comments.comment,
@@ -116,13 +116,15 @@ class UserSocialDM: NSObject {
     //Retrieve all events
     static func retrieveAllSocial(onComplete: @escaping ([Social])->Void){
         var socialList : [Social] = []
+        var likedByList : [PhotoLike] = []
         
         let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
-        
+
         ref.observe(FIRDataEventType.value, with:{
             (snapshot) in
             
             socialList = []
+            likedByList = []
             
             //.reversed() - for descending order
             for record in snapshot.children.reversed(){
@@ -138,6 +140,20 @@ class UserSocialDM: NSObject {
                 s.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
                 s.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
                 
+                
+                //Child nodes of events
+                let likes = r.childSnapshot(forPath: "likedBy").children
+                for liked in likes{
+                    let l = liked as! FIRDataSnapshot
+                    
+                    let p = PhotoLike()
+                    p.adminNo = l.key
+                    p.isLike = (l.childSnapshot(forPath: "isLiked").value as? Int)!
+                    
+                    likedByList.append(p)
+                }
+
+                s.likes = likedByList
                 socialList.append(s)
             }
             
@@ -198,6 +214,29 @@ class UserSocialDM: NSObject {
     }
     
     //Retrieve all images of event by ID
+    static func retrieveEventAlbumCover(onComplete: @escaping ([Event])->Void){
+        var albumCover : [Event] = []
+        
+        let ref = FIRDatabase.database().reference().child("events/")
+        
+        ref.observeSingleEvent(of: .value, with:
+            {(snapshot) in
+                for record in snapshot.children{
+                    let r = record as! FIRDataSnapshot
+                    
+                    let e = Event()
+                    e.name = r.childSnapshot(forPath: "name").value as? String
+                    e.imageUrl = r.childSnapshot(forPath: "image").value as? String
+                    //To add-on as needed
+                    
+                    albumCover.append(e)
+                    
+                    onComplete(albumCover)
+                }
+        })
+    }
+    
+    //Retrieve all images of event
     static func retrieveEventPhotos(onComplete: @escaping ([Social])->Void){
         var socialPhotos : [Social] = []
         

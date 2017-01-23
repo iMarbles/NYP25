@@ -1,36 +1,42 @@
 //
-//  UserSocialMainGridCollectionViewController.swift
+//  UserSocialMainEventAlbumsCollectionViewController.swift
 //  NYP25
 //
-//  Created by Evelyn Tan on 16/1/17.
+//  Created by Evelyn Tan on 23/1/17.
 //  Copyright © 2017 NYP. All rights reserved.
 //
 
 import UIKit
 
-class UserSocialMainGridCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
-    var social : Social?
-    var socialPhotos : [Social] = []
+private let reuseIdentifier = "AlbumViewCell"
 
+class UserSocialMainEventAlbumsCollectionViewController:  UICollectionViewController, UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate {
+    
+    var event : Event?
+    var eventAlbums : [Event] = []
+    
+    var selectedRow = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadEvents()
+        loadPhotos()
+        
+        self.automaticallyAdjustsScrollViewInsets = true;
     }
     
-    func loadEvents(){
-        UserSocialDM.retrieveEventPhotos(onComplete: { (photos) in
-            self.socialPhotos = photos
+    func loadPhotos(){
+        UserSocialDM.retrieveEventAlbumCover(onComplete: { (albumCover) in
+            self.eventAlbums = albumCover
             self.collectionView?.reloadData()
             
-            if(self.socialPhotos.count == 0){
+            if(self.eventAlbums.count == 0){
                 let alert = UIAlertView(title: "",
                                         message: "No Photos Available Currently",
                                         delegate: nil,
                                         cancelButtonTitle: "Ok")
                 alert.show()
-
+                
             }
         })
         // Do any additional setup after loading the view.
@@ -41,18 +47,37 @@ class UserSocialMainGridCollectionViewController: UICollectionViewController, UI
         // Dispose of any resources that can be recreated.
     }
     
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return socialPhotos.count
+        return eventAlbums.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! UserSocialGalleryCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumViewCell", for: indexPath) as! UserSocialMainEventAlbumsCollectionViewCell
         
-        loadSocialImage(imageView: cell.eventImage, url: socialPhotos[(indexPath as IndexPath).row].photoUrl!)
+        let e = eventAlbums[(indexPath as IndexPath).row]
+        
+        cell.albumTitle.text = e.name
+        
+        loadAlbumCovers(imageView: cell.albumPhoto, url: e.imageUrl!)
+        
+//        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//        blurEffectView.frame = view.bounds
+//        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        cell.albumPhoto.addSubview(blurEffectView)
+        
         return cell
     }
     
-    func loadSocialImage(imageView: UIImageView, url: String)
+    // MARK: - UICollectionViewDelegate protocol
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // handle tap events
+        selectedRow = indexPath.row
+        print("You selected cell \(eventAlbums[selectedRow].name!) !")
+    }
+    
+    func loadAlbumCovers(imageView: UIImageView, url: String)
     {
         DispatchQueue.global(qos: .background).async
             {

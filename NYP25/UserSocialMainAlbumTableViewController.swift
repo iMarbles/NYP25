@@ -41,8 +41,8 @@ class UserSocialMainAlbumTableViewController: UITableViewController {
         
         let s = socialList[(indexPath as IndexPath).row]
 
-        cell.eventLbl.text = s.uploader
-        loadSocialImage(imageView: cell.socialPhoto, url: socialList[(indexPath as IndexPath).row].photoUrl!)
+//        cell.eventLbl.text = s.uploader
+//        loadSocialImage(imageView: cell.socialPhoto, url: socialList[(indexPath as IndexPath).row].photoUrl!)
         
         return cell
     }
