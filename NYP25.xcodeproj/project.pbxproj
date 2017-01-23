@@ -99,7 +99,9 @@
 		81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */; };
 		81FADAFF1DE4453E007D27C8 /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */; };
 		81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */; };
-		AFF70B951E2FB7DD00FF1A92 /* UserLeaderboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF70B941E2FB7DD00FF1A92 /* UserLeaderboardController.swift */; };
+		9FFC15031E34F23200037BD2 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC15021E34F23200037BD2 /* SignupViewController.swift */; };
+		9FFC15051E350A4200037BD2 /* RegisterDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC15041E350A4200037BD2 /* RegisterDM.swift */; };
+		AF45108B1E35CCAD00789FD0 /* UserLeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,7 +265,9 @@
 		81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
 		81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		AFF70B941E2FB7DD00FF1A92 /* UserLeaderboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLeaderboardController.swift; sourceTree = "<group>"; };
+		9FFC15021E34F23200037BD2 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		9FFC15041E350A4200037BD2 /* RegisterDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDM.swift; sourceTree = "<group>"; };
+		AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLeaderboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +328,7 @@
 				8166BC421DF67E5700FAA37C /* AdminEventDM.swift */,
 				61C130BC1E289901006E4191 /* UserSocialDM.swift */,
 				61B4431B1E32437F00E3EE94 /* UserProfileDM.swift */,
+				9FFC15041E350A4200037BD2 /* RegisterDM.swift */,
 			);
 			name = DataManager;
 			sourceTree = "<group>";
@@ -470,6 +475,8 @@
 				612647171E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift */,
 				61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */,
 				612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */,
+				61CCEC9D1E2BF387008B36A9 /* UserSocialMainGridCollectionViewController.swift */,
+				AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -713,7 +720,6 @@
 				612647131E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift in Sources */,
 				816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */,
 				046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */,
-				AFF70B951E2FB7DD00FF1A92 /* UserLeaderboardController.swift in Sources */,
 				04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */,
 				61B149F91E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift in Sources */,
 				04ED183D1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift in Sources */,
@@ -730,8 +736,10 @@
 				8166BC511DF6862100FAA37C /* Social.swift in Sources */,
 				04ECCCCF1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift in Sources */,
 				04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */,
+				9FFC15051E350A4200037BD2 /* RegisterDM.swift in Sources */,
 				61B149FF1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift in Sources */,
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
+				9FFC15031E34F23200037BD2 /* SignupViewController.swift in Sources */,
 				61B443281E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift in Sources */,
 				61CCEC7F1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift in Sources */,
 				61CCEC9E1E2BF387008B36A9 /* UserSocialMainGridCollectionViewController.swift in Sources */,
@@ -746,6 +754,7 @@
 				8166BC491DF6840600FAA37C /* EventAttendance.swift in Sources */,
 				816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */,
 				8175B12B1DEFDE8100FCB205 /* User.swift in Sources */,
+				AF45108B1E35CCAD00789FD0 /* UserLeaderboardViewController.swift in Sources */,
 				8166BC431DF67E5700FAA37C /* AdminEventDM.swift in Sources */,
 				612647101E2E86D6008DC73A /* UserSocialProfileOwnCollectionViewCell.swift in Sources */,
 				61B14A011E2F14F800605BCB /* UserSocialMainAlbumTableViewCell.swift in Sources */,
