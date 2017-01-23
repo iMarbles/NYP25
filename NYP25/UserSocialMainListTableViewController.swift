@@ -10,6 +10,7 @@ import UIKit
 
 class UserSocialMainListTableViewController: UITableViewController {
     var socialList : [Social] = []
+    var noOfLikesList : [PhotoLike] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,34 +28,22 @@ class UserSocialMainListTableViewController: UITableViewController {
     }
 
     @IBAction func actionSheetButtonPressed(sender: UIButton) {
-        let alertController = UIAlertController(title: "Need any help?", message: "(else select cancel option)", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
         
         alertController.addTextField { textField in
-            textField.placeholder = "Description"
+            textField.placeholder = "Enter Flagged Reason"
             
-            let reportAction = UIAlertAction(title: "Inappropriate / Irrelevant Post", style: .default) { action in
+            let reportAction = UIAlertAction(title: "Inappropriate / Irrelevant Post", style: .destructive) { action in
                 print("ok")
             }
             alertController.addAction(reportAction)
-
-//            let destroyAction = UIAlertAction(title: "Delete Post", style: .destructive) { action in
-//                //            print(action)
-//                print("destroy")
-//            }
-//            alertController.addAction(destroyAction)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
                 print("cancel")
             }
             alertController.addAction(cancelAction)
             
-            let loginAction = UIAlertAction(title: "Description", style: .default) { [weak alertController] _ in
-                textField.isEnabled = true
-            }
-            
-            alertController.addAction(loginAction)
-            
-            let postAction = UIAlertAction(title: "Submit Post", style: .default) { action in
+            let postAction = UIAlertAction(title: "Submit Reason", style: .destructive) { action in
                 print("ok")
             }
             alertController.addAction(postAction)
@@ -62,6 +51,7 @@ class UserSocialMainListTableViewController: UITableViewController {
             
             NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
                 postAction.isEnabled = true
+                reportAction.isEnabled = false
             }
         }
     
@@ -126,10 +116,25 @@ class UserSocialMainListTableViewController: UITableViewController {
             as! UserSocialMainListTableViewCell
 
         let s = socialList[(indexPath as IndexPath).row]
-
         cell.dateLbl.text = s.postedDateTime
-        cell.usernameLbl.text = s.uploader
+        cell.usernameLbl.text = s.uploaderUsername
         cell.captionLbl.text = s.caption
+        
+        UserSocialDM.retrieveNoOfTotalLikesForPhotos(eventId: s.eventId, onComplete: {(list) in
+            cell.noOfLikes.text = String(list.isLike)
+        })
+                
+        print(s.eventId)
+        
+//        for like in s.likes!{
+////            noOfLikesList.append(like)
+//            if(s.eventId == s.eventId){
+//                noOfLikesList.append(like)
+//            }
+//            
+//        }
+//        
+//        cell.noOfLikes.text = String(noOfLikesList[(indexPath as IndexPath).row].isLike)
         
         loadSocialImage(imageView: cell.mainListImageView, url: s.photoUrl!)
         

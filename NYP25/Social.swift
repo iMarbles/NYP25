@@ -17,4 +17,6 @@ class Social: NSObject {
     var isFlagged : Int = 0
     var flagReason : String?
     var likes : [PhotoLike]?
+    
+    var uploaderUsername : String?
 }

@@ -23,11 +23,9 @@ class UserProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        /* Circle Profile Photo */
-        profilePhotoView?.layer.masksToBounds = false
-        profilePhotoView?.layer.cornerRadius = (profilePhotoView?.frame.height)!/2
-        profilePhotoView?.clipsToBounds = true
+        
+        circleFramePhoto(image: selectedBadge!)
+        circleFramePhoto(image: profilePhotoView!)
         
         badgesView?.isHidden = false
         selfPhotoView?.isHidden = true
@@ -39,7 +37,7 @@ class UserProfileViewController: UIViewController {
             self.loadProfileImage(imageView: self.profilePhotoView!, url: user.displayPhotoUrl!)
         })
 
-        UserProfileDM.retrieveAllUsersBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (u) in
+        UserProfileDM.retrieveUsersDisplayBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (u) in
             self.profileGallery = u
             self.loadProfileImage(imageView: self.selectedBadge!, url: u[0].icon)
         })
@@ -105,6 +103,12 @@ class UserProfileViewController: UIViewController {
                 }
                 
         }
+    }
+    
+    func circleFramePhoto (image : UIImageView){
+        image.layer.masksToBounds = false
+        image.layer.cornerRadius = (image.frame.height)/2
+        image.clipsToBounds = true
     }
 
     /*
