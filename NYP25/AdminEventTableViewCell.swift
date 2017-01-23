@@ -13,7 +13,6 @@ class AdminEventTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel : UILabel!
     @IBOutlet weak var dateLabel : UILabel!
     @IBOutlet weak var locationLabel : UILabel!
-    @IBOutlet weak var visibleIcon : UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()

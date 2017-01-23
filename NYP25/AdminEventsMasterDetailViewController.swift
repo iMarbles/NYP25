@@ -9,7 +9,7 @@
 
 import UIKit
 
-class AdminEventsMasterDetailViewController: UIViewController {
+class AdminEventsMasterDetailViewController: UIViewController, HideableHairlineViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var detailContainer : UIView!
     @IBOutlet weak var galleryContainer : UIView!
@@ -21,15 +21,16 @@ class AdminEventsMasterDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if(event?.name != nil){
-            self.navigationItem.title = event?.name
-        }else{
-            self.navigationItem.title = "Event Details"
-        }
-        
-        
         self.galleryContainer.alpha = 0
         self.reviewContainer.alpha = 0
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        hideHairline()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        showHairline()
     }
     
     @IBAction func showComponent(sender: UISegmentedControl) {

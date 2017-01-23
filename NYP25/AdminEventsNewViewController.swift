@@ -30,10 +30,17 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
 
         // Do any additional setup after loading the view.
         descTb.delegate = self
+        descTb.text = "Enter event description"
         descTb.textColor = UIColor.lightGray
         descTb.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         descTb.layer.borderWidth = 1.0;
         descTb.layer.cornerRadius = 5.0;
+        
+        badgeImage.layer.masksToBounds = false
+        badgeImage.layer.cornerRadius = badgeImage.frame.height/2
+        badgeImage.clipsToBounds = true
+        badgeImage.layer.borderWidth = 1
+        badgeImage.layer.borderColor = UIColor.black.cgColor
         
         if event == nil{
             event = Event()
@@ -59,6 +66,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
     func loadEventDetails(){
         if(!isNewEvent){
             self.navigationItem.title = "Edit Details"
+            nameTb.text = event?.name
         }
 
         if event?.imageUrl != nil{
@@ -66,7 +74,6 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
             eventImage.isHidden = false
         }
         
-        nameTb.text = event?.name
         formatDbDate(dateStored: event?.date)
         formatDbTimeFor(textField : startTimeTb, dbTime : event?.startTime)
         formatDbTimeFor(textField : endTimeTb, dbTime : event?.endTime)
@@ -78,7 +85,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
             })
         }
 
-        if event?.desc != ""{
+        if event?.desc != nil && event?.desc != ""{
             descTb.text = event?.desc
             descTb.textColor = UIColor.black
         }else{
@@ -353,12 +360,28 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         }
         if dateTb.text == ""{
             errMsg += "Please enter date \n"
+        }else{
+            let today = Date()
+            let formatter = DateFormatter()
+            
+            formatter.dateFormat = "yyyyMMdd"
+            let formatDate = formatter.string(from: today)
+            
+            if (event?.date)! <= formatDate{
+                errMsg += "Date has to be after today \n"
+            }
         }
         if startTimeTb.text == "" {
             errMsg += "Please enter start time \n"
         }
         if endTimeTb.text == ""{
             errMsg += "Please enter end time \n"
+        }else{
+            let timeResult : ComparisonResult = (event?.startTime)!.compare((event?.endTime)!)
+            
+            if timeResult == ComparisonResult.orderedDescending || timeResult == ComparisonResult.orderedSame{
+                errMsg += "End time must be after start time \n"
+            }
         }
         if locationTb.text == ""{
             errMsg += "Please select a location \n"
@@ -366,7 +389,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         if badgeImage.image == nil{
             errMsg += "Please upload a badge icon"
         }
-        if descTb.text == ""{
+        if event?.desc == ""{
             errMsg += "Please enter a description"
         }
         

@@ -26,14 +26,12 @@ class AdminStatisticsMasterViewController: UIViewController {
                 self.dashboardContainer.alpha = 1
                 self.statisticsContainer.alpha = 0
             })
-            self.navigationItem.title = "Dashboard"
         }
         else {
             UIView.animate(withDuration: 0.5, animations: {
                 self.dashboardContainer.alpha = 0
                 self.statisticsContainer.alpha = 1
             })
-            self.navigationItem.title = "Statistics"
         }
     }
 

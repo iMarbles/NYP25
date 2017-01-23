@@ -8,6 +8,34 @@
 
 import UIKit
 
+protocol HideableHairlineViewController {
+    
+    func hideHairline()
+    func showHairline()
+    
+}
+
+extension HideableHairlineViewController where Self: UIViewController {
+    
+    func hideHairline() {
+        findHairline()?.isHidden = true
+    }
+    
+    func showHairline() {
+        findHairline()?.isHidden = false
+    }
+    
+    private func findHairline() -> UIImageView? {
+        return navigationController?.navigationBar.subviews
+            .flatMap { $0.subviews }
+            .flatMap { $0 as? UIImageView }
+            .filter { $0.bounds.size.width == self.navigationController?.navigationBar.bounds.size.width }
+            .filter { $0.bounds.size.height <= 2 }
+            .first
+    }
+    
+}
+
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

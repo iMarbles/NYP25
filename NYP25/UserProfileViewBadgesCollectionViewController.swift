@@ -1,38 +1,49 @@
 //
-//  UsersSocialMainGridCollectionViewController.swift
+//  UserProfileViewBadgesCollectionViewController.swift
 //  NYP25
 //
-//  Created by Evelyn Tan on 16/1/17.
+//  Created by Evelyn Tan on 21/1/17.
 //  Copyright © 2017 NYP. All rights reserved.
 //
 
 import UIKit
 
-class UsersSocialMainGridCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
-    var social : Social?
-    var socialPhotos : [Social] = []
+//private let reuseIdentifier = "Cell"
 
+class UserProfileViewBadgesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    var profileGallery : [Badge] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadPhotos()
-    }
-    
-    func loadPhotos(){
-        UserSocialDM.retrieveEventPhotos(onComplete: { (photos) in
-            self.socialPhotos = photos
+//        UserSocialDM.retrieveEventPhotos(onComplete: { (photos) in
+//            self.profileGallery = photos
+//            self.collectionView?.reloadData()
+//            
+//            if(self.profileGallery.count == 0){
+//                let alert = UIAlertView(title: "",
+//                                        message: "No Photos Available Currently",
+//                                        delegate: nil,
+//                                        cancelButtonTitle: "Ok")
+//                alert.show()
+//                
+//            }
+//        })
+        
+        UserProfileDM.retrieveAllUsersBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(badges) in
+            self.profileGallery = badges
             self.collectionView?.reloadData()
-            
-            if(self.socialPhotos.count == 0){
+            if(self.profileGallery.count == 0){
                 let alert = UIAlertView(title: "",
                                         message: "No Photos Available Currently",
                                         delegate: nil,
                                         cancelButtonTitle: "Ok")
                 alert.show()
-
+                
             }
         })
+        
         // Do any additional setup after loading the view.
     }
     
@@ -41,18 +52,19 @@ class UsersSocialMainGridCollectionViewController: UICollectionViewController, U
         // Dispose of any resources that can be recreated.
     }
     
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return socialPhotos.count
+        return profileGallery.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! UserSocialGalleryCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "badgeCell", for: indexPath) as! UserProfileViewBadgesCollectionViewCell
         
-        loadSocialImage(imageView: cell.eventImage, url: socialPhotos[(indexPath as IndexPath).row].photoUrl!)
+        loadGallery(imageView: cell.badgePhotos, url: profileGallery[(indexPath as IndexPath).row].icon)
         return cell
     }
     
-    func loadSocialImage(imageView: UIImageView, url: String)
+    func loadGallery(imageView: UIImageView, url: String)
     {
         DispatchQueue.global(qos: .background).async
             {

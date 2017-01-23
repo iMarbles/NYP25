@@ -14,6 +14,7 @@
 		04D725451E0D5C8200603CCA /* AdminEventsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */; };
 		04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */; };
 		04E6489B1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */; };
+		04E864D61E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E864D51E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift */; };
 		04EA47351E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */; };
 		04EA47371E13DB1F006797D9 /* AdminEventsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */; };
 		04EA47391E1401E3006797D9 /* AdminEventsReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */; };
@@ -27,7 +28,6 @@
 		04EF868B1E10DAF800842FC4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF868A1E10DAF800842FC4 /* MapKit.framework */; };
 		04EF868F1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */; };
 		04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF86901E10E01400842FC4 /* AdminEventsMapViewController.swift */; };
-		04F2694B1E0D33BD00361510 /* AdminEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2694A1E0D33BD00361510 /* AdminEventsTableViewController.swift */; };
 		04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2694C1E0D3ACA00361510 /* AdminEventTableViewCell.swift */; };
 		27B88D7C1DF2B9B80045C98B /* UserMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */; };
 		27B88D7E1DF2B9CD0045C98B /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */; };
@@ -50,10 +50,18 @@
 		61B149FD1E2F14DC00605BCB /* UserSocialMainAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B149FC1E2F14DC00605BCB /* UserSocialMainAlbumCollectionViewCell.swift */; };
 		61B149FF1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B149FE1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift */; };
 		61B14A011E2F14F800605BCB /* UserSocialMainAlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B14A001E2F14F800605BCB /* UserSocialMainAlbumTableViewCell.swift */; };
+		61B4431A1E32435A00E3EE94 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B443191E32435A00E3EE94 /* UserProfileViewController.swift */; };
+		61B4431C1E32437F00E3EE94 /* UserProfileDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B4431B1E32437F00E3EE94 /* UserProfileDM.swift */; };
+		61B4431E1E327FE300E3EE94 /* UserProfileViewBadgesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B4431D1E327FE300E3EE94 /* UserProfileViewBadgesCollectionViewCell.swift */; };
+		61B443201E327FF400E3EE94 /* UserProfileViewOwnPhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B4431F1E327FF400E3EE94 /* UserProfileViewOwnPhotosCollectionViewCell.swift */; };
+		61B443221E327FFF00E3EE94 /* UserProfileViewLikedPhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B443211E327FFF00E3EE94 /* UserProfileViewLikedPhotosCollectionViewCell.swift */; };
+		61B443241E32801500E3EE94 /* UserProfileViewBadgesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B443231E32801500E3EE94 /* UserProfileViewBadgesCollectionViewController.swift */; };
+		61B443261E32802500E3EE94 /* UserProfileViewOwnPhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B443251E32802500E3EE94 /* UserProfileViewOwnPhotosCollectionViewController.swift */; };
+		61B443281E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B443271E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift */; };
 		61C130C11E289901006E4191 /* UserSocialDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C130BC1E289901006E4191 /* UserSocialDM.swift */; };
 		61C130C51E289901006E4191 /* UserSocialMasterForProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C130C01E289901006E4191 /* UserSocialMasterForProfileViewController.swift */; };
 		61CCEC7F1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CCEC7E1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift */; };
-		61CCEC9E1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CCEC9D1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift */; };
+		61CCEC9E1E2BF387008B36A9 /* UserSocialMainGridCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61CCEC9D1E2BF387008B36A9 /* UserSocialMainGridCollectionViewController.swift */; };
 		811BDA4F1DE8300E00D2D448 /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */; };
 		811BDA501DE8300E00D2D448 /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4A1DE8300E00D2D448 /* FirebaseInstanceID.framework */; };
 		811BDA511DE8300E00D2D448 /* GoogleInterchangeUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 811BDA4B1DE8300E00D2D448 /* GoogleInterchangeUtilities.framework */; };
@@ -71,7 +79,6 @@
 		8166BC511DF6862100FAA37C /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC501DF6862100FAA37C /* Social.swift */; };
 		8166BC551DF6891000FAA37C /* PhotoLike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC541DF6891000FAA37C /* PhotoLike.swift */; };
 		8166BC571DF6896000FAA37C /* PhotoComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC561DF6896000FAA37C /* PhotoComment.swift */; };
-		8166BC591DF68A9000FAA37C /* UserBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8166BC581DF68A9000FAA37C /* UserBadge.swift */; };
 		816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 816A87B91DF1467300232C08 /* BridgingHeader.m */; };
 		816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A87BB1DF1568700232C08 /* GlobalDM.swift */; };
 		816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */; };
@@ -89,6 +96,8 @@
 		81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */; };
 		81FADAFF1DE4453E007D27C8 /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */; };
 		81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */; };
+		9FFC15031E34F23200037BD2 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC15021E34F23200037BD2 /* SignupViewController.swift */; };
+		9FFC15051E350A4200037BD2 /* RegisterDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC15041E350A4200037BD2 /* RegisterDM.swift */; };
 		AFF70B951E2FB7DD00FF1A92 /* UserLeaderboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF70B941E2FB7DD00FF1A92 /* UserLeaderboardController.swift */; };
 /* End PBXBuildFile section */
 
@@ -159,6 +168,7 @@
 		04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsNewViewController.swift; sourceTree = "<group>"; };
 		04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsDetailViewController.swift; sourceTree = "<group>"; };
 		04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
+		04E864D51E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsViewMasterViewController.swift; sourceTree = "<group>"; };
 		04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsMasterDetailViewController.swift; sourceTree = "<group>"; };
 		04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryViewController.swift; sourceTree = "<group>"; };
 		04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsReviewViewController.swift; sourceTree = "<group>"; };
@@ -172,7 +182,6 @@
 		04EF868A1E10DAF800842FC4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsLocationSearchTableViewController.swift; sourceTree = "<group>"; };
 		04EF86901E10E01400842FC4 /* AdminEventsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsMapViewController.swift; sourceTree = "<group>"; };
-		04F2694A1E0D33BD00361510 /* AdminEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsTableViewController.swift; sourceTree = "<group>"; };
 		04F2694C1E0D3ACA00361510 /* AdminEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventTableViewCell.swift; sourceTree = "<group>"; };
 		27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserMain.storyboard; sourceTree = "<group>"; };
 		27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
@@ -194,10 +203,18 @@
 		61B149FC1E2F14DC00605BCB /* UserSocialMainAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		61B149FE1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainAlbumTableViewController.swift; sourceTree = "<group>"; };
 		61B14A001E2F14F800605BCB /* UserSocialMainAlbumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainAlbumTableViewCell.swift; sourceTree = "<group>"; };
+		61B443191E32435A00E3EE94 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		61B4431B1E32437F00E3EE94 /* UserProfileDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDM.swift; sourceTree = "<group>"; };
+		61B4431D1E327FE300E3EE94 /* UserProfileViewBadgesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewBadgesCollectionViewCell.swift; sourceTree = "<group>"; };
+		61B4431F1E327FF400E3EE94 /* UserProfileViewOwnPhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewOwnPhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		61B443211E327FFF00E3EE94 /* UserProfileViewLikedPhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewLikedPhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		61B443231E32801500E3EE94 /* UserProfileViewBadgesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewBadgesCollectionViewController.swift; sourceTree = "<group>"; };
+		61B443251E32802500E3EE94 /* UserProfileViewOwnPhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewOwnPhotosCollectionViewController.swift; sourceTree = "<group>"; };
+		61B443271E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewLikedPhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		61C130BC1E289901006E4191 /* UserSocialDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialDM.swift; sourceTree = "<group>"; };
 		61C130C01E289901006E4191 /* UserSocialMasterForProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMasterForProfileViewController.swift; sourceTree = "<group>"; };
 		61CCEC7E1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
-		61CCEC9D1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersSocialMainGridCollectionViewController.swift; sourceTree = "<group>"; };
+		61CCEC9D1E2BF387008B36A9 /* UserSocialMainGridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainGridCollectionViewController.swift; sourceTree = "<group>"; };
 		811BDA471DE82FF800D2D448 /* Firebase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Firebase.h; sourceTree = "<group>"; };
 		811BDA481DE82FF800D2D448 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		811BDA491DE8300E00D2D448 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseAnalytics.framework; sourceTree = "<group>"; };
@@ -217,7 +234,6 @@
 		8166BC501DF6862100FAA37C /* Social.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		8166BC541DF6891000FAA37C /* PhotoLike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLike.swift; sourceTree = "<group>"; };
 		8166BC561DF6896000FAA37C /* PhotoComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoComment.swift; sourceTree = "<group>"; };
-		8166BC581DF68A9000FAA37C /* UserBadge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBadge.swift; sourceTree = "<group>"; };
 		816A87B71DF1467200232C08 /* NYP25-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NYP25-Bridging-Header.h"; sourceTree = "<group>"; };
 		816A87B81DF1467300232C08 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		816A87B91DF1467300232C08 /* BridgingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgingHeader.m; sourceTree = "<group>"; };
@@ -243,6 +259,8 @@
 		81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
 		81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9FFC15021E34F23200037BD2 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		9FFC15041E350A4200037BD2 /* RegisterDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDM.swift; sourceTree = "<group>"; };
 		AFF70B941E2FB7DD00FF1A92 /* UserLeaderboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLeaderboardController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -303,6 +321,8 @@
 				816A87BB1DF1568700232C08 /* GlobalDM.swift */,
 				8166BC421DF67E5700FAA37C /* AdminEventDM.swift */,
 				61C130BC1E289901006E4191 /* UserSocialDM.swift */,
+				61B4431B1E32437F00E3EE94 /* UserProfileDM.swift */,
+				9FFC15041E350A4200037BD2 /* RegisterDM.swift */,
 			);
 			name = DataManager;
 			sourceTree = "<group>";
@@ -389,7 +409,6 @@
 				8166BC501DF6862100FAA37C /* Social.swift */,
 				8175B12E1DEFE18000FCB205 /* Student.swift */,
 				8175B12A1DEFDE8100FCB205 /* User.swift */,
-				8166BC581DF68A9000FAA37C /* UserBadge.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -400,13 +419,16 @@
 				04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */,
 				04A4ACA71E15718000884164 /* AdminEventReviewTableViewCell.swift */,
 				04F2694C1E0D3ACA00361510 /* AdminEventTableViewCell.swift */,
+				04ECCCD01E30B3FA00BEB70C /* AdminStatisticsMoreTableViewCell.swift */,
+				61B4431D1E327FE300E3EE94 /* UserProfileViewBadgesCollectionViewCell.swift */,
+				61B443211E327FFF00E3EE94 /* UserProfileViewLikedPhotosCollectionViewCell.swift */,
+				61B4431F1E327FF400E3EE94 /* UserProfileViewOwnPhotosCollectionViewCell.swift */,
 				61CCEC7E1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift */,
 				61B149FC1E2F14DC00605BCB /* UserSocialMainAlbumCollectionViewCell.swift */,
 				61B14A001E2F14F800605BCB /* UserSocialMainAlbumTableViewCell.swift */,
 				6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */,
 				612647111E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift */,
 				6126470F1E2E86D6008DC73A /* UserSocialProfileOwnCollectionViewCell.swift */,
-				04ECCCD01E30B3FA00BEB70C /* AdminStatisticsMoreTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -414,6 +436,7 @@
 		81FADAEC1DE4404B007D27C8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				04E864D51E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift */,
 				04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */,
 				04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */,
 				04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */,
@@ -421,7 +444,6 @@
 				04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */,
 				04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */,
 				04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */,
-				04F2694A1E0D33BD00361510 /* AdminEventsTableViewController.swift */,
 				816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */,
 				046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */,
 				04ED18381E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift */,
@@ -432,6 +454,7 @@
 				AFF70B941E2FB7DD00FF1A92 /* UserLeaderboardController.swift */,
 				61B149F81E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift */,
 				61B149FE1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift */,
+				61CCEC9D1E2BF387008B36A9 /* UserSocialMainGridCollectionViewController.swift */,
 				612647091E2E64DA008DC73A /* UserSocialMainListTableViewController.swift */,
 				611C501A1E16CC140044E359 /* UserSocialMasterForMainViewController.swift */,
 				61C130C01E289901006E4191 /* UserSocialMasterForProfileViewController.swift */,
@@ -468,16 +491,16 @@
 		81FADAF11DE44205007D27C8 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */,
-				27B88D851DF2BA040045C98B /* UserSocial.storyboard */,
-				27B88D831DF2B9F80045C98B /* UserEvents.storyboard */,
-				27B88D811DF2B9ED0045C98B /* UserLeaderboard.storyboard */,
-				27B88D7F1DF2B9DD0045C98B /* UserInbox.storyboard */,
-				27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */,
-				81FADAA01DE43912007D27C8 /* AppDelegate.swift */,
-				81FADAA41DE43912007D27C8 /* Login.storyboard */,
-				81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */,
 				81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */,
+				81FADAA01DE43912007D27C8 /* AppDelegate.swift */,
+				81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */,
+				81FADAA41DE43912007D27C8 /* Login.storyboard */,
+				27B88D831DF2B9F80045C98B /* UserEvents.storyboard */,
+				27B88D7F1DF2B9DD0045C98B /* UserInbox.storyboard */,
+				27B88D811DF2B9ED0045C98B /* UserLeaderboard.storyboard */,
+				27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */,
+				27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */,
+				27B88D851DF2BA040045C98B /* UserSocial.storyboard */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -658,6 +681,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B443241E32801500E3EE94 /* UserProfileViewBadgesCollectionViewController.swift in Sources */,
 				61ABEC491E2B392500786152 /* UserSocialSelectImageViewController.swift in Sources */,
 				04E6489B1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift in Sources */,
 				81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */,
@@ -665,14 +689,14 @@
 				61C130C11E289901006E4191 /* UserSocialDM.swift in Sources */,
 				04EA47351E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift in Sources */,
 				04ED183B1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift in Sources */,
+				04E864D61E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift in Sources */,
 				8166BC4F1DF685AD00FAA37C /* Leaderboard.swift in Sources */,
+				61B4431E1E327FE300E3EE94 /* UserProfileViewBadgesCollectionViewCell.swift in Sources */,
 				8166BC4B1DF6847100FAA37C /* EventFeedback.swift in Sources */,
 				61C130C51E289901006E4191 /* UserSocialMasterForProfileViewController.swift in Sources */,
 				04A4ACA81E15718000884164 /* AdminEventReviewTableViewCell.swift in Sources */,
-				8166BC591DF68A9000FAA37C /* UserBadge.swift in Sources */,
 				8166BC571DF6896000FAA37C /* PhotoComment.swift in Sources */,
 				8166BC471DF6839000FAA37C /* Badge.swift in Sources */,
-				04F2694B1E0D33BD00361510 /* AdminEventsTableViewController.swift in Sources */,
 				8166BC451DF67FB900FAA37C /* Event.swift in Sources */,
 				81740FF81E2C864E0047B985 /* EventsInAttendance.swift in Sources */,
 				04D725451E0D5C8200603CCA /* AdminEventsNewViewController.swift in Sources */,
@@ -689,20 +713,28 @@
 				04EA47371E13DB1F006797D9 /* AdminEventsGalleryViewController.swift in Sources */,
 				6126470E1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift in Sources */,
 				04EF868F1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift in Sources */,
+				61B443261E32802500E3EE94 /* UserProfileViewOwnPhotosCollectionViewController.swift in Sources */,
 				6126470A1E2E64DA008DC73A /* UserSocialMainListTableViewController.swift in Sources */,
 				81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */,
+				61B4431C1E32437F00E3EE94 /* UserProfileDM.swift in Sources */,
 				612647181E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift in Sources */,
 				8166BC511DF6862100FAA37C /* Social.swift in Sources */,
 				04ECCCCF1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift in Sources */,
 				04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */,
+				9FFC15051E350A4200037BD2 /* RegisterDM.swift in Sources */,
 				61B149FF1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift in Sources */,
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
+				9FFC15031E34F23200037BD2 /* SignupViewController.swift in Sources */,
+				61B443281E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift in Sources */,
 				61CCEC7F1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift in Sources */,
-				61CCEC9E1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift in Sources */,
+				61CCEC9E1E2BF387008B36A9 /* UserSocialMainGridCollectionViewController.swift in Sources */,
 				04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */,
+				61B443221E327FFF00E3EE94 /* UserProfileViewLikedPhotosCollectionViewCell.swift in Sources */,
 				04ED18391E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift in Sources */,
 				611C501B1E16CC140044E359 /* UserSocialMasterForMainViewController.swift in Sources */,
+				61B4431A1E32435A00E3EE94 /* UserProfileViewController.swift in Sources */,
 				612647161E2E8771008DC73A /* UserSocialProfileLikedCollectionViewController.swift in Sources */,
+				61B443201E327FF400E3EE94 /* UserProfileViewOwnPhotosCollectionViewCell.swift in Sources */,
 				8166BC491DF6840600FAA37C /* EventAttendance.swift in Sources */,
 				816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */,
 				8175B12B1DEFDE8100FCB205 /* User.swift in Sources */,

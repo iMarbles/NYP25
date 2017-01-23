@@ -11,4 +11,5 @@ import UIKit
 class Badge: NSObject {
     var badgeId : String = ""
     var icon : String = ""
+    var isDisplay : Int?
 }
