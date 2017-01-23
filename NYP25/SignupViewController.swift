@@ -1,14 +1,13 @@
-//
-//  SignupViewController.swift
-//  NYP25
-//
-//  Created by Kenneth on 22/1/17.
-//  Copyright © 2017 NYP. All rights reserved.
-//
-
-import UIKit
-
-class SignupViewController: UIViewController {
+ //
+ //  SignupViewController.swift
+ //  NYP25
+ //
+ //  Created by Kenneth on 22/1/17.
+ //  Copyright © 2017 NYP. All rights reserved.
+ //
+ import UIKit
+ 
+ class SignupViewController: UIViewController {
     var bioSelected = false;
     @IBOutlet weak var fnLabel: UILabel!
     @IBOutlet weak var fnTf: UITextField!
@@ -30,17 +29,17 @@ class SignupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         fnTf.becomeFirstResponder();
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     @IBAction func regBtnPressed(_ sender: Any) {
         if (fnTf.text == "" ||
             admTf.text == "" ||
@@ -59,20 +58,20 @@ class SignupViewController: UIViewController {
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
-
-    }else {
+            
+        }else {
             let alertController = UIAlertController(title: "Nice!", message: "Everything looks good.", preferredStyle: UIAlertControllerStyle.alert)
             
             let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
             // shit works
-//            RegisterDM.createUser(user : "hello");
+            //            RegisterDM.createUser(user : "hello");
             print("======");
             // shit doesnt work
-//            RegisterDM.getUsers(admin: admTf.text!, username: unTf.text!, onComplete: {(Array<Student>) in
-//                
-//            })
+            //            RegisterDM.getUsers(admin: admTf.text!, username: unTf.text!, onComplete: {(Array<Student>) in
+            //                
+            //            })
         }
     }
-}
+ }
