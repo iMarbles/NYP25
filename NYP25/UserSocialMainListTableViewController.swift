@@ -26,6 +26,90 @@ class UserSocialMainListTableViewController: UITableViewController {
         }
     }
 
+    @IBAction func actionSheetButtonPressed(sender: UIButton) {
+        let alertController = UIAlertController(title: "Need any help?", message: "(else select cancel option)", preferredStyle: .alert)
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "Description"
+            
+            let reportAction = UIAlertAction(title: "Inappropriate / Irrelevant Post", style: .default) { action in
+                print("ok")
+            }
+            alertController.addAction(reportAction)
+
+//            let destroyAction = UIAlertAction(title: "Delete Post", style: .destructive) { action in
+//                //            print(action)
+//                print("destroy")
+//            }
+//            alertController.addAction(destroyAction)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+                print("cancel")
+            }
+            alertController.addAction(cancelAction)
+            
+            let loginAction = UIAlertAction(title: "Description", style: .default) { [weak alertController] _ in
+                textField.isEnabled = true
+            }
+            
+            alertController.addAction(loginAction)
+            
+            let postAction = UIAlertAction(title: "Submit Post", style: .default) { action in
+                print("ok")
+            }
+            alertController.addAction(postAction)
+            postAction.isEnabled = false
+            
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
+                postAction.isEnabled = true
+            }
+        }
+    
+        self.present(alertController, animated: true) {}
+
+        
+        /*
+        let alertController = UIAlertController(title: nil, message: "Takes the appearance of the bottom bar if specified; otherwise, same as UIActionSheetStyleDefault.", preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            print("cancel")
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+            print("ok")
+        }
+        alertController.addAction(OKAction)
+        
+        let destroyAction = UIAlertAction(title: "Destroy", style: .destructive) { action in
+//            print(action)
+            print("destroy")
+        }
+        alertController.addAction(destroyAction)
+        
+        self.present(alertController, animated: true) {
+            // ...
+        }
+        */
+    }
+    
+    @IBAction func actionDelete(sender: UIButton) {
+        let alertController = UIAlertController(title: "You sure you wanna delete this post?", message: nil, preferredStyle: .alert)
+
+        let destroyAction = UIAlertAction(title: "Delete Post", style: .destructive) { action in
+            //            print(action)
+            print("destroy")
+        }
+        alertController.addAction(destroyAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            print("cancel")
+        }
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true) {}
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
