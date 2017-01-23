@@ -11,7 +11,7 @@
         <!--Leaderboard-->
         <scene sceneID="vXB-0e-lEY">
             <objects>
-                <viewController storyboardIdentifier="UserLeaderboard" id="fCp-Np-qxh" customClass="UserLeaderboardController" customModule="NYP25" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserLeaderboard" id="fCp-Np-qxh" customClass="UserLeaderboardViewController" customModule="NYP25" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nvs-mB-DbB"/>
                         <viewControllerLayoutGuide type="bottom" id="VkX-yz-lAV"/>
@@ -204,31 +204,31 @@
                     <tabBarItem key="tabBarItem" title="Leaderboard" image="Leaderboard-30" id="CJp-sc-kvr"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="blue" destination="G8p-h7-iPb" id="Nl3-gk-82u"/>
-                        <outlet property="firstLbl" destination="rZh-gS-Yn2" id="U3P-xw-b5t"/>
-                        <outlet property="green" destination="YkY-Yo-MHV" id="QjL-uq-FOQ"/>
-                        <outlet property="leaderboardChart" destination="Kdn-pp-zHQ" id="rTy-Wj-XwB"/>
-                        <outlet property="orange" destination="Xrn-Yh-nTQ" id="Gz5-83-UdV"/>
-                        <outlet property="pink" destination="61x-zU-M8V" id="fSv-zW-ibq"/>
-                        <outlet property="purple" destination="dn0-Tk-Bs6" id="fSg-LG-ycc"/>
-                        <outlet property="red" destination="UQr-h0-JeA" id="JgG-X4-2Bk"/>
-                        <outlet property="sbmLbl" destination="lQX-KS-ql2" id="gIS-pw-CnT"/>
-                        <outlet property="sbmScoreLbl" destination="hoH-ZV-dBN" id="EuT-0s-9pz"/>
-                        <outlet property="sclLbl" destination="hVM-f5-t24" id="9Nv-zL-Pgw"/>
-                        <outlet property="sclScoreLbl" destination="voo-zj-ruZ" id="3hL-OK-PUZ"/>
-                        <outlet property="sdnLbl" destination="M0Q-bA-NJA" id="Eia-hv-5Dt"/>
-                        <outlet property="sdnScoreLbl" destination="UDU-nX-uuR" id="4eY-Q1-wPy"/>
-                        <outlet property="secondLbl" destination="hWb-Tc-Qhj" id="svh-rZ-3GO"/>
-                        <outlet property="segLbl" destination="eo0-fq-OXg" id="d3B-SH-Ldg"/>
-                        <outlet property="segScoreLbl" destination="OWE-Gr-CaS" id="VJG-OJ-Fig"/>
-                        <outlet property="shsLbl" destination="9nc-jG-odr" id="ebu-nc-eZF"/>
-                        <outlet property="shsScoreLbl" destination="4DB-mf-DyH" id="efd-yj-fo4"/>
-                        <outlet property="sidmLbl" destination="muS-Bq-pyz" id="bAk-9x-eQl"/>
-                        <outlet property="sidmScoreLbl" destination="sjU-3R-Im0" id="1bn-nL-aVW"/>
-                        <outlet property="sitLbl" destination="P44-8t-JmB" id="fLJ-Y6-DR2"/>
-                        <outlet property="sitScoreLbl" destination="AzY-Oj-ZpI" id="ymu-hK-0Ma"/>
-                        <outlet property="thirdLbl" destination="xyx-kt-uIR" id="EMZ-Yq-Tfh"/>
-                        <outlet property="yellow" destination="jPW-GR-P9b" id="oxh-tq-kmJ"/>
+                        <outlet property="blue" destination="G8p-h7-iPb" id="8ad-WB-AHY"/>
+                        <outlet property="firstLbl" destination="rZh-gS-Yn2" id="wlE-Fp-H87"/>
+                        <outlet property="green" destination="YkY-Yo-MHV" id="1EQ-Jd-PGa"/>
+                        <outlet property="leaderboardChart" destination="Kdn-pp-zHQ" id="ti8-9n-nSA"/>
+                        <outlet property="orange" destination="Xrn-Yh-nTQ" id="5gU-fx-ZhZ"/>
+                        <outlet property="pink" destination="61x-zU-M8V" id="H9T-5y-23h"/>
+                        <outlet property="purple" destination="dn0-Tk-Bs6" id="SLT-w2-rZK"/>
+                        <outlet property="red" destination="UQr-h0-JeA" id="38t-k1-1gc"/>
+                        <outlet property="sbmLbl" destination="lQX-KS-ql2" id="LGN-Xi-Pz3"/>
+                        <outlet property="sbmScoreLbl" destination="hoH-ZV-dBN" id="tTv-dK-pgC"/>
+                        <outlet property="sclLbl" destination="hVM-f5-t24" id="SoK-EN-rch"/>
+                        <outlet property="sclScoreLbl" destination="voo-zj-ruZ" id="d8h-WS-G4r"/>
+                        <outlet property="sdnLbl" destination="M0Q-bA-NJA" id="Rnd-vU-fzP"/>
+                        <outlet property="sdnScoreLbl" destination="UDU-nX-uuR" id="03P-7h-zzA"/>
+                        <outlet property="secondLbl" destination="hWb-Tc-Qhj" id="oc7-sj-VCG"/>
+                        <outlet property="segLbl" destination="eo0-fq-OXg" id="cvg-GB-FTS"/>
+                        <outlet property="segScoreLbl" destination="OWE-Gr-CaS" id="bi9-Hf-ZPz"/>
+                        <outlet property="shsLbl" destination="9nc-jG-odr" id="u7O-iF-NX6"/>
+                        <outlet property="shsScoreLbl" destination="4DB-mf-DyH" id="ljG-pf-zvA"/>
+                        <outlet property="sidmLbl" destination="muS-Bq-pyz" id="UPx-00-ZCJ"/>
+                        <outlet property="sidmScoreLbl" destination="sjU-3R-Im0" id="3fI-6Q-uFm"/>
+                        <outlet property="sitLbl" destination="P44-8t-JmB" id="q7u-ed-bdE"/>
+                        <outlet property="sitScoreLbl" destination="AzY-Oj-ZpI" id="9QX-LZ-wXO"/>
+                        <outlet property="thirdLbl" destination="xyx-kt-uIR" id="RpZ-Qb-27H"/>
+                        <outlet property="yellow" destination="jPW-GR-P9b" id="fQG-ti-3bF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azt-ZS-ODI" userLabel="First Responder" sceneMemberID="firstResponder"/>
