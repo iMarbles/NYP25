@@ -425,10 +425,11 @@
 				816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */,
 				046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */,
 				04ED18381E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift */,
+				04ECCCCE1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift */,
 				04ED183A1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift */,
 				04ED183C1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift */,
-				04ECCCCE1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift */,
 				81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */,
+				AFF70B941E2FB7DD00FF1A92 /* UserLeaderboardController.swift */,
 				61B149F81E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift */,
 				61B149FE1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift */,
 				612647091E2E64DA008DC73A /* UserSocialMainListTableViewController.swift */,
@@ -439,7 +440,6 @@
 				61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */,
 				612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */,
 				61CCEC9D1E2BF387008B36A9 /* UsersSocialMainGridCollectionViewController.swift */,
-				AFF70B941E2FB7DD00FF1A92 /* UserLeaderboardController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
