@@ -17,7 +17,7 @@ class AdminEventsLocationSearchTableViewController: UITableViewController, UISea
     var selectedPin: MKPlacemark? = nil
     
     var event : Event?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

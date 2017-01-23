@@ -15,11 +15,19 @@ class AdminEventsMapViewController: UIViewController {
     var resultSearchController : UISearchController? = nil
     
     var event : Event?
+    var isDone = false
+    var oldEventAdd : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //To be used to check if done button was selected
+        isDone = false
+        
         if event != nil{
             //Show location of event
+            if event?.address != nil{
+                oldEventAdd = (event?.address)!
+            }
             searchLocation()
         }
         
@@ -48,7 +56,21 @@ class AdminEventsMapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        //If done button not selected, no selected address (for new events)
+        if !isDone{
+            event?.address = nil
+        }
+        
+        //For existing events
+        if !isDone && oldEventAdd != "" {
+            event?.address = oldEventAdd
+        }
+        
+    }
+    
     @IBAction func doneBtnClick(sender: Any){
+        isDone = true
         if mapView.annotations.count == 0{
             let uiAlert = UIAlertController(title: "Error", message: "No location entered", preferredStyle: UIAlertControllerStyle.alert)
             
