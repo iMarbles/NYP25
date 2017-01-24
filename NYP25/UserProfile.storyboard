@@ -147,6 +147,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="02e-oj-sdT">
+                        <barButtonItem key="leftBarButtonItem" image="Password-30" style="plain" id="qUx-gk-Dvn">
+                            <connections>
+                                <segue destination="Woj-Pr-7eF" kind="show" id="etx-oN-YHu"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="KRd-mR-Beh">
                             <connections>
                                 <action selector="btnLogout:" destination="f5Q-ju-9mf" id="s6q-xB-bW4"/>
@@ -165,6 +170,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rr2-b6-0Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="184.80000000000001" y="260.41979010494754"/>
+        </scene>
+        <!--Change Password-->
+        <scene sceneID="Kz9-5r-x6F">
+            <objects>
+                <viewController title="Change Password" id="Woj-Pr-7eF" customClass="UserProfileEditPasswordViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8iI-9E-i53"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZhA-f6-zvd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ecz-Vb-pDQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EfJ-Y7-MDE">
+                                <rect key="frame" x="8" y="76" width="359" height="201.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff2-Rm-xFo">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efz-wH-VSx">
+                                        <rect key="frame" x="0.0" y="30.5" width="359" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wr-o4-vgK">
+                                        <rect key="frame" x="0.0" y="70.5" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y1h-hc-Efa">
+                                        <rect key="frame" x="0.0" y="101" width="359" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retype New" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vg1-gE-U28">
+                                        <rect key="frame" x="0.0" y="141" width="359" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PdN-Jl-Rvm">
+                                        <rect key="frame" x="0.0" y="171.5" width="359" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EfJ-Y7-MDE" secondAttribute="trailing" constant="8" id="6gy-9b-hpu"/>
+                            <constraint firstItem="EfJ-Y7-MDE" firstAttribute="top" secondItem="8iI-9E-i53" secondAttribute="bottom" constant="12" id="b5n-lz-bAk"/>
+                            <constraint firstItem="EfJ-Y7-MDE" firstAttribute="leading" secondItem="Ecz-Vb-pDQ" secondAttribute="leading" constant="8" id="nPS-9E-e82"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Password" id="jI9-Bz-kTw">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="AA0-R8-GHq">
+                            <connections>
+                                <action selector="btnSaveWithSender:" destination="Woj-Pr-7eF" id="OsJ-9O-ijP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="currentPassTxt" destination="Efz-wH-VSx" id="JY4-FH-UMu"/>
+                        <outlet property="newPassTxt" destination="Y1h-hc-Efa" id="xGJ-4g-UtT"/>
+                        <outlet property="retypePassTxt" destination="PdN-Jl-Rvm" id="Dvh-vy-2N6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nsp-P5-Q33" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010" y="260"/>
         </scene>
         <!--BADGES-->
         <scene sceneID="uNL-Ik-XNc">
@@ -325,6 +408,7 @@
     </scenes>
     <resources>
         <image name="Circled User Male-30" width="30" height="30"/>
+        <image name="Password-30" width="30" height="30"/>
         <image name="gamepad - 64" width="64" height="64"/>
         <image name="landscape - 64" width="64" height="64"/>
         <image name="signs - 64" width="64" height="64"/>

@@ -56,6 +56,7 @@
 		61B149FD1E2F14DC00605BCB /* UserSocialMainAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B149FC1E2F14DC00605BCB /* UserSocialMainAlbumCollectionViewCell.swift */; };
 		61B149FF1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B149FE1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift */; };
 		61B14A011E2F14F800605BCB /* UserSocialMainAlbumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B14A001E2F14F800605BCB /* UserSocialMainAlbumTableViewCell.swift */; };
+		61B25FFB1E37E13B0090A70D /* UserProfileEditPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B25FFA1E37E13B0090A70D /* UserProfileEditPasswordViewController.swift */; };
 		61B4431A1E32435A00E3EE94 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B443191E32435A00E3EE94 /* UserProfileViewController.swift */; };
 		61B4431C1E32437F00E3EE94 /* UserProfileDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B4431B1E32437F00E3EE94 /* UserProfileDM.swift */; };
 		61B4431E1E327FE300E3EE94 /* UserProfileViewBadgesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B4431D1E327FE300E3EE94 /* UserProfileViewBadgesCollectionViewCell.swift */; };
@@ -214,6 +215,7 @@
 		61B149FC1E2F14DC00605BCB /* UserSocialMainAlbumCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainAlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		61B149FE1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainAlbumTableViewController.swift; sourceTree = "<group>"; };
 		61B14A001E2F14F800605BCB /* UserSocialMainAlbumTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainAlbumTableViewCell.swift; sourceTree = "<group>"; };
+		61B25FFA1E37E13B0090A70D /* UserProfileEditPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileEditPasswordViewController.swift; sourceTree = "<group>"; };
 		61B443191E32435A00E3EE94 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		61B4431B1E32437F00E3EE94 /* UserProfileDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDM.swift; sourceTree = "<group>"; };
 		61B4431D1E327FE300E3EE94 /* UserProfileViewBadgesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewBadgesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 				61CCEC9D1E2BF387008B36A9 /* UserSocialMainGridCollectionViewController.swift */,
 				AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */,
 				04E93EF51E36141F0044820D /* SignupViewController.swift */,
+				61B25FFA1E37E13B0090A70D /* UserProfileEditPasswordViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				04EA47351E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift in Sources */,
 				04ED183B1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift in Sources */,
 				04E864D61E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift in Sources */,
+				61B25FFB1E37E13B0090A70D /* UserProfileEditPasswordViewController.swift in Sources */,
 				8166BC4F1DF685AD00FAA37C /* Leaderboard.swift in Sources */,
 				61B4431E1E327FE300E3EE94 /* UserProfileViewBadgesCollectionViewCell.swift in Sources */,
 				8166BC4B1DF6847100FAA37C /* EventFeedback.swift in Sources */,

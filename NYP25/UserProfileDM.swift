@@ -12,6 +12,32 @@ import FirebaseStorage
 
 class UserProfileDM: NSObject {
     
+    //SHA256
+    static func sha256(_ string: String) -> Data? {
+        guard let messageData = string.data(using:String.Encoding.utf8) else { return nil; }
+        var digestData = Data(count: Int(CC_SHA256_DIGEST_LENGTH))
+        
+        _ = digestData.withUnsafeMutableBytes {digestBytes in
+            messageData.withUnsafeBytes {messageBytes in
+                CC_SHA256(messageBytes, CC_LONG(messageData.count), digestBytes)
+            }
+        }
+        return digestData
+    }
+    
+    //Update event
+    static func updatePassword(currentUser : String, password : String){
+        let shaData = sha256(password)
+        let shaHex =  shaData!.map { String(format: "%02hhx", $0) }.joined()
+
+        let ref = FIRDatabase.database().reference().child("users/\(currentUser)/")
+
+        ref.updateChildValues([
+            "password" : shaHex
+            ])
+    }
+
+    
     //Retrieve all events
     static func retrieveUsersInfo(userId : String, onComplete: @escaping (Student)->Void){
         let ref = FIRDatabase.database().reference().child("users/\(userId)/")

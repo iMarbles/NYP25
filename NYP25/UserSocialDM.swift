@@ -330,20 +330,6 @@ class UserSocialDM: NSObject {
         })
     }
     
-    static func checkIfUserLikedPhoto(eventId : String, currentUserId : String, onComplete: @escaping (PhotoLike)-> Void){
-        let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(currentUserId)/")
-        
-        refLikedBy.observeSingleEvent(of: .value, with:
-            { (snapshot) in
-                
-                let p = PhotoLike()
-                p.adminNo = snapshot.key
-                p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
-                
-                onComplete(p)
-        })
-    }
-    
     //Retrieve all User Liked Photos
     static func retrieveAllSocialUserLikedPhotos(onComplete: @escaping ([Social])->Void){
         var socialList : [Social] = []
@@ -418,26 +404,6 @@ class UserSocialDM: NSObject {
                     socialList.append(s)
                     print("s.uploader - \(s.uploader)")
                 }
-                
-                //Child nodes
-/*                let likes = r.childSnapshot(forPath: "likedBy").children
-                for liked in likes{
-                    let l = liked as! FIRDataSnapshot
-                    
-                    let p = PhotoLike()
-                    p.adminNo = l.key
-                    p.isLike = (l.childSnapshot(forPath: "isLiked").value as? Int)!
-                    
-                    if(p.adminNo == (GlobalDM.CurrentUser?.userId)!){
-                        print("p.adminNo - \(p.adminNo)")
-                        print("p.isLike - \(p.isLike)")
-                        
-                        likedByList.append(p)
-                        s.likes = likedByList
-                        socialList.append(s)
-                    }
-                }*/
-                
             }
             
             onComplete(socialList)
