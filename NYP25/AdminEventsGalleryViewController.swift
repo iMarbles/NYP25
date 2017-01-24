@@ -20,6 +20,10 @@ class AdminEventsGalleryViewController: UICollectionViewController, UICollection
         // Do any additional setup after loading the view.
         loadPhotos()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadPhotos()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

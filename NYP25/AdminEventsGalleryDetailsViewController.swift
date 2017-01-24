@@ -46,8 +46,19 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
     }
     
     @IBAction func deleteImage(sender: Any){
+        let deleteAlert = UIAlertController(title: "Confirm", message: "Are you sure you want to remove the post?", preferredStyle: UIAlertControllerStyle.alert)
         
-        dismiss(animated: true, completion: nil)
+        deleteAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            AdminEventDM.deleteSocialImageBy(socialId: (self.currentPhoto?.socialId)!)
+            
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            //Do nothing
+        }))
+        
+        present(deleteAlert, animated: true, completion: nil)
     }
     
     func loadImageDetails(){
@@ -62,7 +73,9 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
                 noOfLikes += 1
             }
             
-            noOfComments = (like.comments?.count)!
+            if like.comments != nil{
+                noOfComments += (like.comments?.count)!
+            }
         }
         
         if noOfLikes == 1 {

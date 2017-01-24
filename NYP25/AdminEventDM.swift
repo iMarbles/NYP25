@@ -210,6 +210,7 @@ class AdminEventDM: NSObject {
                     let r = record as! FIRDataSnapshot
                     
                     let photo = Social()
+                    photo.socialId = r.key
                     photo.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
                     //To add-on as needed
                     photo.uploader = r.childSnapshot(forPath: "uploader").value as? String
@@ -268,8 +269,19 @@ class AdminEventDM: NSObject {
     }
     
     //Deleting social image
-    static func deleteSocialImage(socialId : String){
+    static func deleteSocialImageBy(socialId : String){
         let storageRef = FIRStorage.storage().reference().child("/SocialPhoto/\(socialId)")
+        storageRef.delete { error in
+            if let error = error {
+                // Uh-oh, an error occurred!
+                print(error.localizedDescription)
+            } else {
+                // File deleted successfully
+                //Delete the photo record
+                let ref = FIRDatabase.database().reference().child("social/\(socialId)")
+                ref.removeValue()
+            }
+        }
         
     }
     

@@ -9,6 +9,7 @@
 import UIKit
 
 class Social: NSObject {
+    var socialId : String = ""
     var eventId : String = ""
     var photoUrl : String?
     var uploader : String?
