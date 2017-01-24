@@ -11,6 +11,7 @@ import Firebase
 import FirebaseStorage
 
 class UserSocialDM: NSObject {
+    
 //    static func createPost(eventId : String, social : Social, socialPhotos : NSData?, likedBy : PhotoLike, currentUserId : String, comments : PhotoComment){
     static func createPost(eventId : String, social : Social, socialPhotos : NSData?, currentUserId : String){
         let key = FIRDatabase.database().reference().child("social").childByAutoId().key
@@ -162,7 +163,7 @@ class UserSocialDM: NSObject {
         })
     }
     
-    static func getNoOfLikesFirst(eventId : String, currentUserId : String){
+    static func updateNoOfPhotoLikes(eventId : String, currentUserId : String){
         let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(currentUserId)/")
         
         refLikedBy.observeSingleEvent(of: .value, with:
@@ -175,82 +176,51 @@ class UserSocialDM: NSObject {
                 print("p.adminNo : \(p.adminNo)")
                 print("currentUserId : \(currentUserId)")
                 
-                
-//                p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
                 if (snapshot.childSnapshot(forPath: "isLiked").value is NSNull ) {
                     p.isLike = 1
+                    
                     refLikedBy.setValue([
                         "isLiked" : p.isLike
                         ])
-                }else{
-                    
-                    if(p.adminNo == currentUserId){
+                }else {
+                    if(p.adminNo != currentUserId){
+                        //Create the like record
                         let num = p.isLike
-                        
-                        p.isLike = 0
-                        print("unliked")
-                    }else if(p.adminNo != currentUserId){
-                        let num = p.isLike
-                        
                         p.isLike = 1
                         print("liked")
+                        
+                        refLikedBy.setValue([
+                            "isLiked" : p.isLike
+                            ])
+                        
+                    }else if(p.adminNo == currentUserId){ //problem now is - it works for the first time like, second time like is deleted
+                        p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
+                        
+                        print("p.isLike - \(p.isLike)")
+                        
+                        if(p.isLike == 1){
+                            //Delete record
+                            print("here here")
+                            
+//                            let photoRef = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(currentUserId)")
+//                            photoRef.observe(.value, with: { (snapshot) -> Void in
+                            
+                                refLikedBy.removeValue()
+                                
+                                //                                ref.child("Users/\(uniqueUserID)").removeValue()
+                                
+                                
+                                //                                if snapshot.exists(){
+                                //                                    for item in snapshot.children {
+                                //                                        (item as AnyObject).ref.child((item as AnyObject).key!).parent?.removeValue()
+                                //                                    }
+                                //                                }
+//                            })
+                        }
                     }
                 }
-                
-                
-                refLikedBy.setValue([
-                    "isLiked" : p.isLike
-                    ])
-        })
+            })
     }
-    
-//    static func updateNoOfPhotoLikes(eventId : String, currentUserId : String, adminNo : String, likedBy : PhotoLike){
-//        let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(currentUserId)/")
-//        
-//        print("likedBy.adminNo : \(adminNo)")
-//        
-//        var num = 0
-//        
-//        if(likedBy.adminNo == currentUserId){
-//            num = likedBy.isLike
-//            
-//            likedBy.isLike = 0
-//            print("unliked")
-//        }else if(likedBy.adminNo != currentUserId){
-//            num = likedBy.isLike
-//            
-//            likedBy.isLike = 1
-//            print("liked")
-//            
-//        }
-//        
-//        refLikedBy.setValue([
-//            "isLiked" : likedBy.isLike
-//            ])
-//    }
-    
-//    static func updateNoOfPhotoLikes(eventId : String, currentUserId : String, likedBy : PhotoLike){
-//        let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(currentUserId)/")
-//        
-//        print("likedBy.adminNo : \(likedBy.adminNo)")
-//        
-//        if(likedBy.adminNo == currentUserId){
-//            let numUnLiked = likedBy.isLike
-//            
-//            likedBy.isLike = 0
-//            print("unliked")
-//        }else if(likedBy.adminNo != currentUserId){
-//            let numLiked = likedBy.isLike
-//            
-//            likedBy.isLike = 1
-//            print("liked")
-//            
-//        }
-//        
-//        refLikedBy.setValue([
-//            "isLiked" : likedBy.isLike
-//            ])
-//    }
 
     //Retrieve all events
     static func retrieveNoOfTotalLikesForPhotos(eventId : String, onComplete: @escaping (PhotoLike)->Void){
@@ -424,3 +394,21 @@ class UserSocialDM: NSObject {
     //        }
     //    }
 }
+
+
+
+
+
+
+
+
+
+//                        let num = p.isLike
+//                        p.isLike = 0
+
+//                        static func removeLike(eventId : String, currentUserId : String){
+//                            refLikedBy.child(currentUserId).removeValue { (error, ref) in
+//                                if error != nil {
+//                                    print("error \(error)")
+//                                }
+//                            }

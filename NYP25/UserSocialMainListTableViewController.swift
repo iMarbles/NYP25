@@ -20,33 +20,9 @@ class UserSocialMainListTableViewController: UITableViewController, ButtonCellDe
     
     // MARK: - ButtonCellDelegate
     func cellTapped(_ cell: UserSocialMainListTableViewCell) {
-        
-//        UserSocialDM.updateNoOfPhotoLikes(eventId: socialList[tableView.indexPath(for: cell)!.row].eventId, currentUserId: (GlobalDM.CurrentUser?.userId)!, likedBy: likedBy!)
-        
-//        UserSocialDM.retrieveNoOfTotalLikesForPhotos(eventId: s.eventId, onComplete: {(list) in
-//            cell.noOfLikes.text = String(list.isLike)
-//        })
-
-        UserSocialDM.getNoOfLikesFirst(eventId: socialList[tableView.indexPath(for: cell)!.row].eventId,
-                                       currentUserId: (GlobalDM.CurrentUser?.userId)!)
-                                        
-//            UserSocialDM.updateNoOfPhotoLikes(eventId: self.socialList[self.tableView.indexPath(for: cell)!.row].eventId,
-//                                              currentUserId: (GlobalDM.CurrentUser?.userId)!,
-//                                              adminNo: list.adminNo,
-//                                              likedBy: self.likedBy!)
-        
-        
-//        UserProfileDM.retrieveUsersDisplayBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (u) in
-//            self.profileGallery = u
-//            self.loadProfileImage(imageView: self.selectedBadge!, url: u[0].icon)
-//        })
-        
-        let alertController = UIAlertController(title: "Photo Liked! :)", message: nil, preferredStyle: .alert)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .default) { action in }
-        alertController.addAction(OKAction)
-        
-        self.present(alertController, animated: true) {}
+        UserSocialDM.updateNoOfPhotoLikes(
+            eventId: socialList[tableView.indexPath(for: cell)!.row].eventId,
+            currentUserId: (GlobalDM.CurrentUser?.userId)!)
     }
     
     override func viewDidLoad() {
@@ -177,7 +153,6 @@ class UserSocialMainListTableViewController: UITableViewController, ButtonCellDe
         if cell.buttonDelegate == nil {
             cell.buttonDelegate = self
         }
-        
         
 //        func likeBtn(sender: UIButton) {
 //            if let p1 = UIImage(named:"LikeFilled-30") {
