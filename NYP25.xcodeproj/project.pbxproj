@@ -361,15 +361,15 @@
 		81FADA9F1DE43912007D27C8 /* NYP25 */ = {
 			isa = PBXGroup;
 			children = (
-				61914E3C1E379A6400FF03F3 /* Assets.xcassets */,
 				8175B1301DEFE50600FCB205 /* DataManager */,
 				81FADAF11DE44205007D27C8 /* Application */,
-				81FADAEF1DE44095007D27C8 /* Library */,
 				81FADAEC1DE4404B007D27C8 /* Controllers */,
-				81FADAEB1DE44043007D27C8 /* Views */,
+				81FADAEF1DE44095007D27C8 /* Library */,
 				81FADAEA1DE4403B007D27C8 /* Models */,
-				81FADAAC1DE43912007D27C8 /* Info.plist */,
+				81FADAEB1DE44043007D27C8 /* Views */,
 				811BDA551DE8309700D2D448 /* GoogleService-Info.plist */,
+				81FADAAC1DE43912007D27C8 /* Info.plist */,
+				61914E3C1E379A6400FF03F3 /* Assets.xcassets */,
 			);
 			path = NYP25;
 			sourceTree = "<group>";
@@ -436,10 +436,10 @@
 				61CCEC7E1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift */,
 				61B149FC1E2F14DC00605BCB /* UserSocialMainAlbumCollectionViewCell.swift */,
 				61B14A001E2F14F800605BCB /* UserSocialMainAlbumTableViewCell.swift */,
+				61075E371E351B7900E25AB3 /* UserSocialMainEventAlbumsCollectionViewCell.swift */,
 				6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */,
 				612647111E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift */,
 				6126470F1E2E86D6008DC73A /* UserSocialProfileOwnCollectionViewCell.swift */,
-				61075E371E351B7900E25AB3 /* UserSocialMainEventAlbumsCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";

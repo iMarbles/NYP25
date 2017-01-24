@@ -106,7 +106,7 @@ class UserSocialUploadImageViewController: UIViewController, UIPickerViewDataSou
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        valueSelected = eventNames[row].name! as String
+        valueSelected = eventNames[row].eventId as String
     }
     
 //    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
