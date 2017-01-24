@@ -7,49 +7,41 @@
 //
 
 import UIKit
-
+import Firebase
 
 protocol ButtonCellDelegate {
     func cellTapped(_ cell: UserSocialMainListTableViewCell)
+//    func setImg(btn : UIButton)
 }
 
-class UserSocialMainListTableViewCell: UITableViewCell {
+class UserSocialMainListTableViewCell: UITableViewCell {    
     @IBOutlet weak var usernameLbl : UILabel!
     @IBOutlet weak var captionLbl : UITextView!
     @IBOutlet weak var dateLbl : UILabel!
     @IBOutlet weak var noOfLikes : UILabel!
     @IBOutlet weak var mainListImageView : UIImageView!
 
-    
-    
     var buttonDelegate: ButtonCellDelegate?
         
     @IBAction func likeBtn(sender: UIButton!) {
         if let delegate = buttonDelegate {
             delegate.cellTapped(self)
-            
-            let image = UIImage(named: "LikeFilled-30.png") as UIImage!
-            sender.setImage(image, for: .normal)
-            
-//            if let p1 = UIImage(named:"LikeFilled-30") {
-//                sender.setImage(UIImage(named:"Like-30-2.png"), for: .normal)
-//            }else if let p2 = UIImage(named:"Like-30-2") {
-//                sender.setImage( UIImage(named:"LikeFilled-30.png"), for: .normal)
-//            }
+//            delegate.setImg(img: UIImage(named:"LikeFilled.png")!)
         }
     }
     
-//    @IBAction func likeBtn(sender: UIButton) {
-//        if let p1 = UIImage(named:"LikeFilled-30") {
-//            sender.setImage(UIImage(named:"Like-30-2.png"), for: .normal)
-//        }
-//        if let p2 = UIImage(named:"Like-30-2") {
-//            sender.setImage( UIImage(named:"LikeFilled-30.png"), for: .normal)
-//        }
-//        UserSocialDM.updateNoOfPhotoLikes(eventId: socialList[0].eventId, currentUserId: (GlobalDM.CurrentUser?.userId)!, likedBy: likedBy)
-//    }
-
+//    var icon = UIImage(named: "LikeFilled")! as UIImage
+//    sender.setImage(icon, for: .normal)
     
+//    if(icon == UIImage(named: "LikeFilled.png")){
+//    icon = UIImage(named: "Like.png")!
+//    sender.setImage(UIImage(named:"Like.png"), for: .normal)
+//    }else if (icon == UIImage(named:"Like.png")){
+//    icon = UIImage(named: "LikeFilled.png")!
+//    sender.setImage(UIImage(named:"LikeFilled.png"), for: .highlighted)
+//    }
+    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

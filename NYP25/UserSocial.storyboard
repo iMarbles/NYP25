@@ -488,7 +488,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="30" id="MgN-ba-1kx"/>
                                             </constraints>
-                                            <state key="normal" image="Like-30-2"/>
+                                            <state key="normal" image="Like"/>
                                             <connections>
                                                 <action selector="likeBtnWithSender:" destination="4BS-vf-HcE" eventType="touchUpInside" id="MoA-gz-vEl"/>
                                             </connections>
@@ -873,6 +873,7 @@
     </scenes>
     <resources>
         <image name="Delete Filled-30-2" width="30" height="30"/>
+        <image name="Like" width="30" height="30"/>
         <image name="Like-30-2" width="30" height="30"/>
         <image name="More Filled-30" width="30" height="30"/>
         <image name="My Topic-30" width="30" height="30"/>

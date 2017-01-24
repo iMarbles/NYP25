@@ -19,7 +19,6 @@
 		04EA47351E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */; };
 		04EA47371E13DB1F006797D9 /* AdminEventsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */; };
 		04EA47391E1401E3006797D9 /* AdminEventsReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */; };
-		04EA63AE1E1626DE00CBE4A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04EA63AD1E1626DE00CBE4A9 /* Assets.xcassets */; };
 		04ECCCCF1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ECCCCE1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift */; };
 		04ECCCD11E30B3FA00BEB70C /* AdminStatisticsMoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ECCCD01E30B3FA00BEB70C /* AdminStatisticsMoreTableViewCell.swift */; };
 		04ED18391E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ED18381E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift */; };
@@ -49,6 +48,7 @@
 		612647181E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612647171E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift */; };
 		61296A9C1E16B706007CA079 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; };
 		61296A9D1E16B706007CA079 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		61914E3D1E379A6400FF03F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61914E3C1E379A6400FF03F3 /* Assets.xcassets */; };
 		61ABEC491E2B392500786152 /* UserSocialSelectImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */; };
 		61B149F91E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B149F81E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift */; };
 		61B149FD1E2F14DC00605BCB /* UserSocialMainAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B149FC1E2F14DC00605BCB /* UserSocialMainAlbumCollectionViewCell.swift */; };
@@ -176,7 +176,6 @@
 		04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsMasterDetailViewController.swift; sourceTree = "<group>"; };
 		04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryViewController.swift; sourceTree = "<group>"; };
 		04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsReviewViewController.swift; sourceTree = "<group>"; };
-		04EA63AD1E1626DE00CBE4A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04ECCCCE1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsMoreTableViewController.swift; sourceTree = "<group>"; };
 		04ECCCD01E30B3FA00BEB70C /* AdminStatisticsMoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsMoreTableViewCell.swift; sourceTree = "<group>"; };
 		04ED18381E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsMasterViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +203,7 @@
 		612647111E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileLikedCollectionViewCell.swift; sourceTree = "<group>"; };
 		612647151E2E8771008DC73A /* UserSocialProfileLikedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileLikedCollectionViewController.swift; sourceTree = "<group>"; };
 		612647171E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileOwnCollectionViewController.swift; sourceTree = "<group>"; };
+		61914E3C1E379A6400FF03F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		61985AF41E16A65600D7AB37 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
 		61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialSelectImageViewController.swift; sourceTree = "<group>"; };
 		61B149F81E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainAlbumCollectionViewController.swift; sourceTree = "<group>"; };
@@ -357,6 +357,7 @@
 		81FADA9F1DE43912007D27C8 /* NYP25 */ = {
 			isa = PBXGroup;
 			children = (
+				61914E3C1E379A6400FF03F3 /* Assets.xcassets */,
 				8175B1301DEFE50600FCB205 /* DataManager */,
 				81FADAF11DE44205007D27C8 /* Application */,
 				81FADAEF1DE44095007D27C8 /* Library */,
@@ -365,7 +366,6 @@
 				81FADAEA1DE4403B007D27C8 /* Models */,
 				81FADAAC1DE43912007D27C8 /* Info.plist */,
 				811BDA551DE8309700D2D448 /* GoogleService-Info.plist */,
-				04EA63AD1E1626DE00CBE4A9 /* Assets.xcassets */,
 			);
 			path = NYP25;
 			sourceTree = "<group>";
@@ -661,7 +661,7 @@
 			files = (
 				27B88D821DF2B9ED0045C98B /* UserLeaderboard.storyboard in Resources */,
 				27B88D7E1DF2B9CD0045C98B /* UserProfile.storyboard in Resources */,
-				04EA63AE1E1626DE00CBE4A9 /* Assets.xcassets in Resources */,
+				61914E3D1E379A6400FF03F3 /* Assets.xcassets in Resources */,
 				81FADAFF1DE4453E007D27C8 /* AdminMain.storyboard in Resources */,
 				27B88D801DF2B9DD0045C98B /* UserInbox.storyboard in Resources */,
 				27B88D861DF2BA040045C98B /* UserSocial.storyboard in Resources */,
