@@ -189,7 +189,7 @@ class AdminStatisticsMoreTableViewController: UITableViewController, IValueForma
             let formatDate = formatter.string(from: today)
 
             if event.date != nil{
-                if event.date! <= formatDate{
+                if event.date! <= formatDate && event.status == "O"{
                     tempList.append(event)
                 }
             }

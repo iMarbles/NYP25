@@ -14,7 +14,7 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
     @IBOutlet weak var socialImage: UIImageView!
     @IBOutlet weak var captionLbl : UILabel!
     @IBOutlet weak var likeLbl : UILabel!
-    @IBOutlet weak var commentLbl : UILabel!
+    @IBOutlet weak var commentBtn : UIButton!
     
     @IBOutlet weak var reportStackView : UIStackView!
     @IBOutlet weak var reportLbl : UILabel!
@@ -31,7 +31,9 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
         userImg.layer.borderWidth = 1
         userImg.layer.borderColor = UIColor.black.cgColor
         
-        loadImageDetails()
+        if currentPhoto != nil{
+            loadImageDetails()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +43,22 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
     
     @IBAction func closeModal(sender: Any){
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func deleteImage(sender: Any){
+        let deleteAlert = UIAlertController(title: "Confirm", message: "Are you sure you want to remove the post?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        deleteAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            AdminEventDM.deleteSocialImageBy(socialId: (self.currentPhoto?.socialId)!)
+            
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        deleteAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            //Do nothing
+        }))
+        
+        present(deleteAlert, animated: true, completion: nil)
     }
     
     func loadImageDetails(){
@@ -55,7 +73,9 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
                 noOfLikes += 1
             }
             
-            noOfComments = (like.comments?.count)!
+            if like.comments != nil{
+                noOfComments += (like.comments?.count)!
+            }
         }
         
         if noOfLikes == 1 {
@@ -65,17 +85,18 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
         }
         
         if noOfComments == 0{
-            commentLbl.text = "0 Comments"
+            commentBtn.setTitle("0 Comments", for: UIControlState.normal)
+            commentBtn.isEnabled = false
         }
         else if noOfComments == 1{
-            commentLbl.text = "view \(noOfComments) comment"
+            commentBtn.setTitle("view \(noOfComments) comment", for: UIControlState.normal)
         }else{
-            commentLbl.text = "view all \(noOfComments) comments"
+            commentBtn.setTitle("view all \(noOfComments) comments", for: UIControlState.normal)
         }
         
         
         if currentPhoto?.isFlagged == 1{
-            reportLbl.text = "This photo has been reported due to: \(currentPhoto?.flagReason)"
+            reportLbl.text = "This photo has been reported due to:\n\((currentPhoto?.flagReason)!)"
             reportStackView.isHidden = false
         }else{
             reportStackView.isHidden = true
@@ -124,14 +145,20 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
     }
 
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ImageComments"{
+            let vc = segue.destination as! AdminEventsGalleryCommentsViewController
+            
+            if currentPhoto?.likes != nil{
+                vc.photoLikes = (currentPhoto?.likes)!
+            }
+        }
     }
-    */
 
 }
