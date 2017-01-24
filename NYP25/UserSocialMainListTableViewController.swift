@@ -8,17 +8,41 @@
 
 import UIKit
 
-class UserSocialMainListTableViewController: UITableViewController {
+class UserSocialMainListTableViewController: UITableViewController, ButtonCellDelegate {
+    
+    //    let photoLiked = UIImage(named: "Like Filled-30")! as UIImage;
+    //    let photoNotLiked = UIImage(named: "Like-30-2")! as UIImage;
+    
     var socialList : [Social] = []
     var noOfLikesList : [PhotoLike] = []
-
+    
+    var likedBy : PhotoLike?
+    
+    // MARK: - ButtonCellDelegate
+    func cellTapped(_ cell: UserSocialMainListTableViewCell) {
+        UserSocialDM.updateNoOfPhotoLikes(
+            eventId: socialList[tableView.indexPath(for: cell)!.row].eventId,
+            currentUserId: (GlobalDM.CurrentUser?.userId)!)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         loadSocial()
+        
+        likedBy = PhotoLike()
     }
     
+//    @IBAction func likeBtn(sender: UIButton) {
+//        if let p1 = UIImage(named:"LikeFilled-30") {
+//            sender.setImage(UIImage(named:"Like-30-2.png"), for: .normal)
+//        }
+//        if let p2 = UIImage(named:"Like-30-2") {
+//            sender.setImage( UIImage(named:"LikeFilled-30.png"), for: .normal)
+//        }
+////        UserSocialDM.updateNoOfPhotoLikes(eventId: socialList[0].eventId, currentUserId: (GlobalDM.CurrentUser?.userId)!, likedBy: likedBy)
+//    }
+
     func loadSocial(){
 
         UserSocialDM.retrieveAllSocial{(dbList) in
@@ -26,7 +50,7 @@ class UserSocialMainListTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
+    
     @IBAction func actionSheetButtonPressed(sender: UIButton) {
         let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
         
@@ -123,18 +147,26 @@ class UserSocialMainListTableViewController: UITableViewController {
         UserSocialDM.retrieveNoOfTotalLikesForPhotos(eventId: s.eventId, onComplete: {(list) in
             cell.noOfLikes.text = String(list.isLike)
         })
-                
+        
         print(s.eventId)
         
-//        for like in s.likes!{
-////            noOfLikesList.append(like)
-//            if(s.eventId == s.eventId){
-//                noOfLikesList.append(like)
+        if cell.buttonDelegate == nil {
+            cell.buttonDelegate = self
+        }
+        
+//        func likeBtn(sender: UIButton) {
+//            if let p1 = UIImage(named:"LikeFilled-30") {
+//                sender.setImage(UIImage(named:"Like-30-2.png"), for: .normal)
+//            }
+//            if let p2 = UIImage(named:"Like-30-2") {
+//                sender.setImage( UIImage(named:"LikeFilled-30.png"), for: .normal)
 //            }
 //            
+//            UserSocialDM.updateNoOfPhotoLikes(eventId: s.eventId, currentUserId: (GlobalDM.CurrentUser?.userId)!, likedBy: likedBy!)
 //        }
-//        
-//        cell.noOfLikes.text = String(noOfLikesList[(indexPath as IndexPath).row].isLike)
+        
+//        myButton.addTarget(self, action: #selector(ClassName.FunctionName.buttonTapped), for: .touchUpInside)
+        
         
         loadSocialImage(imageView: cell.mainListImageView, url: s.photoUrl!)
         

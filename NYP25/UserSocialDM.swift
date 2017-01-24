@@ -11,6 +11,7 @@ import Firebase
 import FirebaseStorage
 
 class UserSocialDM: NSObject {
+    
 //    static func createPost(eventId : String, social : Social, socialPhotos : NSData?, likedBy : PhotoLike, currentUserId : String, comments : PhotoComment){
     static func createPost(eventId : String, social : Social, socialPhotos : NSData?, currentUserId : String){
         let key = FIRDatabase.database().reference().child("social").childByAutoId().key
@@ -160,6 +161,65 @@ class UserSocialDM: NSObject {
             
             onComplete(socialList)
         })
+    }
+    
+    static func updateNoOfPhotoLikes(eventId : String, currentUserId : String){
+        let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(currentUserId)/")
+        
+        refLikedBy.observeSingleEvent(of: .value, with:
+            { (snapshot) in
+
+                let p = PhotoLike()
+                
+                p.adminNo = snapshot.key
+                
+                print("p.adminNo : \(p.adminNo)")
+                print("currentUserId : \(currentUserId)")
+                
+                if (snapshot.childSnapshot(forPath: "isLiked").value is NSNull ) {
+                    p.isLike = 1
+                    
+                    refLikedBy.setValue([
+                        "isLiked" : p.isLike
+                        ])
+                }else {
+                    if(p.adminNo != currentUserId){
+                        //Create the like record
+                        let num = p.isLike
+                        p.isLike = 1
+                        print("liked")
+                        
+                        refLikedBy.setValue([
+                            "isLiked" : p.isLike
+                            ])
+                        
+                    }else if(p.adminNo == currentUserId){ //problem now is - it works for the first time like, second time like is deleted
+                        p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
+                        
+                        print("p.isLike - \(p.isLike)")
+                        
+                        if(p.isLike == 1){
+                            //Delete record
+                            print("here here")
+                            
+//                            let photoRef = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(currentUserId)")
+//                            photoRef.observe(.value, with: { (snapshot) -> Void in
+                            
+                                refLikedBy.removeValue()
+                                
+                                //                                ref.child("Users/\(uniqueUserID)").removeValue()
+                                
+                                
+                                //                                if snapshot.exists(){
+                                //                                    for item in snapshot.children {
+                                //                                        (item as AnyObject).ref.child((item as AnyObject).key!).parent?.removeValue()
+                                //                                    }
+                                //                                }
+//                            })
+                        }
+                    }
+                }
+            })
     }
 
     //Retrieve all events
@@ -334,3 +394,21 @@ class UserSocialDM: NSObject {
     //        }
     //    }
 }
+
+
+
+
+
+
+
+
+
+//                        let num = p.isLike
+//                        p.isLike = 0
+
+//                        static func removeLike(eventId : String, currentUserId : String){
+//                            refLikedBy.child(currentUserId).removeValue { (error, ref) in
+//                                if error != nil {
+//                                    print("error \(error)")
+//                                }
+//                            }
