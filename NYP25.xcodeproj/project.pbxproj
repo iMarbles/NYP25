@@ -10,6 +10,7 @@
 		046C5C251E12449B001B7C61 /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C231E12449B001B7C61 /* FirebaseStorage.framework */; };
 		046C5C261E12449B001B7C61 /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */; };
 		046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */; };
+		046D01321E37A9E3004D1A25 /* AdminEventsGalleryCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D01311E37A9E3004D1A25 /* AdminEventsGalleryCommentsViewController.swift */; };
 		04A4ACA81E15718000884164 /* AdminEventReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A4ACA71E15718000884164 /* AdminEventReviewTableViewCell.swift */; };
 		04D725451E0D5C8200603CCA /* AdminEventsNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */; };
 		04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */; };
@@ -168,6 +169,7 @@
 		046C5C231E12449B001B7C61 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = "<group>"; };
 		046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
 		046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminProfileViewController.swift; sourceTree = "<group>"; };
+		046D01311E37A9E3004D1A25 /* AdminEventsGalleryCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryCommentsViewController.swift; sourceTree = "<group>"; };
 		04A4ACA71E15718000884164 /* AdminEventReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventReviewTableViewCell.swift; sourceTree = "<group>"; };
 		04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsNewViewController.swift; sourceTree = "<group>"; };
 		04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsDetailViewController.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 				04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */,
 				04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */,
 				04E93EF91E363F0A0044820D /* AdminEventsGalleryDetailsViewController.swift */,
+				046D01311E37A9E3004D1A25 /* AdminEventsGalleryCommentsViewController.swift */,
 				04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */,
 				04EF86901E10E01400842FC4 /* AdminEventsMapViewController.swift */,
 				04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */,
@@ -725,6 +728,7 @@
 				046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */,
 				04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */,
 				61B149F91E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift in Sources */,
+				046D01321E37A9E3004D1A25 /* AdminEventsGalleryCommentsViewController.swift in Sources */,
 				04ED183D1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift in Sources */,
 				04EA47391E1401E3006797D9 /* AdminEventsReviewViewController.swift in Sources */,
 				04EA47371E13DB1F006797D9 /* AdminEventsGalleryViewController.swift in Sources */,

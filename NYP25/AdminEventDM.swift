@@ -243,14 +243,6 @@ class AdminEventDM: NSObject {
                             commentList.append(c)
                         }
                         
-                        commentList.sort(by: { (a, b) -> Bool in
-                            if a.timestamp < b.timestamp{
-                                return true
-                            }else{
-                                return false
-                            }
-                        })
-                        
                         p.comments = commentList
                         
                         likedByList.append(p)
@@ -273,6 +265,12 @@ class AdminEventDM: NSObject {
             
             onComplete(userPhotoUrl)
         })
+    }
+    
+    //Deleting social image
+    static func deleteSocialImage(socialId : String){
+        let storageRef = FIRStorage.storage().reference().child("/SocialPhoto/\(socialId)")
+        
     }
     
     //Admin Stats
