@@ -322,4 +322,34 @@ class UserSocialDM: NSObject {
                 onComplete(p)
         })
     }
+    
+    
+    
+    //Retrieve all events
+    static func retrieveAllUserLikedPhotos(eventId : String, userId : String, onComplete: @escaping ([PhotoLike])->Void){
+        var likedByList : [PhotoLike] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(userId)/")
+        
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            //.reversed() - for descending order
+            for record in snapshot.children.reversed(){
+                let r = record as! FIRDataSnapshot
+                
+                    let p = PhotoLike()
+                    p.adminNo = r.key
+                    p.isLike = (r.childSnapshot(forPath: "isLiked").value as? Int)!
+                
+                    if(p.isLike == 1){
+                        print("p.isLike - \(p.isLike)")
+                        likedByList.append(p)
+                    }
+            }
+            
+            onComplete(likedByList)
+        })
+    }
+
 }
