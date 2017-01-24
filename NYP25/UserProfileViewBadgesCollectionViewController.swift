@@ -34,6 +34,7 @@ class UserProfileViewBadgesCollectionViewController: UICollectionViewController,
         UserProfileDM.retrieveAllUsersBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(badges) in
             self.profileGallery = badges
             self.collectionView?.reloadData()
+            
             if(self.profileGallery.count == 0){
                 let alert = UIAlertView(title: "",
                                         message: "No Photos Available Currently",

@@ -124,7 +124,6 @@ class UserSocialDM: NSObject {
             (snapshot) in
             
             socialList = []
-            likedByList = []
             
             //.reversed() - for descending order
             for record in snapshot.children.reversed(){
@@ -139,9 +138,11 @@ class UserSocialDM: NSObject {
                 s.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
                 s.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
                 s.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
+                s.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
                 
                 
-                //Child nodes of events
+                //Child nodes
+                likedByList = []
                 let likes = r.childSnapshot(forPath: "likedBy").children
                 for liked in likes{
                     let l = liked as! FIRDataSnapshot
@@ -159,6 +160,37 @@ class UserSocialDM: NSObject {
             
             onComplete(socialList)
         })
+    }
+
+    //Retrieve all events
+    static func retrieveNoOfTotalLikesForPhotos(eventId : String, onComplete: @escaping (PhotoLike)->Void){
+        let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/")
+        
+        var count = 0
+        refLikedBy.observe(.value, with: { (snapshot: FIRDataSnapshot!) in
+            count += Int(snapshot.childrenCount)
+            
+            let p = PhotoLike()
+            p.isLike = count
+
+            onComplete(p)
+//            print("\(eventId) - \(count)")
+            
+        })
+        
+//        let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/")
+//
+//        var count = 0
+//        refLikedBy.observe(.value, with: { (snapshot: FIRDataSnapshot!) in
+//            count += Int(snapshot.childrenCount)
+//            print("\(eventId) - \(count)")
+//        })
+        
+        
+//        FIRDatabase.database().reference().child("social/\(eventId)/likedBy").observeSingleEvent(of: .value, with: {(snap) in
+//            let count = snap.value
+//            print(count)
+//        })
     }
     
     //Retrieve all social album

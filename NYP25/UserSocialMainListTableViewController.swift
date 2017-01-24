@@ -10,6 +10,7 @@ import UIKit
 
 class UserSocialMainListTableViewController: UITableViewController {
     var socialList : [Social] = []
+    var noOfLikesList : [PhotoLike] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,79 @@ class UserSocialMainListTableViewController: UITableViewController {
         }
     }
 
+    @IBAction func actionSheetButtonPressed(sender: UIButton) {
+        let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "Enter Flagged Reason"
+            
+            let reportAction = UIAlertAction(title: "Inappropriate / Irrelevant Post", style: .destructive) { action in
+                print("ok")
+            }
+            alertController.addAction(reportAction)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+                print("cancel")
+            }
+            alertController.addAction(cancelAction)
+            
+            let postAction = UIAlertAction(title: "Submit Reason", style: .destructive) { action in
+                print("ok")
+            }
+            alertController.addAction(postAction)
+            postAction.isEnabled = false
+            
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
+                postAction.isEnabled = true
+                reportAction.isEnabled = false
+            }
+        }
+    
+        self.present(alertController, animated: true) {}
+
+        
+        /*
+        let alertController = UIAlertController(title: nil, message: "Takes the appearance of the bottom bar if specified; otherwise, same as UIActionSheetStyleDefault.", preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            print("cancel")
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+            print("ok")
+        }
+        alertController.addAction(OKAction)
+        
+        let destroyAction = UIAlertAction(title: "Destroy", style: .destructive) { action in
+//            print(action)
+            print("destroy")
+        }
+        alertController.addAction(destroyAction)
+        
+        self.present(alertController, animated: true) {
+            // ...
+        }
+        */
+    }
+    
+    @IBAction func actionDelete(sender: UIButton) {
+        let alertController = UIAlertController(title: "You sure you wanna delete this post?", message: nil, preferredStyle: .alert)
+
+        let destroyAction = UIAlertAction(title: "Delete Post", style: .destructive) { action in
+            //            print(action)
+            print("destroy")
+        }
+        alertController.addAction(destroyAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            print("cancel")
+        }
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true) {}
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -42,10 +116,25 @@ class UserSocialMainListTableViewController: UITableViewController {
             as! UserSocialMainListTableViewCell
 
         let s = socialList[(indexPath as IndexPath).row]
-
         cell.dateLbl.text = s.postedDateTime
-        cell.usernameLbl.text = s.uploader
+        cell.usernameLbl.text = s.uploaderUsername
         cell.captionLbl.text = s.caption
+        
+        UserSocialDM.retrieveNoOfTotalLikesForPhotos(eventId: s.eventId, onComplete: {(list) in
+            cell.noOfLikes.text = String(list.isLike)
+        })
+                
+        print(s.eventId)
+        
+//        for like in s.likes!{
+////            noOfLikesList.append(like)
+//            if(s.eventId == s.eventId){
+//                noOfLikesList.append(like)
+//            }
+//            
+//        }
+//        
+//        cell.noOfLikes.text = String(noOfLikesList[(indexPath as IndexPath).row].isLike)
         
         loadSocialImage(imageView: cell.mainListImageView, url: s.photoUrl!)
         
