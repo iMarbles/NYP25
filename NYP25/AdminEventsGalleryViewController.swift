@@ -34,9 +34,20 @@ class AdminEventsGalleryViewController: UICollectionViewController, UICollection
                 //Show nothing
                 self.noLbl.isHidden = false
             }else{
+                self.sortPhotosByDateTime()
                 self.collectionView?.reloadData()
             }
         })
+    }
+    
+    func sortPhotosByDateTime(){
+        eventPhotos.sort { (a, b) -> Bool in
+            if a.postedDateTime! > b.postedDateTime!{
+                return true
+            }else{
+                return false
+            }
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

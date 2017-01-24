@@ -13,18 +13,25 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
     @IBOutlet weak var userLbl : UILabel!
     @IBOutlet weak var socialImage: UIImageView!
     @IBOutlet weak var captionLbl : UILabel!
-    @IBOutlet weak var infoLbl : UILabel!
+    @IBOutlet weak var likeLbl : UILabel!
+    @IBOutlet weak var commentLbl : UILabel!
+    
     @IBOutlet weak var reportStackView : UIStackView!
     @IBOutlet weak var reportLbl : UILabel!
     
-    var currentPhoto: Social! = nil
+    var currentPhoto: Social?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        userImg.layer.masksToBounds = false
+        userImg.layer.cornerRadius = userImg.frame.height/2
+        userImg.clipsToBounds = true
+        userImg.layer.borderWidth = 1
+        userImg.layer.borderColor = UIColor.black.cgColor
+        
         loadImageDetails()
-      
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,10 +44,54 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
     }
     
     func loadImageDetails(){
-        loadSocialmage(imageView: userImg, url: currentPhoto.photoUrl!)
+        userLbl.text = currentPhoto?.uploaderUsername
+        captionLbl.text = currentPhoto?.caption
+        
+        //For likes and comments
+        var noOfLikes = 0
+        var noOfComments = 0
+        for like in (currentPhoto?.likes)!{
+            if like.isLike == 1{
+                noOfLikes += 1
+            }
+            
+            noOfComments = (like.comments?.count)!
+        }
+        
+        if noOfLikes == 1 {
+            likeLbl.text = "\(noOfLikes) like"
+        }else{
+             likeLbl.text = "\(noOfLikes) Likes"
+        }
+        
+        if noOfComments == 0{
+            commentLbl.text = "0 Comments"
+        }
+        else if noOfComments == 1{
+            commentLbl.text = "view \(noOfComments) comment"
+        }else{
+            commentLbl.text = "view all \(noOfComments) comments"
+        }
+        
+        
+        if currentPhoto?.isFlagged == 1{
+            reportLbl.text = "This photo has been reported due to: \(currentPhoto?.flagReason)"
+            reportStackView.isHidden = false
+        }else{
+            reportStackView.isHidden = true
+        }
+        
+        AdminEventDM.retrieveUserPhotoById(userId: (currentPhoto?.uploader)!, onComplete: {
+            (photoUrl) in
+            if photoUrl != nil{
+                self.loadImage(imageView: self.userImg, url: photoUrl!)
+            }
+        })
+        
+        loadImage(imageView: socialImage, url: (currentPhoto?.photoUrl)!)
     }
     
-    func loadSocialmage(imageView: UIImageView, url: String)
+    func loadImage(imageView: UIImageView, url: String)
     {
         DispatchQueue.global(qos: .background).async
             {
