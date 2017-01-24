@@ -9,10 +9,6 @@
 import UIKit
 
 class UserSocialMainListTableViewController: UITableViewController, ButtonCellDelegate {
-    
-    //    let photoLiked = UIImage(named: "Like Filled-30")! as UIImage;
-    //    let photoNotLiked = UIImage(named: "Like-30-2")! as UIImage;
-    
     var socialList : [Social] = []
     var noOfLikesList : [PhotoLike] = []
     
@@ -33,16 +29,6 @@ class UserSocialMainListTableViewController: UITableViewController, ButtonCellDe
         likedBy = PhotoLike()
     }
     
-//    @IBAction func likeBtn(sender: UIButton) {
-//        if let p1 = UIImage(named:"LikeFilled-30") {
-//            sender.setImage(UIImage(named:"Like-30-2.png"), for: .normal)
-//        }
-//        if let p2 = UIImage(named:"Like-30-2") {
-//            sender.setImage( UIImage(named:"LikeFilled-30.png"), for: .normal)
-//        }
-////        UserSocialDM.updateNoOfPhotoLikes(eventId: socialList[0].eventId, currentUserId: (GlobalDM.CurrentUser?.userId)!, likedBy: likedBy)
-//    }
-
     func loadSocial(){
 
         UserSocialDM.retrieveAllSocial{(dbList) in
@@ -153,21 +139,7 @@ class UserSocialMainListTableViewController: UITableViewController, ButtonCellDe
         if cell.buttonDelegate == nil {
             cell.buttonDelegate = self
         }
-        
-//        func likeBtn(sender: UIButton) {
-//            if let p1 = UIImage(named:"LikeFilled-30") {
-//                sender.setImage(UIImage(named:"Like-30-2.png"), for: .normal)
-//            }
-//            if let p2 = UIImage(named:"Like-30-2") {
-//                sender.setImage( UIImage(named:"LikeFilled-30.png"), for: .normal)
-//            }
-//            
-//            UserSocialDM.updateNoOfPhotoLikes(eventId: s.eventId, currentUserId: (GlobalDM.CurrentUser?.userId)!, likedBy: likedBy!)
-//        }
-        
-//        myButton.addTarget(self, action: #selector(ClassName.FunctionName.buttonTapped), for: .touchUpInside)
-        
-        
+
         loadSocialImage(imageView: cell.mainListImageView, url: s.photoUrl!)
         
         return cell

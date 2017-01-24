@@ -16,7 +16,7 @@ class UserSocialDM: NSObject {
     static func createPost(eventId : String, social : Social, socialPhotos : NSData?, currentUserId : String){
         let key = FIRDatabase.database().reference().child("social").childByAutoId().key
         let ref = FIRDatabase.database().reference().child("social/\(key)/")
-        let storage = FIRStorage.storage().reference().child("/SocialPhoto/\(eventId)/")
+        let storage = FIRStorage.storage().reference().child("/SocialPhoto/\(key)/")
         
 //        let refLikedBy = FIRDatabase.database().reference().child("social/\(key)/likedBy/\(currentUserId)/")
 //        let refComments = FIRDatabase.database().reference().child("social/\(key)/likedBy/\(currentUserId)/comments/\(key)/")
@@ -61,37 +61,6 @@ class UserSocialDM: NSObject {
             }
         }
     }
-
-//    //Retrieve current user info
-//    static func retrieveAllUserInfo(userId : String, onComplete: @escaping (Student)->Void){
-//        var studentList : [Student] = []
-//
-//        let ref = FIRDatabase.database().reference().child("users/\(userId)/")
-//
-//        ref.observe(FIRDataEventType.value, with:{
-//            (snapshot) in
-//                studentList = []
-//
-//            for record in snapshot.children.reversed(){
-//                let r = record as! FIRDataSnapshot
-//                
-//                let s = Student()
-//                
-//                    s.userId = r.key
-//                    s.username = (r.childSnapshot(forPath: "username").value as? String)!
-//                    s.displayPhotoUrl = r.childSnapshot(forPath: "displayPhotoUrl").value as? String
-//                    s.bio = r.childSnapshot(forPath: "bio").value as? String
-//                    s.name = (r.childSnapshot(forPath: "name").value as? String)!
-//                    s.password = (r.childSnapshot(forPath: "password").value as? String)!
-//                    s.points = (r.childSnapshot(forPath: "points").value as? Int)!
-//                    s.school = (r.childSnapshot(forPath: "school").value as? String)!
-//                    
-//                    studentList.append(s)
-//            }
-//            
-//            onComplete(studentList)
-//        })
-//    }
     
     //Retrieve current user info
     static func retrieveAllUserInfo(userId : String, onComplete: @escaping (Student)->Void){
@@ -193,35 +162,20 @@ class UserSocialDM: NSObject {
                             "isLiked" : p.isLike
                             ])
                         
-                    }else if(p.adminNo == currentUserId){ //problem now is - it works for the first time like, second time like is deleted
+                    }else if(p.adminNo == currentUserId) {
                         p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
                         
                         print("p.isLike - \(p.isLike)")
                         
                         if(p.isLike == 1){
                             //Delete record
-                            print("here here")
-                            
-//                            let photoRef = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(currentUserId)")
-//                            photoRef.observe(.value, with: { (snapshot) -> Void in
-                            
-                                refLikedBy.removeValue()
-                                
-                                //                                ref.child("Users/\(uniqueUserID)").removeValue()
-                                
-                                
-                                //                                if snapshot.exists(){
-                                //                                    for item in snapshot.children {
-                                //                                        (item as AnyObject).ref.child((item as AnyObject).key!).parent?.removeValue()
-                                //                                    }
-                                //                                }
-//                            })
+                            refLikedBy.removeValue()
                         }
                     }
                 }
             })
     }
-
+    
     //Retrieve all events
     static func retrieveNoOfTotalLikesForPhotos(eventId : String, onComplete: @escaping (PhotoLike)->Void){
         let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/")
@@ -235,22 +189,7 @@ class UserSocialDM: NSObject {
 
             onComplete(p)
 //            print("\(eventId) - \(count)")
-            
         })
-        
-//        let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/")
-//
-//        var count = 0
-//        refLikedBy.observe(.value, with: { (snapshot: FIRDataSnapshot!) in
-//            count += Int(snapshot.childrenCount)
-//            print("\(eventId) - \(count)")
-//        })
-        
-        
-//        FIRDatabase.database().reference().child("social/\(eventId)/likedBy").observeSingleEvent(of: .value, with: {(snap) in
-//            let count = snap.value
-//            print(count)
-//        })
     }
     
     //Retrieve all social album
@@ -350,65 +289,37 @@ class UserSocialDM: NSObject {
         })
     }
     
-    //    static func createPost(social : Social, socialPhotos : NSData?){
-    //        let key = FIRDatabase.database().reference().child("social").childByAutoId().key
-    //        let ref = FIRDatabase.database().reference().child("social/\(key)/")
-    //
-    //        let currentDate = NSDate()
-    //        let dateFormatter = DateFormatter()
-    //        dateFormatter.dateFormat = "yyyyMMdd, HH:mm"
-    //
-    //        let result = dateFormatter.string(from: currentDate as Date)
-    //
-    //        ref.setValue([
-    //            "caption" : social.caption!,
-    //            "uploader" : social.uploader!,
-    //            "postedDateTime" : result,
-    //            "isFlagged" : social.isFlagged,
-    //            "flagReason" : social.flagReason!
-    //            ])
-    //
-    //        //        ref.setValue([ "caption" : "\(social.caption!)" ])
-    //
-    //        uploadEventImage(eventId: key, socialPhotos: socialPhotos!)
-    //    }
+//    //Retrieve current user info
+//    static func retrieveAllSocialInfo(onComplete: @escaping (Social)->Void){
+//        let ref = FIRDatabase.database().reference().child("social/")
+//        
+//        ref.observeSingleEvent(of: .value, with:
+//            { (snapshot) in
+//                let s = Social()
+//
+//                s.eventId = snapshot.key
+//                s.photoUrl = snapshot.childSnapshot(forPath: "photoUrl").value as? String
+//                s.uploader = snapshot.childSnapshot(forPath: "uploader").value as? String
+//                s.uploaderUsername = snapshot.childSnapshot(forPath: "uploaderUsername").value as? String
+//                s.caption = (snapshot.childSnapshot(forPath: "caption").value as? String)!
+//                s.postedDateTime = (snapshot.childSnapshot(forPath: "postedDateTime").value as? String)!
+//                s.isFlagged = (snapshot.childSnapshot(forPath: "isFlagged").value as? Int)!
+//                
+//                onComplete(s)
+//        })
+//    }
     
-    //    static func uploadEventImage(eventId : String, socialPhotos : NSData){
-    //        let storage = FIRStorage.storage().reference().child("/SocialPhoto/\(eventId)/")
-    //
-    //        let metadata = FIRStorageMetadata()
-    //        metadata.contentType = "image/jpeg"
-    //
-    //        storage.put(socialPhotos as Data, metadata: metadata){(metaData,error) in
-    //            if let error = error {
-    //                print(error.localizedDescription)
-    //                return
-    //            }else{
-    //                //store downloadURL
-    //                let downloadURL = metaData!.downloadURL()!.absoluteString
-    //
-    //                //store downloadURL at database
-    //                FIRDatabase.database().reference().child("social/\(eventId)").updateChildValues(["photoUrl" : downloadURL])
-    //            }
-    //            
-    //        }
-    //    }
+    static func checkIfUserLikedPhoto(eventId : String, currentUserId : String, onComplete: @escaping (PhotoLike)-> Void){
+        let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(currentUserId)/")
+        
+        refLikedBy.observeSingleEvent(of: .value, with:
+            { (snapshot) in
+                
+                let p = PhotoLike()
+                p.adminNo = snapshot.key
+                p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
+                
+                onComplete(p)
+        })
+    }
 }
-
-
-
-
-
-
-
-
-
-//                        let num = p.isLike
-//                        p.isLike = 0
-
-//                        static func removeLike(eventId : String, currentUserId : String){
-//                            refLikedBy.child(currentUserId).removeValue { (error, ref) in
-//                                if error != nil {
-//                                    print("error \(error)")
-//                                }
-//                            }
