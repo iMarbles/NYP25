@@ -16,6 +16,7 @@
 		04E6489B1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */; };
 		04E864D61E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E864D51E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift */; };
 		04E93EF61E36141F0044820D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E93EF51E36141F0044820D /* SignupViewController.swift */; };
+		04E93EFA1E363F0A0044820D /* AdminEventsGalleryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E93EF91E363F0A0044820D /* AdminEventsGalleryDetailsViewController.swift */; };
 		04EA47351E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */; };
 		04EA47371E13DB1F006797D9 /* AdminEventsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */; };
 		04EA47391E1401E3006797D9 /* AdminEventsReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */; };
@@ -173,6 +174,7 @@
 		04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventGalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		04E864D51E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsViewMasterViewController.swift; sourceTree = "<group>"; };
 		04E93EF51E36141F0044820D /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		04E93EF91E363F0A0044820D /* AdminEventsGalleryDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryDetailsViewController.swift; sourceTree = "<group>"; };
 		04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsMasterDetailViewController.swift; sourceTree = "<group>"; };
 		04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryViewController.swift; sourceTree = "<group>"; };
 		04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsReviewViewController.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 			children = (
 				04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */,
 				04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */,
+				04E93EF91E363F0A0044820D /* AdminEventsGalleryDetailsViewController.swift */,
 				04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */,
 				04EF86901E10E01400842FC4 /* AdminEventsMapViewController.swift */,
 				04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */,
@@ -753,6 +756,7 @@
 				8166BC491DF6840600FAA37C /* EventAttendance.swift in Sources */,
 				816A87BC1DF1568700232C08 /* GlobalDM.swift in Sources */,
 				8175B12B1DEFDE8100FCB205 /* User.swift in Sources */,
+				04E93EFA1E363F0A0044820D /* AdminEventsGalleryDetailsViewController.swift in Sources */,
 				AF45108B1E35CCAD00789FD0 /* UserLeaderboardViewController.swift in Sources */,
 				8166BC431DF67E5700FAA37C /* AdminEventDM.swift in Sources */,
 				612647101E2E86D6008DC73A /* UserSocialProfileOwnCollectionViewCell.swift in Sources */,
