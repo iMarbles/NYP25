@@ -212,6 +212,27 @@ class AdminEventDM: NSObject {
                     let photo = Social()
                     photo.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
                     //To add-on as needed
+                    photo.uploader = r.childSnapshot(forPath: "uploader").value as? String
+                    photo.caption = r.childSnapshot(forPath: "caption").value as? String
+                    photo.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
+                    photo.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
+                    photo.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
+                    photo.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
+                    
+                    //Child nodes
+                    var likedByList : [PhotoLike] = []
+                    let likes = r.childSnapshot(forPath: "likedBy").children
+                    for liked in likes{
+                        let l = liked as! FIRDataSnapshot
+                        
+                        let p = PhotoLike()
+                        p.adminNo = l.key
+                        p.isLike = (l.childSnapshot(forPath: "isLiked").value as? Int)!
+                        
+                        likedByList.append(p)
+                    }
+                    
+                    photo.likes = likedByList
                     
                     socialPhotos.append(photo)
                 }

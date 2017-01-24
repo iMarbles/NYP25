@@ -38,7 +38,7 @@ class AdminEventsGalleryViewController: UICollectionViewController, UICollection
             }
         })
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return eventPhotos.count
     }
@@ -108,14 +108,21 @@ class AdminEventsGalleryViewController: UICollectionViewController, UICollection
         return sectionInsets.left
     }
     
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "GalleryDetails"{
+            let vc = segue.destination as! AdminEventsGalleryDetailsViewController
+            
+            let cell = sender as? AdminEventGalleryCollectionViewCell
+            let indexPath = collectionView?.indexPath(for: cell!)
+            
+            vc.currentPhoto = eventPhotos[(indexPath?.row)!]
+        }
     }
-    */
-
+    
 }
