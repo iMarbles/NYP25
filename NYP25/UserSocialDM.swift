@@ -161,6 +161,96 @@ class UserSocialDM: NSObject {
             onComplete(socialList)
         })
     }
+    
+    static func getNoOfLikesFirst(eventId : String, currentUserId : String){
+        let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(currentUserId)/")
+        
+        refLikedBy.observeSingleEvent(of: .value, with:
+            { (snapshot) in
+
+                let p = PhotoLike()
+                
+                p.adminNo = snapshot.key
+                
+                print("p.adminNo : \(p.adminNo)")
+                print("currentUserId : \(currentUserId)")
+                
+                
+//                p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
+                if (snapshot.childSnapshot(forPath: "isLiked").value is NSNull ) {
+                    p.isLike = 1
+                    refLikedBy.setValue([
+                        "isLiked" : p.isLike
+                        ])
+                }else{
+                    
+                    if(p.adminNo == currentUserId){
+                        let num = p.isLike
+                        
+                        p.isLike = 0
+                        print("unliked")
+                    }else if(p.adminNo != currentUserId){
+                        let num = p.isLike
+                        
+                        p.isLike = 1
+                        print("liked")
+                    }
+                }
+                
+                
+                refLikedBy.setValue([
+                    "isLiked" : p.isLike
+                    ])
+        })
+    }
+    
+//    static func updateNoOfPhotoLikes(eventId : String, currentUserId : String, adminNo : String, likedBy : PhotoLike){
+//        let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(currentUserId)/")
+//        
+//        print("likedBy.adminNo : \(adminNo)")
+//        
+//        var num = 0
+//        
+//        if(likedBy.adminNo == currentUserId){
+//            num = likedBy.isLike
+//            
+//            likedBy.isLike = 0
+//            print("unliked")
+//        }else if(likedBy.adminNo != currentUserId){
+//            num = likedBy.isLike
+//            
+//            likedBy.isLike = 1
+//            print("liked")
+//            
+//        }
+//        
+//        refLikedBy.setValue([
+//            "isLiked" : likedBy.isLike
+//            ])
+//    }
+    
+//    static func updateNoOfPhotoLikes(eventId : String, currentUserId : String, likedBy : PhotoLike){
+//        let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/likedBy/\(currentUserId)/")
+//        
+//        print("likedBy.adminNo : \(likedBy.adminNo)")
+//        
+//        if(likedBy.adminNo == currentUserId){
+//            let numUnLiked = likedBy.isLike
+//            
+//            likedBy.isLike = 0
+//            print("unliked")
+//        }else if(likedBy.adminNo != currentUserId){
+//            let numLiked = likedBy.isLike
+//            
+//            likedBy.isLike = 1
+//            print("liked")
+//            
+//        }
+//        
+//        refLikedBy.setValue([
+//            "isLiked" : likedBy.isLike
+//            ])
+//    }
 
     //Retrieve all events
     static func retrieveNoOfTotalLikesForPhotos(eventId : String, onComplete: @escaping (PhotoLike)->Void){
