@@ -30,7 +30,6 @@ class UserSocialMainListTableViewController: UITableViewController {
         
         UserSocialDM.retrieveNoOfPost(onComplete: { (n) in
             self.likes = [String](repeating: "Like", count: Int(n.eventId)!)
-            //            likes = [String](repeating: "like", count: 20)
         })
     }
     
@@ -39,60 +38,6 @@ class UserSocialMainListTableViewController: UITableViewController {
             self.socialList = dbList
             self.tableView.reloadData()
         }
-    }
-    
-    @IBAction func actionSheetButtonPressed(sender: UIButton) {
-        let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
-        
-        alertController.addTextField { textField in
-            textField.placeholder = "Enter Flagged Reason"
-            
-            let reportAction = UIAlertAction(title: "Inappropriate / Irrelevant Post", style: .destructive) { action in
-                print("ok")
-            }
-            alertController.addAction(reportAction)
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
-                print("cancel")
-            }
-            alertController.addAction(cancelAction)
-            
-            let postAction = UIAlertAction(title: "Submit Reason", style: .destructive) { action in
-                print("ok")
-            }
-            alertController.addAction(postAction)
-            postAction.isEnabled = false
-            
-            NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
-                if(textField.text == ""){
-                    postAction.isEnabled = false
-                    reportAction.isEnabled = true
-                }else{
-                    postAction.isEnabled = true
-                    reportAction.isEnabled = false
-                }
-            }
-        }
-        
-        
-        self.present(alertController, animated: true) {}
-    }
-    
-    @IBAction func actionDelete(sender: UIButton) {
-        let alertController = UIAlertController(title: "You sure you wanna delete this post?", message: nil, preferredStyle: .alert)
-        
-        let destroyAction = UIAlertAction(title: "Delete Post", style: .destructive) { action in
-            //            print(action)
-            print("destroy")
-        }
-        alertController.addAction(destroyAction)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
-            print("cancel")
-        }
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true) {}
     }
     
     override func didReceiveMemoryWarning() {
@@ -172,6 +117,60 @@ class UserSocialMainListTableViewController: UITableViewController {
             sender.setImage(UIImage(named:"LikeFilled.png"), for: .normal)
         }
         sender.setTitle(likes[sender.tag], for: UIControlState.normal)
+    }
+    
+    @IBAction func actionSheetButtonPressed(sender: UIButton) {
+        let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "Enter Flagged Reason"
+            
+            let reportAction = UIAlertAction(title: "Inappropriate / Irrelevant Post", style: .destructive) { action in
+                print("ok")
+            }
+            alertController.addAction(reportAction)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+                print("cancel")
+            }
+            alertController.addAction(cancelAction)
+            
+            let postAction = UIAlertAction(title: "Submit Reason", style: .destructive) { action in
+                print("ok")
+            }
+            alertController.addAction(postAction)
+            postAction.isEnabled = false
+            
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
+                if(textField.text == ""){
+                    postAction.isEnabled = false
+                    reportAction.isEnabled = true
+                }else{
+                    postAction.isEnabled = true
+                    reportAction.isEnabled = false
+                }
+            }
+        }
+        
+        
+        self.present(alertController, animated: true) {}
+    }
+    
+    @IBAction func actionDelete(sender: UIButton) {
+        let alertController = UIAlertController(title: "You sure you wanna delete this post?", message: nil, preferredStyle: .alert)
+        
+        let destroyAction = UIAlertAction(title: "Delete Post", style: .destructive) { action in
+            //            print(action)
+            print("destroy")
+        }
+        alertController.addAction(destroyAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            print("cancel")
+        }
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true) {}
     }
     
 }

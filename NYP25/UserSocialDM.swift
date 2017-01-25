@@ -26,7 +26,7 @@ class UserSocialDM: NSObject {
     }
 
 //    static func createPost(eventId : String, social : Social, socialPhotos : NSData?, likedBy : PhotoLike, currentUserId : String, comments : PhotoComment){
-    static func createPost(eventId : String, social : Social, socialPhotos : NSData?, currentUserId : String){
+    static func createPost(eventId : String, social : Social, socialPhotos : NSData?, currentUserId : String, uploaderUsername : String){
         let key = FIRDatabase.database().reference().child("social").childByAutoId().key
         let ref = FIRDatabase.database().reference().child("social/\(key)/")
         let storage = FIRStorage.storage().reference().child("/SocialPhoto/\(key)/")
@@ -59,7 +59,8 @@ class UserSocialDM: NSObject {
                     "isFlagged" : social.isFlagged,
                     "flagReason" : social.flagReason!,
                     "photoUrl" : downloadURL,
-                    "eventId" : social.eventId
+                    "eventId" : social.eventId,
+                    "uploaderUsername" : uploaderUsername
                     ])
                 
 //                refLikedBy.setValue([

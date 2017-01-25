@@ -58,36 +58,63 @@ class UserSocialUploadImageViewController: UIViewController, UIPickerViewDataSou
         socialImg?.postedDateTime = txtCaption.text
         socialImg?.uploader = GlobalDM.CurrentUser!.userId
         socialImg?.isFlagged = 0;
-        socialImg?.eventId = valueSelected
+        
+        if(valueSelected != ""){
+            socialImg?.eventId = valueSelected
+        }else{
+            var t = eventNames[eventsPickerView.selectedRow(inComponent: 0)].eventId
+            valueSelected = t
+            socialImg?.eventId = valueSelected
+        }
+        
+        
         
         //Liked By
         likedBy?.adminNo = GlobalDM.CurrentUser!.userId
         likedBy?.isLike = 0;
+        
+        var hint : String = ""
+        UserSocialDM.retrieveAllUserInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(u) in
+            hint = u.username
+        
         
         //Empty Comments
 //        comments?.comment = ""
 //        comments?.timestamp = ""
 //        comments?.username = ""
         
-        if socialImg != nil{
-            UserSocialDM.createPost(
-                eventId: (GlobalDM.CurrentUser?.userId)!,
-                social: socialImg!,
-                socialPhotos: imageData,
+            if self.socialImg != nil{
+                UserSocialDM.createPost(
+                    eventId: (GlobalDM.CurrentUser?.userId)!,
+                    social: self.socialImg!,
+                    socialPhotos: imageData,
 //                likedBy : likedBy!,
-                currentUserId: (GlobalDM.CurrentUser?.userId)!
+                    currentUserId: (GlobalDM.CurrentUser?.userId)!,
+                    uploaderUsername: u.username
 //                comments : comments!
-            )
-        }
+                )
+                var alert = UIAlertView(
+                    title: nil,
+                    message: "Successfully Uploaded",
+                    delegate: nil,
+                    cancelButtonTitle: "Ok")
+                alert.show()
+                
+               self.navigationController?.popToRootViewController(animated: true)
+             //   self.performSegue(withIdentifier: "unwindToViewController1", sender: self)
+            }
+            
+        })
         
-        //        UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, nil, nil, nil)
-        //        var alert = UIAlertView(title: "Wow",
-        //                                message: "Your image has been saved to Photo Library!",
-        //                                delegate: nil,
-        //                                cancelButtonTitle: "Ok")
-        //        alert.show()
+/*        UIImageWriteToSavedPhotosAlbum(compressedJPGImage!, nil, nil, nil)
+        var alert = UIAlertView(
+            title: "Wow",
+            message: "Your image has been saved to Photo Library!",
+            delegate: nil,
+            cancelButtonTitle: "Ok")
+        alert.show()*/
     }
-    
+        
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

@@ -47,6 +47,8 @@ class UserProfileViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue){}
     
     @IBAction func btnSelfPhoto(sender: UIButton){
         badgesView?.isHidden = true
