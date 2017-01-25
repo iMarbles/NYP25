@@ -64,33 +64,9 @@ class UserSocialMainListTableViewController: UITableViewController, ButtonCellDe
                 reportAction.isEnabled = false
             }
         }
-    
+ 
+        
         self.present(alertController, animated: true) {}
-
-        
-        /*
-        let alertController = UIAlertController(title: nil, message: "Takes the appearance of the bottom bar if specified; otherwise, same as UIActionSheetStyleDefault.", preferredStyle: .actionSheet)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
-            print("cancel")
-        }
-        alertController.addAction(cancelAction)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .default) { action in
-            print("ok")
-        }
-        alertController.addAction(OKAction)
-        
-        let destroyAction = UIAlertAction(title: "Destroy", style: .destructive) { action in
-//            print(action)
-            print("destroy")
-        }
-        alertController.addAction(destroyAction)
-        
-        self.present(alertController, animated: true) {
-            // ...
-        }
-        */
     }
     
     @IBAction func actionDelete(sender: UIButton) {

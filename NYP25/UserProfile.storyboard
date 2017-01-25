@@ -7,6 +7,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -184,70 +185,87 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EfJ-Y7-MDE">
-                                <rect key="frame" x="8" y="76" width="359" height="201.5"/>
+                                <rect key="frame" x="32" y="74" width="311" height="201.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff2-Rm-xFo">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efz-wH-VSx">
-                                        <rect key="frame" x="0.0" y="30.5" width="359" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efz-wH-VSx">
+                                        <rect key="frame" x="0.0" y="30.5" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wr-o4-vgK">
-                                        <rect key="frame" x="0.0" y="70.5" width="359" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="70.5" width="311" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y1h-hc-Efa">
-                                        <rect key="frame" x="0.0" y="101" width="359" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y1h-hc-Efa">
+                                        <rect key="frame" x="0.0" y="101" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retype New" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vg1-gE-U28">
-                                        <rect key="frame" x="0.0" y="141" width="359" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retype New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vg1-gE-U28">
+                                        <rect key="frame" x="0.0" y="141" width="311" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PdN-Jl-Rvm">
-                                        <rect key="frame" x="0.0" y="171.5" width="359" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Retype New Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PdN-Jl-Rvm">
+                                        <rect key="frame" x="0.0" y="171.5" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbQ-PH-on9">
+                                <rect key="frame" x="16" y="320" width="343" height="290"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="EfJ-Y7-MDE" secondAttribute="trailing" constant="8" id="6gy-9b-hpu"/>
-                            <constraint firstItem="EfJ-Y7-MDE" firstAttribute="top" secondItem="8iI-9E-i53" secondAttribute="bottom" constant="12" id="b5n-lz-bAk"/>
-                            <constraint firstItem="EfJ-Y7-MDE" firstAttribute="leading" secondItem="Ecz-Vb-pDQ" secondAttribute="leading" constant="8" id="nPS-9E-e82"/>
+                            <constraint firstItem="EfJ-Y7-MDE" firstAttribute="leading" secondItem="Ecz-Vb-pDQ" secondAttribute="leadingMargin" constant="16" id="CTd-Fj-ALX"/>
+                            <constraint firstItem="EfJ-Y7-MDE" firstAttribute="top" secondItem="8iI-9E-i53" secondAttribute="bottom" constant="10" id="QOz-as-sAg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EfJ-Y7-MDE" secondAttribute="trailing" constant="16" id="qY6-gp-Wiy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Password" id="jI9-Bz-kTw">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="AA0-R8-GHq">
-                            <connections>
-                                <action selector="btnSaveWithSender:" destination="Woj-Pr-7eF" id="OsJ-9O-ijP"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem enabled="NO" style="plain" systemItem="save" id="AA0-R8-GHq">
+                                <connections>
+                                    <action selector="savePasswordWithSender:" destination="Woj-Pr-7eF" id="2zn-lH-kLG"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="Password Check-30" style="plain" id="DXh-xV-wqO">
+                                <connections>
+                                    <action selector="btnVerifyWithSender:" destination="Woj-Pr-7eF" id="mXe-Vp-lJO"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="currentPassTxt" destination="Efz-wH-VSx" id="JY4-FH-UMu"/>
+                        <outlet property="hintMessage" destination="jbQ-PH-on9" id="AGA-AZ-0Zb"/>
                         <outlet property="newPassTxt" destination="Y1h-hc-Efa" id="xGJ-4g-UtT"/>
                         <outlet property="retypePassTxt" destination="PdN-Jl-Rvm" id="Dvh-vy-2N6"/>
+                        <outlet property="savePassword" destination="AA0-R8-GHq" id="ZBR-AB-eYz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nsp-P5-Q33" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010" y="260"/>
+            <point key="canvasLocation" x="1008.8" y="259.52023988005999"/>
         </scene>
         <!--BADGES-->
         <scene sceneID="uNL-Ik-XNc">
@@ -408,6 +426,7 @@
     </scenes>
     <resources>
         <image name="Circled User Male-30" width="30" height="30"/>
+        <image name="Password Check-30" width="30" height="30"/>
         <image name="Password-30" width="30" height="30"/>
         <image name="gamepad - 64" width="64" height="64"/>
         <image name="landscape - 64" width="64" height="64"/>

@@ -37,6 +37,19 @@ class UserProfileDM: NSObject {
             ])
     }
 
+    //Retrieve all events
+    static func getUserCurrentPassword(userId : String, onComplete: @escaping (Student)->Void){
+        let ref = FIRDatabase.database().reference().child("users/\(userId)/")
+        ref.observeSingleEvent(of: .value, with:
+            { (snapshot) in
+                let s = Student()
+                
+                s.userId = snapshot.key
+                s.password = (snapshot.childSnapshot(forPath: "password").value as? String)!
+                
+                onComplete(s)
+        })
+    }
     
     //Retrieve all events
     static func retrieveUsersInfo(userId : String, onComplete: @escaping (Student)->Void){
