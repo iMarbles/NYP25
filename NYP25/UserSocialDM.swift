@@ -11,6 +11,21 @@ import Firebase
 import FirebaseStorage
 
 class UserSocialDM: NSObject {
+    static func reportPhoto(eventId : String, currentUserId : String, flagReason : String){
+        let refLikedBy = FIRDatabase.database().reference().child("social/\(eventId)/")
+        
+        refLikedBy.observeSingleEvent(of: .value, with:
+            { (snapshot) in
+                
+                let s = Social()
+                refLikedBy.setValue([
+                    "isFlagged" : 1,
+                    "flagReason" : s.flagReason
+                    ])
+            })
+    }
+
+    
     
 //    static func createPost(eventId : String, social : Social, socialPhotos : NSData?, likedBy : PhotoLike, currentUserId : String, comments : PhotoComment){
     static func createPost(eventId : String, social : Social, socialPhotos : NSData?, currentUserId : String){

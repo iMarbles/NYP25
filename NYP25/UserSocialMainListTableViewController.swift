@@ -60,8 +60,13 @@ class UserSocialMainListTableViewController: UITableViewController, ButtonCellDe
             postAction.isEnabled = false
             
             NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
-                postAction.isEnabled = true
-                reportAction.isEnabled = false
+                if(textField.text == ""){
+                    postAction.isEnabled = false
+                    reportAction.isEnabled = true
+                }else{
+                    postAction.isEnabled = true
+                    reportAction.isEnabled = false
+                }
             }
         }
  

@@ -450,9 +450,9 @@
 			isa = PBXGroup;
 			children = (
 				04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */,
-				04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */,
-				04E93EF91E363F0A0044820D /* AdminEventsGalleryDetailsViewController.swift */,
 				046D01311E37A9E3004D1A25 /* AdminEventsGalleryCommentsViewController.swift */,
+				04E93EF91E363F0A0044820D /* AdminEventsGalleryDetailsViewController.swift */,
+				04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */,
 				04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */,
 				04EF86901E10E01400842FC4 /* AdminEventsMapViewController.swift */,
 				04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */,
@@ -466,6 +466,9 @@
 				04ED183A1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift */,
 				04ED183C1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift */,
 				81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */,
+				04E93EF51E36141F0044820D /* SignupViewController.swift */,
+				AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */,
+				61B25FFA1E37E13B0090A70D /* UserProfileEditPasswordViewController.swift */,
 				61B443231E32801500E3EE94 /* UserProfileViewBadgesCollectionViewController.swift */,
 				61B443191E32435A00E3EE94 /* UserProfileViewController.swift */,
 				61B443271E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift */,
@@ -474,6 +477,7 @@
 				61B149FE1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift */,
 				61075E3D1E3530D900E25AB3 /* UserSocialMainEventAlbumDetailViewController.swift */,
 				61075E391E351C4C00E25AB3 /* UserSocialMainEventAlbumsCollectionViewController.swift */,
+				61CCEC9D1E2BF387008B36A9 /* UserSocialMainGridCollectionViewController.swift */,
 				612647091E2E64DA008DC73A /* UserSocialMainListTableViewController.swift */,
 				611C501A1E16CC140044E359 /* UserSocialMasterForMainViewController.swift */,
 				61C130C01E289901006E4191 /* UserSocialMasterForProfileViewController.swift */,
@@ -481,10 +485,6 @@
 				612647171E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift */,
 				61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */,
 				612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */,
-				61CCEC9D1E2BF387008B36A9 /* UserSocialMainGridCollectionViewController.swift */,
-				AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */,
-				04E93EF51E36141F0044820D /* SignupViewController.swift */,
-				61B25FFA1E37E13B0090A70D /* UserProfileEditPasswordViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
