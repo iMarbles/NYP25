@@ -14,6 +14,7 @@ class UserProfileEditPasswordViewController: UIViewController {
     @IBOutlet var newPassTxt: UITextField!
     @IBOutlet var retypePassTxt: UITextField!
 
+    
     @IBOutlet var hintMessage : UITextView!
     
     @IBOutlet var savePassword : UIBarButtonItem?

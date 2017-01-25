@@ -17,20 +17,6 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        UserSocialDM.retrieveEventPhotos(onComplete: { (photos) in
-//            self.profileGallery = photos
-//            self.collectionView?.reloadData()
-//            
-//            if(self.profileGallery.count == 0){
-//                let alert = UIAlertView(title: "",
-//                                        message: "No Photos Available Currently",
-//                                        delegate: nil,
-//                                        cancelButtonTitle: "Ok")
-//                alert.show()
-//                
-//            }
-//        })
         
         UserSocialDM.retrieveAllSocialUserLikedPhotos(onComplete: { (photos) in
             self.profileGallery = photos
@@ -53,39 +39,7 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "likedPhotosCell", for: indexPath) as! UserProfileViewLikedPhotosCollectionViewCell
 
         
-        loadGallery(imageView: cell.likedPhotos, url: profileGallery[(indexPath as IndexPath).row].photoUrl!)
+        UserSocialProfileMasterViewController.loadImage(imageView: cell.likedPhotos, url: profileGallery[(indexPath as IndexPath).row].photoUrl!)
         return cell
     }
-    
-    func loadGallery(imageView: UIImageView, url: String)
-    {
-        DispatchQueue.global(qos: .background).async
-            {
-                let nurl = URL(string: url)
-                var imageBinary : Data?
-                if nurl != nil
-                {
-                    do
-                    {
-                        imageBinary = try Data(contentsOf: nurl!)
-                    }
-                    catch
-                    {
-                        return
-                    }
-                }
-                
-                DispatchQueue.main.async
-                    {
-                        var img : UIImage?
-                        if imageBinary != nil
-                        {
-                            img = UIImage(data: imageBinary!)
-                        }
-                        
-                        imageView.image = img
-                        
-                }
-                
-        }
-    }}
+}

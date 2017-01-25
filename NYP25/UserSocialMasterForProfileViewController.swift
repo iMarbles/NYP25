@@ -41,7 +41,7 @@ class UserSocialMasterForProfileViewController: UIViewController {
         profilePhotoView.clipsToBounds = true
         
         UserSocialDM.retrieveAllUserInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (user) in
-            self.loadSocialImage(imageView: self.profilePhotoView, url: user.displayPhotoUrl!)
+            UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView, url: user.displayPhotoUrl!)
             self.usernameLbl.text = user.username
             self.title =  user.username
             
@@ -52,39 +52,6 @@ class UserSocialMasterForProfileViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func loadSocialImage(imageView: UIImageView, url: String)
-    {
-        DispatchQueue.global(qos: .background).async
-            {
-                let nurl = URL(string: url)
-                var imageBinary : Data?
-                if nurl != nil
-                {
-                    do
-                    {
-                        imageBinary = try Data(contentsOf: nurl!)
-                    }
-                    catch
-                    {
-                        return
-                    }
-                }
-                
-                DispatchQueue.main.async
-                    {
-                        var img : UIImage?
-                        if imageBinary != nil
-                        {
-                            img = UIImage(data: imageBinary!)
-                        }
-                        
-                        imageView.image = img
-                        
-                }
-                
-        }
     }
     
     //    @IBAction func indexChanged(sender: UISegmentedControl) {
