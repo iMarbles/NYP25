@@ -61,6 +61,22 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
         present(deleteAlert, animated: true, completion: nil)
     }
     
+    @IBAction func safeImage(sender: Any){
+        let safeAlert = UIAlertController(title: "Confirm", message: "Are you sure you want to mark the post as safe?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        safeAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            AdminEventDM.markSocialImageSafeWith(socialId: (self.currentPhoto?.socialId)!)
+            
+            self.dismiss(animated: true, completion: nil)
+        }))
+        
+        safeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            //Do nothing
+        }))
+        
+        present(safeAlert, animated: true, completion: nil)
+    }
+    
     func loadImageDetails(){
         userLbl.text = currentPhoto?.uploaderUsername
         captionLbl.text = currentPhoto?.caption

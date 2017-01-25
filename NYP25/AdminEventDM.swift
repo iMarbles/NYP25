@@ -344,6 +344,12 @@ class AdminEventDM: NSObject {
         
     }
     
+    //Marking post as safe
+    static func markSocialImageSafeWith(socialId: String){
+        FIRDatabase.database().reference().child("social/\(socialId)").updateChildValues(["isFlagged": 0, "flagReason": ""])
+        
+    }
+    
     //Admin Stats
     static func retrieveAllEventAttendance(onComplete: @escaping([EventAttendance])->Void){
         var attendanceList : [EventAttendance] = []
