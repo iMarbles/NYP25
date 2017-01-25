@@ -59,7 +59,7 @@ class UserSocialMainEventAlbumsCollectionViewController:  UICollectionViewContro
         
         cell.albumTitle.text = e.name
         
-        loadAlbumCovers(imageView: cell.albumPhoto, url: e.imageUrl!)
+        UserSocialProfileMasterViewController.loadImage(imageView: cell.albumPhoto, url: e.imageUrl!)
         
 //        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
 //        let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -76,37 +76,5 @@ class UserSocialMainEventAlbumsCollectionViewController:  UICollectionViewContro
         selectedRow = indexPath.row
         print("You selected cell \(eventAlbums[selectedRow].name!) !")
     }
-    
-    func loadAlbumCovers(imageView: UIImageView, url: String)
-    {
-        DispatchQueue.global(qos: .background).async
-            {
-                let nurl = URL(string: url)
-                var imageBinary : Data?
-                if nurl != nil
-                {
-                    do
-                    {
-                        imageBinary = try Data(contentsOf: nurl!)
-                    }
-                    catch
-                    {
-                        return
-                    }
-                }
-                
-                DispatchQueue.main.async
-                    {
-                        var img : UIImage?
-                        if imageBinary != nil
-                        {
-                            img = UIImage(data: imageBinary!)
-                        }
-                        
-                        imageView.image = img
-                        
-                }
-                
-        }
-    }
+
 }

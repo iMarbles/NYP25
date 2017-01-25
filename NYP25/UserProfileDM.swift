@@ -118,42 +118,9 @@ class UserProfileDM: NSObject {
                 u.isDisplay = r.childSnapshot(forPath: "isDisplay").value as! Int
                 u.icon = (r.childSnapshot(forPath: "icon").value as? String)!
                 
-//                if(u.isDisplay == 1){
-                    badgeList.append(u)
-//                }
-                
-                
+                badgeList.append(u)
             }
             onComplete(badgeList)
         })
     }
-
-//    //Retrieve all images of event by ID
-//    static func retrieveAllUsersBadge(userId : String, onComplete: @escaping ([Badge])->Void){
-//        var badgeList : [Badge] = []
-//        
-//        let ref = FIRDatabase.database().reference().child("users/\(userId)/badges/")
-// 
-//        ref.observe(FIRDataEventType.value, with:{
-//            (snapshot) in
-//            
-//            badgeList = []
-//            
-//            for record in snapshot.children{
-//                let r = record as! FIRDataSnapshot
-//                
-//                let u = Badge()
-//                u.badgeId = r.key
-//                u.isDisplay = r.childSnapshot(forPath: "isDisplay").value as! Int
-//                u.icon = (r.childSnapshot(forPath: "icon").value as? String)!
-//                
-//                if(u.isDisplay == 1){
-//                    badgeList.append(u)
-//                }
-//                
-//        
-//            }
-//            onComplete(badgeList)
-//        })
-//    }
 }

@@ -54,14 +54,12 @@ class UserSocialUploadImageViewController: UIViewController, UIPickerViewDataSou
         imageData = UIImageJPEGRepresentation(imageView.image!, 0.6)! as NSData
         //        var compressedJPGImage = UIImage(data: imageData! as Data)
         
-//        var selectedValue = eventNames[pickerView.selectedRowInComponent(0)]
-                
         //Social
         socialImg?.caption = txtCaption.text
-//        socialImg?.flagReason = txtCaption.text
+        socialImg?.flagReason = ""
         socialImg?.postedDateTime = txtCaption.text
         socialImg?.uploader = GlobalDM.CurrentUser!.userId
-//        socialImg?.isFlagged = 0;
+        socialImg?.isFlagged = 0;
         socialImg?.eventId = valueSelected
         
         //Liked By

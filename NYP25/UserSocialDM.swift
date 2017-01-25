@@ -25,8 +25,6 @@ class UserSocialDM: NSObject {
             })
     }
 
-    
-    
 //    static func createPost(eventId : String, social : Social, socialPhotos : NSData?, likedBy : PhotoLike, currentUserId : String, comments : PhotoComment){
     static func createPost(eventId : String, social : Social, socialPhotos : NSData?, currentUserId : String){
         let key = FIRDatabase.database().reference().child("social").childByAutoId().key
