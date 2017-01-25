@@ -54,6 +54,8 @@
 		612647181E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612647171E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift */; };
 		61296A9C1E16B706007CA079 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; };
 		61296A9D1E16B706007CA079 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		61914E3D1E379A6400FF03F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61914E3C1E379A6400FF03F3 /* Assets.xcassets */; };
+		619E0B141E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E0B131E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift */; };
 		61ABEC491E2B392500786152 /* UserSocialSelectImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */; };
 		61B149F91E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B149F81E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift */; };
 		61B149FD1E2F14DC00605BCB /* UserSocialMainAlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B149FC1E2F14DC00605BCB /* UserSocialMainAlbumCollectionViewCell.swift */; };
@@ -187,6 +189,7 @@
 		04E864D51E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsViewMasterViewController.swift; sourceTree = "<group>"; };
 		04E93EF51E36141F0044820D /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsMasterDetailViewController.swift; sourceTree = "<group>"; };
+		04EA47361E13DB1F006797D9 /* AdminEventsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AdminEventsGalleryViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsReviewViewController.swift; sourceTree = "<group>"; };
 		04ECCCCE1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsMoreTableViewController.swift; sourceTree = "<group>"; };
 		04ECCCD01E30B3FA00BEB70C /* AdminStatisticsMoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStatisticsMoreTableViewCell.swift; sourceTree = "<group>"; };
