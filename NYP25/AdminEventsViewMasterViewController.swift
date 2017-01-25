@@ -11,6 +11,7 @@ import UIKit
 class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, HideableHairlineViewController {
     @IBOutlet weak var segmentedControl : UISegmentedControl!
     @IBOutlet weak var tableView : UITableView!
+    @IBOutlet weak var inboxBtn : UIBarButtonItem!
     
     var isUpcoming = false
     var isPast = false
@@ -20,8 +21,12 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
     var eventsList : [Event] = []
     var filterList : [Event] = []
     
+    //For inbox
+    var flaggedPhotoList : [Social] = []
+    
     //For searching purposes
     var searchList : [Event] = []
+    var leftButtons : [UIBarButtonItem]? = nil
     var retainButtons : [UIBarButtonItem]? = nil
     
     let searchController = UISearchController(searchResultsController: nil)
@@ -34,11 +39,37 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
         
         isUpcoming = true
         loadEvents()
+        loadInbox()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        loadInbox()
+    }
+    
+    func loadInbox(){
+        AdminEventDM.retrieveFlaggedSocialImage { (listFromDb) in
+            self.flaggedPhotoList = listFromDb
+            if self.flaggedPhotoList.count > 0{
+                let button = MIBadgeButton(type: .custom)
+                button.setImage(UIImage(named: "Inbox-22"), for: .normal)
+                button.badgeString = "\(self.flaggedPhotoList.count)"
+                button.frame = CGRect(x: 0, y: 0, width: 70, height: 40)
+                button.badgeEdgeInsets = UIEdgeInsetsMake(20, 0, 0, 15)
+                button.addTarget(self, action: #selector(self.inboxBtnTapped), for: .touchUpInside)
+                self.inboxBtn.customView = button
+            }
+        }
+    }
+    
+    func inboxBtnTapped(sender: Any){
+        self.performSegue(withIdentifier: "ShowInbox", sender: self)
     }
     
     @IBAction func searchButtonSelected(sender: Any){
         //For searching purposes
+        leftButtons = self.navigationItem.leftBarButtonItems
         retainButtons = self.navigationItem.rightBarButtonItems
+        navigationItem.leftBarButtonItems = nil
         navigationItem.rightBarButtonItems = nil
         
         //Creating search bar
@@ -73,6 +104,7 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         navigationItem.titleView = nil
         navigationItem.title = "Events"
+        navigationItem.leftBarButtonItems = leftButtons
         navigationItem.rightBarButtonItems = retainButtons
     }
     
@@ -263,6 +295,11 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowInbox"{
+            let vc = segue.destination as! AdminEventsInboxTableViewController
+            vc.flaggedPhotoList = self.flaggedPhotoList
+        }
+        
         if segue.identifier == "ShowEventDetail"{
             let eventDetailController = segue.destination as! AdminEventsMasterDetailViewController
             let indexPath = self.tableView.indexPathForSelectedRow
