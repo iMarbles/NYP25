@@ -58,10 +58,10 @@ class UserSocialUploadImageViewController: UIViewController, UIPickerViewDataSou
                 
         //Social
         socialImg?.caption = txtCaption.text
-        socialImg?.flagReason = txtCaption.text
+//        socialImg?.flagReason = txtCaption.text
         socialImg?.postedDateTime = txtCaption.text
         socialImg?.uploader = GlobalDM.CurrentUser!.userId
-        socialImg?.isFlagged = 0;
+//        socialImg?.isFlagged = 0;
         socialImg?.eventId = valueSelected
         
         //Liked By
@@ -108,26 +108,4 @@ class UserSocialUploadImageViewController: UIViewController, UIPickerViewDataSou
         
         valueSelected = eventNames[row].eventId as String
     }
-    
-//    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-//    {
-//        eventNames[row].name!
-    
-//        if(row == 0)
-//        {
-//            self.view.backgroundColor = UIColor.whiteColor();
-//        }
-//        else if(row == 1)
-//        {
-//            self.view.backgroundColor = UIColor.redColor();
-//        }
-//        else if(row == 2)
-//        {
-//            self.view.backgroundColor =  UIColor.greenColor();
-//        }
-//        else
-//        {
-//            self.view.backgroundColor = UIColor.blueColor();
-//        }
-//    }
 }

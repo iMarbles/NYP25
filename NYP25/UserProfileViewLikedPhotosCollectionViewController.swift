@@ -14,7 +14,7 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
     
     var profileGallery : [Social] = []
     var likedPhotos : [Social] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,10 +32,11 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
 //            }
 //        })
         
-        UserSocialDM.retrieveAllSocial(onComplete: { (p) in
-            self.likedPhotos = p
+        UserSocialDM.retrieveAllSocialUserLikedPhotos(onComplete: { (photos) in
+            self.profileGallery = photos
             self.collectionView?.reloadData()
         })
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,33 +51,9 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "likedPhotosCell", for: indexPath) as! UserProfileViewLikedPhotosCollectionViewCell
+
         
-        let path = likedPhotos[(indexPath as IndexPath).row]
-        
-        UserSocialDM.retrieveAllUserLikedPhotos(eventId: path.eventId, userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(liked) in
-            self.loadGallery(imageView: cell.likedPhotos, url: self.likedPhotos[(indexPath as IndexPath).row].photoUrl!)
-        })
-        
-//        let s = socialList[(indexPath as IndexPath).row]
-//        cell.dateLbl.text = s.postedDateTime
-//        cell.usernameLbl.text = s.uploaderUsername
-//        cell.captionLbl.text = s.caption
-//        
-//        UserSocialDM.retrieveNoOfTotalLikesForPhotos(eventId: s.eventId, onComplete: {(list) in
-//            cell.noOfLikes.text = String(list.isLike)
-//        })
-//
-//        print(s.eventId)
-//        
-//        if cell.buttonDelegate == nil {
-//            cell.buttonDelegate = self
-//        }
-//        
-//        loadSocialImage(imageView: cell.mainListImageView, url: s.photoUrl!)
-        
-        
-        
-//        loadGallery(imageView: cell.likedPhotos, url: profileGallery[(indexPath as IndexPath).row].photoUrl!)
+        loadGallery(imageView: cell.likedPhotos, url: profileGallery[(indexPath as IndexPath).row].photoUrl!)
         return cell
     }
     
