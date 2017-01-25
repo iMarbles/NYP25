@@ -19,11 +19,9 @@ class UserSocialUploadImageViewController: UIViewController, UIPickerViewDataSou
     var likedBy : PhotoLike? = nil
     var comments : PhotoComment? = nil
 
-    var eventNames : [Event] = []
-
-    var valueSelected = "";
-    
     @IBOutlet weak var eventsPickerView: UIPickerView!
+    var eventNames : [Event] = []
+    var valueSelected = "";
     
     override func viewDidLoad() {
         super.viewDidLoad()

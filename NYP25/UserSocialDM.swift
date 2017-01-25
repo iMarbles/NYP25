@@ -165,6 +165,35 @@ class UserSocialDM: NSObject {
                         "isLiked" : p.isLike
                         ])
                 }else {
+                    if(p.adminNo != currentUserId){     //like photo
+                        //Create the like record
+                        let num = p.isLike
+                        p.isLike = 1
+                        print("liked")
+                        
+                        refLikedBy.setValue([
+                            "isLiked" : p.isLike
+                            ])
+                        
+                    }else if(p.adminNo == currentUserId) {  //unlike photo
+                        p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
+                        
+                        print("p.isLike - \(p.isLike)")
+                        
+                        if(p.isLike == 1){
+                            //Delete record
+                            refLikedBy.removeValue()
+                        }
+                    }
+
+                }
+                /*if (snapshot.childSnapshot(forPath: "isLiked").value is NSNull ) {
+                    p.isLike = 1
+                    
+                    refLikedBy.setValue([
+                        "isLiked" : p.isLike
+                        ])
+                }else {
                     if(p.adminNo != currentUserId){
                         //Create the like record
                         let num = p.isLike
@@ -185,7 +214,7 @@ class UserSocialDM: NSObject {
                             refLikedBy.removeValue()
                         }
                     }
-                }
+                }*/
             })
     }
     
@@ -202,6 +231,22 @@ class UserSocialDM: NSObject {
 
             onComplete(p)
 //            print("\(eventId) - \(count)")
+        })
+    }
+    
+    //Retrieve all events
+    static func retrieveNoOfPost(onComplete: @escaping (Social)->Void){
+        let ref = FIRDatabase.database().reference().child("social/")
+        
+        var count = 0
+        ref.observe(.value, with: { (snapshot: FIRDataSnapshot!) in
+            count += Int(snapshot.childrenCount)
+            
+            let s = Social()
+            s.eventId = String(count)
+            
+            onComplete(s)
+            //            print("\(eventId) - \(count)")
         })
     }
     
