@@ -25,7 +25,6 @@ class UserProfileDM: NSObject {
         return digestData
     }
     
-    //Update event
     static func updatePassword(currentUser : String, password : String){
         let shaData = sha256(password)
         let shaHex =  shaData!.map { String(format: "%02hhx", $0) }.joined()
@@ -37,7 +36,6 @@ class UserProfileDM: NSObject {
             ])
     }
 
-    //Retrieve all events
     static func getUserCurrentPassword(userId : String, onComplete: @escaping (Student)->Void){
         let ref = FIRDatabase.database().reference().child("users/\(userId)/")
         ref.observeSingleEvent(of: .value, with:
@@ -51,7 +49,6 @@ class UserProfileDM: NSObject {
         })
     }
     
-    //Retrieve all events
     static func retrieveUsersInfo(userId : String, onComplete: @escaping (Student)->Void){
         let ref = FIRDatabase.database().reference().child("users/\(userId)/")
         ref.observeSingleEvent(of: .value, with:
@@ -71,7 +68,6 @@ class UserProfileDM: NSObject {
         })
     }
 
-    //Retrieve all images of event by ID
     static func retrieveUsersDisplayBadge(userId : String, onComplete: @escaping ([Badge])->Void){
         var badgeList : [Badge] = []
         
@@ -99,7 +95,6 @@ class UserProfileDM: NSObject {
     }
 
     
-    //Retrieve all images of event by ID
     static func retrieveAllUsersBadge(userId : String, onComplete: @escaping ([Badge])->Void){
         var badgeList : [Badge] = []
         
@@ -124,7 +119,6 @@ class UserProfileDM: NSObject {
         })
     }
     
-    //Retrieve all User Liked Photos
     static func retrieveAllSocialUserLikedPhotos(onComplete: @escaping ([Social])->Void){
         var socialList : [Social] = []
         var likedByList : [PhotoLike] = []
@@ -171,7 +165,6 @@ class UserProfileDM: NSObject {
         })
     }
     
-    //Retrieve all User Liked Photos
     static func retrieveAllSocialUserPostedPhotos(onComplete: @escaping ([Social])->Void){
         var socialList : [Social] = []
         var likedByList : [PhotoLike] = []

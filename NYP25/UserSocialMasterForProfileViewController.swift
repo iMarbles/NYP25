@@ -34,12 +34,9 @@ class UserSocialMasterForProfileViewController: UIViewController {
         
         likedPhotosView.isHidden = true
         selfUploadView.isHidden = false
-        
-        /* Circle Profile Photo */
-        profilePhotoView.layer.masksToBounds = false
-        profilePhotoView.layer.cornerRadius = profilePhotoView.frame.height/2
-        profilePhotoView.clipsToBounds = true
-        
+
+        UserSocialProfileMasterViewController.circleFramePhoto(image: profilePhotoView!)
+
         UserSocialDM.retrieveAllUserInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (user) in
             UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView, url: user.displayPhotoUrl!)
             self.usernameLbl.text = user.username
