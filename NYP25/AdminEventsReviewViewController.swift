@@ -174,9 +174,9 @@ class AdminEventsReviewViewController: UIViewController, UITableViewDelegate, UI
         
         cell.reviewLbl.text = currentFeedback.comment
         
-        tableView.isUserInteractionEnabled = false
+        //tableView.isUserInteractionEnabled = false
         tableView.rowHeight = UITableViewAutomaticDimension
-         tableView.estimatedRowHeight = 140
+         tableView.estimatedRowHeight = 80
         
         return cell
     }
