@@ -17,7 +17,7 @@ class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserSocialDM.retrieveAllSocialUserPostedPhotos(onComplete: { (photos) in
+        UserProfileDM.retrieveAllSocialUserPostedPhotos(onComplete: { (photos) in
             self.profileGallery = photos
             self.collectionView?.reloadData()
             

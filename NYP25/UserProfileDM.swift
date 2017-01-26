@@ -123,4 +123,84 @@ class UserProfileDM: NSObject {
             onComplete(badgeList)
         })
     }
+    
+    //Retrieve all User Liked Photos
+    static func retrieveAllSocialUserLikedPhotos(onComplete: @escaping ([Social])->Void){
+        var socialList : [Social] = []
+        var likedByList : [PhotoLike] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
+        
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            socialList = []
+            likedByList = []
+            
+            //.reversed() - for descending order
+            for record in snapshot.children.reversed(){
+                let r = record as! FIRDataSnapshot
+                
+                let s = Social()
+                
+                s.socialId = r.key
+                s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
+                
+                //Child nodes
+                let likes = r.childSnapshot(forPath: "likedBy").children
+                for liked in likes{
+                    let l = liked as! FIRDataSnapshot
+                    
+                    let p = PhotoLike()
+                    p.adminNo = l.key
+                    p.isLike = (l.childSnapshot(forPath: "isLiked").value as? Int)!
+                    
+                    if((p.adminNo == (GlobalDM.CurrentUser?.userId)!) && (p.isLike == 1)){
+                        //                        print("p.adminNo - \(p.adminNo)")
+                        //                        print("p.isLike - \(p.isLike)")
+                        
+                        likedByList.append(p)
+                        s.likes = likedByList
+                        socialList.append(s)
+                    }
+                }
+                
+            }
+            
+            onComplete(socialList)
+        })
+    }
+    
+    //Retrieve all User Liked Photos
+    static func retrieveAllSocialUserPostedPhotos(onComplete: @escaping ([Social])->Void){
+        var socialList : [Social] = []
+        var likedByList : [PhotoLike] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
+        
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            socialList = []
+            likedByList = []
+            
+            //.reversed() - for descending order
+            for record in snapshot.children.reversed(){
+                let r = record as! FIRDataSnapshot
+                
+                let s = Social()
+                
+                s.socialId = r.key
+                s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
+                s.uploader = r.childSnapshot(forPath: "uploader").value as? String
+                
+                if(s.uploader == (GlobalDM.CurrentUser?.userId)!){
+                    socialList.append(s)
+                    print("s.uploader - \(s.uploader)")
+                }
+            }
+            
+            onComplete(socialList)
+        })
+    }
 }

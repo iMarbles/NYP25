@@ -93,6 +93,7 @@ class UserSocialUploadImageViewController: UIViewController, UIPickerViewDataSou
                     uploaderUsername: u.username
 //                comments : comments!
                 )
+                
                 var alert = UIAlertView(
                     title: nil,
                     message: "Successfully Uploaded",
@@ -101,7 +102,6 @@ class UserSocialUploadImageViewController: UIViewController, UIPickerViewDataSou
                 alert.show()
                 
                self.navigationController?.popToRootViewController(animated: true)
-             //   self.performSegue(withIdentifier: "unwindToViewController1", sender: self)
             }
             
         })

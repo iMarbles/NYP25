@@ -496,7 +496,7 @@
                                             </state>
                                         </button>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="caption here" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RK5-Lz-jlX">
-                                            <rect key="frame" x="8" y="433" width="343" height="77"/>
+                                            <rect key="frame" x="8" y="433" width="244" height="77"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
@@ -532,6 +532,12 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="test" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fN-nz-w26">
+                                            <rect key="frame" x="260" y="433" width="91" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="UJT-xC-rbc" firstAttribute="top" secondItem="gWn-Dg-b93" secondAttribute="topMargin" id="3QR-E4-rmM"/>
@@ -547,12 +553,14 @@
                                         <constraint firstItem="ZUw-M3-dgl" firstAttribute="trailing" secondItem="gWn-Dg-b93" secondAttribute="trailingMargin" constant="8" id="PcQ-r6-iQF"/>
                                         <constraint firstItem="4ap-qu-WnO" firstAttribute="leading" secondItem="UUb-hu-eG6" secondAttribute="trailing" constant="8" id="SSv-v3-AZo"/>
                                         <constraint firstItem="4ap-qu-WnO" firstAttribute="leading" secondItem="eVZ-OM-23j" secondAttribute="trailing" constant="109" id="Vgv-Cg-ehu"/>
+                                        <constraint firstItem="4fN-nz-w26" firstAttribute="trailing" secondItem="gWn-Dg-b93" secondAttribute="trailingMargin" id="WMS-8G-gZB"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="4fN-nz-w26" secondAttribute="bottom" constant="61" id="aBv-C7-mSh"/>
                                         <constraint firstItem="eR8-f0-z4j" firstAttribute="baseline" secondItem="UJT-xC-rbc" secondAttribute="baseline" id="bAq-hE-lIX"/>
                                         <constraint firstItem="eVZ-OM-23j" firstAttribute="baseline" secondItem="4ap-qu-WnO" secondAttribute="baseline" constant="-2.5" id="cFE-vZ-O4i"/>
                                         <constraint firstItem="UJT-xC-rbc" firstAttribute="trailing" secondItem="gWn-Dg-b93" secondAttribute="trailingMargin" id="chA-p7-cWk"/>
                                         <constraint firstItem="RK5-Lz-jlX" firstAttribute="top" secondItem="eVZ-OM-23j" secondAttribute="bottom" constant="2" id="d7D-9u-sN6"/>
                                         <constraint firstItem="UUb-hu-eG6" firstAttribute="baseline" secondItem="4ap-qu-WnO" secondAttribute="baseline" constant="1" id="e1F-Gz-hcd"/>
-                                        <constraint firstItem="RK5-Lz-jlX" firstAttribute="trailing" secondItem="gWn-Dg-b93" secondAttribute="trailingMargin" id="fXO-5M-Clk"/>
+                                        <constraint firstItem="RK5-Lz-jlX" firstAttribute="trailing" secondItem="gWn-Dg-b93" secondAttribute="trailingMargin" constant="-99" id="fXO-5M-Clk"/>
                                         <constraint firstItem="ZUw-M3-dgl" firstAttribute="bottom" secondItem="gWn-Dg-b93" secondAttribute="bottomMargin" constant="-117" id="kuL-BQ-3ve"/>
                                         <constraint firstItem="RK5-Lz-jlX" firstAttribute="leading" secondItem="gWn-Dg-b93" secondAttribute="leadingMargin" id="oMo-ha-Dil"/>
                                         <constraint firstItem="RK5-Lz-jlX" firstAttribute="bottom" secondItem="gWn-Dg-b93" secondAttribute="bottomMargin" constant="-5" id="pqf-rd-Zka"/>
@@ -566,6 +574,7 @@
                                     <outlet property="btnLike" destination="4Gu-EN-FcE" id="2w1-f4-VO2"/>
                                     <outlet property="captionLbl" destination="RK5-Lz-jlX" id="B49-LH-MRM"/>
                                     <outlet property="dateLbl" destination="UJT-xC-rbc" id="uov-3b-90L"/>
+                                    <outlet property="hintLbl" destination="4fN-nz-w26" id="cXO-WQ-AXT"/>
                                     <outlet property="mainListImageView" destination="ZUw-M3-dgl" id="rTd-gv-r0M"/>
                                     <outlet property="noOfLikes" destination="eVZ-OM-23j" id="FDQ-OG-WY8"/>
                                     <outlet property="usernameLbl" destination="eR8-f0-z4j" id="Rmi-Wv-qqD"/>
