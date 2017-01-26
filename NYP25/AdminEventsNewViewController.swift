@@ -70,7 +70,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         }
 
         if event?.imageUrl != nil{
-            loadAndDisplayImage(imageView: eventImage, url: (event?.imageUrl)!)
+            GlobalDM.loadImage(imageView: eventImage, url: (event?.imageUrl)!)
             eventImage.isHidden = false
         }
         
@@ -81,7 +81,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         //badge
         if event?.badgeId != nil{
             AdminEventDM.retrieveBadgeByEventId(id: (event?.badgeId)!, onComplete: {(badge) in
-                self.loadAndDisplayImage(imageView: self.badgeImage, url: badge.icon)
+                GlobalDM.loadImage(imageView: self.badgeImage, url: badge.icon)
             })
         }
 
@@ -99,39 +99,6 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
             visbleSwitch.isOn = false
         }
         
-    }
-    
-    func loadAndDisplayImage(imageView: UIImageView, url: String)
-    {
-        DispatchQueue.global(qos: .background).async
-            {
-                let nurl = URL(string: url)
-                var imageBinary : Data?
-                if nurl != nil
-                {
-                    do
-                    {
-                        imageBinary = try Data(contentsOf: nurl!)
-                    }
-                    catch
-                    {
-                        return
-                    }
-                }
-                
-                DispatchQueue.main.async
-                    {
-                        var img : UIImage?
-                        if imageBinary != nil
-                        {
-                            img = UIImage(data: imageBinary!)
-                        }
-                        
-                        imageView.image = img
-                        
-                }
-                
-        }
     }
     
     //Date related

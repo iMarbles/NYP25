@@ -248,7 +248,7 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
         cell.locationLabel.text = e.address
         
         if(e.imageUrl != nil){
-            loadEventImage(imageView: cell.eventImg, url: e.imageUrl!)
+            GlobalDM.loadImage(imageView: cell.eventImg, url: e.imageUrl!)
         }else{
             cell.eventImg.image = UIImage(named: "Ellipsis-100")
         }
@@ -256,39 +256,6 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
         return cell
     }
     
-    func loadEventImage(imageView: UIImageView, url: String)
-    {
-        DispatchQueue.global(qos: .background).async
-            {
-                let nurl = URL(string: url)
-                var imageBinary : Data?
-                if nurl != nil
-                {
-                    do
-                    {
-                        imageBinary = try Data(contentsOf: nurl!)
-                    }
-                    catch
-                    {
-                        return
-                    }
-                }
-                
-                DispatchQueue.main.async
-                    {
-                        var img : UIImage?
-                        if imageBinary != nil
-                        {
-                            img = UIImage(data: imageBinary!)
-                        }
-                        
-                        imageView.image = img
-                        
-                }
-                
-        }
-    }
-
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

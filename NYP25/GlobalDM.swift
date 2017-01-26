@@ -41,5 +41,37 @@ class GlobalDM: NSObject {
         return df.string(from: date);
     }
     
+    static func loadImage(imageView: UIImageView, url: String)
+    {
+        DispatchQueue.global(qos: .background).async
+            {
+                let nurl = URL(string: url)
+                var imageBinary : Data?
+                if nurl != nil
+                {
+                    do
+                    {
+                        imageBinary = try Data(contentsOf: nurl!)
+                    }
+                    catch
+                    {
+                        return
+                    }
+                }
+                
+                DispatchQueue.main.async
+                    {
+                        var img : UIImage?
+                        if imageBinary != nil
+                        {
+                            img = UIImage(data: imageBinary!)
+                        }
+                        
+                        imageView.image = img
+                }
+                
+        }
+    }
+    
     
 }
