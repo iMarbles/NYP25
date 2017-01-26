@@ -34,6 +34,7 @@
 		04EF868B1E10DAF800842FC4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF868A1E10DAF800842FC4 /* MapKit.framework */; };
 		04EF868F1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */; };
 		04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EF86901E10E01400842FC4 /* AdminEventsMapViewController.swift */; };
+		04F1DBE61E3A8AD300962312 /* AdminEventsAttendanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1DBE51E3A8AD300962312 /* AdminEventsAttendanceViewController.swift */; };
 		04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F2694C1E0D3ACA00361510 /* AdminEventTableViewCell.swift */; };
 		27B88D7C1DF2B9B80045C98B /* UserMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */; };
 		27B88D7E1DF2B9CD0045C98B /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */; };
@@ -199,6 +200,7 @@
 		04EF868A1E10DAF800842FC4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsLocationSearchTableViewController.swift; sourceTree = "<group>"; };
 		04EF86901E10E01400842FC4 /* AdminEventsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsMapViewController.swift; sourceTree = "<group>"; };
+		04F1DBE51E3A8AD300962312 /* AdminEventsAttendanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsAttendanceViewController.swift; sourceTree = "<group>"; };
 		04F2694C1E0D3ACA00361510 /* AdminEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventTableViewCell.swift; sourceTree = "<group>"; };
 		27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserMain.storyboard; sourceTree = "<group>"; };
 		27B88D7D1DF2B9CD0045C98B /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 		81FADAEC1DE4404B007D27C8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				04F1DBE51E3A8AD300962312 /* AdminEventsAttendanceViewController.swift */,
 				040CA3151E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift */,
 				040CA3161E39002B00765193 /* AdminEventsGalleryViewController.swift */,
 				816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */,
@@ -770,6 +773,7 @@
 				61CCEC7F1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift in Sources */,
 				61CCEC9E1E2BF387008B36A9 /* UserSocialMainGridCollectionViewController.swift in Sources */,
 				040CA3171E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift in Sources */,
+				04F1DBE61E3A8AD300962312 /* AdminEventsAttendanceViewController.swift in Sources */,
 				04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */,
 				61B443221E327FFF00E3EE94 /* UserProfileViewLikedPhotosCollectionViewCell.swift in Sources */,
 				04ED18391E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift in Sources */,

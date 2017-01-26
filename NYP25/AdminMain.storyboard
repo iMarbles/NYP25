@@ -822,6 +822,79 @@
             </objects>
             <point key="canvasLocation" x="852" y="317"/>
         </scene>
+        <!--Admin Events Attendance View Controller-->
+        <scene sceneID="UcF-Oo-URz">
+            <objects>
+                <viewController id="L6l-Cz-hD5" customClass="AdminEventsAttendanceViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mhz-ae-jol"/>
+                        <viewControllerLayoutGuide type="bottom" id="ug7-8L-MnR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="loN-uD-frc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZb-Rd-9jZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take Attendance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTV-95-CaJ">
+                                        <rect key="frame" x="113" y="23" width="150" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t5e-v0-6za">
+                                        <rect key="frame" x="15" y="24" width="18" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="18" id="2Wa-Gy-lCp"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="cross"/>
+                                        <connections>
+                                            <action selector="closeQRModalWithSender:" destination="L6l-Cz-hD5" eventType="touchUpInside" id="x32-N3-gp5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="t5e-v0-6za" firstAttribute="leading" secondItem="QZb-Rd-9jZ" secondAttribute="leading" constant="15" id="9Ow-FJ-NSi"/>
+                                    <constraint firstItem="bTV-95-CaJ" firstAttribute="centerX" secondItem="QZb-Rd-9jZ" secondAttribute="centerX" id="DJH-Gd-RGr"/>
+                                    <constraint firstAttribute="bottom" secondItem="t5e-v0-6za" secondAttribute="bottom" constant="13" id="Kda-t8-M6h"/>
+                                    <constraint firstAttribute="height" constant="55" id="MSv-i7-4oU"/>
+                                    <constraint firstItem="t5e-v0-6za" firstAttribute="top" secondItem="QZb-Rd-9jZ" secondAttribute="top" constant="24" id="ZIm-wV-A1M"/>
+                                    <constraint firstAttribute="bottom" secondItem="bTV-95-CaJ" secondAttribute="bottom" constant="8" id="x3K-bC-63S"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR code is detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGi-p3-FqB">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Hp5-bS-LpT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QZb-Rd-9jZ" firstAttribute="top" secondItem="loN-uD-frc" secondAttribute="top" id="0Fg-rZ-ttt"/>
+                            <constraint firstItem="QZb-Rd-9jZ" firstAttribute="leading" secondItem="loN-uD-frc" secondAttribute="leading" id="4do-CZ-dBQ"/>
+                            <constraint firstItem="IGi-p3-FqB" firstAttribute="bottom" secondItem="ug7-8L-MnR" secondAttribute="top" id="9eX-MO-u0M"/>
+                            <constraint firstAttribute="trailing" secondItem="IGi-p3-FqB" secondAttribute="trailing" id="LQ7-SB-Trz"/>
+                            <constraint firstAttribute="trailing" secondItem="QZb-Rd-9jZ" secondAttribute="trailing" id="O55-dr-eQR"/>
+                            <constraint firstItem="IGi-p3-FqB" firstAttribute="leading" secondItem="loN-uD-frc" secondAttribute="leading" id="y6W-44-Ai9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="IGi-p3-FqB" id="pwl-8c-RQP"/>
+                        <outlet property="topbar" destination="QZb-Rd-9jZ" id="YBq-eL-w8Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kpj-Uq-0r1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="799" y="1103"/>
+        </scene>
         <!--Event Details-->
         <scene sceneID="2jz-S5-ghD">
             <objects>
@@ -899,12 +972,19 @@
                     </view>
                     <navigationItem key="navigationItem" title="Event Details" id="o5l-fb-3Gj">
                         <barButtonItem key="backBarButtonItem" title=" Back" id="hN8-XB-VFQ"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="C82-0o-rAm">
-                            <connections>
-                                <action selector="saveEvent" destination="Cst-iF-E9t" id="UrO-Zy-r0H"/>
-                                <segue destination="Cst-iF-E9t" kind="show" identifier="EditEvent" id="ahw-M9-9pg"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="edit" id="C82-0o-rAm">
+                                <connections>
+                                    <action selector="saveEvent" destination="Cst-iF-E9t" id="UrO-Zy-r0H"/>
+                                    <segue destination="Cst-iF-E9t" kind="show" identifier="EditEvent" id="ahw-M9-9pg"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="QR Code-22" id="E7m-xk-UEx">
+                                <connections>
+                                    <segue destination="L6l-Cz-hD5" kind="presentation" id="dBx-fF-hYr"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="detailContainer" destination="yct-Eq-oa7" id="ktZ-gW-NZV"/>
@@ -1180,7 +1260,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-O0-PQi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="319.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ellipsis-100" translatesAutoresizingMaskIntoConstraints="NO" id="Ou4-5J-Y98">
                                                 <rect key="frame" x="10" y="0.0" width="355" height="171"/>
@@ -1310,7 +1390,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No description available" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pga-Bk-wDi">
-                                                <rect key="frame" x="10" y="300" width="355" height="20"/>
+                                                <rect key="frame" x="10" y="300" width="355" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2316,13 +2396,15 @@
         <image name="Inbox-22" width="22" height="22"/>
         <image name="Lock Filled-50" width="50" height="50"/>
         <image name="Marker-50" width="50" height="50"/>
+        <image name="QR Code-22" width="22" height="22"/>
         <image name="Star-50" width="50" height="50"/>
         <image name="Upload-30" width="30" height="30"/>
         <image name="User-48" width="48" height="48"/>
         <image name="Visible-50" width="50" height="50"/>
+        <image name="cross" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fkp-SF-Xg2"/>
         <segue reference="2ik-Rc-Qt1"/>
+        <segue reference="ahw-M9-9pg"/>
     </inferredMetricsTieBreakers>
 </document>
