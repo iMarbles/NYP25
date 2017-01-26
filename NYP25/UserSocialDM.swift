@@ -320,6 +320,7 @@ class UserSocialDM: NSObject {
     }
 
     static func updateNoOfPhotoLikes(socialId : String, currentUserId : String){
+        print(socialId)
         let refLikedBy = FIRDatabase.database().reference().child("social/\(socialId)/likedBy/\(currentUserId)/")
         
         refLikedBy.observeSingleEvent(of: .value, with:
@@ -335,7 +336,7 @@ class UserSocialDM: NSObject {
                 if (snapshot.childSnapshot(forPath: "isLiked").value is NSNull ) {
                     p.isLike = 1
                     
-                    refLikedBy.setValue([
+                    refLikedBy.updateChildValues([
                         "isLiked" : p.isLike
                         ])
                 }else {
@@ -344,7 +345,7 @@ class UserSocialDM: NSObject {
                         p.isLike = 1
                         print("liked")
                         
-                        refLikedBy.setValue([
+                        refLikedBy.updateChildValues([
                             "isLiked" : p.isLike
                             ])
                         

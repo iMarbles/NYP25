@@ -48,10 +48,12 @@ class UserSocialMainListTableViewController: UITableViewController {
         return socialList.count
     }
     
+    /*
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let s = socialList[(indexPath as IndexPath).row]
         hint = s.socialId
     }
+ */
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainListCell", for: indexPath)
@@ -69,7 +71,7 @@ class UserSocialMainListTableViewController: UITableViewController {
         cell.hintLbl.text = s.socialId
 
         cell.btnLike.tag = indexPath.row
-        cell.btnLike.addTarget(self, action: #selector(handleLikes(sender:)), for: .touchUpInside)
+        cell.btnLike.addTarget(self, action: #selector(handleLikes), for: .touchUpInside)
         
         cell.btnLike.setTitle(likes[(indexPath as IndexPath).row], for: UIControlState.normal)
         cell.btnLike.setImage(UIImage(named:"Like.png"), for: .normal)
@@ -87,9 +89,9 @@ class UserSocialMainListTableViewController: UITableViewController {
     func handleLikes(sender: AnyObject){
 //        print("hint - \(hint)")
 //        sender.setImage(UIImage(named: "LikeFilled.png")! as UIImage, for: .normal)
-
+        
         UserSocialDM.updateNoOfPhotoLikes(
-            socialId: hint,
+            socialId: socialList[sender.tag].socialId,
             currentUserId: (GlobalDM.CurrentUser?.userId)!)
         
         
