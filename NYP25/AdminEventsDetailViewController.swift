@@ -36,7 +36,7 @@ class AdminEventsDetailViewController: UIViewController {
     
     func loadEventDetails(){
         if event?.imageUrl != nil{
-            loadEventImage(imageView: eventImg, url: (event?.imageUrl)!)
+            GlobalDM.loadImage(imageView: eventImg, url: (event?.imageUrl)!)
         }else{
             eventImg.isHidden = true
         }
@@ -61,8 +61,7 @@ class AdminEventsDetailViewController: UIViewController {
         
         if event?.badgeId != nil{
             AdminEventDM.retrieveBadgeByEventId(id: (event?.eventId)!, onComplete: { (badge) in
-                self.loadEventImage(imageView: self.badgeImg, url: badge.icon)
-                
+                GlobalDM.loadImage(imageView: self.badgeImg, url: badge.icon)
                 self.badgeImg.layer.masksToBounds = false
                 self.badgeImg.layer.cornerRadius = self.badgeImg.frame.height/2
                 self.badgeImg.clipsToBounds = true
@@ -71,39 +70,7 @@ class AdminEventsDetailViewController: UIViewController {
             })
         }
     }
-    
-    func loadEventImage(imageView: UIImageView, url: String)
-    {
-        DispatchQueue.global(qos: .background).async
-            {
-                let nurl = URL(string: url)
-                var imageBinary : Data?
-                if nurl != nil
-                {
-                    do
-                    {
-                        imageBinary = try Data(contentsOf: nurl!)
-                    }
-                    catch
-                    {
-                        return
-                    }
-                }
-                
-                DispatchQueue.main.async
-                    {
-                        var img : UIImage?
-                        if imageBinary != nil
-                        {
-                            img = UIImage(data: imageBinary!)
-                        }
-                        
-                        imageView.image = img
-                }
-                
-        }
-    }
-    
+
 
     /*
     // MARK: - Navigation

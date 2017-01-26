@@ -55,44 +55,12 @@ class AdminEventsInboxTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.flaggedImg.image = nil
-        loadFlaggedImage(imageView: cell.flaggedImg, url: flaggedPhotoList[(indexPath as IndexPath).row].photoUrl!)
+        GlobalDM.loadImage(imageView: cell.flaggedImg, url: flaggedPhotoList[(indexPath as IndexPath).row].photoUrl!)
         cell.reasonLbl.text = "\(flaggedPhotoList[(indexPath as IndexPath).row].flagReason!)"
 
         return cell
     }
     
-    func loadFlaggedImage(imageView: UIImageView, url: String)
-    {
-        DispatchQueue.global(qos: .background).async
-            {
-                let nurl = URL(string: url)
-                var imageBinary : Data?
-                if nurl != nil
-                {
-                    do
-                    {
-                        imageBinary = try Data(contentsOf: nurl!)
-                    }
-                    catch
-                    {
-                        return
-                    }
-                }
-                
-                DispatchQueue.main.async
-                    {
-                        var img : UIImage?
-                        if imageBinary != nil
-                        {
-                            img = UIImage(data: imageBinary!)
-                        }
-                        
-                        imageView.image = img
-                        
-                }
-                
-        }
-    }
 
     /*
     // Override to support conditional editing of the table view.

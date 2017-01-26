@@ -121,43 +121,11 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
         AdminEventDM.retrieveUserPhotoById(userId: (currentPhoto?.uploader)!, onComplete: {
             (photoUrl) in
             if photoUrl != nil{
-                self.loadImage(imageView: self.userImg, url: photoUrl!)
+                GlobalDM.loadImage(imageView: self.userImg, url: photoUrl!)
             }
         })
         
-        loadImage(imageView: socialImage, url: (currentPhoto?.photoUrl)!)
-    }
-    
-    func loadImage(imageView: UIImageView, url: String)
-    {
-        DispatchQueue.global(qos: .background).async
-            {
-                let nurl = URL(string: url)
-                var imageBinary : Data?
-                if nurl != nil
-                {
-                    do
-                    {
-                        imageBinary = try Data(contentsOf: nurl!)
-                    }
-                    catch
-                    {
-                        return
-                    }
-                }
-                
-                DispatchQueue.main.async
-                    {
-                        var img : UIImage?
-                        if imageBinary != nil
-                        {
-                            img = UIImage(data: imageBinary!)
-                        }
-                        
-                        imageView.image = img
-                }
-                
-        }
+        GlobalDM.loadImage(imageView: socialImage, url: (currentPhoto?.photoUrl)!)
     }
 
     
