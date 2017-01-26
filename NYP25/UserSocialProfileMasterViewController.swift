@@ -27,6 +27,14 @@ class UserSocialProfileMasterViewController: UIViewController {
         image.clipsToBounds = true
     }
     
+    static func roundedEdgePhoto (image : UIImageView){
+        image.layer.cornerRadius = 10
+        image.layer.borderWidth = 2.0
+        image.layer.masksToBounds = false
+        image.clipsToBounds = true
+        image.layer.borderColor = UIColor.clear.cgColor
+    }
+    
     static func loadImage(imageView: UIImageView, url: String)
     {
         DispatchQueue.global(qos: .background).async
