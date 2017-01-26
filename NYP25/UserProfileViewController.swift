@@ -24,7 +24,7 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserSocialProfileMasterViewController.circleFramePhoto(image: selectedBadge!)
+        UserSocialProfileMasterViewController.roundedEdgePhoto(image: selectedBadge!)
         UserSocialProfileMasterViewController.circleFramePhoto(image: profilePhotoView!)
         
         badgesView?.isHidden = false
