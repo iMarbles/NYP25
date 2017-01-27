@@ -9,12 +9,10 @@
 import UIKit
 
 class UserProfileDisplayQRViewController: UIViewController {
-
-    @IBOutlet weak var textField: UITextField!
+    
+    @IBOutlet weak var currentUser : UILabel!
     
     @IBOutlet weak var imgQRCode: UIImageView!
-    
-    @IBOutlet weak var btnAction: UIButton!
     
     @IBOutlet weak var slider: UISlider!
     
@@ -22,22 +20,15 @@ class UserProfileDisplayQRViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func performButtonAction(sender: AnyObject) {
+        
+        currentUser.text = (GlobalDM.CurrentUser?.userId)!
+        
         if qrcodeImage == nil {
-            if textField.text == "" {
+            if currentUser.text == "" {
                 return
             }
             
-            let data = textField.text?.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
+            let data = currentUser.text?.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
             
             let filter = CIFilter(name: "CIQRCodeGenerator")
             
@@ -46,20 +37,14 @@ class UserProfileDisplayQRViewController: UIViewController {
             
             qrcodeImage = filter?.outputImage
             
-            textField.resignFirstResponder()
-         
-            btnAction.setTitle("Clear", for: UIControlState.normal)
+            currentUser.resignFirstResponder()
             
             displayQRCodeImage()
         }
         else {
             imgQRCode.image = nil
             qrcodeImage = nil
-            btnAction.setTitle("Generate", for: UIControlState.normal)
         }
-        
-        textField.isEnabled = !textField.isEnabled
-        slider.isHidden = !slider.isHidden
     }
     
     
@@ -74,8 +59,12 @@ class UserProfileDisplayQRViewController: UIViewController {
         let transformedImage = qrcodeImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
         
         imgQRCode.image = UIImage(ciImage: transformedImage)
-        
-        
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     
 }
