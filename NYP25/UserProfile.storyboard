@@ -342,7 +342,7 @@
         <scene sceneID="uNL-Ik-XNc">
             <objects>
                 <collectionViewController title="BADGES" id="BFq-aH-8qK" customClass="UserProfileViewBadgesCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Ztx-cq-POk">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Ztx-cq-POk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.49362432956695557" blue="0.47423690557479858" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -363,10 +363,6 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gvj-0p-hNo">
                                             <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Star Filled-50" translatesAutoresizingMaskIntoConstraints="NO" id="eMM-bl-kmu">
-                                            <rect key="frame" x="146" y="8" width="28" height="28"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
@@ -380,7 +376,6 @@
                                     <constraint firstAttribute="trailing" secondItem="Gvj-0p-hNo" secondAttribute="trailing" id="qzv-Fg-Kay"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="badgeCheck" destination="eMM-bl-kmu" id="jX4-px-ihm"/>
                                     <outlet property="badgePhotos" destination="Gvj-0p-hNo" id="cXJ-XB-GJ2"/>
                                 </connections>
                             </collectionViewCell>
@@ -399,7 +394,7 @@
         <scene sceneID="dF3-fS-n6O">
             <objects>
                 <collectionViewController title="OWN" id="78t-Vg-g9D" customClass="UserProfileViewOwnPhotosCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CRN-E2-8zS">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="CRN-E2-8zS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.83111804723739624" green="0.98357635736465454" blue="0.47417277097702026" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -451,7 +446,7 @@
         <scene sceneID="L39-9V-ScO">
             <objects>
                 <collectionViewController title="LIKED" id="QjI-Kv-rrd" customClass="UserProfileViewLikedPhotosCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ToT-Ck-Eci">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="ToT-Ck-Eci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.45167505741119385" green="0.98651820421218872" blue="0.84075480699539185" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -548,7 +543,7 @@
                                 </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRH-3F-tW0">
-                                <rect key="frame" x="8" y="210" width="359" height="408"/>
+                                <rect key="frame" x="8" y="210" width="359" height="413"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="RKs-9p-Ned">
                                         <rect key="frame" x="8" y="8" width="341" height="380"/>
@@ -580,11 +575,18 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPF-2z-ql3">
-                                                        <rect key="frame" x="103.5" y="0.0" width="237.5" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPF-2z-ql3">
+                                                        <rect key="frame" x="103.5" y="0.0" width="203.5" height="30"/>
                                                         <state key="normal" title="Change"/>
                                                         <connections>
-                                                            <segue destination="oQB-Ni-41l" kind="show" id="Sjm-Dq-3t9"/>
+                                                            <action selector="btnChangeProfilePhotoWithSender:" destination="hpV-NH-KPE" eventType="touchUpInside" id="NBq-he-vu2"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kON-VD-tMH" userLabel="Save">
+                                                        <rect key="frame" x="307" y="0.0" width="34" height="30"/>
+                                                        <state key="normal" title="Save"/>
+                                                        <connections>
+                                                            <action selector="btnChangeProfilePhotoWithSender:" destination="hpV-NH-KPE" eventType="touchUpInside" id="mcP-oT-Tfc"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -624,18 +626,26 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJF-g4-bgu">
-                                                        <rect key="frame" x="81.5" y="0.0" width="259.5" height="30"/>
-                                                        <state key="normal" title="Change"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJF-g4-bgu">
+                                                        <rect key="frame" x="81.5" y="0.0" width="225.5" height="30"/>
+                                                        <state key="normal" title="Edit"/>
                                                         <connections>
-                                                            <segue destination="6aN-mf-Ugf" kind="show" id="BHd-Ul-Ynm"/>
+                                                            <action selector="btnEditBioWithSender:" destination="hpV-NH-KPE" eventType="touchUpInside" id="Wpd-ER-kT3"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYR-3l-UFH">
+                                                        <rect key="frame" x="307" y="0.0" width="34" height="30"/>
+                                                        <state key="normal" title="Save"/>
+                                                        <connections>
+                                                            <action selector="btnEditBioWithSender:" destination="hpV-NH-KPE" eventType="touchUpInside" id="zN6-wX-5BU"/>
+                                                            <action selector="btnSaveBioWithSender:" destination="hpV-NH-KPE" eventType="touchUpInside" id="C9s-JL-hR1"/>
+                                                            <action selector="btnSaveProfilePhotoWithSender:" destination="hpV-NH-KPE" eventType="touchUpInside" id="5M2-gL-KIK"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzT-dq-tKS" userLabel="Bio Field">
                                                 <rect key="frame" x="0.0" y="260" width="341" height="120"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="baB-gO-WBU"/>
                                                 </constraints>
@@ -680,9 +690,15 @@
                             <constraint firstItem="byK-KJ-mar" firstAttribute="trailing" secondItem="TPq-km-p5T" secondAttribute="trailingMargin" id="wdt-76-3iS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="R3O-nw-4Xn"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Settings" id="Xw7-km-I8m"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bioField" destination="XzT-dq-tKS" id="32h-Sc-Otw"/>
+                        <outlet property="btnChangeProfilePhoto" destination="OPF-2z-ql3" id="c9F-bP-9Fh"/>
+                        <outlet property="btnEditBio" destination="wJF-g4-bgu" id="NPj-fY-N42"/>
+                        <outlet property="btnSaveBio" destination="kYR-3l-UFH" id="02I-OF-oZm"/>
+                        <outlet property="btnUpdateProfilePhoto" destination="kON-VD-tMH" id="nMm-fW-YEm"/>
                         <outlet property="nameLbl" destination="g9K-JC-lxj" id="0lD-G5-xh2"/>
                         <outlet property="profilePhotoView" destination="7Ac-BJ-Mfp" id="nAh-7I-aO0"/>
                         <outlet property="schLbl" destination="dve-RF-SAJ" id="wDp-uW-aCL"/>
@@ -697,8 +713,8 @@
         <!--Change Display Badge-->
         <scene sceneID="c2w-4i-KPh">
             <objects>
-                <collectionViewController title="Change Display Badge" id="d5k-cI-0XI" customClass="UserProfileViewBadgesCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="bCM-m4-AAs">
+                <collectionViewController title="Change Display Badge" id="d5k-cI-0XI" customClass="UserProfileSettingViewBadgesCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bCM-m4-AAs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -709,7 +725,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="badgeCell" id="qfE-Ih-84j" userLabel="badgeCell" customClass="UserProfileViewBadgesCollectionViewCell" customModule="NYP25" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="badgeCell" id="qfE-Ih-84j" userLabel="badgeCell" customClass="UserProfileSettingViewBadgesCollectionViewCell" customModule="NYP25" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -720,8 +736,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Star Filled-50" translatesAutoresizingMaskIntoConstraints="NO" id="tiM-OT-y1F">
-                                            <rect key="frame" x="146" y="8" width="28" height="28"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ok-30" translatesAutoresizingMaskIntoConstraints="NO" id="tiM-OT-y1F">
+                                            <rect key="frame" x="144" y="8" width="30" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -740,54 +756,17 @@
                     <navigationItem key="navigationItem" title="Set Display Badge" id="dTZ-tR-S99">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" systemItem="save" id="gHT-nv-Lb1">
                             <connections>
-                                <action selector="savePasswordWithSender:" destination="Woj-Pr-7eF" id="sFC-mO-gMU"/>
+                                <action selector="btnUpdateSelectedBadgeWithSender:" destination="d5k-cI-0XI" id="cCb-Qv-bzX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="btnUpdateSelectedBadge" destination="gHT-nv-Lb1" id="hLx-Co-NrH"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdC-8y-RZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3048.8000000000002" y="1154.5727136431785"/>
-        </scene>
-        <!--Edit Biography-->
-        <scene sceneID="aIm-h2-boI">
-            <objects>
-                <viewController title="Edit Biography" id="6aN-mf-Ugf" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aiq-d3-aES"/>
-                        <viewControllerLayoutGuide type="bottom" id="rje-r3-elv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TBj-a6-Y1P">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYK-f7-60x">
-                                <rect key="frame" x="16" y="72" width="343" height="538"/>
-                                <color key="backgroundColor" red="0.97224289021164023" green="0.97224289021164023" blue="0.97224289021164023" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="eYK-f7-60x" firstAttribute="leading" secondItem="TBj-a6-Y1P" secondAttribute="leadingMargin" id="Jed-fv-fPh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="eYK-f7-60x" secondAttribute="trailing" id="YIi-PV-ygH"/>
-                            <constraint firstItem="eYK-f7-60x" firstAttribute="top" secondItem="aiq-d3-aES" secondAttribute="bottom" constant="8" symbolic="YES" id="evU-Z7-KCf"/>
-                            <constraint firstItem="rje-r3-elv" firstAttribute="top" secondItem="eYK-f7-60x" secondAttribute="bottom" constant="8" id="gbI-oq-Asu"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Edit Biography" id="jze-AH-m7j">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" systemItem="save" id="d1t-sk-t85">
-                            <connections>
-                                <action selector="savePasswordWithSender:" destination="Woj-Pr-7eF" id="iLp-qq-w81"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lh9-vc-dAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2304.8000000000002" y="1155.472263868066"/>
         </scene>
         <!--Change Display Badge-->
         <scene sceneID="ekN-wh-xji">
@@ -844,10 +823,10 @@
     </scenes>
     <resources>
         <image name="Circled User Male-30" width="30" height="30"/>
+        <image name="Ok-30" width="30" height="30"/>
         <image name="Password Check-30" width="30" height="30"/>
         <image name="QR Code-30" width="30" height="30"/>
         <image name="Settings-30" width="30" height="30"/>
-        <image name="Star Filled-50" width="50" height="50"/>
         <image name="gamepad - 64" width="64" height="64"/>
         <image name="landscape - 64" width="64" height="64"/>
         <image name="signs - 64" width="64" height="64"/>

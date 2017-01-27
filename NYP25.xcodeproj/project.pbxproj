@@ -45,6 +45,8 @@
 		61075E381E351B7900E25AB3 /* UserSocialMainEventAlbumsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61075E371E351B7900E25AB3 /* UserSocialMainEventAlbumsCollectionViewCell.swift */; };
 		61075E3A1E351C4C00E25AB3 /* UserSocialMainEventAlbumsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61075E391E351C4C00E25AB3 /* UserSocialMainEventAlbumsCollectionViewController.swift */; };
 		61075E3E1E3530D900E25AB3 /* UserSocialMainEventAlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61075E3D1E3530D900E25AB3 /* UserSocialMainEventAlbumDetailViewController.swift */; };
+		610EACEC1E3B6FFF002823C9 /* UserProfileSettingViewBadgesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610EACEB1E3B6FFF002823C9 /* UserProfileSettingViewBadgesCollectionViewCell.swift */; };
+		610EACF01E3B7012002823C9 /* UserProfileSettingViewBadgesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610EACEF1E3B7012002823C9 /* UserProfileSettingViewBadgesCollectionViewController.swift */; };
 		611C501B1E16CC140044E359 /* UserSocialMasterForMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C501A1E16CC140044E359 /* UserSocialMasterForMainViewController.swift */; };
 		611D339A1E3A729C009AAE74 /* UserProfileMainSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611D33991E3A729C009AAE74 /* UserProfileMainSettingsViewController.swift */; };
 		612647051E2E3955008DC73A /* UserSocialUploadImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */; };
@@ -212,6 +214,8 @@
 		61075E371E351B7900E25AB3 /* UserSocialMainEventAlbumsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainEventAlbumsCollectionViewCell.swift; sourceTree = "<group>"; };
 		61075E391E351C4C00E25AB3 /* UserSocialMainEventAlbumsCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserSocialMainEventAlbumsCollectionViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		61075E3D1E3530D900E25AB3 /* UserSocialMainEventAlbumDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainEventAlbumDetailViewController.swift; sourceTree = "<group>"; };
+		610EACEB1E3B6FFF002823C9 /* UserProfileSettingViewBadgesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileSettingViewBadgesCollectionViewCell.swift; sourceTree = "<group>"; };
+		610EACEF1E3B7012002823C9 /* UserProfileSettingViewBadgesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileSettingViewBadgesCollectionViewController.swift; sourceTree = "<group>"; };
 		611C501A1E16CC140044E359 /* UserSocialMasterForMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMasterForMainViewController.swift; sourceTree = "<group>"; };
 		611D33991E3A729C009AAE74 /* UserProfileMainSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileMainSettingsViewController.swift; sourceTree = "<group>"; };
 		612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialUploadImageViewController.swift; sourceTree = "<group>"; };
@@ -445,8 +449,10 @@
 			children = (
 				04E6489A1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift */,
 				04A4ACA71E15718000884164 /* AdminEventReviewTableViewCell.swift */,
+				040CA3121E38EF4B00765193 /* AdminEventsInboxTableViewCell.swift */,
 				04F2694C1E0D3ACA00361510 /* AdminEventTableViewCell.swift */,
 				04ECCCD01E30B3FA00BEB70C /* AdminStatisticsMoreTableViewCell.swift */,
+				610EACEB1E3B6FFF002823C9 /* UserProfileSettingViewBadgesCollectionViewCell.swift */,
 				61B4431D1E327FE300E3EE94 /* UserProfileViewBadgesCollectionViewCell.swift */,
 				61B443211E327FFF00E3EE94 /* UserProfileViewLikedPhotosCollectionViewCell.swift */,
 				61B4431F1E327FF400E3EE94 /* UserProfileViewOwnPhotosCollectionViewCell.swift */,
@@ -457,7 +463,6 @@
 				6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */,
 				612647111E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift */,
 				6126470F1E2E86D6008DC73A /* UserSocialProfileOwnCollectionViewCell.swift */,
-				040CA3121E38EF4B00765193 /* AdminEventsInboxTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -466,27 +471,30 @@
 			isa = PBXGroup;
 			children = (
 				04F1DBE51E3A8AD300962312 /* AdminEventsAttendanceViewController.swift */,
-				040CA3151E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift */,
-				040CA3161E39002B00765193 /* AdminEventsGalleryViewController.swift */,
-				816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */,
-				040CA3101E38EB3C00765193 /* AdminEventsInboxTableViewController.swift */,
-				04E864D51E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift */,
-				04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */,
 				04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */,
 				046D01311E37A9E3004D1A25 /* AdminEventsGalleryCommentsViewController.swift */,
-				04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */,
-				04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */,
+				040CA3151E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift */,
+				040CA3161E39002B00765193 /* AdminEventsGalleryViewController.swift */,
+				040CA3101E38EB3C00765193 /* AdminEventsInboxTableViewController.swift */,
 				04EF868E1E10DE5300842FC4 /* AdminEventsLocationSearchTableViewController.swift */,
 				04EF86901E10E01400842FC4 /* AdminEventsMapViewController.swift */,
+				04EA47341E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift */,
+				04D725441E0D5C8200603CCA /* AdminEventsNewViewController.swift */,
+				04EA47381E1401E3006797D9 /* AdminEventsReviewViewController.swift */,
+				04E864D51E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift */,
+				816A87BD1DF16FAE00232C08 /* AdminHomeViewController.swift */,
+				046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */,
 				04ED18381E17FD93009CA0CD /* AdminStatisticsMasterViewController.swift */,
 				04ECCCCE1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift */,
 				04ED183A1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift */,
 				04ED183C1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift */,
-				046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */,
 				81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */,
 				04E93EF51E36141F0044820D /* SignupViewController.swift */,
 				AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */,
+				619644A51E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift */,
 				61B25FFA1E37E13B0090A70D /* UserProfileEditPasswordViewController.swift */,
+				611D33991E3A729C009AAE74 /* UserProfileMainSettingsViewController.swift */,
+				610EACEF1E3B7012002823C9 /* UserProfileSettingViewBadgesCollectionViewController.swift */,
 				61B443231E32801500E3EE94 /* UserProfileViewBadgesCollectionViewController.swift */,
 				61B443191E32435A00E3EE94 /* UserProfileViewController.swift */,
 				61B443271E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift */,
@@ -500,12 +508,10 @@
 				611C501A1E16CC140044E359 /* UserSocialMasterForMainViewController.swift */,
 				61C130C01E289901006E4191 /* UserSocialMasterForProfileViewController.swift */,
 				612647151E2E8771008DC73A /* UserSocialProfileLikedCollectionViewController.swift */,
+				619E0B131E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift */,
 				612647171E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift */,
 				61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */,
 				612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */,
-				619E0B131E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift */,
-				611D33991E3A729C009AAE74 /* UserProfileMainSettingsViewController.swift */,
-				619644A51E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -736,6 +742,7 @@
 				61B25FFB1E37E13B0090A70D /* UserProfileEditPasswordViewController.swift in Sources */,
 				8166BC4F1DF685AD00FAA37C /* Leaderboard.swift in Sources */,
 				61B4431E1E327FE300E3EE94 /* UserProfileViewBadgesCollectionViewCell.swift in Sources */,
+				610EACEC1E3B6FFF002823C9 /* UserProfileSettingViewBadgesCollectionViewCell.swift in Sources */,
 				619E0B141E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift in Sources */,
 				8166BC4B1DF6847100FAA37C /* EventFeedback.swift in Sources */,
 				61C130C51E289901006E4191 /* UserSocialMasterForProfileViewController.swift in Sources */,
@@ -776,6 +783,7 @@
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
 				61B443281E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift in Sources */,
 				61CCEC7F1E2BDA36008B36A9 /* UserSocialGalleryCollectionViewCell.swift in Sources */,
+				610EACF01E3B7012002823C9 /* UserProfileSettingViewBadgesCollectionViewController.swift in Sources */,
 				61CCEC9E1E2BF387008B36A9 /* UserSocialMainGridCollectionViewController.swift in Sources */,
 				040CA3171E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift in Sources */,
 				04F1DBE61E3A8AD300962312 /* AdminEventsAttendanceViewController.swift in Sources */,

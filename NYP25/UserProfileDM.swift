@@ -27,14 +27,39 @@ class UserProfileDM: NSObject {
         return digestData
     }
     
+    static func updateProfileBio(currentUser : String, bio : String){
+        let ref = FIRDatabase.database().reference().child("users/\(currentUser)/")
+        
+        ref.updateChildValues([
+            "bio" : bio
+            ])
+    }
+    
     static func updatePassword(currentUser : String, password : String){
         let shaData = sha256(password)
         let shaHex =  shaData!.map { String(format: "%02hhx", $0) }.joined()
-
+        
         let ref = FIRDatabase.database().reference().child("users/\(currentUser)/")
-
+        
         ref.updateChildValues([
             "password" : shaHex
+            ])
+    }
+    
+    static func updateCurrentSelectedBadge(badgeId: String, userId : String){
+        let ref = FIRDatabase.database().reference().child("users/\(userId)/badges/\(badgeId)")
+        
+        ref.updateChildValues([
+            "isDisplay" : 0
+            ])
+    }
+    
+    
+    static func updateNewSelectedBadge(badgeId: String, userId : String){
+        let ref = FIRDatabase.database().reference().child("users/\(userId)/badges/\(badgeId)")
+        
+        ref.updateChildValues([
+            "isDisplay" : 1
             ])
     }
 

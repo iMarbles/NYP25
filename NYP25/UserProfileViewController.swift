@@ -37,10 +37,10 @@ class UserProfileViewController: UIViewController {
             UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView!, url: user.displayPhotoUrl!)
         })
 
-        UserProfileDM.retrieveUsersDisplayBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (u) in
-            self.profileGallery = u
-            UserSocialProfileMasterViewController.loadImage(imageView: self.selectedBadge!, url: u[0].icon)
-        })
+//        UserProfileDM.retrieveUsersDisplayBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (u) in
+//            self.profileGallery = u
+//            UserSocialProfileMasterViewController.loadImage(imageView: self.selectedBadge!, url: u[0].icon)
+//        })
     }
 
     override func didReceiveMemoryWarning() {

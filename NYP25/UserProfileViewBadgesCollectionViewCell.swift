@@ -10,5 +10,4 @@ import UIKit
 
 class UserProfileViewBadgesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var badgePhotos : UIImageView!
-    @IBOutlet weak var badgeCheck : UIImageView!
 }
