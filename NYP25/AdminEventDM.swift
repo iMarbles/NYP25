@@ -389,4 +389,71 @@ class AdminEventDM: NSObject {
             onComplete(attendanceList)
         })
     }
+    
+    //Admin Attendance
+    static func checkIfUserExist(adminNo: String, onComplete: @escaping(User) -> Void){
+        let s = User()
+        let ref = FIRDatabase.database().reference().child("users/\(adminNo)")
+        ref.observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            if snapshot.exists(){
+                s.userId = snapshot.key
+                s.school = snapshot.childSnapshot(forPath: "school").value as! String
+            }
+            
+            onComplete(s)
+        })
+    }
+    
+    static func createAttendance(student: User, event: Event, onComplete: @escaping(String)->Void){
+        var msg = "ERROR"
+        let ref = FIRDatabase.database().reference().child("eventAttendance/\(student.userId)")
+        ref.observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            let now = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "YYYYMMDD, HH:mm:ss"
+            
+            if !snapshot.exists(){
+                //Have to create a new item in firebase
+                FIRDatabase.database().reference().child("eventAttendance/\(student.userId)/").setValue([
+                    "school": student.school])
+            }
+            
+            //Updating the attendance
+            FIRDatabase.database().reference().child("eventAttendance/\(student.userId)/events/\(event.eventId)").updateChildValues([
+                "checkIn": formatter.string(from: now)])
+            
+            AdminEventDM.awardEventBadge(student: student, event: event, onComplete: { (eventBadgeMsg) in
+                msg = eventBadgeMsg
+            })
+            
+            msg = "OK"
+            
+            onComplete(msg)
+        })
+    }
+    
+    static func awardEventBadge(student: User, event: Event, onComplete: @escaping(String)->Void){
+        var msg = "OK"
+        let ref = FIRDatabase.database().reference().child("users/\(student.userId)/badges/\(event.badgeId!)")
+        ref.observeSingleEvent(of: .value, with: {
+            (snapshot) in
+          
+            //Retrieve badge icon
+            AdminEventDM.retrieveBadgeByEventId(id: event.eventId, onComplete: { (badge) in
+                if !snapshot.exists(){
+                    FIRDatabase.database().reference().child("users/\(student.userId)/badges/\(event.badgeId!)")
+                        .setValue(["isDisplay" : 0])
+                }
+                
+                FIRDatabase.database().reference().child("users/\(student.userId)/badges/\(event.badgeId!)")
+                    .updateChildValues(["icon" : badge.icon])
+                
+                msg = "OK"
+            })
+            
+            onComplete(msg)
+        })
+    }
 }

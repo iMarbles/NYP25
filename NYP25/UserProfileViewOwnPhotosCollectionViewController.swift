@@ -30,7 +30,6 @@ class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewControll
                 
             }
         })
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,6 +46,20 @@ class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewControll
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ownPhotosCell", for: indexPath) as! UserProfileViewOwnPhotosCollectionViewCell
         
         UserSocialProfileMasterViewController.loadImage(imageView: cell.ownPhotos, url: profileGallery[(indexPath as IndexPath).row].photoUrl!)
+        
         return cell
+    }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var cell = collectionView.cellForItem(at: indexPath as IndexPath)
+        cell?.layer.borderWidth = 2.0
+        cell?.layer.borderColor = UIColor.red.cgColor
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        var cell = collectionView.cellForItem(at: indexPath as IndexPath)
+        cell?.layer.borderWidth = 2.0
+        cell?.layer.borderColor = UIColor.clear.cgColor
     }
 }

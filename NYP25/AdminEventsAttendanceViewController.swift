@@ -13,13 +13,34 @@ class AdminEventsAttendanceViewController: UIViewController, AVCaptureMetadataOu
     @IBOutlet weak var messageLabel:UILabel!
     @IBOutlet weak var topbar: UIView!
     
+    //From segue
+    var event : Event?
+    
+    //For QR
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //Testing without device
+        /*
+        let adminNo = "142519G"
+        AdminEventDM.checkIfUserExist(adminNo: adminNo, onComplete: {(student) in
+            if student.userId != "" {
+                //Create event attendance
+                AdminEventDM.createAttendance(student: student, event: self.event!, onComplete: {(msg) in
+                    if msg == "OK"{
+                        self.messageLabel.text = "Attendance Taken"
+                    }
+                })
+            }else{
+                self.messageLabel.text = "Invalid QR Code"
+            }
+        })
+         */
+        
         // Do any additional setup after loading the view.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         do {
@@ -57,7 +78,7 @@ class AdminEventsAttendanceViewController: UIViewController, AVCaptureMetadataOu
             qrCodeFrameView = UIView()
             
             if let qrCodeFrameView = qrCodeFrameView {
-                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+                qrCodeFrameView.layer.borderColor = UIColor.orange.cgColor
                 qrCodeFrameView.layer.borderWidth = 2
                 view.addSubview(qrCodeFrameView)
                 view.bringSubview(toFront: qrCodeFrameView)
@@ -92,8 +113,24 @@ class AdminEventsAttendanceViewController: UIViewController, AVCaptureMetadataOu
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
+            //Logic to handle the attendance
             if metadataObj.stringValue != nil {
-                messageLabel.text = metadataObj.stringValue
+                //messageLabel.text = metadataObj.stringValue
+                let decodedMsg = metadataObj.stringValue
+                
+                AdminEventDM.checkIfUserExist(adminNo: decodedMsg!, onComplete: {(student) in
+                    if student.userId != "" {
+                        //Create event attendance
+                        AdminEventDM.createAttendance(student: student, event: self.event!, onComplete: {(msg) in
+                            if msg == "OK"{
+                                self.qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+                                self.messageLabel.text = "Attendance Taken"
+                            }
+                        })
+                    }else{
+                        self.messageLabel.text = "Invalid QR Code"
+                    }
+                })
             }
         }
     }

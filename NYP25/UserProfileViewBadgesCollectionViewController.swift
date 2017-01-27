@@ -11,7 +11,7 @@ import UIKit
 //private let reuseIdentifier = "Cell"
 
 class UserProfileViewBadgesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
+
     var profileGallery : [Badge] = []
     
     override func viewDidLoad() {
@@ -20,7 +20,7 @@ class UserProfileViewBadgesCollectionViewController: UICollectionViewController,
         UserProfileDM.retrieveAllUsersBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(badges) in
             self.profileGallery = badges
             self.collectionView?.reloadData()
-            
+
             if(self.profileGallery.count == 0){
                 let alert = UIAlertView(title: "",
                                         message: "No Photos Available Currently",
@@ -30,8 +30,6 @@ class UserProfileViewBadgesCollectionViewController: UICollectionViewController,
                 
             }
         })
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,6 +46,35 @@ class UserProfileViewBadgesCollectionViewController: UICollectionViewController,
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "badgeCell", for: indexPath) as! UserProfileViewBadgesCollectionViewCell
         
         UserSocialProfileMasterViewController.loadImage(imageView: cell.badgePhotos, url: profileGallery[(indexPath as IndexPath).row].icon)
+        
+        let p = profileGallery[(indexPath as IndexPath).row]
+
+        if(p.isDisplay == 0){
+            cell.badgeCheck?.isHidden = true
+        }else{
+            cell.badgeCheck?.isHidden = false
+        }
+        
+//        UserProfileDM.retrieveAllBadges(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (a) in
+//            if(a.isDisplay == 0){
+//                cell.badgeCheck.isHidden = true
+//            }else{
+//                cell.badgeCheck.isHidden = false
+//            }
+//        })
+        
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var cell = collectionView.cellForItem(at: indexPath as IndexPath)
+        cell?.layer.borderWidth = 2.0
+        cell?.layer.borderColor = UIColor.red.cgColor
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        var cell = collectionView.cellForItem(at: indexPath as IndexPath)
+        cell?.layer.borderWidth = 2.0
+        cell?.layer.borderColor = UIColor.clear.cgColor
     }
 }

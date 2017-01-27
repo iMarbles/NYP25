@@ -865,9 +865,9 @@
                                     <constraint firstAttribute="bottom" secondItem="bTV-95-CaJ" secondAttribute="bottom" constant="8" id="x3K-bC-63S"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR code is detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGi-p3-FqB">
+                            <label userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR code is detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGi-p3-FqB">
                                 <rect key="frame" x="0.0" y="627" width="375" height="40"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.39400649560000001" blue="0.1960862702" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Hp5-bS-LpT"/>
                                 </constraints>
@@ -979,9 +979,9 @@
                                     <segue destination="Cst-iF-E9t" kind="show" identifier="EditEvent" id="ahw-M9-9pg"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="QR Code-22" id="E7m-xk-UEx">
+                            <barButtonItem image="QR Code-30" id="E7m-xk-UEx">
                                 <connections>
-                                    <segue destination="L6l-Cz-hD5" kind="presentation" id="dBx-fF-hYr"/>
+                                    <segue destination="L6l-Cz-hD5" kind="presentation" identifier="Scan" id="dBx-fF-hYr"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -1260,7 +1260,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-O0-PQi">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="319.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ellipsis-100" translatesAutoresizingMaskIntoConstraints="NO" id="Ou4-5J-Y98">
                                                 <rect key="frame" x="10" y="0.0" width="355" height="171"/>
@@ -1390,7 +1390,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No description available" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pga-Bk-wDi">
-                                                <rect key="frame" x="10" y="300" width="355" height="19.5"/>
+                                                <rect key="frame" x="10" y="300" width="355" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2396,7 +2396,7 @@
         <image name="Inbox-22" width="22" height="22"/>
         <image name="Lock Filled-50" width="50" height="50"/>
         <image name="Marker-50" width="50" height="50"/>
-        <image name="QR Code-22" width="22" height="22"/>
+        <image name="QR Code-30" width="30" height="30"/>
         <image name="Star-50" width="50" height="50"/>
         <image name="Upload-30" width="30" height="30"/>
         <image name="User-48" width="48" height="48"/>

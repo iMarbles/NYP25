@@ -10,13 +10,13 @@ import UIKit
 
 class UserProfileMainSettingsViewController: UIViewController {
 
-    @IBOutlet var bioLbl: UITextView?
+    @IBOutlet var bioField: UITextView?
     @IBOutlet var nameLbl: UILabel?
     @IBOutlet var usernameLbl: UILabel?
     @IBOutlet var passwordLbl: UILabel?
     @IBOutlet var pointsLbl: UILabel?
     @IBOutlet var schLbl: UILabel?
-    
+        
     @IBOutlet weak var profilePhotoView : UIImageView?
     @IBOutlet weak var selectedBadge : UIImageView?
     
@@ -29,7 +29,7 @@ class UserProfileMainSettingsViewController: UIViewController {
         UserSocialProfileMasterViewController.circleFramePhoto(image: profilePhotoView!)
 
         UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (userInfo) in
-            self.bioLbl?.text = userInfo.bio
+            self.bioField?.text = userInfo.bio
             self.nameLbl?.text = userInfo.name
             self.usernameLbl?.text = userInfo.username
             self.schLbl?.text = userInfo.school
@@ -46,7 +46,6 @@ class UserProfileMainSettingsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
