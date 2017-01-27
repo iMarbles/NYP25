@@ -147,11 +147,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="02e-oj-sdT">
-                        <barButtonItem key="leftBarButtonItem" image="Settings-30" style="plain" id="9BX-4U-9cz">
-                            <connections>
-                                <segue destination="hpV-NH-KPE" kind="show" id="CbK-mv-cyF"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem image="Settings-30" style="plain" id="9BX-4U-9cz">
+                                <connections>
+                                    <segue destination="hpV-NH-KPE" kind="show" id="CbK-mv-cyF"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="QR Code-30" id="ndJ-Jf-jnG">
+                                <connections>
+                                    <segue destination="Hmd-Cz-7zp" kind="show" id="R5g-XN-bZo"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="KRd-mR-Beh">
                             <connections>
                                 <action selector="btnLogout:" destination="f5Q-ju-9mf" id="s6q-xB-bW4"/>
@@ -170,6 +177,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rr2-b6-0Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="184.80000000000001" y="260.41979010494754"/>
+        </scene>
+        <!--QR Code-->
+        <scene sceneID="WLQ-sL-DbM">
+            <objects>
+                <viewController id="Hmd-Cz-7zp" customClass="UserProfileDisplayQRViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Eew-iy-o8u"/>
+                        <viewControllerLayoutGuide type="bottom" id="WdX-4N-6br"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qBB-6p-7cF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ov-Al-vp0">
+                                <rect key="frame" x="88" y="234" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0Ov-Al-vp0" secondAttribute="height" multiplier="1:1" id="MVm-nj-d5q"/>
+                                    <constraint firstAttribute="height" constant="200" id="awb-jE-pc1"/>
+                                    <constraint firstAttribute="width" constant="200" id="fu7-fV-bJr"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISPLAY USER ID HERE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7A8-ks-h1v">
+                                <rect key="frame" x="0.0" y="121" width="375" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Display QR below for Event Attendance)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBD-fv-sw1">
+                                <rect key="frame" x="0.0" y="163" width="375" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="GK8-wH-6Kt">
+                                <rect key="frame" x="75" y="456" width="225" height="31"/>
+                                <connections>
+                                    <action selector="changeImageViewScaleWithSender:" destination="Hmd-Cz-7zp" eventType="valueChanged" id="yfn-Zx-1Ib"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GK8-wH-6Kt" firstAttribute="leading" secondItem="qBB-6p-7cF" secondAttribute="leadingMargin" constant="61" id="0Ll-fM-dLq"/>
+                            <constraint firstItem="0Ov-Al-vp0" firstAttribute="centerX" secondItem="qBB-6p-7cF" secondAttribute="centerX" id="4gS-Q6-UMF"/>
+                            <constraint firstItem="7A8-ks-h1v" firstAttribute="top" secondItem="Eew-iy-o8u" secondAttribute="bottom" constant="57" id="6Jk-hF-sdg"/>
+                            <constraint firstItem="7A8-ks-h1v" firstAttribute="trailing" secondItem="qBB-6p-7cF" secondAttribute="trailingMargin" constant="16" id="9Q4-72-3w5"/>
+                            <constraint firstItem="7A8-ks-h1v" firstAttribute="trailing" secondItem="vBD-fv-sw1" secondAttribute="trailing" id="CJf-Le-2IQ"/>
+                            <constraint firstItem="0Ov-Al-vp0" firstAttribute="centerY" secondItem="qBB-6p-7cF" secondAttribute="centerY" id="Fzw-J1-qJS"/>
+                            <constraint firstItem="7A8-ks-h1v" firstAttribute="leading" secondItem="qBB-6p-7cF" secondAttribute="leadingMargin" constant="-16" id="IHF-an-1Pj"/>
+                            <constraint firstItem="vBD-fv-sw1" firstAttribute="top" secondItem="7A8-ks-h1v" secondAttribute="bottom" constant="8" symbolic="YES" id="VsQ-Jh-Gjn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GK8-wH-6Kt" secondAttribute="trailing" constant="61" id="cSM-Et-Rrx"/>
+                            <constraint firstItem="7A8-ks-h1v" firstAttribute="leading" secondItem="vBD-fv-sw1" secondAttribute="leading" id="v0h-t2-hFy"/>
+                            <constraint firstItem="GK8-wH-6Kt" firstAttribute="top" secondItem="0Ov-Al-vp0" secondAttribute="bottom" constant="22" id="via-Tc-ouG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="QR Code" id="f6Z-1D-c34"/>
+                    <connections>
+                        <outlet property="currentUser" destination="7A8-ks-h1v" id="dzf-uu-tbB"/>
+                        <outlet property="imgQRCode" destination="0Ov-Al-vp0" id="Lsc-dR-KDi"/>
+                        <outlet property="slider" destination="GK8-wH-6Kt" id="Cnn-vt-4ZT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Qx-7j-rLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968.79999999999995" y="-111.0944527736132"/>
         </scene>
         <!--Change Password-->
         <scene sceneID="Kz9-5r-x6F">
@@ -270,7 +342,7 @@
         <scene sceneID="uNL-Ik-XNc">
             <objects>
                 <collectionViewController title="BADGES" id="BFq-aH-8qK" customClass="UserProfileViewBadgesCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Ztx-cq-POk">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Ztx-cq-POk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.49362432956695557" blue="0.47423690557479858" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -322,7 +394,7 @@
         <scene sceneID="dF3-fS-n6O">
             <objects>
                 <collectionViewController title="OWN" id="78t-Vg-g9D" customClass="UserProfileViewOwnPhotosCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="CRN-E2-8zS">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CRN-E2-8zS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.83111804723739624" green="0.98357635736465454" blue="0.47417277097702026" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -374,7 +446,7 @@
         <scene sceneID="L39-9V-ScO">
             <objects>
                 <collectionViewController title="LIKED" id="QjI-Kv-rrd" customClass="UserProfileViewLikedPhotosCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="ToT-Ck-Eci">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ToT-Ck-Eci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.45167505741119385" green="0.98651820421218872" blue="0.84075480699539185" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -765,6 +837,7 @@
     <resources>
         <image name="Circled User Male-30" width="30" height="30"/>
         <image name="Password Check-30" width="30" height="30"/>
+        <image name="QR Code-30" width="30" height="30"/>
         <image name="Settings-30" width="30" height="30"/>
         <image name="gamepad - 64" width="64" height="64"/>
         <image name="landscape - 64" width="64" height="64"/>

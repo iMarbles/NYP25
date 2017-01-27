@@ -40,6 +40,26 @@ class UserLeaderboardViewController: UIViewController {
     @IBOutlet weak var thirdLbl: UILabel!
     
     @IBOutlet weak var leaderboardChart: HorizontalBarChartView!
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var dataView: UIView!
+    @IBOutlet weak var mapView: UIView!
+    
+    @IBAction func indexChanged(sender: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            dataView.isHidden = false
+            mapView.isHidden = true
+            
+        case 1:
+            dataView.isHidden = true
+            mapView.isHidden = false
+            
+        default:
+            break;
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
