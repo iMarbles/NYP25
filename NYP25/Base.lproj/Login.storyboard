@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fRX-50-CNI">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fRX-50-CNI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,12 +22,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YO9-8I-8np">
-                                <rect key="frame" x="36" y="81" width="303" height="375"/>
+                                <rect key="frame" x="36" y="146.5" width="303" height="374"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="VjX-yj-KkW">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="167"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="167" id="FDe-rL-xcs"/>
+                                            <constraint firstAttribute="width" secondItem="VjX-yj-KkW" secondAttribute="height" multiplier="303:167" id="TmZ-eW-RM3"/>
                                             <constraint firstAttribute="height" constant="167" id="WGZ-Gu-GkE"/>
+                                            <constraint firstAttribute="width" constant="303" id="p2K-J0-rgz"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhd-oe-YVr">
@@ -75,20 +78,20 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid Username/Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVV-oR-aeu">
-                                        <rect key="frame" x="0.0" y="307" width="303" height="18"/>
+                                        <rect key="frame" x="0.0" y="307" width="303" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9O-IA-VwK">
-                                        <rect key="frame" x="0.0" y="325" width="303" height="20"/>
+                                        <rect key="frame" x="0.0" y="324" width="303" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="FWD-JI-4D2"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gp0-NH-Zg7">
-                                        <rect key="frame" x="0.0" y="345" width="303" height="30"/>
+                                        <rect key="frame" x="0.0" y="344" width="303" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8t3-Yh-22l">
                                                 <rect key="frame" x="0.0" y="0.0" width="101" height="30"/>
@@ -114,7 +117,6 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="VjX-yj-KkW" firstAttribute="top" secondItem="YO9-8I-8np" secondAttribute="top" id="6LT-jS-geg"/>
                                     <constraint firstItem="OJD-HY-BZn" firstAttribute="top" secondItem="k0b-ex-e6z" secondAttribute="bottom" constant="20" id="f4B-Db-djb"/>
                                     <constraint firstItem="pVV-oR-aeu" firstAttribute="top" secondItem="hLF-lb-ucf" secondAttribute="bottom" constant="29" id="vk4-qr-4jx"/>
                                 </constraints>
@@ -122,10 +124,8 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="YO9-8I-8np" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="17" id="Ddj-gq-MgT"/>
-                            <constraint firstItem="YO9-8I-8np" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IDX-AK-47R"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YO9-8I-8np" secondAttribute="bottom" constant="211" id="SWQ-48-Mle"/>
-                            <constraint firstItem="YO9-8I-8np" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="mkr-na-Xvk"/>
+                            <constraint firstItem="YO9-8I-8np" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="0WW-HO-1Gt"/>
+                            <constraint firstItem="YO9-8I-8np" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zN6-Re-Ck6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome to NYP25" id="Dp2-D3-HDj">
