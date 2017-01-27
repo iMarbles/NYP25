@@ -123,7 +123,7 @@ class AdminEventsAttendanceViewController: UIViewController, AVCaptureMetadataOu
                         //Create event attendance
                         AdminEventDM.createAttendance(student: student, event: self.event!, onComplete: {(msg) in
                             if msg == "OK"{
-                                self.qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+                                self.qrCodeFrameView?.layer.borderColor = UIColor.green.cgColor
                                 self.messageLabel.text = "Attendance Taken"
                             }
                         })
