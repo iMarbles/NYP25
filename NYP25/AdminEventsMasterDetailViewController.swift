@@ -102,6 +102,13 @@ class AdminEventsMasterDetailViewController: UIViewController, HideableHairlineV
             }
         }
         
+        if nextView == "Scan"{
+            let vc = segue.destination as! AdminEventsAttendanceViewController
+            if event != nil{
+                vc.event = self.event
+            }
+        }
+        
     }
 
 }
