@@ -198,6 +198,14 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Bpl-Bx-Qaz">
+                                <rect key="frame" x="111" y="57" width="153" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Data"/>
+                                    <segment title="Map Stats"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -221,6 +229,7 @@
                         <outlet property="secondLbl" destination="hWb-Tc-Qhj" id="oc7-sj-VCG"/>
                         <outlet property="segLbl" destination="eo0-fq-OXg" id="cvg-GB-FTS"/>
                         <outlet property="segScoreLbl" destination="OWE-Gr-CaS" id="bi9-Hf-ZPz"/>
+                        <outlet property="segmentedControl" destination="Bpl-Bx-Qaz" id="fhW-32-B90"/>
                         <outlet property="shsLbl" destination="9nc-jG-odr" id="u7O-iF-NX6"/>
                         <outlet property="shsScoreLbl" destination="4DB-mf-DyH" id="ljG-pf-zvA"/>
                         <outlet property="sidmLbl" destination="muS-Bq-pyz" id="UPx-00-ZCJ"/>
@@ -234,6 +243,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azt-ZS-ODI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="605.60000000000002" y="-836.13193403298362"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="KJ0-8Y-mym">
+            <objects>
+                <viewController id="SG0-bq-ET9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Fd-GN-EHm"/>
+                        <viewControllerLayoutGuide type="bottom" id="S3b-MF-1Zt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HKe-YO-0tn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mn6-bm-o0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1377" y="-452"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NFt-B1-juE">
+            <objects>
+                <viewController id="PIv-af-9rn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oyA-zq-QpY"/>
+                        <viewControllerLayoutGuide type="bottom" id="ctD-03-yMj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UQS-wa-028">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8NG-Ce-Euq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1377" y="-1203"/>
         </scene>
     </scenes>
     <resources>
