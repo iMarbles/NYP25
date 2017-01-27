@@ -93,7 +93,6 @@ class UserProfileDM: NSObject {
             onComplete(badgeList)
         })
     }
-
     
     static func retrieveAllUsersBadge(userId : String, onComplete: @escaping ([Badge])->Void){
         var badgeList : [Badge] = []

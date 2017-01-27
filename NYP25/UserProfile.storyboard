@@ -363,6 +363,10 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gvj-0p-hNo">
                                             <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
                                         </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Star Filled-50" translatesAutoresizingMaskIntoConstraints="NO" id="eMM-bl-kmu">
+                                            <rect key="frame" x="146" y="8" width="28" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
@@ -376,6 +380,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Gvj-0p-hNo" secondAttribute="trailing" id="qzv-Fg-Kay"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="badgeCheck" destination="eMM-bl-kmu" id="jX4-px-ihm"/>
                                     <outlet property="badgePhotos" destination="Gvj-0p-hNo" id="cXJ-XB-GJ2"/>
                                 </connections>
                             </collectionViewCell>
@@ -623,12 +628,12 @@
                                                         <rect key="frame" x="81.5" y="0.0" width="259.5" height="30"/>
                                                         <state key="normal" title="Change"/>
                                                         <connections>
-                                                            <segue destination="6aN-mf-Ugf" kind="show" id="dSX-AA-kOR"/>
+                                                            <segue destination="6aN-mf-Ugf" kind="show" id="BHd-Ul-Ynm"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzT-dq-tKS">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XzT-dq-tKS" userLabel="Bio Field">
                                                 <rect key="frame" x="0.0" y="260" width="341" height="120"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -677,7 +682,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="R3O-nw-4Xn"/>
                     <connections>
-                        <outlet property="bioLbl" destination="XzT-dq-tKS" id="rpl-9n-5Yk"/>
+                        <outlet property="bioField" destination="XzT-dq-tKS" id="32h-Sc-Otw"/>
                         <outlet property="nameLbl" destination="g9K-JC-lxj" id="0lD-G5-xh2"/>
                         <outlet property="profilePhotoView" destination="7Ac-BJ-Mfp" id="nAh-7I-aO0"/>
                         <outlet property="schLbl" destination="dve-RF-SAJ" id="wDp-uW-aCL"/>
@@ -692,8 +697,8 @@
         <!--Change Display Badge-->
         <scene sceneID="c2w-4i-KPh">
             <objects>
-                <collectionViewController title="Change Display Badge" id="d5k-cI-0XI" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bCM-m4-AAs">
+                <collectionViewController title="Change Display Badge" id="d5k-cI-0XI" customClass="UserProfileViewBadgesCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="bCM-m4-AAs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -704,24 +709,27 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qfE-Ih-84j">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="badgeCell" id="qfE-Ih-84j" userLabel="badgeCell" customClass="UserProfileViewBadgesCollectionViewCell" customModule="NYP25" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="scP-HH-dsN">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="scP-HH-dsN">
                                             <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Star Filled-50" translatesAutoresizingMaskIntoConstraints="NO" id="tiM-OT-y1F">
+                                            <rect key="frame" x="146" y="8" width="28" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </view>
-                                <constraints>
-                                    <constraint firstItem="scP-HH-dsN" firstAttribute="leading" secondItem="qfE-Ih-84j" secondAttribute="leading" id="1Kb-sf-nId"/>
-                                    <constraint firstItem="scP-HH-dsN" firstAttribute="top" secondItem="qfE-Ih-84j" secondAttribute="top" id="4t5-cV-PWW"/>
-                                    <constraint firstAttribute="trailing" secondItem="scP-HH-dsN" secondAttribute="trailing" id="5Am-es-5bF"/>
-                                    <constraint firstAttribute="bottom" secondItem="scP-HH-dsN" secondAttribute="bottom" id="q7w-AY-vuQ"/>
-                                </constraints>
+                                <connections>
+                                    <outlet property="badgeCheck" destination="tiM-OT-y1F" id="WHa-PV-AzV"/>
+                                    <outlet property="badgePhotos" destination="scP-HH-dsN" id="7RY-ED-b4G"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -739,7 +747,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdC-8y-RZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3049" y="1155"/>
+            <point key="canvasLocation" x="3048.8000000000002" y="1154.5727136431785"/>
         </scene>
         <!--Edit Biography-->
         <scene sceneID="aIm-h2-boI">
@@ -839,6 +847,7 @@
         <image name="Password Check-30" width="30" height="30"/>
         <image name="QR Code-30" width="30" height="30"/>
         <image name="Settings-30" width="30" height="30"/>
+        <image name="Star Filled-50" width="50" height="50"/>
         <image name="gamepad - 64" width="64" height="64"/>
         <image name="landscape - 64" width="64" height="64"/>
         <image name="signs - 64" width="64" height="64"/>
