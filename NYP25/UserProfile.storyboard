@@ -147,11 +147,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="02e-oj-sdT">
-                        <barButtonItem key="leftBarButtonItem" image="Settings-30" style="plain" id="9BX-4U-9cz">
-                            <connections>
-                                <segue destination="hpV-NH-KPE" kind="show" id="CbK-mv-cyF"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem image="Settings-30" style="plain" id="9BX-4U-9cz">
+                                <connections>
+                                    <segue destination="hpV-NH-KPE" kind="show" id="CbK-mv-cyF"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="QR Code-30" id="ndJ-Jf-jnG">
+                                <connections>
+                                    <segue destination="Hmd-Cz-7zp" kind="show" id="R5g-XN-bZo"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="KRd-mR-Beh">
                             <connections>
                                 <action selector="btnLogout:" destination="f5Q-ju-9mf" id="s6q-xB-bW4"/>
@@ -170,6 +177,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rr2-b6-0Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="184.80000000000001" y="260.41979010494754"/>
+        </scene>
+        <!--User Profile DisplayQR View Controller-->
+        <scene sceneID="WLQ-sL-DbM">
+            <objects>
+                <viewController id="Hmd-Cz-7zp" customClass="UserProfileDisplayQRViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Eew-iy-o8u"/>
+                        <viewControllerLayoutGuide type="bottom" id="WdX-4N-6br"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qBB-6p-7cF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jbd-Xg-qdA">
+                                <rect key="frame" x="127" y="127" width="120" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="kOX-G0-ZE0"/>
+                                </constraints>
+                                <state key="normal" title="Generate">
+                                    <color key="titleColor" red="1" green="0.976392704047088" blue="0.96289644231159033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="performButtonActionWithSender:" destination="Hmd-Cz-7zp" eventType="touchUpInside" id="oVt-LG-HY9"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yhy-UQ-1Gc">
+                                <rect key="frame" x="16" y="89" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Ov-Al-vp0">
+                                <rect key="frame" x="87" y="233" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="1IE-cq-jgx"/>
+                                    <constraint firstAttribute="height" constant="200" id="6B3-HX-a1j"/>
+                                    <constraint firstAttribute="width" secondItem="0Ov-Al-vp0" secondAttribute="height" multiplier="1:1" id="UR7-uX-GW1"/>
+                                </constraints>
+                            </imageView>
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="GK8-wH-6Kt">
+                                <rect key="frame" x="75" y="455" width="225" height="31"/>
+                                <connections>
+                                    <action selector="changeImageViewScaleWithSender:" destination="Hmd-Cz-7zp" eventType="valueChanged" id="yfn-Zx-1Ib"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="GK8-wH-6Kt" firstAttribute="leading" secondItem="qBB-6p-7cF" secondAttribute="leadingMargin" constant="61" id="0Ll-fM-dLq"/>
+                            <constraint firstItem="0Ov-Al-vp0" firstAttribute="centerY" secondItem="qBB-6p-7cF" secondAttribute="centerY" id="0Ry-4o-yHh"/>
+                            <constraint firstItem="GK8-wH-6Kt" firstAttribute="top" secondItem="0Ov-Al-vp0" secondAttribute="bottom" constant="22" id="2kz-zN-qMg"/>
+                            <constraint firstItem="0Ov-Al-vp0" firstAttribute="centerY" secondItem="qBB-6p-7cF" secondAttribute="centerY" id="5Hb-oq-Oks"/>
+                            <constraint firstItem="Jbd-Xg-qdA" firstAttribute="centerX" secondItem="0Ov-Al-vp0" secondAttribute="centerX" id="Ems-b8-3al"/>
+                            <constraint firstItem="yhy-UQ-1Gc" firstAttribute="centerX" secondItem="Jbd-Xg-qdA" secondAttribute="centerX" id="XHp-8N-awE"/>
+                            <constraint firstItem="yhy-UQ-1Gc" firstAttribute="top" secondItem="Eew-iy-o8u" secondAttribute="bottom" constant="25" id="Xdd-bI-2ra"/>
+                            <constraint firstItem="yhy-UQ-1Gc" firstAttribute="leading" secondItem="qBB-6p-7cF" secondAttribute="leadingMargin" id="Zhg-gA-lla"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GK8-wH-6Kt" secondAttribute="trailing" constant="61" id="cSM-Et-Rrx"/>
+                            <constraint firstItem="yhy-UQ-1Gc" firstAttribute="trailing" secondItem="qBB-6p-7cF" secondAttribute="trailingMargin" id="e0L-Sq-Pra"/>
+                            <constraint firstItem="0Ov-Al-vp0" firstAttribute="centerX" secondItem="qBB-6p-7cF" secondAttribute="centerX" id="sDo-Ns-8bU"/>
+                            <constraint firstItem="Jbd-Xg-qdA" firstAttribute="top" secondItem="yhy-UQ-1Gc" secondAttribute="bottom" constant="8" symbolic="YES" id="uhq-g5-Yu9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnAction" destination="Jbd-Xg-qdA" id="fqy-Zw-sz4"/>
+                        <outlet property="imgQRCode" destination="0Ov-Al-vp0" id="Lsc-dR-KDi"/>
+                        <outlet property="slider" destination="GK8-wH-6Kt" id="Cnn-vt-4ZT"/>
+                        <outlet property="textField" destination="yhy-UQ-1Gc" id="bh9-9C-WIl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Qx-7j-rLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968.79999999999995" y="-111.0944527736132"/>
         </scene>
         <!--Change Password-->
         <scene sceneID="Kz9-5r-x6F">
@@ -270,7 +350,7 @@
         <scene sceneID="uNL-Ik-XNc">
             <objects>
                 <collectionViewController title="BADGES" id="BFq-aH-8qK" customClass="UserProfileViewBadgesCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Ztx-cq-POk">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Ztx-cq-POk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.49362432956695557" blue="0.47423690557479858" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -322,7 +402,7 @@
         <scene sceneID="dF3-fS-n6O">
             <objects>
                 <collectionViewController title="OWN" id="78t-Vg-g9D" customClass="UserProfileViewOwnPhotosCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="CRN-E2-8zS">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="CRN-E2-8zS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.83111804723739624" green="0.98357635736465454" blue="0.47417277097702026" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -374,7 +454,7 @@
         <scene sceneID="L39-9V-ScO">
             <objects>
                 <collectionViewController title="LIKED" id="QjI-Kv-rrd" customClass="UserProfileViewLikedPhotosCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="ToT-Ck-Eci">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ToT-Ck-Eci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.45167505741119385" green="0.98651820421218872" blue="0.84075480699539185" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -765,6 +845,7 @@
     <resources>
         <image name="Circled User Male-30" width="30" height="30"/>
         <image name="Password Check-30" width="30" height="30"/>
+        <image name="QR Code-30" width="30" height="30"/>
         <image name="Settings-30" width="30" height="30"/>
         <image name="gamepad - 64" width="64" height="64"/>
         <image name="landscape - 64" width="64" height="64"/>

@@ -56,6 +56,7 @@
 		612647181E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612647171E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift */; };
 		61296A9C1E16B706007CA079 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; };
 		61296A9D1E16B706007CA079 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		619644A61E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619644A51E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift */; };
 		619E0B141E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E0B131E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift */; };
 		61ABEC491E2B392500786152 /* UserSocialSelectImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */; };
 		61B149F91E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B149F81E2F14CF00605BCB /* UserSocialMainAlbumCollectionViewController.swift */; };
@@ -220,6 +221,7 @@
 		612647111E2E86F2008DC73A /* UserSocialProfileLikedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileLikedCollectionViewCell.swift; sourceTree = "<group>"; };
 		612647151E2E8771008DC73A /* UserSocialProfileLikedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileLikedCollectionViewController.swift; sourceTree = "<group>"; };
 		612647171E2E877D008DC73A /* UserSocialProfileOwnCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileOwnCollectionViewController.swift; sourceTree = "<group>"; };
+		619644A51E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDisplayQRViewController.swift; sourceTree = "<group>"; };
 		61985AF41E16A65600D7AB37 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
 		619E0B131E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileMasterViewController.swift; sourceTree = "<group>"; };
 		61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialSelectImageViewController.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 				612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */,
 				619E0B131E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift */,
 				611D33991E3A729C009AAE74 /* UserProfileMainSettingsViewController.swift */,
+				619644A51E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				TargetAttributes = {
 					81FADA9C1DE43912007D27C8 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 92EHW4TQR2;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -767,6 +771,7 @@
 				04ECCCCF1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift in Sources */,
 				04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */,
 				9FFC15051E350A4200037BD2 /* RegisterDM.swift in Sources */,
+				619644A61E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift in Sources */,
 				61B149FF1E2F14EB00605BCB /* UserSocialMainAlbumTableViewController.swift in Sources */,
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
 				61B443281E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift in Sources */,
@@ -948,7 +953,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 92EHW4TQR2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NYP25",
@@ -972,7 +977,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 92EHW4TQR2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NYP25",
