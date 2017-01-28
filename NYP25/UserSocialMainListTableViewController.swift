@@ -17,8 +17,6 @@ class UserSocialMainListTableViewController: UITableViewController {
     
     var likes: [String]!
     
-//    var hint : String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +29,6 @@ class UserSocialMainListTableViewController: UITableViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,8 +38,6 @@ class UserSocialMainListTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        
         likes = [String](repeating: "like", count: socialList.count)
         return socialList.count
     }
@@ -62,8 +57,6 @@ class UserSocialMainListTableViewController: UITableViewController {
         }
         cell.captionLbl.text = s.caption
         
-//        cell.hintLbl.text = s.socialId
-
         cell.btnLike.tag = indexPath.row
         cell.btnLike.addTarget(self, action: #selector(handleLikes), for: .touchUpInside)
         
@@ -81,9 +74,6 @@ class UserSocialMainListTableViewController: UITableViewController {
     }
 
     func handleLikes(sender: AnyObject){
-//        print("hint - \(hint)")
-//        sender.setImage(UIImage(named: "LikeFilled.png")! as UIImage, for: .normal)
-        
         UserSocialDM.updateNoOfPhotoLikes(
             socialId: socialList[sender.tag].socialId,
             currentUserId: (GlobalDM.CurrentUser?.userId)!)
@@ -100,32 +90,7 @@ class UserSocialMainListTableViewController: UITableViewController {
             print("like")
             sender.setImage(UIImage(named:"LikeFilled.png"), for: .normal)
         }
-//        sender.setTitle(likes[sender.tag], for: UIControlState.normal)
-        
     }
-    
-//    func handleLikes(sender: AnyObject){
-//        print("sender.tag - \(sender.tag!)") // This works, every cell returns a different number and in order.
-//    
-//        if likes[sender.tag] == "like" {
-//            likes[sender.tag] = "unlike"
-//            sender.setImage(UIImage(named:"Like.png"), for: .normal)
-//            
-//            print("unlike")
-//        }
-//        else {
-//            likes[sender.tag] = "like"
-//            sender.setImage(UIImage(named:"LikeFilled.png"), for: .normal)
-//            
-//            print("like")
-//        }
-//        
-//        UserSocialDM.updateNoOfPhotoLikes(
-//            eventId: hint,
-//            currentUserId: (GlobalDM.CurrentUser?.userId)!)
-//    }
-    
-
     
     @IBAction func actionSheetButtonPressed(sender: UIButton) {
         let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
@@ -159,7 +124,6 @@ class UserSocialMainListTableViewController: UITableViewController {
                 }
             }
         }
-        
         
         self.present(alertController, animated: true) {}
     }

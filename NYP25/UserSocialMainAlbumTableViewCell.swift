@@ -9,9 +9,9 @@
 import UIKit
 
 class UserSocialMainAlbumTableViewCell: UITableViewCell {
-    @IBOutlet weak var eventLbl : UILabel!
-    @IBOutlet weak var noOfLikes : UILabel!
-    @IBOutlet weak var socialPhoto : UIImageView!
+    @IBOutlet weak var eventNameLbl : UILabel!
+    @IBOutlet weak var totalNoOfPhotosLbl : UILabel!
+    @IBOutlet weak var socialPhotoView : UIImageView!
 
 
     override func awakeFromNib() {

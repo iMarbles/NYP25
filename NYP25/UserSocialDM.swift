@@ -158,6 +158,7 @@ class UserSocialDM: NSObject {
                 let e = Event()
                 e.eventId = r.key
                 e.name = r.childSnapshot(forPath: "name").value as? String
+                e.imageUrl = r.childSnapshot(forPath: "image").value as? String
                 
                 eventNames.append(e)
                 

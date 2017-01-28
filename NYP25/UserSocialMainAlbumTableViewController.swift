@@ -9,19 +9,15 @@
 import UIKit
 
 class UserSocialMainAlbumTableViewController: UITableViewController {
-    var socialList : [Social] = []
+    var eventNameList : [Event] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadSocial()
-    }
-    
-    func loadSocial(){
-        UserSocialDM.retrieveAllSocialAlbum{(dbList) in
-            self.socialList = dbList
+        UserSocialDM.retrieveEventNames(onComplete: { (nameList) in
+            self.eventNameList = nameList
             self.tableView.reloadData()
-        }
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,17 +28,17 @@ class UserSocialMainAlbumTableViewController: UITableViewController {
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return socialList.count
+        return eventNameList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "AlbumTableCell", for: indexPath)
             as! UserSocialMainAlbumTableViewCell
         
-        let s = socialList[(indexPath as IndexPath).row]
-
-//        cell.eventLbl.text = s.uploader
-//        loadSocialImage(imageView: cell.socialPhoto, url: socialList[(indexPath as IndexPath).row].photoUrl!)
+        let s = eventNameList[(indexPath as IndexPath).row]
+        cell.eventNameLbl.text = s.name
+        cell.totalNoOfPhotosLbl.text = String(eventNameList.count)
+        UserSocialProfileMasterViewController.loadImage(imageView: cell.socialPhotoView, url: eventNameList[(indexPath as IndexPath).row].imageUrl!)
         
         return cell
     }

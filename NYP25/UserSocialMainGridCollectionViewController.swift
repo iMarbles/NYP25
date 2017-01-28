@@ -31,7 +31,6 @@ class UserSocialMainGridCollectionViewController: UICollectionViewController, UI
 
             }
         })
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {

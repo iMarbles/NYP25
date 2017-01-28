@@ -18,10 +18,6 @@ class UserSocialMainAlbumCollectionViewController: UICollectionViewController, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadPhotos()
-    }
-    
-    func loadPhotos(){
         UserSocialDM.retrieveEventPhotos(onComplete: { (photos) in
             self.socialPhotos = photos
             self.collectionView?.reloadData()
