@@ -11,5 +11,5 @@ import UIKit
 class UserSocialGalleryCollectionViewCell: UICollectionViewCell {
 //    @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var eventImage : UIImageView!
-
+    @IBOutlet weak var eventId : UIImageView!
 }

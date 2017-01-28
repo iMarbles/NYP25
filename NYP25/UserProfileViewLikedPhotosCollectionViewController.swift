@@ -15,6 +15,8 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
     var profileGallery : [Social] = []
     var likedPhotos : [Social] = []
 
+    var photoIdLbl : String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,16 +45,30 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
         return cell
     }
     
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var cell = collectionView.cellForItem(at: indexPath as IndexPath)
-        cell?.layer.borderWidth = 2.0
-        cell?.layer.borderColor = UIColor.red.cgColor
-    }
-    
     override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         var cell = collectionView.cellForItem(at: indexPath as IndexPath)
         cell?.layer.borderWidth = 2.0
         cell?.layer.borderColor = UIColor.clear.cgColor
+    }
+    
+    /*override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var cell = collectionView.cellForItem(at: indexPath as IndexPath)
+        cell?.layer.borderWidth = 2.0
+        cell?.layer.borderColor = UIColor.red.cgColor
+
+    }*/
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        photoIdLbl = profileGallery[(indexPath as IndexPath).row].eventId
+        
+        print("didSelectItemAt - \(profileGallery[(indexPath as IndexPath).row].eventId)")
+        print("eventIdLbl - \(photoIdLbl)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "likedPhotosGallery" {
+            let a = segue.destination as! UserProfileLikedPhotosDetailsViewController
+            a.newLbl = photoIdLbl
+        }
     }
 }

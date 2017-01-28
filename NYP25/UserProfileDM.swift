@@ -164,6 +164,7 @@ class UserProfileDM: NSObject {
                 let s = Social()
                 
                 s.socialId = r.key
+                s.eventId = r.childSnapshot(forPath: "eventId").value as! String
                 s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
                 
                 //Child nodes
