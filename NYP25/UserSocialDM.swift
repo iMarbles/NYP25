@@ -178,8 +178,8 @@ class UserSocialDM: NSObject {
                     let r = record as! FIRDataSnapshot
                     
                     let photo = Social()
+                    photo.eventId = r.childSnapshot(forPath: "eventId").value as! String
                     photo.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
-                    //To add-on as needed
                     
                     socialPhotos.append(photo)
                     

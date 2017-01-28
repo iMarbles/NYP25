@@ -17,7 +17,7 @@ class UserSocialMainListTableViewController: UITableViewController {
     
     var likes: [String]!
     
-    var hint : String = ""
+//    var hint : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,6 @@ class UserSocialMainListTableViewController: UITableViewController {
             self.socialList = dbList
             self.tableView.reloadData()
         }
-        
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -48,16 +47,11 @@ class UserSocialMainListTableViewController: UITableViewController {
         return socialList.count
     }
     
-    /*
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let s = socialList[(indexPath as IndexPath).row]
-        hint = s.socialId
-    }
- */
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainListCell", for: indexPath)
             as! UserSocialMainListTableViewCell
+        
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         let s = socialList[(indexPath as IndexPath).row]
         cell.dateLbl.text = s.postedDateTime
@@ -68,7 +62,7 @@ class UserSocialMainListTableViewController: UITableViewController {
         }
         cell.captionLbl.text = s.caption
         
-        cell.hintLbl.text = s.socialId
+//        cell.hintLbl.text = s.socialId
 
         cell.btnLike.tag = indexPath.row
         cell.btnLike.addTarget(self, action: #selector(handleLikes), for: .touchUpInside)
@@ -106,7 +100,7 @@ class UserSocialMainListTableViewController: UITableViewController {
             print("like")
             sender.setImage(UIImage(named:"LikeFilled.png"), for: .normal)
         }
-        sender.setTitle(likes[sender.tag], for: UIControlState.normal)
+//        sender.setTitle(likes[sender.tag], for: UIControlState.normal)
         
     }
     

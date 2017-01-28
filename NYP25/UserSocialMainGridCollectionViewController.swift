@@ -12,14 +12,12 @@ class UserSocialMainGridCollectionViewController: UICollectionViewController, UI
     
     var social : Social?
     var socialPhotos : [Social] = []
+    
+    var eventIdLbl : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadEvents()
-    }
-    
-    func loadEvents(){
         UserSocialDM.retrieveEventPhotos(onComplete: { (photos) in
             self.socialPhotos = photos
             self.collectionView?.reloadData()
@@ -52,4 +50,17 @@ class UserSocialMainGridCollectionViewController: UICollectionViewController, UI
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        eventIdLbl = socialPhotos[(indexPath as IndexPath).row].eventId
+
+        print("didSelectItemAt - \(socialPhotos[(indexPath as IndexPath).row].eventId)")
+        print("eventIdLbl - \(eventIdLbl)")
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SocialPhotoDetails" {
+            let a = segue.destination as! UserSocialPhotoDetailsViewController
+            a.newLbl = eventIdLbl
+        }
+    }
+}
