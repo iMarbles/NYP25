@@ -25,14 +25,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xjy-m4-KyU" userLabel="GRID">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <connections>
-                                    <segue destination="Ukn-v3-1P2" kind="embed" id="ACR-9d-jX7"/>
-                                </connections>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xjy-m4-KyU" userLabel="GRID">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ed-je-sNa" userLabel="LIST">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                 <connections>
                                     <segue destination="3Hz-PT-RPu" kind="embed" id="rIR-e2-fop"/>
                                 </connections>
@@ -50,34 +47,28 @@
                             <constraint firstItem="LYG-jU-0wj" firstAttribute="top" secondItem="Xjy-m4-KyU" secondAttribute="bottom" id="vzu-TW-1qS"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Social" id="x0T-rO-emA">
-                        <leftBarButtonItems>
-                            <barButtonItem image="Tiles-30" id="xEq-Tc-2Rc">
-                                <connections>
-                                    <action selector="listViewBtnWithSender:" destination="BLa-87-pEM" id="3Ad-ma-stJ"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="Grid 2 Filled-30" id="UcI-0e-LkU">
-                                <connections>
-                                    <action selector="gridViewBtnWithSender:" destination="BLa-87-pEM" id="ahT-Lj-KXK"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" image="Stack of Photos-30" id="UTw-95-6BL">
+                            <connections>
+                                <segue destination="CcM-ZA-jhA" kind="show" id="VtA-AM-sAJ"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="Circled User Male-30" id="rIA-EX-iQa">
                                 <connections>
                                     <action selector="goToSecondWithSender:" destination="BLa-87-pEM" id="3pV-2L-zUM"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="Stack of Photos-30" id="UTw-95-6BL">
+                            <barButtonItem systemItem="camera" id="77E-yd-FiW">
                                 <connections>
-                                    <segue destination="CcM-ZA-jhA" kind="show" id="VtA-AM-sAJ"/>
+                                    <segue destination="MXi-AM-SIp" kind="show" id="dHI-BZ-210"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="gridView" destination="Xjy-m4-KyU" id="dqh-pb-vI9"/>
                         <outlet property="listView" destination="6ed-je-sNa" id="qTm-mR-LZj"/>
                     </connections>
                 </viewController>
@@ -201,11 +192,11 @@
                         <viewControllerLayoutGuide type="bottom" id="996-oi-h2A"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="M9S-dg-jb0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hidden text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFs-dI-oTO">
-                                <rect key="frame" x="16" y="518" width="343" height="21"/>
+                                <rect key="frame" x="16" y="538" width="343" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -231,7 +222,7 @@
             <objects>
                 <tableViewController id="3Hz-PT-RPu" customClass="UserSocialMainListTableViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="523" sectionHeaderHeight="28" sectionFooterHeight="28" id="9fC-8e-Yiy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -368,8 +359,8 @@
         <scene sceneID="urn-dd-iAE">
             <objects>
                 <collectionViewController id="Ukn-v3-1P2" customClass="UserSocialMainGridCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Zha-JP-qu0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Zha-JP-qu0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qqv-yv-6eT">
@@ -383,7 +374,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="174.5" height="174.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="174.5" height="174.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="174" height="174"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="huo-kA-NLc">
@@ -603,12 +594,13 @@
     <resources>
         <image name="Circled User Male-30" width="30" height="30"/>
         <image name="Delete Filled-30-2" width="30" height="30"/>
-        <image name="Grid 2 Filled-30" width="30" height="30"/>
         <image name="Like" width="30" height="30"/>
         <image name="More Filled-30" width="30" height="30"/>
         <image name="My Topic-30" width="30" height="30"/>
         <image name="SLR Camera-30" width="30" height="30"/>
         <image name="Stack of Photos-30" width="30" height="30"/>
-        <image name="Tiles-30" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dHI-BZ-210"/>
+    </inferredMetricsTieBreakers>
 </document>

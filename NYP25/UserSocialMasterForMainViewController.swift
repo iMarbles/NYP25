@@ -12,7 +12,7 @@ class UserSocialMasterForMainViewController: UIViewController {
 
 //    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var listView: UIView!
-    @IBOutlet weak var gridView: UIView!
+//    @IBOutlet weak var gridView: UIView!
     
     /*@IBAction func indexChanged(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
@@ -33,7 +33,8 @@ class UserSocialMasterForMainViewController: UIViewController {
         tabBarController?.selectedIndex = 4
     }
     
-    @IBAction func gridViewBtn(sender: UIButton){
+/*    
+     @IBAction func gridViewBtn(sender: UIButton){
         listView.isHidden = true
         gridView.isHidden = false
     }
@@ -42,12 +43,12 @@ class UserSocialMasterForMainViewController: UIViewController {
         listView.isHidden = false
         gridView.isHidden = true
     }
-    
+*/
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        listView.isHidden = false
-        gridView.isHidden = true
+//        listView.isHidden = false
+//        gridView.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
