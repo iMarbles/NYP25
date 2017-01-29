@@ -1,5 +1,5 @@
 //
-//  UserProfileOwnPhotosDetailsViewController.swift
+//  UserProfileDetailsForLikedPhotosViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 29/1/17.
@@ -8,14 +8,18 @@
 
 import UIKit
 
-class UserProfileOwnPhotosDetailsViewController: UIViewController {
-
+class UserProfileDetailsForLikedPhotosViewController: UIViewController {
+    @IBOutlet weak var photoIdLbl : UILabel!
+    
+    var newLbl : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //photoId from grid controller
+        photoIdLbl.text = newLbl
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

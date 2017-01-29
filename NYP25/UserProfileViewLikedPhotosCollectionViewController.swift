@@ -67,7 +67,7 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "likedPhotosGallery" {
-            let a = segue.destination as! UserProfileLikedPhotosDetailsViewController
+            let a = segue.destination as! UserProfileDetailsForLikedPhotosViewController
             a.newLbl = photoIdLbl
         }
     }

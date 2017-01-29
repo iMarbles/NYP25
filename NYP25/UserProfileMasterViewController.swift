@@ -1,5 +1,5 @@
 
-//  UserProfileViewController.swift
+//  UserProfileMasterViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 20/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController {
+class UserProfileMasterViewController: UIViewController {
     
     @IBOutlet weak var badgesView : UIView?
     @IBOutlet weak var selfPhotoView : UIView?

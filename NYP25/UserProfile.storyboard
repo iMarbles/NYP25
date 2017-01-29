@@ -36,7 +36,7 @@
         <!--Profile Home-->
         <scene sceneID="pph-Tj-6BF">
             <objects>
-                <viewController storyboardIdentifier="UserProfileHome" title="Profile Home" id="f5Q-ju-9mf" customClass="UserProfileViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileHome" title="Profile Home" id="f5Q-ju-9mf" customClass="UserProfileMasterViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wAU-JV-eEX"/>
                         <viewControllerLayoutGuide type="bottom" id="gWH-pX-j1k"/>
@@ -46,7 +46,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUT-oE-myi">
-                                <rect key="frame" x="281" y="72" width="78" height="137"/>
+                                <rect key="frame" x="282" y="72" width="77" height="137"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <color key="textColor" red="0.98829740290000001" green="0.58603436789999996" blue="0.47822742019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z0P-4d-S4M">
-                                <rect key="frame" x="137" y="72" width="136" height="137"/>
+                                <rect key="frame" x="137" y="72" width="137" height="137"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.50506853910000005" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="z0P-4d-S4M" secondAttribute="height" multiplier="1:1" id="5gq-aD-U4i"/>
@@ -256,40 +256,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EfJ-Y7-MDE">
-                                <rect key="frame" x="32" y="74" width="311" height="203"/>
+                                <rect key="frame" x="32" y="74" width="311" height="201.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff2-Rm-xFo">
-                                        <rect key="frame" x="0.0" y="0.0" width="311" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efz-wH-VSx">
-                                        <rect key="frame" x="0.0" y="31" width="311" height="30"/>
+                                        <rect key="frame" x="0.0" y="30.5" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wr-o4-vgK">
-                                        <rect key="frame" x="0.0" y="71" width="311" height="21"/>
+                                        <rect key="frame" x="0.0" y="70.5" width="311" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y1h-hc-Efa">
-                                        <rect key="frame" x="0.0" y="102" width="311" height="30"/>
+                                        <rect key="frame" x="0.0" y="101" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retype New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vg1-gE-U28">
-                                        <rect key="frame" x="0.0" y="142" width="311" height="21"/>
+                                        <rect key="frame" x="0.0" y="141" width="311" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Retype New Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PdN-Jl-Rvm">
-                                        <rect key="frame" x="0.0" y="173" width="311" height="30"/>
+                                        <rect key="frame" x="0.0" y="171.5" width="311" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -377,6 +377,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="badgePhotos" destination="Gvj-0p-hNo" id="cXJ-XB-GJ2"/>
+                                    <segue destination="2om-rc-iWD" kind="show" identifier="badgeGallery" id="XqE-rt-egu"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -429,6 +430,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="ownPhotos" destination="W32-j0-dWq" id="Fuq-fJ-gbh"/>
+                                    <segue destination="2om-rc-iWD" kind="show" identifier="ownPhotosGallery" id="gB1-l4-xq2"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -446,7 +448,7 @@
         <scene sceneID="L39-9V-ScO">
             <objects>
                 <collectionViewController title="LIKED" id="QjI-Kv-rrd" customClass="UserProfileViewLikedPhotosCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="ToT-Ck-Eci">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ToT-Ck-Eci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="311"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.45167505741119385" green="0.98651820421218872" blue="0.84075480699539185" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
@@ -498,7 +500,7 @@
         <!--Settings-->
         <scene sceneID="ep9-5g-W7X">
             <objects>
-                <viewController title="Settings" id="hpV-NH-KPE" customClass="UserProfileMainSettingsViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings" id="hpV-NH-KPE" customClass="UserProfileMasterForSettingsViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aCB-7L-pjg"/>
                         <viewControllerLayoutGuide type="bottom" id="Wki-BS-FfF"/>
@@ -576,15 +578,15 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPF-2z-ql3">
-                                                        <rect key="frame" x="104" y="0.0" width="237" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPF-2z-ql3">
+                                                        <rect key="frame" x="104" y="0.0" width="203" height="30"/>
                                                         <state key="normal" title="Change"/>
                                                         <connections>
                                                             <action selector="btnChangeProfilePhotoWithSender:" destination="hpV-NH-KPE" eventType="touchUpInside" id="NBq-he-vu2"/>
                                                         </connections>
                                                     </button>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kON-VD-tMH" userLabel="Save">
-                                                        <rect key="frame" x="341" y="0.0" width="0.0" height="30"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kON-VD-tMH" userLabel="Save">
+                                                        <rect key="frame" x="307" y="0.0" width="34" height="30"/>
                                                         <state key="normal" title="Save"/>
                                                         <connections>
                                                             <action selector="btnChangeProfilePhotoWithSender:" destination="hpV-NH-KPE" eventType="touchUpInside" id="mcP-oT-Tfc"/>
@@ -627,15 +629,15 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJF-g4-bgu">
-                                                        <rect key="frame" x="82" y="0.0" width="259" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wJF-g4-bgu">
+                                                        <rect key="frame" x="82" y="0.0" width="225" height="30"/>
                                                         <state key="normal" title="Edit"/>
                                                         <connections>
                                                             <action selector="btnEditBioWithSender:" destination="hpV-NH-KPE" eventType="touchUpInside" id="Wpd-ER-kT3"/>
                                                         </connections>
                                                     </button>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYR-3l-UFH">
-                                                        <rect key="frame" x="341" y="0.0" width="0.0" height="30"/>
+                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYR-3l-UFH">
+                                                        <rect key="frame" x="307" y="0.0" width="34" height="30"/>
                                                         <state key="normal" title="Save"/>
                                                         <connections>
                                                             <action selector="btnEditBioWithSender:" destination="hpV-NH-KPE" eventType="touchUpInside" id="zN6-wX-5BU"/>
@@ -714,8 +716,8 @@
         <!--Change Display Badge-->
         <scene sceneID="c2w-4i-KPh">
             <objects>
-                <collectionViewController title="Change Display Badge" id="d5k-cI-0XI" customClass="UserProfileSettingViewBadgesCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bCM-m4-AAs">
+                <collectionViewController title="Change Display Badge" id="d5k-cI-0XI" customClass="UserProfileSettingsViewBadgesCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="bCM-m4-AAs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -824,7 +826,7 @@
         <!--Photo Details-->
         <scene sceneID="Agd-pH-5Ct">
             <objects>
-                <viewController storyboardIdentifier="SocialPhotoDetails" title="Photo Details" id="2om-rc-iWD" customClass="UserProfileLikedPhotosDetailsViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SocialPhotoDetails" title="Photo Details" id="2om-rc-iWD" customClass="UserProfileDetailsForLikedPhotosViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qgm-9R-9a6"/>
                         <viewControllerLayoutGuide type="bottom" id="nXE-zz-Tfz"/>
@@ -834,7 +836,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hidden text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQC-ch-WvH">
-                                <rect key="frame" x="0.0" y="145" width="375" height="20.5"/>
+                                <rect key="frame" x="0.0" y="145" width="375" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -853,7 +855,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjB-l0-EAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="824.79999999999995" y="1573.7631184407796"/>
+            <point key="canvasLocation" x="185" y="1584"/>
         </scene>
     </scenes>
     <resources>
@@ -866,4 +868,7 @@
         <image name="landscape - 64" width="64" height="64"/>
         <image name="signs - 64" width="64" height="64"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="XqE-rt-egu"/>
+    </inferredMetricsTieBreakers>
 </document>

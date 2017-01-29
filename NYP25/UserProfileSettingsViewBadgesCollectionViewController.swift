@@ -1,5 +1,5 @@
 //
-//  UserProfileSettingViewBadgesCollectionViewController.swift
+//  UserProfileSettingsViewBadgesCollectionViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 27/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileSettingViewBadgesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class UserProfileSettingsViewBadgesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var profileGallery : [Badge] = []
     

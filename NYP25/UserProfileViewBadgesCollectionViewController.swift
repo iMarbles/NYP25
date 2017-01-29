@@ -15,6 +15,14 @@ class UserProfileViewBadgesCollectionViewController: UICollectionViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        let width = UIScreen.main.bounds.width
+//        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
+        layout.itemSize = CGSize(width: width / 2, height: width / 2)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        self.collectionView?.collectionViewLayout = layout
+
         UserProfileDM.retrieveAllUsersBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(badges) in
             self.profileGallery = badges
             self.collectionView?.reloadData()

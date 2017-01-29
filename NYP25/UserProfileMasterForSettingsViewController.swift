@@ -1,5 +1,5 @@
 //
-//  UserProfileMainSettingsViewController.swift
+//  UserProfileMasterForSettingsViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 27/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileMainSettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class UserProfileMasterForSettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
     @IBOutlet var bioField: UITextView?
     @IBOutlet var nameLbl: UILabel?
