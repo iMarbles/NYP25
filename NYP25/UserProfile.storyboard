@@ -241,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Qx-7j-rLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="968.79999999999995" y="-111.0944527736132"/>
+            <point key="canvasLocation" x="1634" y="104"/>
         </scene>
         <!--Change Password-->
         <scene sceneID="Kz9-5r-x6F">
@@ -336,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nsp-P5-Q33" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588" y="1155"/>
+            <point key="canvasLocation" x="1796" y="1559"/>
         </scene>
         <!--BADGES-->
         <scene sceneID="uNL-Ik-XNc">
@@ -377,7 +377,6 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="badgePhotos" destination="Gvj-0p-hNo" id="cXJ-XB-GJ2"/>
-                                    <segue destination="2om-rc-iWD" kind="show" identifier="badgeGallery" id="XqE-rt-egu"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -430,7 +429,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="ownPhotos" destination="W32-j0-dWq" id="Fuq-fJ-gbh"/>
-                                    <segue destination="2om-rc-iWD" kind="show" identifier="ownPhotosGallery" id="gB1-l4-xq2"/>
+                                    <segue destination="1ge-c7-Cjd" kind="showDetail" identifier="ownPhotosGallery" animates="NO" action="showViewController:sender:" id="dkQ-K6-p0u"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -483,7 +482,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="likedPhotos" destination="KG9-le-aCb" id="bdo-an-Xu0"/>
-                                    <segue destination="2om-rc-iWD" kind="show" identifier="likedPhotosGallery" id="4XC-kz-6ge"/>
+                                    <segue destination="2om-rc-iWD" kind="showDetail" identifier="likedPhotosGallery" animates="NO" action="showViewController:sender:" id="4XC-kz-6ge"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -711,7 +710,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sOI-yG-KhU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="259.52023988005999"/>
+            <point key="canvasLocation" x="2247" y="797"/>
         </scene>
         <!--Change Display Badge-->
         <scene sceneID="c2w-4i-KPh">
@@ -769,80 +768,28 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CdC-8y-RZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3048.8000000000002" y="1154.5727136431785"/>
+            <point key="canvasLocation" x="2726" y="1559"/>
         </scene>
-        <!--Change Display Badge-->
-        <scene sceneID="ekN-wh-xji">
-            <objects>
-                <collectionViewController title="Change Display Badge" id="oQB-Ni-41l" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rJf-HL-9Sb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zU9-jZ-l8Z">
-                            <size key="itemSize" width="182" height="182"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="36f-b2-dQ0">
-                                <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Urp-mg-pgW">
-                                            <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
-                                        </imageView>
-                                    </subviews>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="Urp-mg-pgW" firstAttribute="leading" secondItem="36f-b2-dQ0" secondAttribute="leading" id="NmG-NC-EIT"/>
-                                    <constraint firstAttribute="trailing" secondItem="Urp-mg-pgW" secondAttribute="trailing" id="ZN6-m1-2J2"/>
-                                    <constraint firstAttribute="bottom" secondItem="Urp-mg-pgW" secondAttribute="bottom" id="eZj-DH-t1y"/>
-                                    <constraint firstItem="Urp-mg-pgW" firstAttribute="top" secondItem="36f-b2-dQ0" secondAttribute="top" id="jWn-Cp-UEo"/>
-                                </constraints>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="oQB-Ni-41l" id="bs7-Gh-GGe"/>
-                            <outlet property="delegate" destination="oQB-Ni-41l" id="XRE-kB-ldQ"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" title="Change Profile Photo" id="rul-zD-J4b">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" systemItem="save" id="MmM-yt-Q1W">
-                            <connections>
-                                <action selector="savePasswordWithSender:" destination="Woj-Pr-7eF" id="Qzm-rm-SOm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JWp-LX-wx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3766" y="1155"/>
-        </scene>
-        <!--Photo Details-->
+        <!--Liked Photo Details-->
         <scene sceneID="Agd-pH-5Ct">
             <objects>
-                <viewController storyboardIdentifier="SocialPhotoDetails" title="Photo Details" id="2om-rc-iWD" customClass="UserProfileDetailsForLikedPhotosViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Liked Photo Details" id="2om-rc-iWD" customClass="UserProfileDetailsForLikedPhotosViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qgm-9R-9a6"/>
                         <viewControllerLayoutGuide type="bottom" id="nXE-zz-Tfz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xuQ-0p-AZr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="311"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hidden text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQC-ch-WvH">
-                                <rect key="frame" x="0.0" y="145" width="375" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hidden text for liked photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQC-ch-WvH">
+                                <rect key="frame" x="0.0" y="500.5" width="375" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.59999999999999998" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="zQC-ch-WvH" firstAttribute="leading" secondItem="xuQ-0p-AZr" secondAttribute="leading" id="Jga-ee-hIo"/>
                             <constraint firstAttribute="trailing" secondItem="zQC-ch-WvH" secondAttribute="trailing" id="hU4-vi-zcX"/>
@@ -855,7 +802,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjB-l0-EAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="185" y="1584"/>
+            <point key="canvasLocation" x="825" y="1560"/>
+        </scene>
+        <!--Own Photo Details-->
+        <scene sceneID="fuL-W1-ijg">
+            <objects>
+                <viewController title="Own Photo Details" id="1ge-c7-Cjd" customClass="UserProfileDetailsForOwnPhotosViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="doe-vN-Iwd"/>
+                        <viewControllerLayoutGuide type="bottom" id="pMT-0h-F73"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E6M-UW-hRt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hidden text for own photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jil-sB-1Cb">
+                                <rect key="frame" x="0.0" y="500.5" width="375" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="jil-sB-1Cb" firstAttribute="leading" secondItem="E6M-UW-hRt" secondAttribute="leading" id="EyZ-Ay-kth"/>
+                            <constraint firstAttribute="bottom" secondItem="jil-sB-1Cb" secondAttribute="bottom" constant="145.5" id="RYi-As-iuD"/>
+                            <constraint firstAttribute="trailing" secondItem="jil-sB-1Cb" secondAttribute="trailing" id="S43-14-BeF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="photoIdLbl" destination="jil-sB-1Cb" id="zn6-Fk-ws6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sSq-mX-8ad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="185" y="1559"/>
         </scene>
     </scenes>
     <resources>
@@ -868,7 +849,4 @@
         <image name="landscape - 64" width="64" height="64"/>
         <image name="signs - 64" width="64" height="64"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="XqE-rt-egu"/>
-    </inferredMetricsTieBreakers>
 </document>
