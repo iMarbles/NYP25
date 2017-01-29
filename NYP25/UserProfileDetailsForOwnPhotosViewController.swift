@@ -10,14 +10,23 @@ import UIKit
 
 class UserProfileDetailsForOwnPhotosViewController: UIViewController {
     @IBOutlet weak var photoIdLbl : UILabel!
+    @IBOutlet weak var pathIdLbl : UILabel!
+    @IBOutlet weak var socialIdLbl : UILabel!
+    @IBOutlet weak var photoImage : UIImageView!
     
     var newLbl : String = ""
+    var pathLbl : String = ""
+    var newSocialLbl : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //photoId from grid controller
         photoIdLbl.text = newLbl
+        pathIdLbl.text = pathLbl
+        socialIdLbl.text = newSocialLbl
+        
+        UserSocialProfileMasterViewController.loadImage(imageView: self.photoImage, url: newSocialLbl)
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,6 +34,22 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func actionDelete(sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "You sure you wanna delete this post?", message: nil, preferredStyle: .alert)
+        
+        let destroyAction = UIAlertAction(title: "Delete Post", style: .destructive) { action in
+            //            print(action)
+            print("destroy")
+        }
+        alertController.addAction(destroyAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            print("cancel")
+        }
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true) {}
+    }
 
     /*
     // MARK: - Navigation

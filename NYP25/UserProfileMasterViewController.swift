@@ -10,13 +10,15 @@ import UIKit
 
 class UserProfileMasterViewController: UIViewController {
     
-    @IBOutlet weak var badgesView : UIView?
+//    @IBOutlet weak var badgesView : UIView?
     @IBOutlet weak var selfPhotoView : UIView?
-    @IBOutlet weak var likedPhotosView : UIView?
+//    @IBOutlet weak var likedPhotosView : UIView?
     
     @IBOutlet weak var profilePhotoView : UIImageView?
     
     @IBOutlet weak var currentPoints : UILabel?
+    @IBOutlet weak var bioLbl : UILabel?
+    @IBOutlet weak var schoolLbl : UILabel?
     @IBOutlet weak var selectedBadge : UIImageView?
     
     var profileGallery : [Badge] = []
@@ -27,12 +29,14 @@ class UserProfileMasterViewController: UIViewController {
         UserSocialProfileMasterViewController.roundedEdgePhoto(image: selectedBadge!)
         UserSocialProfileMasterViewController.circleFramePhoto(image: profilePhotoView!)
         
-        badgesView?.isHidden = false
-        selfPhotoView?.isHidden = true
-        likedPhotosView?.isHidden = true
+//        badgesView?.isHidden = false
+//        selfPhotoView?.isHidden = true
+//        likedPhotosView?.isHidden = true
         
         UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (user) in
             self.title = user.username
+            self.bioLbl?.text = user.bio
+            self.schoolLbl?.text = user.school
             self.currentPoints?.text = String(describing: user.points)
             UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView!, url: user.displayPhotoUrl!)
         })
@@ -48,23 +52,23 @@ class UserProfileMasterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func btnSelfPhoto(sender: UIButton){
-        badgesView?.isHidden = true
-        selfPhotoView?.isHidden = false
-        likedPhotosView?.isHidden = true
-    }
-    
-    @IBAction func btnLikedPhotos(sender: UIButton){
-        badgesView?.isHidden = true
-        selfPhotoView?.isHidden = true
-        likedPhotosView?.isHidden = false
-    }
-    
-    @IBAction func btnBadges(sender: UIButton){
-        badgesView?.isHidden = false
-        selfPhotoView?.isHidden = true
-        likedPhotosView?.isHidden = true
-    }
+//    @IBAction func btnSelfPhoto(sender: UIButton){
+//        badgesView?.isHidden = true
+//        selfPhotoView?.isHidden = false
+//        likedPhotosView?.isHidden = true
+//    }
+//    
+//    @IBAction func btnLikedPhotos(sender: UIButton){
+//        badgesView?.isHidden = true
+//        selfPhotoView?.isHidden = true
+//        likedPhotosView?.isHidden = false
+//    }
+//    
+//    @IBAction func btnBadges(sender: UIButton){
+//        badgesView?.isHidden = false
+//        selfPhotoView?.isHidden = true
+//        likedPhotosView?.isHidden = true
+//    }
     
     @IBAction func btnLogout(_ sender : AnyObject){
         GlobalDM.CurrentUser = User()

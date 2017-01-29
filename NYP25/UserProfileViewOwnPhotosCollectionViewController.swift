@@ -13,7 +13,11 @@ import UIKit
 class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var profileGallery : [Social] = []
-    
+
+    var photoIdLbl : String = ""
+    var pathIdLbl : String = ""
+    var socialIdLbl : String = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,16 +54,29 @@ class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewControll
         return cell
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var cell = collectionView.cellForItem(at: indexPath as IndexPath)
-        cell?.layer.borderWidth = 2.0
-        cell?.layer.borderColor = UIColor.red.cgColor
+        let p = profileGallery[(indexPath as IndexPath).row]
+       
+        print(p.socialId)
+        
+        photoIdLbl = p.eventId
+        pathIdLbl = String(describing: p)
+        socialIdLbl = p.photoUrl!
+            
+        print("didSelectItemAt - \(profileGallery[(indexPath as IndexPath).row].eventId)")
+        print("indexPath - \(profileGallery[(indexPath as IndexPath).row])")
+        
+        print("eventIdLbl - \(photoIdLbl)")
+        print("pathLbl - \(pathIdLbl)")
+        print("socialIdLbl - \(socialIdLbl)")
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        var cell = collectionView.cellForItem(at: indexPath as IndexPath)
-        cell?.layer.borderWidth = 2.0
-        cell?.layer.borderColor = UIColor.clear.cgColor
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ownPhotosGallery" {
+            let a = segue.destination as! UserProfileDetailsForOwnPhotosViewController
+            a.newLbl = photoIdLbl
+            a.pathLbl = pathIdLbl
+            a.newSocialLbl = socialIdLbl
+        }
     }
 }
