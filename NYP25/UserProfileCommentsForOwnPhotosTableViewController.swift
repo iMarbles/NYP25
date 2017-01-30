@@ -12,8 +12,11 @@ class UserProfileCommentsForOwnPhotosTableViewController: UITableViewController 
     var social : Social?
     var coList : [Social] = []
 
+    var pl : PhotoLike?
     var co : PhotoComment?
     var commentList : [PhotoComment] = []
+    
+    var photoLikes: [PhotoLike] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +41,21 @@ class UserProfileCommentsForOwnPhotosTableViewController: UITableViewController 
         var cell = tableView.dequeueReusableCell(withIdentifier: "commentCells", for: indexPath)
             as! UserProfileCommentsForOwnPhotosTableViewCell
         
-//        for like in coList[indexPath.row].likes!{
-//        }
+        print("coList[(indexPath as IndexPath).row].socialId - \(coList[(indexPath as IndexPath).row].socialId)")
         
-        //cell.usernameLbl.text =
-        //cell.commentLbl.text = co?.comment
+        
+        for a in coList{
+            print(a.socialId)
+            for b in a.likes!{
+                for comment in b.comments!{
+                    commentList.append(comment)
+                }
+            }
+        }
+        
+        let cl = commentList[(indexPath as IndexPath).row]
+        cell.usernameLbl.text = cl.username
+        cell.commentLbl.text = cl.comment
         
         return cell
     }
