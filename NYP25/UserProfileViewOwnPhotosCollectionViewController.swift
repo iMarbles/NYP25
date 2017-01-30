@@ -54,6 +54,7 @@ class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewControll
         return cell
     }
     
+    /*
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let p = profileGallery[(indexPath as IndexPath).row]
        
@@ -70,13 +71,22 @@ class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewControll
         print("pathLbl - \(pathIdLbl)")
         print("socialIdLbl - \(socialIdLbl)")
     }
+ */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ownPhotosGallery" {
             let a = segue.destination as! UserProfileDetailsForOwnPhotosViewController
+            /*
             a.newLbl = photoIdLbl
             a.pathLbl = pathIdLbl
             a.newSocialLbl = socialIdLbl
+             */
+            
+            //Edited by Amabel
+            let cell = sender as? UserProfileViewOwnPhotosCollectionViewCell
+            let indexPath = collectionView?.indexPath(for: cell!)
+
+            a.socialImg = profileGallery[(indexPath?.row)!]
         }
     }
 }

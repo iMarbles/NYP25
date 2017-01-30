@@ -18,15 +18,27 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
     var pathLbl : String = ""
     var newSocialLbl : String = ""
     
+    //Edited by Amabel
+    var socialImg : Social?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //photoId from grid controller
+        /*
         photoIdLbl.text = newLbl
         pathIdLbl.text = pathLbl
         socialIdLbl.text = newSocialLbl
+         */
         
-        UserSocialProfileMasterViewController.loadImage(imageView: self.photoImage, url: newSocialLbl)
+        //UserSocialProfileMasterViewController.loadImage(imageView: self.photoImage, url: newSocialLbl)
+        
+        //Edited by Amabel
+        photoIdLbl.text = socialImg?.eventId
+        pathIdLbl.text = socialImg?.photoUrl
+        socialIdLbl.text = socialImg?.socialId
+        
+        UserSocialProfileMasterViewController.loadImage(imageView: self.photoImage, url: (socialImg?.photoUrl)!)
     }
 
     override func didReceiveMemoryWarning() {
