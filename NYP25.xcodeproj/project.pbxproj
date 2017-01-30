@@ -454,6 +454,7 @@
 				61B14A001E2F14F800605BCB /* UserSocialMainAlbumTableViewCell.swift */,
 				6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */,
 				617B7DAE1E3F367B0059606A /* UserProfileCommentsForOwnPhotosTableViewCell.swift */,
+				04EB65331E3F02D60012E765 /* UserInboxMainTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
