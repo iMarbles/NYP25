@@ -51,6 +51,8 @@
 		6126470E1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */; };
 		61296A9C1E16B706007CA079 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; };
 		61296A9D1E16B706007CA079 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61985AFB1E16A65700D7AB37 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		617B7DAF1E3F367B0059606A /* UserProfileCommentsForOwnPhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617B7DAE1E3F367B0059606A /* UserProfileCommentsForOwnPhotosTableViewCell.swift */; };
+		617B7DB11E3F37800059606A /* UserProfileCommentsForOwnPhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617B7DB01E3F37800059606A /* UserProfileCommentsForOwnPhotosTableViewController.swift */; };
 		619644A61E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619644A51E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift */; };
 		619E0B141E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E0B131E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift */; };
 		61ABEC491E2B392500786152 /* UserSocialSelectImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */; };
@@ -209,6 +211,8 @@
 		612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialUploadImageViewController.swift; sourceTree = "<group>"; };
 		612647091E2E64DA008DC73A /* UserSocialMainListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserSocialMainListTableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialMainListTableViewCell.swift; sourceTree = "<group>"; };
+		617B7DAE1E3F367B0059606A /* UserProfileCommentsForOwnPhotosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileCommentsForOwnPhotosTableViewCell.swift; sourceTree = "<group>"; };
+		617B7DB01E3F37800059606A /* UserProfileCommentsForOwnPhotosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileCommentsForOwnPhotosTableViewController.swift; sourceTree = "<group>"; };
 		619644A51E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDisplayQRViewController.swift; sourceTree = "<group>"; };
 		61985AF41E16A65600D7AB37 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
 		619E0B131E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileMasterViewController.swift; sourceTree = "<group>"; };
@@ -440,6 +444,7 @@
 				61B4431F1E327FF400E3EE94 /* UserProfileViewOwnPhotosCollectionViewCell.swift */,
 				61B14A001E2F14F800605BCB /* UserSocialMainAlbumTableViewCell.swift */,
 				6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */,
+				617B7DAE1E3F367B0059606A /* UserProfileCommentsForOwnPhotosTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 				81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */,
 				04E93EF51E36141F0044820D /* SignupViewController.swift */,
 				AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */,
+				617B7DB01E3F37800059606A /* UserProfileCommentsForOwnPhotosTableViewController.swift */,
 				61C264FF1E3D092B006C1B53 /* UserProfileDetailsForLikedPhotosViewController.swift */,
 				61B51EF31E3E2EC9009FA564 /* UserProfileDetailsForOwnPhotosViewController.swift */,
 				619644A51E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift */,
@@ -733,6 +739,7 @@
 				04E93EF61E36141F0044820D /* SignupViewController.swift in Sources */,
 				046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */,
 				04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */,
+				617B7DAF1E3F367B0059606A /* UserProfileCommentsForOwnPhotosTableViewCell.swift in Sources */,
 				046D01321E37A9E3004D1A25 /* AdminEventsGalleryCommentsViewController.swift in Sources */,
 				61B51EF41E3E2EC9009FA564 /* UserProfileDetailsForOwnPhotosViewController.swift in Sources */,
 				04ED183D1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift in Sources */,
@@ -772,6 +779,7 @@
 				811DA5581DEFF34100817B71 /* LoginDM.swift in Sources */,
 				8175B12F1DEFE18000FCB205 /* Student.swift in Sources */,
 				040CA3181E39002B00765193 /* AdminEventsGalleryViewController.swift in Sources */,
+				617B7DB11E3F37800059606A /* UserProfileCommentsForOwnPhotosTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,6 +38,7 @@ class UserSocialDM: NSObject {
     static func retrieveAllSocial(onComplete: @escaping ([Social])->Void){
         var socialList : [Social] = []
         var likedByList : [PhotoLike] = []
+        var commentList : [PhotoComment] = []
         
         let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
         
@@ -72,6 +73,21 @@ class UserSocialDM: NSObject {
                     p.adminNo = l.key
                     p.isLike = (l.childSnapshot(forPath: "isLiked").value as? Int)!
                     
+                    //Child nodes
+                    commentList = []
+                    let comments = l.childSnapshot(forPath: "comments").children
+                    for commented in comments{
+                        let c = commented as! FIRDataSnapshot
+                        
+                        let pc = PhotoComment()
+                        pc.commentId = c.key
+                        pc.username = c.childSnapshot(forPath: "username").value as! String
+                        pc.comment = c.childSnapshot(forPath: "comment").value as! String
+                        
+                        commentList.append(pc)
+                    }
+
+                    p.comments = commentList
                     likedByList.append(p)
                 }
                 
@@ -309,15 +325,10 @@ class UserSocialDM: NSObject {
     static func reportPhoto(socialId : String, currentUserId : String, flagReason : String){
         let refLikedBy = FIRDatabase.database().reference().child("social/\(socialId)/")
         
-        refLikedBy.observeSingleEvent(of: .value, with:
-            { (snapshot) in
-                
-                let s = Social()
-                refLikedBy.setValue([
-                    "isFlagged" : 1,
-                    "flagReason" : s.flagReason
-                    ])
-        })
+        refLikedBy.updateChildValues([
+            "isFlagged" : 1,
+            "flagReason" : flagReason
+            ])
     }
 
     static func updateNoOfPhotoLikes(socialId : String, currentUserId : String){
