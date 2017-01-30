@@ -25,6 +25,16 @@ class UserSocialMainListTableViewController: UITableViewController {
         UserSocialDM.retrieveAllSocial{(dbList) in
             self.socialList = dbList
             self.tableView.reloadData()
+            
+            
+            if(self.socialList.count == 0){
+                let alert = UIAlertView(title: "",
+                                        message: "No Photos Available Currently",
+                                        delegate: nil,
+                                        cancelButtonTitle: "Ok")
+                alert.show()
+                
+            }
         }
         
         self.tableView.delegate = self

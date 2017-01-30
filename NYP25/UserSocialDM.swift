@@ -91,8 +91,10 @@ class UserSocialDM: NSObject {
                     likedByList.append(p)
                 }
                 
-                s.likes = likedByList
-                socialList.append(s)
+                if(s.isFlagged == 0){
+                    s.likes = likedByList
+                    socialList.append(s)
+                }
             }
             
             onComplete(socialList)
