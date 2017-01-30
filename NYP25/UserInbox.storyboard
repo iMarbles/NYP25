@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lUQ-dJ-PGA">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZEG-y3-IXg">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,36 +9,267 @@
     </dependencies>
     <scenes>
         <!--Inbox-->
-        <scene sceneID="vWq-ou-6wG">
+        <scene sceneID="aUS-33-KRT">
             <objects>
-                <viewController storyboardIdentifier="UserInbox" id="lUQ-dJ-PGA" sceneMemberID="viewController">
+                <tableViewController id="fO5-gn-3BE" customClass="UserInboxTableViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="87" sectionHeaderHeight="28" sectionFooterHeight="28" id="s9s-eN-8HW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="InboxCell" rowHeight="87" id="sKf-At-fX6" customClass="UserInboxMainTableViewCell" customModule="NYP25" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="87"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sKf-At-fX6" id="hQR-I3-3NZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdo-Nq-lTS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="116.5"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ellipsis-100" translatesAutoresizingMaskIntoConstraints="NO" id="CYY-2Z-DZa">
+                                                    <rect key="frame" x="8" y="8" width="100" height="100.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="5mj-H8-CD2"/>
+                                                        <constraint firstAttribute="width" constant="100" id="D4d-XF-db8"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJ8-9z-pdP">
+                                                    <rect key="frame" x="108" y="8" width="10" height="100.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="10" id="6Nn-Ns-7wQ"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate XXX" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBQ-jQ-nfV">
+                                                    <rect key="frame" x="118" y="8" width="249" height="100.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="Pdo-Nq-lTS" secondAttribute="bottom" id="3P8-17-ezb"/>
+                                        <constraint firstItem="Pdo-Nq-lTS" firstAttribute="leading" secondItem="hQR-I3-3NZ" secondAttribute="leading" id="uTe-h0-WWW"/>
+                                        <constraint firstAttribute="trailing" secondItem="Pdo-Nq-lTS" secondAttribute="trailing" id="ww3-RM-lmI"/>
+                                        <constraint firstItem="Pdo-Nq-lTS" firstAttribute="top" secondItem="hQR-I3-3NZ" secondAttribute="top" id="xFO-Be-c4t"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="eventImg" destination="CYY-2Z-DZa" id="ZBS-FX-sUc"/>
+                                    <outlet property="rateLbl" destination="gBQ-jQ-nfV" id="pUI-m5-C1H"/>
+                                    <segue destination="tyt-La-DIZ" kind="show" identifier="RateEvent" id="W0p-GO-4UQ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fO5-gn-3BE" id="ddB-cY-biL"/>
+                            <outlet property="delegate" destination="fO5-gn-3BE" id="hvo-yv-mRW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Inbox" id="TmR-sS-alU"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Jd-MD-eia" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="488.80000000000001" y="252.32383808095955"/>
+        </scene>
+        <!--Rate the Event-->
+        <scene sceneID="jfg-XD-RJq">
+            <objects>
+                <viewController id="tyt-La-DIZ" customClass="UserInboxRateViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Cdc-uF-aCD"/>
-                        <viewControllerLayoutGuide type="bottom" id="MQ2-Xi-f2E"/>
+                        <viewControllerLayoutGuide type="top" id="Whx-t7-vzG"/>
+                        <viewControllerLayoutGuide type="bottom" id="aRs-2i-c5K"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Mks-tN-teJ">
+                    <view key="view" contentMode="scaleToFill" id="0h8-cR-YEd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Inbox" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGU-Fe-rtD">
-                                <rect key="frame" x="105" y="291" width="165" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="49n-oW-S0r">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1k-0W-U9i">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="TmS-9G-YMz"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bBd-vv-Qfm">
+                                        <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="81C-jN-Ivj">
+                                                <rect key="frame" x="10" y="8" width="357" height="24"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="8" left="10" bottom="8" right="8"/>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cIv-18-qLR">
+                                        <rect key="frame" x="0.0" y="60" width="375" height="20"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="Hoy-Uv-QwJ"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="me6-Yw-pQH">
+                                        <rect key="frame" x="0.0" y="80" width="375" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCT-uq-fh0">
+                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="D8H-wH-OTc"/>
+                                                </constraints>
+                                            </view>
+                                            <imageView tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star-50" translatesAutoresizingMaskIntoConstraints="NO" id="X1a-5g-eXu">
+                                                <rect key="frame" x="53.5" y="0.0" width="53.5" height="50"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="W64-Qx-lfy" appends="YES" id="aeJ-2X-hoS"/>
+                                                </connections>
+                                            </imageView>
+                                            <imageView tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star-50" translatesAutoresizingMaskIntoConstraints="NO" id="5O7-wV-gAl">
+                                                <rect key="frame" x="107" y="0.0" width="53.5" height="50"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="rBY-Hn-5Fy" appends="YES" id="3RS-RN-QNi"/>
+                                                </connections>
+                                            </imageView>
+                                            <imageView tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star-50" translatesAutoresizingMaskIntoConstraints="NO" id="0ua-O4-X5g">
+                                                <rect key="frame" x="160.5" y="0.0" width="54" height="50"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="RL3-df-UqY" appends="YES" id="p5f-o6-XV1"/>
+                                                </connections>
+                                            </imageView>
+                                            <imageView tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star-50" translatesAutoresizingMaskIntoConstraints="NO" id="qM6-d1-iXQ">
+                                                <rect key="frame" x="214.5" y="0.0" width="53.5" height="50"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="lI5-gT-hIm" appends="YES" id="UxZ-vd-trm"/>
+                                                </connections>
+                                            </imageView>
+                                            <imageView tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star-50" translatesAutoresizingMaskIntoConstraints="NO" id="w9R-YG-roR">
+                                                <rect key="frame" x="268" y="0.0" width="53.5" height="50"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="dbv-N8-1vI" appends="YES" id="ceH-GW-RAs"/>
+                                                </connections>
+                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avd-Q3-BOS">
+                                                <rect key="frame" x="321.5" y="0.0" width="53.5" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="YLN-Rc-j2U"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Y9Q-ye-y8o">
+                                        <rect key="frame" x="0.0" y="130" width="375" height="166"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="n2S-jC-vbh">
+                                                <rect key="frame" x="8" y="8" width="359" height="150"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="lhj-Q2-Amc"/>
+                                                </constraints>
+                                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ChG-kK-J5Y">
+                                        <rect key="frame" x="0.0" y="296" width="375" height="307"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="49n-oW-S0r" firstAttribute="top" secondItem="Whx-t7-vzG" secondAttribute="bottom" id="KdK-Y0-9Ub"/>
+                            <constraint firstAttribute="bottom" secondItem="49n-oW-S0r" secondAttribute="bottom" id="dx3-nA-Bfw"/>
+                            <constraint firstItem="49n-oW-S0r" firstAttribute="leading" secondItem="0h8-cR-YEd" secondAttribute="leading" id="ezq-X3-pOC"/>
+                            <constraint firstAttribute="trailing" secondItem="49n-oW-S0r" secondAttribute="trailing" id="zhz-zI-Q63"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Inbox" image="Inbox-30" id="LGz-Tx-IZ2"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem key="navigationItem" title="Rate the Event" id="Itb-xH-vyc">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="dBB-dK-i9H">
+                            <connections>
+                                <action selector="submitFeedbackWithSneder:" destination="tyt-La-DIZ" id="bo2-Zc-JNm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="commentTb" destination="n2S-jC-vbh" id="bJw-is-7vn"/>
+                        <outlet property="eventNameLbl" destination="81C-jN-Ivj" id="B8i-S7-UR1"/>
+                        <outlet property="star1" destination="X1a-5g-eXu" id="Bh7-FH-Efc"/>
+                        <outlet property="star2" destination="5O7-wV-gAl" id="U3z-iU-1g7"/>
+                        <outlet property="star3" destination="0ua-O4-X5g" id="1RS-YB-qwL"/>
+                        <outlet property="star4" destination="qM6-d1-iXQ" id="1qj-g1-wgD"/>
+                        <outlet property="star5" destination="w9R-YG-roR" id="nCa-hz-hfp"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cCX-PX-boM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pvl-Ju-ydu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="W64-Qx-lfy">
+                    <connections>
+                        <action selector="starTappedWithSender:" destination="tyt-La-DIZ" id="qgT-Je-trk"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="rBY-Hn-5Fy">
+                    <connections>
+                        <action selector="starTappedWithSender:" destination="tyt-La-DIZ" id="1Uk-zC-upE"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="RL3-df-UqY">
+                    <connections>
+                        <action selector="starTappedWithSender:" destination="tyt-La-DIZ" id="ltr-JR-m6N"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="lI5-gT-hIm">
+                    <connections>
+                        <action selector="starTappedWithSender:" destination="tyt-La-DIZ" id="8yb-0M-Y0w"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="dbv-N8-1vI">
+                    <connections>
+                        <action selector="starTappedWithSender:" destination="tyt-La-DIZ" id="AZQ-Hd-Y82"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-250" y="3"/>
+            <point key="canvasLocation" x="1428" y="251.42428785607197"/>
+        </scene>
+        <!--Inbox-->
+        <scene sceneID="D2g-K5-BcL">
+            <objects>
+                <navigationController storyboardIdentifier="UserInbox" id="ZEG-y3-IXg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Inbox" image="Inbox-30" id="j3X-34-0Oi"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vEP-Ap-4lx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fO5-gn-3BE" kind="relationship" relationship="rootViewController" id="8yn-1a-Xdc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hcZ-M0-U5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-362" y="252"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Ellipsis-100" width="100" height="100"/>
         <image name="Inbox-30" width="30" height="30"/>
+        <image name="Star-50" width="50" height="50"/>
     </resources>
 </document>
