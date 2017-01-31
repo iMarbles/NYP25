@@ -23,7 +23,7 @@ class UserProfileMasterForSettingsViewController: UIViewController, UIImagePicke
     @IBOutlet var btnUpdateProfilePhoto : UIButton!
     @IBOutlet var btnChangeProfilePhoto : UIButton!
     
-    @IBOutlet weak var profilePhotoView : UIImageView?
+    @IBOutlet weak var profilePhotoView : UIImageView!
     @IBOutlet weak var selectedBadge : UIImageView?
     
     var profileGallery : [Badge] = []
@@ -33,17 +33,26 @@ class UserProfileMasterForSettingsViewController: UIViewController, UIImagePicke
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserSocialProfileMasterViewController.roundedEdgePhoto(image: selectedBadge!)
-        UserSocialProfileMasterViewController.circleFramePhoto(image: profilePhotoView!)
+//        UserSocialProfileMasterViewController.roundedEdgePhoto(image: selectedBadge!)
+//        UserSocialProfileMasterViewController.circleFramePhoto(image: profilePhotoView!)
 
         UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (userInfo) in
             self.bioField?.text = userInfo.bio
             self.nameLbl?.text = userInfo.name
             self.usernameLbl?.text = userInfo.username
             self.schLbl?.text = userInfo.school
-            UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView!, url: userInfo.displayPhotoUrl!)
+            UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView, url: userInfo.displayPhotoUrl!)
+            
+//            for like in photoLikes{
+//                if like.comments != nil{
+//                    for comment in like.comments!{
+//                        commentsList.append(comment)
+//                    }
+//                }
+//                
+//            }
         })
-        
+    
 //        UserProfileDM.retrieveUsersDisplayBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (u) in
 //            self.profileGallery = u
 //            UserSocialProfileMasterViewController.loadImage(imageView: self.selectedBadge!, url: u[0].icon)
