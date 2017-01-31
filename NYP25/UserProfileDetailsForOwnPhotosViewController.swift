@@ -24,15 +24,6 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //photoId from grid controller
-        /*
-        photoIdLbl.text = newLbl
-        pathIdLbl.text = pathLbl
-        socialIdLbl.text = newSocialLbl
-         */
-        
-        //UserSocialProfileMasterViewController.loadImage(imageView: self.photoImage, url: newSocialLbl)
-        
         //Edited by Amabel
         photoIdLbl.text = socialImg?.eventId
         pathIdLbl.text = socialImg?.photoUrl

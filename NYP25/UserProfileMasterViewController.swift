@@ -10,9 +10,7 @@ import UIKit
 
 class UserProfileMasterViewController: UIViewController {
     
-//    @IBOutlet weak var badgesView : UIView?
     @IBOutlet weak var selfPhotoView : UIView?
-//    @IBOutlet weak var likedPhotosView : UIView?
     
     @IBOutlet weak var profilePhotoView : UIImageView?
     
@@ -21,54 +19,44 @@ class UserProfileMasterViewController: UIViewController {
     @IBOutlet weak var schoolLbl : UILabel?
     @IBOutlet weak var selectedBadge : UIImageView?
     
-    var profileGallery : [Badge] = []
+    var studentList : [Student] = []
+    var badgeList : [Badge] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UserSocialProfileMasterViewController.roundedEdgePhoto(image: selectedBadge!)
-        UserSocialProfileMasterViewController.circleFramePhoto(image: profilePhotoView!)
-        
-//        badgesView?.isHidden = false
-//        selfPhotoView?.isHidden = true
-//        likedPhotosView?.isHidden = true
-        
+       
         UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (user) in
             self.title = user.username
             self.bioLbl?.text = user.bio
             self.schoolLbl?.text = user.school
             self.currentPoints?.text = String(describing: user.points)
             UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView!, url: user.displayPhotoUrl!)
+            UserSocialProfileMasterViewController.circleFramePhoto(image: self.profilePhotoView!)
         })
 
-//        UserProfileDM.retrieveUsersDisplayBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (u) in
-//            self.profileGallery = u
-//            UserSocialProfileMasterViewController.loadImage(imageView: self.selectedBadge!, url: u[0].icon)
-//        })
+        
+        //for badge retrieval as array
+        UserProfileDM.retrieveAllStudentInfo(onComplete: {(studList) in
+            self.studentList = studList
+            
+            for a in self.studentList{
+                for b in a.badges!{
+                    if(b.isDisplay == 1){
+                        self.badgeList.append(b)
+                        UserSocialProfileMasterViewController.loadImage(
+                            imageView: self.selectedBadge!,
+                            url: b.icon)
+                        UserSocialProfileMasterViewController.roundedEdgePhoto(image: self.selectedBadge!)
+                    }
+                }
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-//    @IBAction func btnSelfPhoto(sender: UIButton){
-//        badgesView?.isHidden = true
-//        selfPhotoView?.isHidden = false
-//        likedPhotosView?.isHidden = true
-//    }
-//    
-//    @IBAction func btnLikedPhotos(sender: UIButton){
-//        badgesView?.isHidden = true
-//        selfPhotoView?.isHidden = true
-//        likedPhotosView?.isHidden = false
-//    }
-//    
-//    @IBAction func btnBadges(sender: UIButton){
-//        badgesView?.isHidden = false
-//        selfPhotoView?.isHidden = true
-//        likedPhotosView?.isHidden = true
-//    }
     
     @IBAction func btnLogout(_ sender : AnyObject){
         GlobalDM.CurrentUser = User()
