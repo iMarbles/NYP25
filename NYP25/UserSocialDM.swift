@@ -177,8 +177,11 @@ class UserSocialDM: NSObject {
                 e.eventId = r.key
                 e.name = r.childSnapshot(forPath: "name").value as? String
                 e.imageUrl = r.childSnapshot(forPath: "image").value as? String
+                e.status = r.childSnapshot(forPath: "status").value as! String
                 
-                eventNames.append(e)
+                if(e.status == "O"){
+                    eventNames.append(e)
+                }
                 
                 onComplete(eventNames)
             }
