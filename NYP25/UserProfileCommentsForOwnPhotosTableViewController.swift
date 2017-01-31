@@ -53,10 +53,17 @@ class UserProfileCommentsForOwnPhotosTableViewController: UITableViewController 
             }
         }
         
-        let cl = commentList[(indexPath as IndexPath).row]
-        cell.usernameLbl.text = cl.username
-        cell.commentLbl.text = cl.comment
-        
+        if(commentList.count != 0){
+            cell.usernameLbl.text = commentList[(indexPath as IndexPath).row].username
+            cell.commentLbl.text = commentList[(indexPath as IndexPath).row].comment
+        }else{
+            let alert = UIAlertView(title: "",
+                                    message: "No comments currently",
+                                    delegate: nil,
+                                    cancelButtonTitle: "Ok")
+            alert.show()
+        }
+    
         return cell
     }
 }
