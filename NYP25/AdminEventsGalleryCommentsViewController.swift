@@ -27,13 +27,16 @@ class AdminEventsGalleryCommentsViewController: UIViewController, UITableViewDel
         }
         
         commentsList.sort { (a, b) -> Bool in
-            if a.timestamp > b.timestamp{
-                return true
+            if a.timestamp != nil && b.timestamp != nil{
+                if a.timestamp! > b.timestamp!{
+                    return true
+                }else{
+                    return false
+                }
             }else{
-                return false
+                return true
             }
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
