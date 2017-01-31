@@ -23,31 +23,41 @@ class UserProfileMasterForSettingsViewController: UIViewController, UIImagePicke
     @IBOutlet var btnUpdateProfilePhoto : UIButton!
     @IBOutlet var btnChangeProfilePhoto : UIButton!
     
-    @IBOutlet weak var profilePhotoView : UIImageView?
+    @IBOutlet weak var profilePhotoView : UIImageView!
     @IBOutlet weak var selectedBadge : UIImageView?
     
-    var profileGallery : [Badge] = []
+    var studentList : [Student] = []
+    var badgeList : [Badge] = []
     
     var imagePicker = UIImagePickerController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UserSocialProfileMasterViewController.roundedEdgePhoto(image: selectedBadge!)
-        UserSocialProfileMasterViewController.circleFramePhoto(image: profilePhotoView!)
 
         UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (userInfo) in
             self.bioField?.text = userInfo.bio
             self.nameLbl?.text = userInfo.name
             self.usernameLbl?.text = userInfo.username
             self.schLbl?.text = userInfo.school
-            UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView!, url: userInfo.displayPhotoUrl!)
+            UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView, url: userInfo.displayPhotoUrl!)
+            UserSocialProfileMasterViewController.circleFramePhoto(image: self.profilePhotoView!)
         })
         
-//        UserProfileDM.retrieveUsersDisplayBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (u) in
-//            self.profileGallery = u
-//            UserSocialProfileMasterViewController.loadImage(imageView: self.selectedBadge!, url: u[0].icon)
-//        })
+        UserProfileDM.retrieveAllStudentInfo(onComplete: {(studList) in
+            self.studentList = studList
+            
+            for a in self.studentList{
+                for b in a.badges!{
+                    if(b.isDisplay == 1){
+                        self.badgeList.append(b)
+                        UserSocialProfileMasterViewController.loadImage(
+                            imageView: self.selectedBadge!,
+                            url: b.icon)
+                        UserSocialProfileMasterViewController.roundedEdgePhoto(image: self.selectedBadge!)
+                    }
+                }
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
