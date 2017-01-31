@@ -108,10 +108,10 @@
 		81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */; };
 		81FADAFF1DE4453E007D27C8 /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */; };
 		81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */; };
-		9FAD32C31E40571600A180A3 /* UserEventDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAD32C21E40571600A180A3 /* UserEventDM.swift */; };
-		9FAD32C71E40572300A180A3 /* UserEvents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAD32C61E40572300A180A3 /* UserEvents.storyboard */; };
-		9FAD32CB1E4057A800A180A3 /* UserEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAD32CA1E4057A800A180A3 /* UserEventsTableViewCell.swift */; };
 		9FAD32CD1E408C8900A180A3 /* UserEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAD32CC1E408C8900A180A3 /* UserEventsTableViewController.swift */; };
+		9FAD32CF1E408DF200A180A3 /* UserEventDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAD32CE1E408DF200A180A3 /* UserEventDM.swift */; };
+		9FAD32D11E408E0300A180A3 /* UserEvents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAD32D01E408E0300A180A3 /* UserEvents.storyboard */; };
+		9FAD32D31E408E1100A180A3 /* UserEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAD32D21E408E1100A180A3 /* UserEventsTableViewCell.swift */; };
 		9FFC15051E350A4200037BD2 /* RegisterDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC15041E350A4200037BD2 /* RegisterDM.swift */; };
 		AF45108B1E35CCAD00789FD0 /* UserLeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */; };
 /* End PBXBuildFile section */
@@ -286,10 +286,10 @@
 		81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
 		81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		9FAD32C21E40571600A180A3 /* UserEventDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserEventDM.swift; path = ../../../Desktop/NYP25/NYP25/UserEventDM.swift; sourceTree = "<group>"; };
-		9FAD32C61E40572300A180A3 /* UserEvents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = UserEvents.storyboard; path = ../../../Desktop/NYP25/NYP25/UserEvents.storyboard; sourceTree = "<group>"; };
-		9FAD32CA1E4057A800A180A3 /* UserEventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserEventsTableViewCell.swift; path = ../../../Desktop/NYP25/NYP25/UserEventsTableViewCell.swift; sourceTree = "<group>"; };
 		9FAD32CC1E408C8900A180A3 /* UserEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventsTableViewController.swift; sourceTree = "<group>"; };
+		9FAD32CE1E408DF200A180A3 /* UserEventDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventDM.swift; sourceTree = "<group>"; };
+		9FAD32D01E408E0300A180A3 /* UserEvents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserEvents.storyboard; sourceTree = "<group>"; };
+		9FAD32D21E408E1100A180A3 /* UserEventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventsTableViewCell.swift; sourceTree = "<group>"; };
 		9FFC15041E350A4200037BD2 /* RegisterDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDM.swift; sourceTree = "<group>"; };
 		AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLeaderboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -354,7 +354,7 @@
 				61B4431B1E32437F00E3EE94 /* UserProfileDM.swift */,
 				9FFC15041E350A4200037BD2 /* RegisterDM.swift */,
 				04EB65391E3F3B8E0012E765 /* UserInboxDM.swift */,
-				9FAD32C21E40571600A180A3 /* UserEventDM.swift */,
+				9FAD32CE1E408DF200A180A3 /* UserEventDM.swift */,
 			);
 			name = DataManager;
 			sourceTree = "<group>";
@@ -462,7 +462,7 @@
 				6126470D1E2E64E7008DC73A /* UserSocialMainListTableViewCell.swift */,
 				617B7DAE1E3F367B0059606A /* UserProfileCommentsForOwnPhotosTableViewCell.swift */,
 				04EB65331E3F02D60012E765 /* UserInboxMainTableViewCell.swift */,
-				9FAD32CA1E4057A800A180A3 /* UserEventsTableViewCell.swift */,
+				9FAD32D21E408E1100A180A3 /* UserEventsTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -544,7 +544,7 @@
 				81FADAA01DE43912007D27C8 /* AppDelegate.swift */,
 				81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */,
 				81FADAA41DE43912007D27C8 /* Login.storyboard */,
-				9FAD32C61E40572300A180A3 /* UserEvents.storyboard */,
+				9FAD32D01E408E0300A180A3 /* UserEvents.storyboard */,
 				27B88D7F1DF2B9DD0045C98B /* UserInbox.storyboard */,
 				27B88D811DF2B9ED0045C98B /* UserLeaderboard.storyboard */,
 				27B88D7B1DF2B9B80045C98B /* UserMain.storyboard */,
@@ -695,7 +695,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FAD32C71E40572300A180A3 /* UserEvents.storyboard in Resources */,
+				9FAD32D11E408E0300A180A3 /* UserEvents.storyboard in Resources */,
 				27B88D821DF2B9ED0045C98B /* UserLeaderboard.storyboard in Resources */,
 				27B88D7E1DF2B9CD0045C98B /* UserProfile.storyboard in Resources */,
 				040CA30D1E38B8F700765193 /* Assets.xcassets in Resources */,
@@ -730,6 +730,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FAD32CF1E408DF200A180A3 /* UserEventDM.swift in Sources */,
 				61B443241E32801500E3EE94 /* UserProfileViewBadgesCollectionViewController.swift in Sources */,
 				61ABEC491E2B392500786152 /* UserSocialSelectImageViewController.swift in Sources */,
 				04E6489B1E1537BE00651FA5 /* AdminEventGalleryCollectionViewCell.swift in Sources */,
@@ -739,6 +740,7 @@
 				61C130C11E289901006E4191 /* UserSocialDM.swift in Sources */,
 				04EA47351E13DACB006797D9 /* AdminEventsMasterDetailViewController.swift in Sources */,
 				04ED183B1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift in Sources */,
+				9FAD32D31E408E1100A180A3 /* UserEventsTableViewCell.swift in Sources */,
 				04E864D61E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift in Sources */,
 				61B25FFB1E37E13B0090A70D /* UserProfileEditPasswordViewController.swift in Sources */,
 				8166BC4F1DF685AD00FAA37C /* Leaderboard.swift in Sources */,
@@ -785,8 +787,6 @@
 				816A87BA1DF1467300232C08 /* BridgingHeader.m in Sources */,
 				61B443281E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift in Sources */,
 				610EACF01E3B7012002823C9 /* UserProfileSettingsViewBadgesCollectionViewController.swift in Sources */,
-				9FAD32C31E40571600A180A3 /* UserEventDM.swift in Sources */,
-				9FAD32CB1E4057A800A180A3 /* UserEventsTableViewCell.swift in Sources */,
 				040CA3171E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift in Sources */,
 				04F1DBE61E3A8AD300962312 /* AdminEventsAttendanceViewController.swift in Sources */,
 				04EF86911E10E01400842FC4 /* AdminEventsMapViewController.swift in Sources */,
