@@ -34,6 +34,8 @@ class UserProfileMasterViewController: UIViewController {
             UserSocialProfileMasterViewController.circleFramePhoto(image: self.profilePhotoView!)
         })
 
+        
+        //for badge retrieval as array
         UserProfileDM.retrieveAllStudentInfo(onComplete: {(studList) in
             self.studentList = studList
             
