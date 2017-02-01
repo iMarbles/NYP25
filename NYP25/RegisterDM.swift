@@ -16,32 +16,32 @@ class RegisterDM: NSObject {
         return digestData
     }
     
-    static func createUser(user : User, student : Student) {
-//        let ref = FIRDatabase.database().reference()
-//        ref.child("users/").child("new").setValue(user)
-            let key = FIRDatabase.database().reference().child("events").childByAutoId().key
-            let ref = FIRDatabase.database().reference().child("events/\(key)/")
-            
-//            ref.setValue([
-//                "name" : event.name,
-//                "address" : event.address,
-//                "description" : event.desc,
-//                "date" : event.date,
-//                "startTime" : event.startTime,
-//                "endTime" : event.endTime,
-//                "status" : event.status
-//                ])
+//    static func createUser(user : User, student : Student) {
+////        let ref = FIRDatabase.database().reference()
+////        ref.child("users/").child("new").setValue(user)
+//            let key = FIRDatabase.database().reference().child("events").childByAutoId().key
+//            let ref = FIRDatabase.database().reference().child("events/\(key)/")
 //            
-//            //Upload the image
-//            if(eventImage != nil){
-//                uploadEventImage(eventImage: eventImage!, eventId: key)
-//            }
-//            
-//            //Upload the badge
-//            if(eventBadge != nil){
-//                uploadEventBadge(eventBadge: eventBadge!, eventId: key)
-//            }
-        }
+////            ref.setValue([
+////                "name" : event.name,
+////                "address" : event.address,
+////                "description" : event.desc,
+////                "date" : event.date,
+////                "startTime" : event.startTime,
+////                "endTime" : event.endTime,
+////                "status" : event.status
+////                ])
+////            
+////            //Upload the image
+////            if(eventImage != nil){
+////                uploadEventImage(eventImage: eventImage!, eventId: key)
+////            }
+////            
+////            //Upload the badge
+////            if(eventBadge != nil){
+////                uploadEventBadge(eventBadge: eventBadge!, eventId: key)
+////            }
+//        }
     
     
     //Login User
