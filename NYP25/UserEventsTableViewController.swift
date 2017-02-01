@@ -13,22 +13,23 @@ class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var tableView: UITableView!
 
     var eventsList : [Event] = []
-    
+    var eventToPass : Event = Event()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UserEventDM.loadEvents { (eventListFromDatabase) in
-            self.eventsList = eventListFromDatabase
-            self.tableView.reloadData()
-        }
-        
-        
+        loadEvents()
         for (index, element) in eventsList.enumerated() {
             print("Item \(index): \(element)")
         }
         
         tableView.reloadData()
 
+    }
+    
+    func loadEvents() {
+        UserEventDM.loadEvents { (eventListFromDatabase) in
+            self.eventsList = eventListFromDatabase
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,8 +69,22 @@ class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITa
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        eventToPass = eventsList[indexPath.row]
+//        tableView.indexPathForSelectedRow();
+        performSegue(withIdentifier: "viewEventDetails", sender: self)
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewEventDetails"{
+            let dest = segue.destination as! UserEventDetailsViewController
+            dest.event = eventToPass
+        }
+    }
  
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
