@@ -9,8 +9,9 @@
 import UIKit
 import Charts
 import CoreLocation
+import MapKit
 
-class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate {
+class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var green: UIImageView!
     @IBOutlet weak var blue: UIImageView!
@@ -45,7 +46,9 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     @IBOutlet weak var dataView: UIView!
-    @IBOutlet weak var mapView: UIView!
+    @IBOutlet weak var mapView: MKMapView!
+    
+  //  @IBOutlet weak var mapView : MKMapView!
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
@@ -88,10 +91,58 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         locationManager?.startUpdatingLocation();
     }
     
+    var lastLocationUpdateTime : Date = Date()
+    // This function receives information about the change of the
+    // user’s GPS location. The locations array may contain one
+    // or more location updates that were collected in-between calls
+    // to this function.
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation])
+    {
+        // There are multiple locations, but we are only
+        // interested in the last one.
+        let newLocation = locations.last!;
+        // Get find out how old (in seconds) this data was.
+        let howRecent =
+            self.lastLocationUpdateTime.timeIntervalSinceNow;
+        // Handle only recent events to save power.
+        if (abs(howRecent) > 15)
+        {
+            print("Longitude = \(newLocation.coordinate.longitude)");
+            print("Latitude = \(newLocation.coordinate.latitude)");
+            self.lastLocationUpdateTime = Date()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didFailWithError error: Error) {
+        print("Could not find location: \(error)");
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.showsUserLocation = true
+        mapView.mapType = MKMapType.standard
+        //configure user interactions
+        mapView.isZoomEnabled = true
+        mapView.isScrollEnabled = true
+        mapView.delegate = self;
+        //Set the region and zoom level
+        var span = MKCoordinateSpan()
+        span.longitudeDelta = 0.02
+        span.latitudeDelta = 0.02
+        //Set the region and zoom level
+        var location = CLLocationCoordinate2D()
+        location.latitude = 1.38012
+        location.longitude = 103.85023
+        //amount of map to display
+        var region = MKCoordinateRegion()
+        region.span = span
+        region.center = location
+        //Set to the region with animated effect
+        mapView.setRegion(region, animated:true)
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
