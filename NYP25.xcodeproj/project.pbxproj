@@ -112,6 +112,7 @@
 		9FAD32CF1E408DF200A180A3 /* UserEventDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAD32CE1E408DF200A180A3 /* UserEventDM.swift */; };
 		9FAD32D11E408E0300A180A3 /* UserEvents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAD32D01E408E0300A180A3 /* UserEvents.storyboard */; };
 		9FAD32D31E408E1100A180A3 /* UserEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAD32D21E408E1100A180A3 /* UserEventsTableViewCell.swift */; };
+		9FE25E1E1E41A7AD00C13597 /* UserEventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE25E1D1E41A7AD00C13597 /* UserEventDetailsViewController.swift */; };
 		9FFC15051E350A4200037BD2 /* RegisterDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC15041E350A4200037BD2 /* RegisterDM.swift */; };
 		AF45108B1E35CCAD00789FD0 /* UserLeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */; };
 /* End PBXBuildFile section */
@@ -290,6 +291,7 @@
 		9FAD32CE1E408DF200A180A3 /* UserEventDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventDM.swift; sourceTree = "<group>"; };
 		9FAD32D01E408E0300A180A3 /* UserEvents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserEvents.storyboard; sourceTree = "<group>"; };
 		9FAD32D21E408E1100A180A3 /* UserEventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventsTableViewCell.swift; sourceTree = "<group>"; };
+		9FE25E1D1E41A7AD00C13597 /* UserEventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventDetailsViewController.swift; sourceTree = "<group>"; };
 		9FFC15041E350A4200037BD2 /* RegisterDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDM.swift; sourceTree = "<group>"; };
 		AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLeaderboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -512,6 +514,7 @@
 				04EB65371E3F3A7B0012E765 /* UserInboxTableViewController.swift */,
 				04ECF5671E3F7F3E009767DE /* UserInboxRateViewController.swift */,
 				9FAD32CC1E408C8900A180A3 /* UserEventsTableViewController.swift */,
+				9FE25E1D1E41A7AD00C13597 /* UserEventDetailsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -776,6 +779,7 @@
 				61B443261E32802500E3EE94 /* UserProfileViewOwnPhotosCollectionViewController.swift in Sources */,
 				6126470A1E2E64DA008DC73A /* UserSocialMainListTableViewController.swift in Sources */,
 				81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */,
+				9FE25E1E1E41A7AD00C13597 /* UserEventDetailsViewController.swift in Sources */,
 				61B4431C1E32437F00E3EE94 /* UserProfileDM.swift in Sources */,
 				8166BC511DF6862100FAA37C /* Social.swift in Sources */,
 				04ECCCCF1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift in Sources */,
