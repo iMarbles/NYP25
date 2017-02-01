@@ -18,7 +18,9 @@ class UserSocialMasterForProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        self.profilePhotoView.image = UIImage(named: "loading-512")
+
         UserSocialProfileMasterViewController.circleFramePhoto(image: profilePhotoView!)
 
         UserSocialDM.retrieveAllUserInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (user) in

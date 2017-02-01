@@ -10,5 +10,11 @@ import UIKit
 
 class UserProfileViewOwnPhotosCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ownPhotos : UIImageView!
+    
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.ownPhotos.image = UIImage(named: "loading-512")
+    }
 
 }

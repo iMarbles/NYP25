@@ -27,6 +27,8 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
         pathIdLbl.text = socialImg?.photoUrl
         socialIdLbl.text = socialImg?.socialId
         
+        self.photoImage.image = UIImage(named: "loading-512")
+        
         UserSocialProfileMasterViewController.loadImage(imageView: self.photoImage, url: (socialImg?.photoUrl)!)
     }
 

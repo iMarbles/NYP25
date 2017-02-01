@@ -49,6 +49,8 @@ class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewControll
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ownPhotosCell", for: indexPath) as! UserProfileViewOwnPhotosCollectionViewCell
         
+        cell.ownPhotos?.image = UIImage(named: "loading-512")
+
         UserSocialProfileMasterViewController.loadImage(imageView: cell.ownPhotos, url: profileGallery[(indexPath as IndexPath).row].photoUrl!)
         
         return cell

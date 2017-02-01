@@ -26,7 +26,12 @@ class UserSocialMainListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var likeLbl: UILabel!
     @IBOutlet weak var hintLbl : UILabel!
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.mainListImageView.image = UIImage(named: "loading-512")
+    }
+    
 //    @IBAction func likeBtn(sender: UIButton!) {
 //        if let delegate = buttonDelegate {
 //            delegate.cellTapped(self)

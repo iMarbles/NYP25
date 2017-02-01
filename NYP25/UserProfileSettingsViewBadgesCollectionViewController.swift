@@ -48,6 +48,8 @@ class UserProfileSettingsViewBadgesCollectionViewController: UICollectionViewCon
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "badgeCell", for: indexPath) as! UserProfileSettingViewBadgesCollectionViewCell
         
+        cell.badgePhotos.image = UIImage(named: "loading-512")
+        
         UserSocialProfileMasterViewController.loadImage(imageView: cell.badgePhotos, url: profileGallery[(indexPath as IndexPath).row].icon)
         
         let p = profileGallery[(indexPath as IndexPath).row]
@@ -67,9 +69,7 @@ class UserProfileSettingsViewBadgesCollectionViewController: UICollectionViewCon
         var cell = collectionView.cellForItem(at: indexPath as IndexPath)
         cell?.layer.borderWidth = 2.0
         cell?.layer.borderColor = UIColor.red.cgColor
-        
-//        print("indexPath - \(profileGallery[(indexPath as IndexPath).row])")
-        
+                
         newBadgeSelected = profileGallery[(indexPath as IndexPath).row].badgeId
         print("newBadgeSelected - \(newBadgeSelected)")
         

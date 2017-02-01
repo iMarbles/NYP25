@@ -35,6 +35,8 @@ class UserSocialMainAlbumTableViewController: UITableViewController {
         var cell = tableView.dequeueReusableCell(withIdentifier: "AlbumTableCell", for: indexPath)
             as! UserSocialMainAlbumTableViewCell
         
+        cell.socialPhotoView?.image = UIImage(named: "loading-512")
+
         let s = eventNameList[(indexPath as IndexPath).row]
         cell.eventNameLbl.text = s.name
         cell.totalNoOfPhotosLbl.text = String(eventNameList.count)

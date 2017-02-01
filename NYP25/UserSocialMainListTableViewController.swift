@@ -57,6 +57,7 @@ class UserSocialMainListTableViewController: UITableViewController {
             as! UserSocialMainListTableViewCell
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.mainListImageView.image = UIImage(named: "loading-512")
         
         let s = socialList[(indexPath as IndexPath).row]
         cell.dateLbl.text = s.postedDateTime
