@@ -228,7 +228,7 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! AdminEventTableViewCell
         
         // Configure the cell...
-        cell.eventImg.image = UIImage(named: "Ellipsis-100")
+        cell.eventImg.image = UIImage(named: "loading-512")
         let e : Event
         if searchController.isActive && searchController.searchBar.text != ""{
            e = searchList[(indexPath as IndexPath).row]
@@ -250,7 +250,7 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
         if(e.imageUrl != nil){
             GlobalDM.loadImage(imageView: cell.eventImg, url: e.imageUrl!)
         }else{
-            cell.eventImg.image = UIImage(named: "Ellipsis-100")
+            cell.eventImg.image = UIImage(named: "loading-512")
         }
  
         return cell

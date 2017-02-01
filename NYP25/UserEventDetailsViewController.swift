@@ -12,7 +12,8 @@ import MapKit
 class UserEventDetailsViewController: UIViewController {
     
     var event: Event?
-    
+    var exists = false;
+    var eventList : [EventsInAttendance] = []
     @IBOutlet weak var eventBannerImg:UIImageView!
     @IBOutlet weak var eventLbl:UILabel!
     @IBOutlet weak var dateLbl:UILabel!
@@ -25,10 +26,39 @@ class UserEventDetailsViewController: UIViewController {
     var matchingItems: [MKMapItem] = [MKMapItem]()
     
     func goBtn(img: AnyObject) {
-        let alertController = UIAlertController(title: "Nice", message: "Something happens in the background", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        let adm = GlobalDM.CurrentUser?.userId
+        let eId = event!.eventId
+//        UserEventDM.checkIfInterestExists(adminNo: "142519G", eventId: event!.eventId, onComplete: {(exists) in
+//            if exists == true {
+//                print("Interest exists")
+//            }else{
+//                print("Interest does not exist")
+//            }
+//        })
+
+        UserEventDM.retrieveAllEventAttendance(adm: adm!, onComplete: {(att) in
+            self.eventList = att
+            self.checkEvent(eId: eId) // teh bool 'exists' cant be taken out rip
+        })
         
-        self.present(alertController, animated: true, completion: nil)
+        
+        print(exists)
+            
+        showAlert(title : "Nice", message : "Nothing interesting happens")
+        
+    }
+    
+    func checkEvent(eId: String) {
+        for i in eventList {
+            print(i.eventId + " ? " + eId)
+            if i.eventId == eId {
+                self.exists = true
+                print("Event match found")
+            } else {
+                
+            }
+        }
+
     }
 
     
@@ -65,9 +95,9 @@ class UserEventDetailsViewController: UIViewController {
             if error != nil {
                 print("Error occured in search: \(error!.localizedDescription)")
             } else if response!.mapItems.count == 0 {
-                print("No matches found")
+//                print("No matches found")
             } else {
-                print("Match found")
+//                print("Match found")
                 
                 for item in response!.mapItems {
 //                    print("Name = \(item.name)")
@@ -95,7 +125,7 @@ class UserEventDetailsViewController: UIViewController {
                     //These numbers are in screen CGPoints...
                     let edgeInset = UIEdgeInsetsMake(60, 65, 30, 40)
                     
-                    self.mapWidget.setVisibleMapRect(allAnnMapRect, edgePadding: edgeInset, animated: true)
+                    self.mapWidget.setVisibleMapRect(allAnnMapRect, edgePadding: edgeInset, animated: false)
 
                     break; // break from loop after first annotation is dropped
                 }
@@ -110,6 +140,13 @@ class UserEventDetailsViewController: UIViewController {
         btnImg.isUserInteractionEnabled = true
         btnImg.addGestureRecognizer(tapGestureRecognizer)
         // Do any additional setup after loading the view.
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+
     }
 
     

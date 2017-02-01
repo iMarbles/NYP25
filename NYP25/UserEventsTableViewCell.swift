@@ -17,7 +17,7 @@ class UserEventsTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.eventBannerImg.image = UIImage(named: "Ellipsis-100")
+        self.eventBannerImg.image = UIImage(named: "loading-512")
         self.eventLabel.text = "Loading..."
         self.dateLabel.text = nil;
         self.venueLabel.text = nil;

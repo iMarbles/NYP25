@@ -153,6 +153,7 @@
                         <outlet property="eventLbl" destination="YLd-cU-3rP" id="P3V-3H-7Qb"/>
                         <outlet property="mapWidget" destination="HhS-DV-vCe" id="jku-00-PYb"/>
                         <outlet property="venueLbl" destination="2iv-w2-64Y" id="gBW-Gc-aA7"/>
+                        <segue destination="hcH-LT-vwi" kind="show" id="Kzn-hd-dRh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5A1-4s-pQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,7 +182,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BsW-Gq-eRX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-184.80000000000001" y="-1304.7976011994003"/>
+            <point key="canvasLocation" x="-122" y="-1306"/>
         </scene>
         <!--Events-->
         <scene sceneID="kAd-We-j95">
