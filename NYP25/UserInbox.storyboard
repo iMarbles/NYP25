@@ -25,24 +25,24 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdo-Nq-lTS">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="116.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="516.5"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ellipsis-100" translatesAutoresizingMaskIntoConstraints="NO" id="CYY-2Z-DZa">
-                                                    <rect key="frame" x="8" y="8" width="100" height="100.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-512" translatesAutoresizingMaskIntoConstraints="NO" id="CYY-2Z-DZa">
+                                                    <rect key="frame" x="8" y="8" width="100" height="500.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="5mj-H8-CD2"/>
                                                         <constraint firstAttribute="width" constant="100" id="D4d-XF-db8"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJ8-9z-pdP">
-                                                    <rect key="frame" x="108" y="8" width="10" height="100.5"/>
+                                                    <rect key="frame" x="108" y="8" width="10" height="500.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="6Nn-Ns-7wQ"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate XXX" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBQ-jQ-nfV">
-                                                    <rect key="frame" x="118" y="8" width="249" height="100.5"/>
+                                                    <rect key="frame" x="118" y="8" width="249" height="500.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -121,49 +121,49 @@
                                         <rect key="frame" x="0.0" y="80" width="375" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qCT-uq-fh0">
-                                                <rect key="frame" x="0.0" y="0.0" width="53.5" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="54" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="D8H-wH-OTc"/>
                                                 </constraints>
                                             </view>
                                             <imageView tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star-50" translatesAutoresizingMaskIntoConstraints="NO" id="X1a-5g-eXu">
-                                                <rect key="frame" x="53.5" y="0.0" width="53.5" height="50"/>
+                                                <rect key="frame" x="54" y="0.0" width="53" height="50"/>
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="W64-Qx-lfy" appends="YES" id="aeJ-2X-hoS"/>
                                                 </connections>
                                             </imageView>
                                             <imageView tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star-50" translatesAutoresizingMaskIntoConstraints="NO" id="5O7-wV-gAl">
-                                                <rect key="frame" x="107" y="0.0" width="53.5" height="50"/>
+                                                <rect key="frame" x="107" y="0.0" width="54" height="50"/>
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="rBY-Hn-5Fy" appends="YES" id="3RS-RN-QNi"/>
                                                 </connections>
                                             </imageView>
                                             <imageView tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star-50" translatesAutoresizingMaskIntoConstraints="NO" id="0ua-O4-X5g">
-                                                <rect key="frame" x="160.5" y="0.0" width="54" height="50"/>
+                                                <rect key="frame" x="161" y="0.0" width="53" height="50"/>
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="RL3-df-UqY" appends="YES" id="p5f-o6-XV1"/>
                                                 </connections>
                                             </imageView>
                                             <imageView tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star-50" translatesAutoresizingMaskIntoConstraints="NO" id="qM6-d1-iXQ">
-                                                <rect key="frame" x="214.5" y="0.0" width="53.5" height="50"/>
+                                                <rect key="frame" x="214" y="0.0" width="54" height="50"/>
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="lI5-gT-hIm" appends="YES" id="UxZ-vd-trm"/>
                                                 </connections>
                                             </imageView>
                                             <imageView tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Star-50" translatesAutoresizingMaskIntoConstraints="NO" id="w9R-YG-roR">
-                                                <rect key="frame" x="268" y="0.0" width="53.5" height="50"/>
+                                                <rect key="frame" x="268" y="0.0" width="53" height="50"/>
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="dbv-N8-1vI" appends="YES" id="ceH-GW-RAs"/>
                                                 </connections>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avd-Q3-BOS">
-                                                <rect key="frame" x="321.5" y="0.0" width="53.5" height="50"/>
+                                                <rect key="frame" x="321" y="0.0" width="54" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="YLN-Rc-j2U"/>
@@ -180,7 +180,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="lhj-Q2-Amc"/>
                                                 </constraints>
-                                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -268,8 +268,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Ellipsis-100" width="100" height="100"/>
         <image name="Inbox-30" width="30" height="30"/>
         <image name="Star-50" width="50" height="50"/>
+        <image name="loading-512" width="500" height="500"/>
     </resources>
 </document>

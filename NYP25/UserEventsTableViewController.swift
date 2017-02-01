@@ -64,7 +64,7 @@ class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITa
         if(e.imageUrl != nil){
             GlobalDM.loadImage(imageView: cell.eventBannerImg, url: e.imageUrl!)
         }else{
-            cell.eventBannerImg.image = UIImage(named: "Ellipsis-100")
+            cell.eventBannerImg.image = UIImage(named: "loading-512")
         }
 
         
