@@ -8,8 +8,9 @@
 
 import UIKit
 import Charts
+import CoreLocation
 
-class UserLeaderboardViewController: UIViewController {
+class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var green: UIImageView!
     @IBOutlet weak var blue: UIImageView!
@@ -61,6 +62,32 @@ class UserLeaderboardViewController: UIViewController {
         }
     }
 
+    var locationManager : CLLocationManager?
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        //Create Location manager object
+        locationManager = CLLocationManager();
+        
+        //Set the delegate property of the location manager to self
+        locationManager?.delegate = self;
+        
+        //Set the most accurate location data as possible
+        locationManager?.desiredAccuracy = kCLLocationAccuracyBest;
+        
+        // Check for iOS 8. Without this guard the code will
+        // crash with "unknown selector" on iOS 7.
+        let ios8 = locationManager?.responds(to:
+            #selector(CLLocationManager.requestWhenInUseAuthorization))
+        if (ios8!) {
+            locationManager?.requestWhenInUseAuthorization();
+        }
+        //Tell the location manager to start looking for its location
+        //immediately
+        locationManager?.startUpdatingLocation();
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
