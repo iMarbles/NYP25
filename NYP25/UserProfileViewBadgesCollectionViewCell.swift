@@ -10,4 +10,9 @@ import UIKit
 
 class UserProfileViewBadgesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var badgePhotos : UIImageView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.badgePhotos.image = UIImage(named: "loading-512")
+    }
 }

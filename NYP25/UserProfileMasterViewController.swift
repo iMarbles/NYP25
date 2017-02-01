@@ -13,11 +13,11 @@ class UserProfileMasterViewController: UIViewController {
     @IBOutlet weak var selfPhotoView : UIView?
     
     @IBOutlet weak var profilePhotoView : UIImageView?
+    @IBOutlet weak var selectedBadge : UIImageView?
     
     @IBOutlet weak var currentPoints : UILabel?
     @IBOutlet weak var bioLbl : UILabel?
     @IBOutlet weak var schoolLbl : UILabel?
-    @IBOutlet weak var selectedBadge : UIImageView?
     
     var studentList : [Student] = []
     var badgeList : [Badge] = []
@@ -25,6 +25,9 @@ class UserProfileMasterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        self.profilePhotoView?.image = UIImage(named: "loading-512")
+        self.selectedBadge?.image = UIImage(named: "loading-512")
+        
         UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (user) in
             self.title = user.username
             self.bioLbl?.text = user.bio
