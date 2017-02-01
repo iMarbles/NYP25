@@ -11,4 +11,9 @@ import UIKit
 class UserProfileViewLikedPhotosCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likedPhotos : UIImageView!
 
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.likedPhotos.image = UIImage(named: "loading-512")
+    }
 }

@@ -17,7 +17,6 @@ class UserProfileViewBadgesCollectionViewController: UICollectionViewController,
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
-//        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
         layout.itemSize = CGSize(width: width / 2, height: width / 2)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
@@ -50,6 +49,8 @@ class UserProfileViewBadgesCollectionViewController: UICollectionViewController,
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "badgeCell", for: indexPath) as! UserProfileViewBadgesCollectionViewCell
+        
+        cell.badgePhotos?.image = UIImage(named: "loading-512")
         
         UserSocialProfileMasterViewController.loadImage(imageView: cell.badgePhotos, url: profileGallery[(indexPath as IndexPath).row].icon)
     

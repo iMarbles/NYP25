@@ -40,7 +40,8 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "likedPhotosCell", for: indexPath) as! UserProfileViewLikedPhotosCollectionViewCell
 
-        
+        cell.likedPhotos?.image = UIImage(named: "loading-512")
+
         UserSocialProfileMasterViewController.loadImage(imageView: cell.likedPhotos, url: profileGallery[(indexPath as IndexPath).row].photoUrl!)
         return cell
     }
@@ -50,13 +51,6 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
         cell?.layer.borderWidth = 2.0
         cell?.layer.borderColor = UIColor.clear.cgColor
     }
-    
-    /*override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var cell = collectionView.cellForItem(at: indexPath as IndexPath)
-        cell?.layer.borderWidth = 2.0
-        cell?.layer.borderColor = UIColor.red.cgColor
-
-    }*/
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         photoIdLbl = profileGallery[(indexPath as IndexPath).row].eventId

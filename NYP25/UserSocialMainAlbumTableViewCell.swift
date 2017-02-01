@@ -13,7 +13,11 @@ class UserSocialMainAlbumTableViewCell: UITableViewCell {
     @IBOutlet weak var totalNoOfPhotosLbl : UILabel!
     @IBOutlet weak var socialPhotoView : UIImageView!
 
-
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.socialPhotoView.image = UIImage(named: "loading-512")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

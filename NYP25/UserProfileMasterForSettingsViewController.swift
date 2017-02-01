@@ -33,6 +33,9 @@ class UserProfileMasterForSettingsViewController: UIViewController, UIImagePicke
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.profilePhotoView?.image = UIImage(named: "loading-512")
+        self.selectedBadge?.image = UIImage(named: "loading-512")
 
         UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (userInfo) in
             self.bioField?.text = userInfo.bio
