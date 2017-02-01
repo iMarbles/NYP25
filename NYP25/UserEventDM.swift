@@ -47,6 +47,7 @@ class UserEventDM: NSObject {
                 e.imageUrl = r.childSnapshot(forPath: "image").value as? String
                 e.badgeId = r.childSnapshot(forPath: "badge").value as? String
                 e.desc = r.childSnapshot(forPath: "description").value as? String
+                e.date = r.childSnapshot(forPath: "date").value as? String
                 e.startTime = r.childSnapshot(forPath: "startTime").value as? String
                 e.endTime = r.childSnapshot(forPath: "endTime").value as? String
                 e.status = r.childSnapshot(forPath: "status").value as! String
