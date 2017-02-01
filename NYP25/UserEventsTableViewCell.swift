@@ -14,6 +14,14 @@ class UserEventsTableViewCell: UITableViewCell {
     @IBOutlet weak var eventLabel : UILabel!
     @IBOutlet weak var dateLabel : UILabel!
     @IBOutlet weak var venueLabel: UILabel!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.eventBannerImg.image = UIImage(named: "Ellipsis-100")
+        self.eventLabel.text = "Loading..."
+        self.dateLabel.text = nil;
+        self.venueLabel.text = nil;
+    }
 
 //    override func awakeFromNib() {
 //        super.awakeFromNib()

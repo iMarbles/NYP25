@@ -8,17 +8,27 @@
 
 import UIKit
 
-class UserEventsTableViewController: UITableViewController {
+class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
+
+    var eventsList : [Event] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UserEventDM.loadEvents { (eventListFromDatabase) in
+            self.eventsList = eventListFromDatabase
+            self.tableView.reloadData()
+        }
+        
+        
+        for (index, element) in eventsList.enumerated() {
+            print("Item \(index): \(element)")
+        }
+        
+        tableView.reloadData()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,26 +36,39 @@ class UserEventsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
+    
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return eventsList.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserEventsTableViewCell
+//        cell.eventLabel.text = "Testing"
+        let e = eventsList[(indexPath as IndexPath).row]
+        
+        cell.eventLabel.text = e.name
+        cell.dateLabel.text = e.date
+        if e.date != nil && e.startTime != nil{
+            let day = GlobalDM.getDayNameBy(stringDate: e.date!)
+            let time = GlobalDM.getTimeInHrBy(stringTime: e.startTime!)
+            cell.dateLabel.text = "\(day) @ \(time)"
+        }
+        
+        cell.venueLabel.text = e.address
+        
+        if(e.imageUrl != nil){
+            GlobalDM.loadImage(imageView: cell.eventBannerImg, url: e.imageUrl!)
+        }else{
+            cell.eventBannerImg.image = UIImage(named: "Ellipsis-100")
+        }
 
-        // Configure the cell...
-
+        
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
