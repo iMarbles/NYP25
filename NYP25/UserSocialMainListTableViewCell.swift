@@ -16,7 +16,8 @@ import Firebase
 
 class UserSocialMainListTableViewCell: UITableViewCell {    
     @IBOutlet weak var usernameLbl : UILabel!
-    @IBOutlet weak var captionLbl : UITextView!
+//    @IBOutlet weak var captionLbl : UITextView!
+    @IBOutlet weak var captionLbl : UILabel!
     @IBOutlet weak var dateLbl : UILabel!
     @IBOutlet weak var countLikesLbl : UILabel!
     @IBOutlet weak var mainListImageView : UIImageView!
@@ -27,10 +28,10 @@ class UserSocialMainListTableViewCell: UITableViewCell {
     @IBOutlet weak var likeLbl: UILabel!
     @IBOutlet weak var hintLbl : UILabel!
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.mainListImageView.image = UIImage(named: "loading-512")
-    }
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        self.mainListImageView.image = UIImage(named: "loading-512")
+//    }
     
 //    @IBAction func likeBtn(sender: UIButton!) {
 //        if let delegate = buttonDelegate {
@@ -50,16 +51,8 @@ class UserSocialMainListTableViewCell: UITableViewCell {
 //    sender.setImage(UIImage(named:"LikeFilled.png"), for: .highlighted)
 //    }
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
-
 }

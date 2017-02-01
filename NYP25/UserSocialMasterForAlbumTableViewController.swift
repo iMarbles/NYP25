@@ -1,5 +1,5 @@
 //
-//  UserSocialMainAlbumTableViewController.swift
+//  UserSocialMasterForAlbumTableViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 18/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserSocialMainAlbumTableViewController: UITableViewController {
+class UserSocialMasterForAlbumTableViewController: UITableViewController {
     var eventNameList : [Event] = []
 
     override func viewDidLoad() {
@@ -43,5 +43,16 @@ class UserSocialMainAlbumTableViewController: UITableViewController {
         UserSocialProfileMasterViewController.loadImage(imageView: cell.socialPhotoView, url: eventNameList[(indexPath as IndexPath).row].imageUrl!)
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AlbumDetails" {
+            let a = segue.destination as! UserSocialDetailsForSoloAlbumViewController
+            
+            let cell = sender as? UserSocialMainAlbumTableViewCell
+            let indexPath = tableView?.indexPath(for: cell!)
+            
+            a.eventInfo = eventNameList[(indexPath?.row)!]
+        }
     }
 }
