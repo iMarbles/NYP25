@@ -78,6 +78,7 @@ class UserProfileMasterForSettingsViewController: UIViewController, UIImagePicke
         let openPhotoLibraryAction = UIAlertAction(title: "Choose from Library", style: .destructive) { action in
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary) {
                 self.imagePicker = UIImagePickerController()
+                
                 self.imagePicker.delegate = self
                 self.imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
                 self.imagePicker.allowsEditing = true
@@ -113,7 +114,7 @@ class UserProfileMasterForSettingsViewController: UIViewController, UIImagePicke
         alertController.addAction(openCameraAction)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
-            // ...
+            print("cancel")
         }
         alertController.addAction(cancelAction)
         
@@ -122,7 +123,7 @@ class UserProfileMasterForSettingsViewController: UIViewController, UIImagePicke
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [String : Any]!) {
         
-        profilePhotoView?.contentMode = .scaleAspectFit
+        profilePhotoView?.contentMode = .scaleAspectFill
         profilePhotoView?.image = image
         
         self.dismiss(animated: true, completion: nil);
@@ -144,7 +145,6 @@ class UserProfileMasterForSettingsViewController: UIViewController, UIImagePicke
     @IBAction func btnEditBio(sender: AnyObject) {
         bioField?.isEditable = true
         bioField?.backgroundColor = UIColor.white
-        
         
         btnEditBio.isHidden = true
         btnSaveBio.isHidden = false

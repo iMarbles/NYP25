@@ -9,8 +9,8 @@
 import UIKit
 
 class PhotoComment: NSObject {
-    var commentId : String = ""
-    var username : String = ""
-    var comment : String = ""
-    var timestamp : String = ""
+    var commentId : String?
+    var username : String?
+    var comment : String?
+    var timestamp : String?
 }

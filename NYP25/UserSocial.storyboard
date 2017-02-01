@@ -81,7 +81,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2M9-0F-7PO" id="MU7-uS-BaU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z4X-Cg-ITs">
@@ -143,7 +143,13 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Albums" id="Mtm-le-Dte"/>
+                    <navigationItem key="navigationItem" title="Albums" id="Mtm-le-Dte">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="10N-Nz-BHR">
+                            <connections>
+                                <segue destination="MXi-AM-SIp" kind="show" id="yX1-mQ-yhI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WsI-a1-oE8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,7 +245,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Solo Album + Details" id="aoM-3I-9Yb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="pOh-8O-kpj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pOh-8O-kpj">
                             <connections>
                                 <segue destination="MXi-AM-SIp" kind="show" id="1Gx-4x-Zuk"/>
                             </connections>
@@ -308,7 +314,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="523"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4BS-vf-HcE" id="gWn-Dg-b93">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="522"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="523"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USERNAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eR8-f0-z4j">
@@ -342,7 +348,7 @@
                                             </subviews>
                                         </stackView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="caption here" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RK5-Lz-jlX">
-                                            <rect key="frame" x="8" y="432.5" width="984" height="78"/>
+                                            <rect key="frame" x="8" y="432.5" width="359" height="78"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
@@ -354,7 +360,7 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="E0k-ul-RTk">
-                                            <rect key="frame" x="962" y="404.5" width="30" height="30"/>
+                                            <rect key="frame" x="337" y="404.5" width="30" height="30"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ap-qu-WnO">
                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -370,7 +376,7 @@
                                             </subviews>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJT-xC-rbc">
-                                            <rect key="frame" x="819" y="10" width="172" height="19.5"/>
+                                            <rect key="frame" x="194" y="10" width="172" height="19.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="172" id="VLd-bi-L6i"/>
                                             </constraints>
@@ -622,6 +628,6 @@
         <image name="Stack of Photos-30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dHI-BZ-210"/>
+        <segue reference="1Gx-4x-Zuk"/>
     </inferredMetricsTieBreakers>
 </document>

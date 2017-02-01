@@ -237,9 +237,9 @@ class AdminEventDM: NSObject {
                             
                             let c = PhotoComment()
                             c.commentId = com.key
-                            c.comment = com.childSnapshot(forPath: "comment").value as! String
-                            c.timestamp = com.childSnapshot(forPath: "timestamp").value as! String
-                            c.username = com.childSnapshot(forPath: "username").value as! String
+                            c.comment = com.childSnapshot(forPath: "comment").value as? String
+                            c.timestamp = com.childSnapshot(forPath: "timestamp").value as? String
+                            c.username = com.childSnapshot(forPath: "username").value as? String
                             
                             commentList.append(c)
                         }

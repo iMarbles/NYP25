@@ -21,7 +21,7 @@ class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserProfileDM.retrieveAllSocialUserPostedPhotos(onComplete: { (photos) in
+        UserSocialDM.retrieveAllSocial(onComplete: { (photos) in
             self.profileGallery = photos
             self.collectionView?.reloadData()
             
@@ -58,7 +58,6 @@ class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewControll
         if segue.identifier == "ownPhotosGallery" {
             let a = segue.destination as! UserProfileDetailsForOwnPhotosViewController
             
-            //Edited by Amabel
             let cell = sender as? UserProfileViewOwnPhotosCollectionViewCell
             let indexPath = collectionView?.indexPath(for: cell!)
 

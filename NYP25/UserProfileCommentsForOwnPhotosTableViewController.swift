@@ -9,22 +9,20 @@
 import UIKit
 
 class UserProfileCommentsForOwnPhotosTableViewController: UITableViewController {
-    var social : Social?
+    var socialImg : Social?
     var coList : [Social] = []
-
-    var pl : PhotoLike?
-    var co : PhotoComment?
     var commentList : [PhotoComment] = []
-    
-    var photoLikes: [PhotoLike] = []
+    var photoGallery: [PhotoLike] = []
+    var newSocialLbl : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        UserSocialDM.retrieveAllSocial(onComplete: { (list) in
-            self.coList = list
-            self.tableView.reloadData()
-        })
+        for a in photoGallery{
+            for b in a.comments!{
+                commentList.append(b)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,29 +32,23 @@ class UserProfileCommentsForOwnPhotosTableViewController: UITableViewController 
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coList.count
+        print("commentList.count - \(commentList.count)")
+
+        return commentList.count
+
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "commentCells", for: indexPath)
             as! UserProfileCommentsForOwnPhotosTableViewCell
         
-        print("coList[(indexPath as IndexPath).row].socialId - \(coList[(indexPath as IndexPath).row].socialId)")
-        
-        
-        for a in coList{
-            print(a.socialId)
-            for b in a.likes!{
-                for comment in b.comments!{
-                    commentList.append(comment)
-                }
-            }
-        }
-        
         if(commentList.count != 0){
             cell.usernameLbl.text = commentList[(indexPath as IndexPath).row].username
             cell.commentLbl.text = commentList[(indexPath as IndexPath).row].comment
         }else{
+            cell.usernameLbl.isHidden = true
+            cell.commentLbl.isHidden = true
+            
             let alert = UIAlertView(title: "",
                                     message: "No comments currently",
                                     delegate: nil,

@@ -62,13 +62,24 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [String : Any]!) {
-        
+
         imageView.contentMode = .scaleAspectFit
         imageView.image = image
         
         self.dismiss(animated: true, completion: nil);
         
         btnSave.isHidden = false;
+        
+        
+        var chosenImage = editingInfo[UIImagePickerControllerEditedImage] as! UIImage
+
+//        UIGraphicsBeginImageContextWithOptions(CGSize(width: maxDimension, height: maxDimension), false, 0.0);
+//        image.draw(in: CGRectMake(0, image.size.width/2-image.size.height/2, image.size.width, image.size.height))
+//        newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        
+//        UIGraphicsEndImageContext()
+        
+//        return newImage
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
