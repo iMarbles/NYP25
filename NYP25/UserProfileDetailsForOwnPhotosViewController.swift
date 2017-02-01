@@ -18,13 +18,11 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
     var pathLbl : String = ""
     var newSocialLbl : String = ""
     
-    //Edited by Amabel
     var socialImg : Social?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //Edited by Amabel
         photoIdLbl.text = socialImg?.eventId
         pathIdLbl.text = socialImg?.photoUrl
         socialIdLbl.text = socialImg?.socialId
@@ -34,7 +32,6 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func actionDelete(sender: UIBarButtonItem) {
@@ -55,11 +52,10 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ProfileComments" {
+        if segue.identifier == "UserProfileDetailViewComments" {
             let a = segue.destination as! UserProfileCommentsForOwnPhotosTableViewController
             
-//            a.newSocialLbl = (socialImg?.socialId)!
-            a.newSocialLbl = (socialImg?.socialId)!
+            a.photoGallery = (socialImg?.likes)!
         }
     }
     /*

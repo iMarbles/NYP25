@@ -12,16 +12,17 @@ class UserProfileCommentsForOwnPhotosTableViewController: UITableViewController 
     var socialImg : Social?
     var coList : [Social] = []
     var commentList : [PhotoComment] = []
-    var photoLikes: [PhotoLike] = []
+    var photoGallery: [PhotoLike] = []
     var newSocialLbl : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UserSocialDM.retrieveAllSocialBySocialID(socialId : newSocialLbl, onComplete: { (list) in
-            self.photoLikes = list
-            self.tableView.reloadData()
-        })
+
+        for a in photoGallery{
+            for b in a.comments!{
+                commentList.append(b)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,20 +32,15 @@ class UserProfileCommentsForOwnPhotosTableViewController: UITableViewController 
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photoLikes.count
+        print("commentList.count - \(commentList.count)")
+
+        return commentList.count
+
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "commentCells", for: indexPath)
             as! UserProfileCommentsForOwnPhotosTableViewCell
-        
-        
-        for a in photoLikes{
-            for b in a.comments!{
-                commentList.append(b)
-            }
-            
-        }
         
         if(commentList.count != 0){
             cell.usernameLbl.text = commentList[(indexPath as IndexPath).row].username

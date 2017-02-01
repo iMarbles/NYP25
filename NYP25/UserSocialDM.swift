@@ -49,8 +49,6 @@ class UserSocialDM: NSObject {
             for record in snapshot.children{
                 let r = record as! FIRDataSnapshot
                 
-                //                    let l = record as! FIRDataSnapshot
-                
                 let p = PhotoLike()
                 p.adminNo = r.key
                 p.isLike = (r.childSnapshot(forPath: "isLiked").value as? Int)!
@@ -64,6 +62,7 @@ class UserSocialDM: NSObject {
                     let pc = PhotoComment()
                     pc.commentId = c.key
                     pc.username = c.childSnapshot(forPath: "username").value as! String
+                    pc.timestamp = c.childSnapshot(forPath: "timestamp").value as! String
                     pc.comment = c.childSnapshot(forPath: "comment").value as! String
                     
                     commentList.append(pc)
