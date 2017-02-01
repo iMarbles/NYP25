@@ -24,7 +24,7 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
     var socialImg : Social?
     
     var countList : [PhotoLike] = []
-    var commentList : [PhotoComment] = []
+    var commentList : [PhotoLike] = []
 
     
     override func viewDidLoad() {
@@ -35,28 +35,17 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
         socialIdLbl.text = socialImg?.socialId
         
         self.photoImage.image = UIImage(named: "loading-512")
-        
-//        
-//        UserSocialDM.countTotalLikesForPhoto(socialId: (socialImg?.socialId)!, onComplete: { (list) in
-//            self.countLikesLbl.text = socialImg?.likes?.count
-//            self.countCommentsLbl.text = String(describing: list.comments?.count)
-//
-//        })
-//        
-        UserSocialDM.retrieveAllPhotosForCounting(socialId: (socialImg?.socialId)!, onComplete: {(list) in
+
+        UserSocialDM.retrieveAllPhotosForLikeCount(socialId: (socialImg?.socialId)!, onComplete: {(list) in
             self.countList = list
-            
             self.countLikesLbl.text = String(self.countList.count)
         })
         
-        
-        
-        
-//        for a in countList{
-//            for b in a.comments!{
-//                commentList.append(b)
-//            }
-//        }
+        UserSocialDM.retrieveAllPhotosForCommentCount(socialId: (socialImg?.socialId)!, onComplete: {(list) in
+            self.commentList = list
+            self.countCommentsLbl.text = String(self.commentList.count)
+
+        })
         
         UserSocialProfileMasterViewController.loadImage(imageView: self.photoImage, url: (socialImg?.photoUrl)!)
     }

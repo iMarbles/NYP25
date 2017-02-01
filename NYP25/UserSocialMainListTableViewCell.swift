@@ -18,7 +18,7 @@ class UserSocialMainListTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLbl : UILabel!
     @IBOutlet weak var captionLbl : UITextView!
     @IBOutlet weak var dateLbl : UILabel!
-    @IBOutlet weak var noOfLikes : UILabel!
+    @IBOutlet weak var countLikesLbl : UILabel!
     @IBOutlet weak var mainListImageView : UIImageView!
 
     @IBOutlet weak var btnLike: UIButton!

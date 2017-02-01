@@ -31,6 +31,8 @@ class UserProfileCommentsForOwnPhotosTableViewController: UITableViewController 
                 }
             }
         }
+        
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
