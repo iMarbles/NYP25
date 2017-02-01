@@ -122,28 +122,7 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.showsUserLocation = true
-        mapView.mapType = MKMapType.standard
-        //configure user interactions
-        mapView.isZoomEnabled = true
-        mapView.isScrollEnabled = true
-        mapView.delegate = self;
-        //Set the region and zoom level
-        var span = MKCoordinateSpan()
-        span.longitudeDelta = 0.02
-        span.latitudeDelta = 0.02
-        //Set the region and zoom level
-        var location = CLLocationCoordinate2D()
-        location.latitude = 1.38012
-        location.longitude = 103.85023
-        //amount of map to display
-        var region = MKCoordinateRegion()
-        region.span = span
-        region.center = location
-        //Set to the region with animated effect
-        mapView.setRegion(region, animated:true)
-
-    }
+            }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
