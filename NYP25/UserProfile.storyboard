@@ -536,7 +536,7 @@
                                 <rect key="frame" x="16" y="418" width="343" height="197"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="hXq-op-v5y" kind="embed" id="Z4E-13-Fow"/>
+                                    <segue destination="hXq-op-v5y" kind="embed" identifier="ProfileComments" id="Z4E-13-Fow"/>
                                 </connections>
                             </containerView>
                         </subviews>

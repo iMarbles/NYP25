@@ -53,7 +53,15 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
         
         self.present(alertController, animated: true) {}
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProfileComments" {
+            let a = segue.destination as! UserProfileCommentsForOwnPhotosTableViewController
+            
+//            a.newSocialLbl = (socialImg?.socialId)!
+            a.newSocialLbl = (socialImg?.socialId)!
+        }
+    }
     /*
     // MARK: - Navigation
 

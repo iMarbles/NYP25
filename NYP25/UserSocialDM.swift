@@ -35,6 +35,51 @@ class UserSocialDM: NSObject {
     }
     
     //Retrieve all events
+    static func retrieveAllSocialBySocialID(socialId : String, onComplete: @escaping ([PhotoLike])->Void){
+        var likedByList : [PhotoLike] = []
+        var commentList : [PhotoComment] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/\(socialId)/likedBy/")
+        
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            likedByList = []
+            
+            for record in snapshot.children{
+                let r = record as! FIRDataSnapshot
+                
+                //                    let l = record as! FIRDataSnapshot
+                
+                let p = PhotoLike()
+                p.adminNo = r.key
+                p.isLike = (r.childSnapshot(forPath: "isLiked").value as? Int)!
+                
+                //Child nodes
+                commentList = []
+                let comments = r.childSnapshot(forPath: "comments").children
+                for commented in comments{
+                    let c = commented as! FIRDataSnapshot
+                    
+                    let pc = PhotoComment()
+                    pc.commentId = c.key
+                    pc.username = c.childSnapshot(forPath: "username").value as! String
+                    pc.comment = c.childSnapshot(forPath: "comment").value as! String
+                    
+                    commentList.append(pc)
+                }
+                
+                p.comments = commentList
+                likedByList.append(p)
+            }
+            
+            
+            onComplete(likedByList)
+        })
+    }
+    
+    
+    //Retrieve all events
     static func retrieveAllSocial(onComplete: @escaping ([Social])->Void){
         var socialList : [Social] = []
         var likedByList : [PhotoLike] = []
