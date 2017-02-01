@@ -27,14 +27,10 @@ class AdminEventsGalleryCommentsViewController: UIViewController, UITableViewDel
         }
         
         commentsList.sort { (a, b) -> Bool in
-            if a.timestamp != nil && b.timestamp != nil{
-                if a.timestamp! > b.timestamp!{
-                    return true
-                }else{
-                    return false
-                }
-            }else{
+            if a.timestamp! > b.timestamp!{
                 return true
+            }else{
+                return false
             }
         }
     }
