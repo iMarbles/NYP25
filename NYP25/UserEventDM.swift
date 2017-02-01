@@ -31,7 +31,15 @@ class UserEventDM: NSObject {
                     continue;
                 }
                 
+                let date = Date()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "yyyyMMdd"
+                let dateString : Int = Int(formatter.string(from: date))!
                 e.date = r.childSnapshot(forPath: "date").value as? String
+                let dbDate : Int = Int(e.date!)!
+                if dbDate < dateString {
+                    continue;
+                }
                 
                 e.eventId = r.key
                 e.name = r.childSnapshot(forPath: "name").value as? String
@@ -52,13 +60,15 @@ class UserEventDM: NSObject {
 
     
     
-    static func checkInterest(adm: String, eid: String) -> Bool {
+    static func retrieveAllEventAttendance(adm: String, onComplete: @escaping([EventsInAttendance])->Void){
+//        var attendanceList : [EventAttendance] = []
         var eventsInAttendanceList : [EventsInAttendance] = []
         
         let ref = FIRDatabase.database().reference().child("eventAttendance/")
         ref.observe(FIRDataEventType.value, with:{
             (snapshot) in
             
+//            attendanceList = []
             eventsInAttendanceList = []
             
             for record in snapshot.children{
@@ -71,7 +81,7 @@ class UserEventDM: NSObject {
                 if (a.adminNo == adm) {
                 //Child nodes of events
                 let events = r.childSnapshot(forPath: "events").children
-                for event in events {
+                for event in events{
                     let eFromDb = event as! FIRDataSnapshot
                     
                     let e = EventsInAttendance()
@@ -81,24 +91,15 @@ class UserEventDM: NSObject {
                     
                     
                     eventsInAttendanceList.append(e)
-                    }
                 }
                 
 //                a.events = eventsInAttendanceList
 //                attendanceList.append(a)
             }
-        })
-        
-        
-        for i in eventsInAttendanceList {
-            print(i.eventId + " - " + eid)
-            if i.eventId == eid {
-                return true
+                
+                onComplete(eventsInAttendanceList)
             }
-        }
-        
-        
-        return false
+        })
     }
     
     

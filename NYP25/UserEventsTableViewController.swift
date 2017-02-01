@@ -50,8 +50,8 @@ class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITa
 //        cell.eventLabel.text = "Testing"
         let e = eventsList[(indexPath as IndexPath).row]
         
-        //cell.eventLabel.text = e.name
-        cell.eventLabel.text = e.name! + " ✅" // add on if user has indicated interest
+        cell.eventLabel.text = e.name
+//        cell.eventLabel.text = e.name! + " ✅" // add on if user has indicated interest
         cell.dateLabel.text = e.date
         if e.date != nil && e.startTime != nil{
             let day = GlobalDM.getDayNameBy(stringDate: e.date!)

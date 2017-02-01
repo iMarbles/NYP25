@@ -12,7 +12,8 @@ import MapKit
 class UserEventDetailsViewController: UIViewController {
     
     var event: Event?
-    
+    var exists = false;
+    var eventList : [EventsInAttendance] = []
     @IBOutlet weak var eventBannerImg:UIImageView!
     @IBOutlet weak var eventLbl:UILabel!
     @IBOutlet weak var dateLbl:UILabel!
@@ -25,6 +26,8 @@ class UserEventDetailsViewController: UIViewController {
     var matchingItems: [MKMapItem] = [MKMapItem]()
     
     func goBtn(img: AnyObject) {
+        let adm = GlobalDM.CurrentUser?.userId
+        let eId = event!.eventId
 //        UserEventDM.checkIfInterestExists(adminNo: "142519G", eventId: event!.eventId, onComplete: {(exists) in
 //            if exists == true {
 //                print("Interest exists")
@@ -33,22 +36,29 @@ class UserEventDetailsViewController: UIViewController {
 //            }
 //        })
 
+        UserEventDM.retrieveAllEventAttendance(adm: adm!, onComplete: {(att) in
+            self.eventList = att
+            self.checkEvent(eId: eId) // teh bool 'exists' cant be taken out rip
+        })
         
-        let exists = doesInterestExist()
         
-        if exists {
-            showAlert(title : "Nice", message : "This event has been registered")
-        } else {
-            showAlert(title : "Nope", message : "This event has not been registered")
-        }
-        
+        print(exists)
+            
+        showAlert(title : "Nice", message : "Nothing interesting happens")
         
     }
     
-    func doesInterestExist() -> Bool {
-        let adm = GlobalDM.CurrentUser?.userId
-        let eId = event!.eventId
-        return UserEventDM.checkInterest(adm: adm!, eid: eId)
+    func checkEvent(eId: String) {
+        for i in eventList {
+            print(i.eventId + " ? " + eId)
+            if i.eventId == eId {
+                self.exists = true
+                print("Event match found")
+            } else {
+                
+            }
+        }
+
     }
 
     
@@ -115,7 +125,7 @@ class UserEventDetailsViewController: UIViewController {
                     //These numbers are in screen CGPoints...
                     let edgeInset = UIEdgeInsetsMake(60, 65, 30, 40)
                     
-                    self.mapWidget.setVisibleMapRect(allAnnMapRect, edgePadding: edgeInset, animated: true)
+                    self.mapWidget.setVisibleMapRect(allAnnMapRect, edgePadding: edgeInset, animated: false)
 
                     break; // break from loop after first annotation is dropped
                 }
