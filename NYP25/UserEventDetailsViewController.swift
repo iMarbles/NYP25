@@ -25,10 +25,30 @@ class UserEventDetailsViewController: UIViewController {
     var matchingItems: [MKMapItem] = [MKMapItem]()
     
     func goBtn(img: AnyObject) {
-        let alertController = UIAlertController(title: "Nice", message: "Something happens in the background", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+//        UserEventDM.checkIfInterestExists(adminNo: "142519G", eventId: event!.eventId, onComplete: {(exists) in
+//            if exists == true {
+//                print("Interest exists")
+//            }else{
+//                print("Interest does not exist")
+//            }
+//        })
+
         
-        self.present(alertController, animated: true, completion: nil)
+        let exists = doesInterestExist()
+        
+        if exists {
+            showAlert(title : "Nice", message : "This event has been registered")
+        } else {
+            showAlert(title : "Nope", message : "This event has not been registered")
+        }
+        
+        
+    }
+    
+    func doesInterestExist() -> Bool {
+        let adm = GlobalDM.CurrentUser?.userId
+        let eId = event!.eventId
+        return UserEventDM.checkInterest(adm: adm!, eid: eId)
     }
 
     
@@ -65,9 +85,9 @@ class UserEventDetailsViewController: UIViewController {
             if error != nil {
                 print("Error occured in search: \(error!.localizedDescription)")
             } else if response!.mapItems.count == 0 {
-                print("No matches found")
+//                print("No matches found")
             } else {
-                print("Match found")
+//                print("Match found")
                 
                 for item in response!.mapItems {
 //                    print("Name = \(item.name)")
@@ -110,6 +130,13 @@ class UserEventDetailsViewController: UIViewController {
         btnImg.isUserInteractionEnabled = true
         btnImg.addGestureRecognizer(tapGestureRecognizer)
         // Do any additional setup after loading the view.
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+
     }
 
     
