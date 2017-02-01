@@ -597,24 +597,24 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="19t-Gp-w85">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="116.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="516.5"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ellipsis-100" translatesAutoresizingMaskIntoConstraints="NO" id="4S6-tv-ekK">
-                                                    <rect key="frame" x="8" y="8" width="100" height="100.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-512" translatesAutoresizingMaskIntoConstraints="NO" id="4S6-tv-ekK">
+                                                    <rect key="frame" x="8" y="8" width="100" height="500.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="C66-KN-K48"/>
                                                         <constraint firstAttribute="width" constant="100" id="btq-x2-92j"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fOn-Bt-aZm">
-                                                    <rect key="frame" x="108" y="8" width="10" height="100.5"/>
+                                                    <rect key="frame" x="108" y="8" width="10" height="500.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="10" id="b3U-DC-sGs"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vSz-q5-M65">
-                                                    <rect key="frame" x="118" y="8" width="249" height="100.5"/>
+                                                    <rect key="frame" x="118" y="8" width="249" height="500.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1262,7 +1262,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-O0-PQi">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="319.5"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ellipsis-100" translatesAutoresizingMaskIntoConstraints="NO" id="Ou4-5J-Y98">
+                                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-512" translatesAutoresizingMaskIntoConstraints="NO" id="Ou4-5J-Y98">
                                                 <rect key="frame" x="10" y="0.0" width="355" height="171"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="171" id="IkB-i9-bu3"/>
@@ -1527,7 +1527,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62d-Ad-Gkv">
                                         <rect key="frame" x="0.0" y="10" width="375" height="66"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EiU-Ck-5fn">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-512" translatesAutoresizingMaskIntoConstraints="NO" id="EiU-Ck-5fn">
                                                 <rect key="frame" x="10" y="8" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="S2q-BX-1ap"/>
@@ -1550,7 +1550,7 @@
                                         </subviews>
                                         <edgeInsets key="layoutMargins" top="8" left="10" bottom="8" right="8"/>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F5K-h1-lgo">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading-512" translatesAutoresizingMaskIntoConstraints="NO" id="F5K-h1-lgo">
                                         <rect key="frame" x="0.0" y="76" width="375" height="280"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="280" id="pii-iy-Q96"/>
@@ -2392,7 +2392,6 @@
         <image name="Circled Chevron Right-50" width="50" height="50"/>
         <image name="Circled User Male-30" width="30" height="30"/>
         <image name="Combo Chart-30" width="30" height="30"/>
-        <image name="Ellipsis-100" width="100" height="100"/>
         <image name="Inbox-22" width="22" height="22"/>
         <image name="Lock Filled-50" width="50" height="50"/>
         <image name="Marker-50" width="50" height="50"/>
@@ -2402,6 +2401,7 @@
         <image name="User-48" width="48" height="48"/>
         <image name="Visible-50" width="50" height="50"/>
         <image name="cross" width="40" height="40"/>
+        <image name="loading-512" width="500" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2ik-Rc-Qt1"/>

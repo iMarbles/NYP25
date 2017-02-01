@@ -54,7 +54,7 @@ class AdminEventsInboxTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InboxCell", for: indexPath) as! AdminEventsInboxTableViewCell
 
         // Configure the cell...
-        cell.flaggedImg.image = nil
+        cell.flaggedImg.image = UIImage(named: "loading-512")
         GlobalDM.loadImage(imageView: cell.flaggedImg, url: flaggedPhotoList[(indexPath as IndexPath).row].photoUrl!)
         cell.reasonLbl.text = "\(flaggedPhotoList[(indexPath as IndexPath).row].flagReason!)"
 
