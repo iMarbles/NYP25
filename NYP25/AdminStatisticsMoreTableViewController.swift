@@ -138,10 +138,22 @@ class AdminStatisticsMoreTableViewController: UITableViewController, IValueForma
             dataEntries.append(dataEntry)
         }
         
-        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Attendees")
-        let lineChartData = LineChartData(dataSet: lineChartDataSet)
-        schoolChart.data = lineChartData
-        
+        if dataEntries.count != 0{
+            let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Attendees")
+            let lineChartData = LineChartData(dataSet: lineChartDataSet)
+            schoolChart.data = lineChartData
+            
+            //Customization 1
+            lineChartDataSet.colors = [colors[atIndex]]
+            lineChartDataSet.circleColors = [colors[atIndex]]
+            lineChartDataSet.circleRadius = 5
+            lineChartDataSet.circleHoleRadius = 0
+            //lineChartDataSet.drawCirclesEnabled = false
+            lineChartDataSet.drawFilledEnabled = true
+            lineChartDataSet.fillColor = colors[atIndex]
+
+        }
+
         //Customization
         schoolChart.legend.enabled = false
         schoolChart.chartDescription?.text = ""
@@ -151,14 +163,6 @@ class AdminStatisticsMoreTableViewController: UITableViewController, IValueForma
         schoolChart.rightAxis.enabled = false
         
         schoolChart.isUserInteractionEnabled = false
-        
-        lineChartDataSet.colors = [colors[atIndex]]
-        lineChartDataSet.circleColors = [colors[atIndex]]
-        lineChartDataSet.circleRadius = 5
-        lineChartDataSet.circleHoleRadius = 0
-        //lineChartDataSet.drawCirclesEnabled = false
-        lineChartDataSet.drawFilledEnabled = true
-        lineChartDataSet.fillColor = colors[atIndex]
         
         schoolChart.lineData?.setValueFormatter(self)
     }
