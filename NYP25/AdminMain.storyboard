@@ -51,7 +51,7 @@
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title=" Statistics" id="Tu1-VE-Iye"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" id="9fl-5t-vqJ">
-                            <rect key="frame" x="81" y="7.5" width="213" height="29"/>
+                            <rect key="frame" x="81" y="8" width="213" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Dashboard"/>

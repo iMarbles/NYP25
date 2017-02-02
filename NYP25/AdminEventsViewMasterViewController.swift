@@ -61,12 +61,9 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
             }else{
                 let button = MIBadgeButton(type: .custom)
                 button.setImage(UIImage(named: "Inbox-22"), for: .normal)
-                //button.badgeString = "\(self.flaggedPhotoList.count)"
                 button.frame = CGRect(x: 0, y: 0, width: 70, height: 40)
-                button.badgeEdgeInsets = UIEdgeInsetsMake(20, 0, 0, 15)
                 button.addTarget(self, action: #selector(self.inboxBtnTapped), for: .touchUpInside)
                 self.inboxBtn.customView = button
-
             }
         }
     }
@@ -119,12 +116,12 @@ class AdminEventsViewMasterViewController: UIViewController, UIToolbarDelegate, 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadInbox()
+        //loadInbox()
         hideHairline()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        loadInbox()
+        //loadInbox()
         showHairline()
     }
 
