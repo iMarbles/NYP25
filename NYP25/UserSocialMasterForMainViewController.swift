@@ -11,6 +11,7 @@ import UIKit
 class UserSocialMasterForMainViewController: UIViewController {
 
     @IBOutlet weak var listView: UIView!
+    var eventNameList : [Event] = []
 
     @IBAction func goToSecond(sender: AnyObject) {
         tabBarController?.selectedIndex = 4
@@ -19,6 +20,21 @@ class UserSocialMasterForMainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        UserSocialDM.retrieveEventNames(onComplete: { (nameList) in
+            self.eventNameList = nameList
+        })
+    }
+    
+    @IBAction func btnUpload(sender: AnyObject) {
+        if(eventNameList.count == 0){
+            var alert = UIAlertView(
+                title: nil,
+                message: "Sorry, there's no album available currently for upload!",
+                delegate: nil,
+                cancelButtonTitle: "Ok")
+            alert.show()
+        }
     }
 
     override func didReceiveMemoryWarning() {

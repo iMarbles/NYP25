@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cQF-qU-Ao8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cQF-qU-Ao8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -55,7 +55,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="77E-yd-FiW">
                             <connections>
-                                <segue destination="MXi-AM-SIp" kind="show" id="dHI-BZ-210"/>
+                                <action selector="btnUploadWithSender:" destination="BLa-87-pEM" id="rs8-VN-eIv"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -81,7 +81,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2M9-0F-7PO" id="MU7-uS-BaU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Z4X-Cg-ITs">
@@ -146,7 +146,7 @@
                     <navigationItem key="navigationItem" title="Albums" id="Mtm-le-Dte">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="10N-Nz-BHR">
                             <connections>
-                                <segue destination="MXi-AM-SIp" kind="show" id="yX1-mQ-yhI"/>
+                                <action selector="btnUploadWithSender:" destination="CcM-ZA-jhA" id="dds-Wa-b5j"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -369,7 +369,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="520"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4BS-vf-HcE" id="gWn-Dg-b93">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="520"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="519"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USERNAME" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eR8-f0-z4j">
@@ -702,7 +702,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4fP-gW-Y9C" id="ERq-xs-1gT">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="81"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VoS-ca-r6l">
@@ -767,6 +767,9 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="hvx-nD-0Vj"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="btnUpload" destination="hvx-nD-0Vj" id="j1S-WI-VfH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cPz-F9-ST4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -783,7 +786,4 @@
         <image name="time" width="30" height="30"/>
         <image name="time-1" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="1Gx-4x-Zuk"/>
-    </inferredMetricsTieBreakers>
 </document>
