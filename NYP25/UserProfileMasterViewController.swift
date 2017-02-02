@@ -33,8 +33,10 @@ class UserProfileMasterViewController: UIViewController {
             self.bioLbl?.text = user.bio
             self.schoolLbl?.text = user.school
             self.currentPoints?.text = String(describing: user.points)
-            UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView!, url: user.displayPhotoUrl!)
-            UserSocialProfileMasterViewController.circleFramePhoto(image: self.profilePhotoView!)
+            if(user.displayPhotoUrl != nil){
+                UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView!, url: user.displayPhotoUrl!)
+                UserSocialProfileMasterViewController.circleFramePhoto(image: self.profilePhotoView!)
+            }
         })
 
         

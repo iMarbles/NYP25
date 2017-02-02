@@ -14,11 +14,18 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
     @IBOutlet weak var socialIdLbl : UILabel!
     @IBOutlet weak var photoImage : UIImageView!
     
+    @IBOutlet weak var countLikesLbl : UILabel!
+    @IBOutlet weak var countCommentsLbl : UILabel!
+    
     var newLbl : String = ""
     var pathLbl : String = ""
     var newSocialLbl : String = ""
     
     var socialImg : Social?
+    
+    var countList : [PhotoLike] = []
+    var commentList : [PhotoLike] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +35,17 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
         socialIdLbl.text = socialImg?.socialId
         
         self.photoImage.image = UIImage(named: "loading-512")
+
+        UserSocialDM.retrieveAllPhotosForLikeCount(socialId: (socialImg?.socialId)!, onComplete: {(list) in
+            self.countList = list
+            self.countLikesLbl.text = String(self.countList.count)
+        })
+        
+        UserSocialDM.retrieveAllPhotosForCommentCount(socialId: (socialImg?.socialId)!, onComplete: {(list) in
+            self.commentList = list
+            self.countCommentsLbl.text = String(self.commentList.count)
+
+        })
         
         UserSocialProfileMasterViewController.loadImage(imageView: self.photoImage, url: (socialImg?.photoUrl)!)
     }

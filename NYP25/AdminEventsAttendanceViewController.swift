@@ -39,7 +39,8 @@ class AdminEventsAttendanceViewController: UIViewController, AVCaptureMetadataOu
                 self.messageLabel.text = "Invalid QR Code"
             }
         })
-         */
+ */
+        
         
         // Do any additional setup after loading the view.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)

@@ -83,10 +83,10 @@ class UserProfileSettingsViewBadgesCollectionViewController: UICollectionViewCon
     }
 
     @IBAction func btnUpdateSelectedBadge(sender: UIButton){
-        UserProfileDM.updateCurrentSelectedBadge(badgeId: currentBadgeSelected, userId: (GlobalDM.CurrentUser?.userId)!)
-        
         UserProfileDM.updateNewSelectedBadge(badgeId: newBadgeSelected, userId: (GlobalDM.CurrentUser?.userId)!)
-        
+
+        UserProfileDM.updateCurrentSelectedBadge(badgeId: currentBadgeSelected, userId: (GlobalDM.CurrentUser?.userId)!)
+
         self.navigationController?.popToRootViewController(animated: true)
     }
 }

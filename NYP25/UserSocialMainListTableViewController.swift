@@ -11,12 +11,15 @@ import UIKit
 
 class UserSocialMainListTableViewController: UITableViewController {
     var socialList : [Social] = []
-    var noOfLikesList : [PhotoLike] = []
+//    var noOfLikesList : [PhotoLike] = []
     
     var likedBy : PhotoLike?
     
     var likes: [String]!
     
+    
+    var countList : [PhotoLike] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,15 +31,10 @@ class UserSocialMainListTableViewController: UITableViewController {
             
             
             if(self.socialList.count == 0){
-                let alert = UIAlertView(title: "",
-                                        message: "No Photos Available Currently",
-                                        delegate: nil,
-                                        cancelButtonTitle: "Ok")
-                alert.show()
-                
+                print("no photo")
             }
         }
-        
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -61,6 +59,8 @@ class UserSocialMainListTableViewController: UITableViewController {
         
         let s = socialList[(indexPath as IndexPath).row]
         cell.dateLbl.text = s.postedDateTime
+        
+        
         if(s.uploaderUsername == nil){
             cell.usernameLbl.text = s.uploader
         }else{
@@ -76,12 +76,14 @@ class UserSocialMainListTableViewController: UITableViewController {
 
         cell.btnReport.tag = indexPath.row
         cell.btnReport.addTarget(self, action: #selector(actionSheetButtonPressed), for: .touchUpInside)
-        
-        UserSocialDM.countTotalLikesForPhoto(socialId: s.socialId, onComplete: {(list) in
-            cell.noOfLikes.text = String(list.isLike)
-        })
-        
+
         UserSocialProfileMasterViewController.loadImage(imageView: cell.mainListImageView, url: s.photoUrl!)
+        
+        UserSocialDM.retrieveAllPhotosForLikeCount(socialId: s.socialId, onComplete: {(list) in
+            self.countList = list
+            cell.countLikesLbl.text = String(self.countList.count)
+        })
+
         
         return cell
     }

@@ -47,7 +47,7 @@ class UserProfileDM: NSObject {
     }
     
     static func updateCurrentSelectedBadge(badgeId: String, userId : String){
-        let ref = FIRDatabase.database().reference().child("users/\(userId)/badges/\(badgeId)")
+        let ref = FIRDatabase.database().reference().child("users/\(userId)/badges/\(badgeId)/")
         
         ref.updateChildValues([
             "isDisplay" : 0
@@ -56,7 +56,7 @@ class UserProfileDM: NSObject {
     
     
     static func updateNewSelectedBadge(badgeId: String, userId : String){
-        let ref = FIRDatabase.database().reference().child("users/\(userId)/badges/\(badgeId)")
+        let ref = FIRDatabase.database().reference().child("users/\(userId)/badges/\(badgeId)/")
         
         ref.updateChildValues([
             "isDisplay" : 1
@@ -130,8 +130,8 @@ class UserProfileDM: NSObject {
                         
                         let u = Badge()
                         u.badgeId = l.key
-                        u.isDisplay = l.childSnapshot(forPath: "isDisplay").value as! Int
-                        u.icon = (l.childSnapshot(forPath: "icon").value as? String)!
+                        u.isDisplay = l.childSnapshot(forPath: "isDisplay").value as? Int
+                        u.icon = l.childSnapshot(forPath: "icon").value as! String
                         
                         badgesList.append(u)
                     }
@@ -161,7 +161,7 @@ class UserProfileDM: NSObject {
                 
                 let u = Badge()
                 u.badgeId = r.key
-                u.isDisplay = r.childSnapshot(forPath: "isDisplay").value as! Int
+                u.isDisplay = r.childSnapshot(forPath: "isDisplay").value as? Int
                 u.icon = (r.childSnapshot(forPath: "icon").value as? String)!
                 
                 if(u.isDisplay == 1){
@@ -187,7 +187,7 @@ class UserProfileDM: NSObject {
                 
                 let u = Badge()
                 u.badgeId = r.key
-                u.isDisplay = r.childSnapshot(forPath: "isDisplay").value as! Int
+                u.isDisplay = r.childSnapshot(forPath: "isDisplay").value as? Int
                 u.icon = (r.childSnapshot(forPath: "icon").value as? String)!
                 
                 badgeList.append(u)

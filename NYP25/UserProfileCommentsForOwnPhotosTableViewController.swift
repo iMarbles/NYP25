@@ -21,8 +21,18 @@ class UserProfileCommentsForOwnPhotosTableViewController: UITableViewController 
         for a in photoGallery{
             for b in a.comments!{
                 commentList.append(b)
+                
+                commentList.sort { (a, b) -> Bool in
+                    if a.timestamp! > b.timestamp!{
+                        return true
+                    }else{
+                        return false
+                    }
+                }
             }
         }
+        
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {

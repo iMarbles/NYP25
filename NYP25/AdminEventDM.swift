@@ -113,7 +113,7 @@ class AdminEventDM: NSObject {
             (snapshot) in
             
             eventList = []
-            feedbackList = []
+            //feedbackList = []
             //rsvpList = []
             
             for record in snapshot.children{
@@ -133,6 +133,7 @@ class AdminEventDM: NSObject {
                 e.status = r.childSnapshot(forPath: "status").value as! String
                 
                 //Child node of feedbacks
+                feedbackList = []
                 let feedbacks = r.childSnapshot(forPath: "feedbacks").children
                 for feedback in feedbacks{
                     let feed = feedback as! FIRDataSnapshot
@@ -271,7 +272,7 @@ class AdminEventDM: NSObject {
     static func retrieveFlaggedSocialImage(onComplete: @escaping([Social]) -> Void){
         var flaggedImageList : [Social] = []
         let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "isFlagged").queryStarting(atValue: 1).queryEnding(atValue: 1)
-        ref.observeSingleEvent(of: .value, with: {
+        ref.observe(FIRDataEventType.value, with:{
             (snapshot) in
             
             for record in snapshot.children{

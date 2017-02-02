@@ -77,6 +77,72 @@ class UserSocialDM: NSObject {
         })
     }
     
+    static func retrieveAllPhotosForLikeCount(socialId : String, onComplete: @escaping ([PhotoLike])->Void){
+        var likedByList : [PhotoLike] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/\(socialId)/likedBy/")
+        
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            likedByList = []
+            
+            for record in snapshot.children{
+                let r = record as! FIRDataSnapshot
+                
+                let p = PhotoLike()
+                p.adminNo = r.key
+                p.isLike = (r.childSnapshot(forPath: "isLiked").value as? Int)!
+                
+                if(p.isLike == 1){
+                    likedByList.append(p)
+                }
+            }
+            
+            onComplete(likedByList)
+        })
+    }
+    
+    static func retrieveAllPhotosForCommentCount(socialId : String, onComplete: @escaping ([PhotoLike])->Void){
+        var likedByList : [PhotoLike] = []
+        var commentList : [PhotoComment] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/\(socialId)/likedBy/")
+        
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            likedByList = []
+            
+            for record in snapshot.children{
+                let r = record as! FIRDataSnapshot
+                
+                let p = PhotoLike()
+                p.adminNo = r.key
+                p.isLike = (r.childSnapshot(forPath: "isLiked").value as? Int)!
+                
+                //Child nodes
+                commentList = []
+                let comments = r.childSnapshot(forPath: "comments").children
+                for commented in comments{
+                    let c = commented as! FIRDataSnapshot
+                    
+                    let pc = PhotoComment()
+                    pc.commentId = c.key
+                    pc.username = c.childSnapshot(forPath: "username").value as! String
+                    pc.timestamp = c.childSnapshot(forPath: "timestamp").value as! String
+                    pc.comment = c.childSnapshot(forPath: "comment").value as! String
+                    
+                    commentList.append(pc)
+                    
+                    p.comments = commentList
+                    likedByList.append(p)
+                }
+            }
+            onComplete(likedByList)
+        })
+    }
+    
     
     //Retrieve all events
     static func retrieveAllSocial(onComplete: @escaping ([Social])->Void){
@@ -126,6 +192,7 @@ class UserSocialDM: NSObject {
                         let pc = PhotoComment()
                         pc.commentId = c.key
                         pc.username = c.childSnapshot(forPath: "username").value as! String
+                        pc.timestamp = c.childSnapshot(forPath: "timestamp").value as? String
                         pc.comment = c.childSnapshot(forPath: "comment").value as! String
                         
                         commentList.append(pc)
@@ -160,6 +227,21 @@ class UserSocialDM: NSObject {
             onComplete(p)
         })
     }
+    
+//    //COUNT TOTAL AMOUNT OF COMMENTS FOR THE PHOTO
+//    static func countTotalCommentsForPhoto(userId : String, socialId : String, onComplete: @escaping (PhotoComment)->Void){
+//        let refLikedBy = FIRDatabase.database().reference().child("social/\(socialId)/likedBy/\(userId)/comments/")
+//        
+//        var count = 0
+//        refLikedBy.observe(.value, with: { (snapshot: FIRDataSnapshot!) in
+//            count += Int(snapshot.childrenCount)
+//            
+//            let pc = PhotoComment()
+//            pc.commentId = String(count)
+//            
+//            onComplete(pc)
+//        })
+//    }
     
     //COUNT TOTAL SOCIAL POST
     static func countTotalSocialPost(onComplete: @escaping (Social)->Void){
@@ -220,8 +302,15 @@ class UserSocialDM: NSObject {
                 let e = Event()
                 e.eventId = r.key
                 e.name = r.childSnapshot(forPath: "name").value as? String
+                e.address = r.childSnapshot(forPath: "address").value as? String
                 e.imageUrl = r.childSnapshot(forPath: "image").value as? String
+                e.badgeId = r.childSnapshot(forPath: "badge").value as? String
+                e.desc = r.childSnapshot(forPath: "description").value as? String
+                e.date = r.childSnapshot(forPath: "date").value as? String
+                e.startTime = r.childSnapshot(forPath: "startTime").value as? String
+                e.endTime = r.childSnapshot(forPath: "endTime").value as? String
                 e.status = r.childSnapshot(forPath: "status").value as! String
+                
                 
                 if(e.status == "O"){
                     eventNames.append(e)
@@ -231,6 +320,65 @@ class UserSocialDM: NSObject {
             }
         })
     }
+    
+//    //Retrieve event names
+//    static func retrieveEventNamesByID(eventId : String, onComplete: @escaping ([Event])->Void){
+//        var eventNames : [Event] = []
+//        
+//        let ref = FIRDatabase.database().reference().child("events/\(eventId)/")
+//        
+//        ref.observe(FIRDataEventType.value, with:{
+//            (snapshot) in
+//            
+//            eventNames = []
+//            
+//            for record in snapshot.children{
+//                let r = record as! FIRDataSnapshot
+//                
+//                let e = Event()
+//                e.eventId = r.key
+//                e.name = r.childSnapshot(forPath: "name").value as? String
+//                e.address = r.childSnapshot(forPath: "address").value as? String
+//                e.imageUrl = r.childSnapshot(forPath: "image").value as? String
+//                e.badgeId = r.childSnapshot(forPath: "badge").value as? String
+//                e.desc = r.childSnapshot(forPath: "description").value as? String
+//                e.date = r.childSnapshot(forPath: "date").value as? String
+//                e.startTime = r.childSnapshot(forPath: "startTime").value as? String
+//                e.endTime = r.childSnapshot(forPath: "endTime").value as? String
+//                e.status = r.childSnapshot(forPath: "status").value as! String
+//                
+//                
+//                if(e.status == "O"){
+//                    eventNames.append(e)
+//                }
+//                
+//                onComplete(eventNames)
+//            }
+//        })
+//    }
+
+    //Retrieve all images of event
+    static func retrieveEventPhotosByID(eventId : String, onComplete: @escaping ([Social])->Void){
+        var socialPhotos : [Social] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/\(eventId)/")
+        
+        ref.observeSingleEvent(of: .value, with:
+            {(snapshot) in
+                for record in snapshot.children{
+                    let r = record as! FIRDataSnapshot
+                    
+                    let photo = Social()
+                    photo.eventId = r.childSnapshot(forPath: "eventId").value as! String
+                    photo.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
+                    
+                    socialPhotos.append(photo)
+                    
+                    onComplete(socialPhotos)
+                }
+        })
+    }
+
     
     //Retrieve all images of event
     static func retrieveEventPhotos(onComplete: @escaping ([Social])->Void){
@@ -254,48 +402,30 @@ class UserSocialDM: NSObject {
         })
     }
     
-    //    //Retrieve all images of event
-    //    static func retrieveEventPhotosByEventId(socialId : String, onComplete: @escaping ([Social])->Void){
-    //        var socialPhotos : [Social] = []
-    //
-    //        let ref = FIRDatabase.database().reference().child("social/\(socialId)/")
-    //
-    //        ref.observeSingleEvent(of: .value, with:
-    //            {(snapshot) in
-    //                for record in snapshot.children{
-    //                    let r = record as! FIRDataSnapshot
-    //
-    //                    let photo = Social()
-    //                    photo.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
-    //
-    //                    socialPhotos.append(photo)
-    //
-    //                    onComplete(socialPhotos)
-    //                }
-    //        })
-    //    }
-    
-    //    //Retrieve current user info
-    //    static func retrieveAllSocialInfo(onComplete: @escaping (Social)->Void){
-    //        let ref = FIRDatabase.database().reference().child("social/")
-    //
-    //        ref.observeSingleEvent(of: .value, with:
-    //            { (snapshot) in
-    //                let s = Social()
-    //
-    //                s.socialId = snapshot.key
-    //                s.photoUrl = snapshot.childSnapshot(forPath: "photoUrl").value as? String
-    //                s.uploader = snapshot.childSnapshot(forPath: "uploader").value as? String
-    //                s.uploaderUsername = snapshot.childSnapshot(forPath: "uploaderUsername").value as? String
-    //                s.caption = (snapshot.childSnapshot(forPath: "caption").value as? String)!
-    //                s.postedDateTime = (snapshot.childSnapshot(forPath: "postedDateTime").value as? String)!
-    //                s.isFlagged = (snapshot.childSnapshot(forPath: "isFlagged").value as? Int)!
-    //
-    //                onComplete(s)
-    //        })
-    //    }
-    
-    
+    //Retrieve all images of event
+    static func retrieveEventPhotosByEventId(eventId : String, onComplete: @escaping ([Social])->Void){
+        var socialPhotos : [Social] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/")
+        
+        ref.observeSingleEvent(of: .value, with:
+            {(snapshot) in
+                for record in snapshot.children{
+                    let r = record as! FIRDataSnapshot
+                    
+                    let photo = Social()
+                    photo.eventId = r.childSnapshot(forPath: "eventId").value as! String
+                    photo.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
+                    
+                    if(photo.eventId == eventId){
+                        socialPhotos.append(photo)   
+                    }
+                    
+                    onComplete(socialPhotos)
+                }
+        })
+    }
+
     //Retrieve all images of event by ID
     static func retrieveEventAlbumCover(onComplete: @escaping ([Event])->Void){
         var albumCover : [Event] = []

@@ -35,6 +35,7 @@ class UserInboxRateViewController: UIViewController, UITextViewDelegate {
         //For the textboxes
         commentTb.delegate = self
         commentTb.text = "Enter comments"
+        feedback.comment = "No comments"
         commentTb.textColor = UIColor.lightGray
         commentTb.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
         commentTb.layer.borderWidth = 1.0;
