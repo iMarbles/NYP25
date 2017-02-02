@@ -42,8 +42,11 @@ class UserProfileMasterForSettingsViewController: UIViewController, UIImagePicke
             self.nameLbl?.text = userInfo.name
             self.usernameLbl?.text = userInfo.username
             self.schLbl?.text = userInfo.school
-            UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView, url: userInfo.displayPhotoUrl!)
-            UserSocialProfileMasterViewController.circleFramePhoto(image: self.profilePhotoView!)
+            
+            if(userInfo.displayPhotoUrl != nil){
+                UserSocialProfileMasterViewController.loadImage(imageView: self.profilePhotoView, url: userInfo.displayPhotoUrl!)
+                UserSocialProfileMasterViewController.circleFramePhoto(image: self.profilePhotoView!)
+            }
         })
         
         UserProfileDM.retrieveAllStudentInfo(onComplete: {(studList) in

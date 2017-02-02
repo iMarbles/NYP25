@@ -19,7 +19,7 @@ class UserSocialMainListTableViewController: UITableViewController {
     
     
     var countList : [PhotoLike] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +39,7 @@ class UserSocialMainListTableViewController: UITableViewController {
                 
             }
         }
-        
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }

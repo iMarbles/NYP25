@@ -10,7 +10,7 @@ import UIKit
 
 class UserSocialMasterForAlbumTableViewController: UITableViewController {
     var eventNameList : [Event] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,6 +43,17 @@ class UserSocialMasterForAlbumTableViewController: UITableViewController {
         UserSocialProfileMasterViewController.loadImage(imageView: cell.socialPhotoView, url: eventNameList[(indexPath as IndexPath).row].imageUrl!)
         
         return cell
+    }
+    
+    @IBAction func btnUpload(sender: AnyObject) {
+        if(eventNameList.count == 0){
+            var alert = UIAlertView(
+                title: nil,
+                message: "Sorry, there's no album available currently for upload!",
+                delegate: nil,
+                cancelButtonTitle: "Ok")
+            alert.show()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
