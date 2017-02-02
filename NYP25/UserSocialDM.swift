@@ -580,8 +580,12 @@ class UserSocialDM: NSObject {
                             refLikedBy.updateChildValues([
                                 "isLiked" : 0
                                 ])
-                            //Delete record
-//                            refLikedBy.removeValue()
+                            
+//                            refLikedBy.removeValue()      //Delete record
+                        }else if(p.isLike == 0){
+                            refLikedBy.updateChildValues([
+                                "isLiked" : 1
+                                ])
                         }
                     }
                     
