@@ -10,6 +10,8 @@ import UIKit
 
 class UserSocialMasterForAlbumTableViewController: UITableViewController {
     var eventNameList : [Event] = []
+    var albumPhotos : [Social] = []
+    var countAlbumPhotos : [Social] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +19,16 @@ class UserSocialMasterForAlbumTableViewController: UITableViewController {
         UserSocialDM.retrieveEventNames(onComplete: { (nameList) in
             self.eventNameList = nameList
             self.tableView.reloadData()
+            
+            self.eventNameList.sort { (a, b) -> Bool in
+                if a.date! > b.date!{
+                    return true
+                }else{
+                    return false
+                }
+            }
         })
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,7 +49,19 @@ class UserSocialMasterForAlbumTableViewController: UITableViewController {
 
         let s = eventNameList[(indexPath as IndexPath).row]
         cell.eventNameLbl.text = s.name
-        cell.totalNoOfPhotosLbl.text = String(eventNameList.count)
+        cell.eventDateLbl.text = GlobalDM.getDateNameBy(stringDate: s.date!)
+        
+        UserSocialDM.retrieveEventPhotos(onComplete: {(list) in
+            self.albumPhotos = list
+        })
+        
+        for a in self.albumPhotos{
+            print("a.eventId - \(a.eventId)")
+            self.countAlbumPhotos.append(a)
+        }
+        
+//        cell.totalNoOfPhotosLbl.text = String(self.countAlbumPhotos.count)
+        
         UserSocialProfileMasterViewController.loadImage(imageView: cell.socialPhotoView, url: eventNameList[(indexPath as IndexPath).row].imageUrl!)
         
         return cell

@@ -11,6 +11,7 @@ import UIKit
 class UserSocialMainAlbumTableViewCell: UITableViewCell {
     @IBOutlet weak var eventNameLbl : UILabel!
     @IBOutlet weak var totalNoOfPhotosLbl : UILabel!
+    @IBOutlet weak var eventDateLbl : UILabel!
     @IBOutlet weak var socialPhotoView : UIImageView!
 
     override func prepareForReuse() {

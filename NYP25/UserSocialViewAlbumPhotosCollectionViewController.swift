@@ -36,20 +36,9 @@ class UserSocialViewAlbumPhotosCollectionViewController: UICollectionViewControl
             for a in self.eventAlbum{
                 print("a.eventId - \(a.eventId)")
                 print("eventIdLbl - \(self.eventIdLbl)")
-//                if(a.eventId == self.eventIdLbl){
                 self.soloEventAlbum.append(a)
-//
             }
         })
-        
-//        if(self.soloEventAlbum.count == 0){
-//            let alert = UIAlertView(title: "",
-//                                    message: "No Photos Available Currently",
-//                                    delegate: nil,
-//                                    cancelButtonTitle: "Ok")
-//            alert.show()
-//            
-//        }
     }
     
     override func didReceiveMemoryWarning() {

@@ -24,6 +24,7 @@ class UserSocialMainListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var btnLike: UIButton!
     @IBOutlet weak var btnReport: UIButton!
+//    @IBOutlet weak var btnViewComments: UIButton!
 
     @IBOutlet weak var likeLbl: UILabel!
     @IBOutlet weak var hintLbl : UILabel!

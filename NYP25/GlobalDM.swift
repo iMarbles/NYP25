@@ -21,6 +21,17 @@ class GlobalDM: NSObject {
     static var sitCol : UIColor = UIColor.blue
     static var sidmCol : UIColor = UIColor.magenta
     
+    
+    static func getDateNameBy(stringDate: String) -> String     //Evelyn
+    {
+        let df  = DateFormatter()
+        df.dateFormat = "YYYYMMdd"
+        
+        let date = df.date(from: stringDate)!
+        df.dateFormat = "EEE, dd MMM YYYY"
+        return df.string(from: date);
+    }
+    
     static func getDayNameBy(stringDate: String) -> String
     {
         let df  = DateFormatter()

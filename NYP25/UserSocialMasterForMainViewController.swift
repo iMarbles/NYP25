@@ -27,14 +27,18 @@ class UserSocialMasterForMainViewController: UIViewController {
     }
     
     @IBAction func btnUpload(sender: AnyObject) {
-        if(eventNameList.count == 0){
+        if(eventNameList.count != 0){
+            let storyBoard : UIStoryboard = UIStoryboard(name: "UserSocial", bundle:nil)
+            
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UserSocialSelectImage") as! UserSocialSelectImageViewController
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        }else{
             var alert = UIAlertView(
                 title: nil,
                 message: "Sorry, there's no album available currently for upload!",
                 delegate: nil,
                 cancelButtonTitle: "Ok")
             alert.show()
-        }else{
             
         }
     }

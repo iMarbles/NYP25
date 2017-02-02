@@ -72,6 +72,8 @@
 		61B443261E32802500E3EE94 /* UserProfileViewOwnPhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B443251E32802500E3EE94 /* UserProfileViewOwnPhotosCollectionViewController.swift */; };
 		61B443281E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B443271E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift */; };
 		61B51EF41E3E2EC9009FA564 /* UserProfileDetailsForOwnPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B51EF31E3E2EC9009FA564 /* UserProfileDetailsForOwnPhotosViewController.swift */; };
+		61B989181E4335D4003BDB58 /* UserSocialPhotosCommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B989171E4335D4003BDB58 /* UserSocialPhotosCommentsTableViewController.swift */; };
+		61B9891C1E4337D8003BDB58 /* UserSocialListCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9891B1E4337D8003BDB58 /* UserSocialListCommentsTableViewCell.swift */; };
 		61C130C11E289901006E4191 /* UserSocialDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C130BC1E289901006E4191 /* UserSocialDM.swift */; };
 		61C130C51E289901006E4191 /* UserSocialMasterForProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C130C01E289901006E4191 /* UserSocialMasterForProfileViewController.swift */; };
 		61C265001E3D092B006C1B53 /* UserProfileDetailsForLikedPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C264FF1E3D092B006C1B53 /* UserProfileDetailsForLikedPhotosViewController.swift */; };
@@ -244,6 +246,8 @@
 		61B443251E32802500E3EE94 /* UserProfileViewOwnPhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserProfileViewOwnPhotosCollectionViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		61B443271E32802F00E3EE94 /* UserProfileViewLikedPhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserProfileViewLikedPhotosCollectionViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		61B51EF31E3E2EC9009FA564 /* UserProfileDetailsForOwnPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDetailsForOwnPhotosViewController.swift; sourceTree = "<group>"; };
+		61B989171E4335D4003BDB58 /* UserSocialPhotosCommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialPhotosCommentsTableViewController.swift; sourceTree = "<group>"; };
+		61B9891B1E4337D8003BDB58 /* UserSocialListCommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialListCommentsTableViewCell.swift; sourceTree = "<group>"; };
 		61C130BC1E289901006E4191 /* UserSocialDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserSocialDM.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		61C130C01E289901006E4191 /* UserSocialMasterForProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserSocialMasterForProfileViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		61C264FF1E3D092B006C1B53 /* UserProfileDetailsForLikedPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDetailsForLikedPhotosViewController.swift; sourceTree = "<group>"; };
@@ -472,6 +476,7 @@
 				04EB65331E3F02D60012E765 /* UserInboxMainTableViewCell.swift */,
 				9FAD32D21E408E1100A180A3 /* UserEventsTableViewCell.swift */,
 				61ECAAD31E4256FF00254117 /* UserSocialViewAlbumPhotosCollectionViewCell.swift */,
+				61B9891B1E4337D8003BDB58 /* UserSocialListCommentsTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -524,6 +529,7 @@
 				61ABEC481E2B392500786152 /* UserSocialSelectImageViewController.swift */,
 				612647041E2E3955008DC73A /* UserSocialUploadImageViewController.swift */,
 				61ECAAD51E42571300254117 /* UserSocialViewAlbumPhotosCollectionViewController.swift */,
+				61B989171E4335D4003BDB58 /* UserSocialPhotosCommentsTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -755,6 +761,7 @@
 				9FAD32D31E408E1100A180A3 /* UserEventsTableViewCell.swift in Sources */,
 				04E864D61E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift in Sources */,
 				61B25FFB1E37E13B0090A70D /* UserProfileEditPasswordViewController.swift in Sources */,
+				61B989181E4335D4003BDB58 /* UserSocialPhotosCommentsTableViewController.swift in Sources */,
 				8166BC4F1DF685AD00FAA37C /* Leaderboard.swift in Sources */,
 				61B4431E1E327FE300E3EE94 /* UserProfileViewBadgesCollectionViewCell.swift in Sources */,
 				610EACEC1E3B6FFF002823C9 /* UserProfileSettingViewBadgesCollectionViewCell.swift in Sources */,
@@ -771,6 +778,7 @@
 				8166BC551DF6891000FAA37C /* PhotoLike.swift in Sources */,
 				9FAD32CD1E408C8900A180A3 /* UserEventsTableViewController.swift in Sources */,
 				816A87BE1DF16FAE00232C08 /* AdminHomeViewController.swift in Sources */,
+				61B9891C1E4337D8003BDB58 /* UserSocialListCommentsTableViewCell.swift in Sources */,
 				040CA3131E38EF4B00765193 /* AdminEventsInboxTableViewCell.swift in Sources */,
 				611D339A1E3A729C009AAE74 /* UserProfileMasterForSettingsViewController.swift in Sources */,
 				04E93EF61E36141F0044820D /* SignupViewController.swift in Sources */,

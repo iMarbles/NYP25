@@ -10,16 +10,16 @@
 import UIKit
 
 class UserSocialMainListTableViewController: UITableViewController {
-    var socialList : [Social] = []
-//    var noOfLikesList : [PhotoLike] = []
-    
     var likedBy : PhotoLike?
-    
     var likes: [String]!
-    
-    
-    var countList : [PhotoLike] = []
 
+    var socialList : [Social] = []
+    var countList : [PhotoLike] = []
+    
+    var imgToPass: Social?
+    
+//    var tmpString : String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,6 +45,13 @@ class UserSocialMainListTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         likes = [String](repeating: "like", count: socialList.count)
         return socialList.count
@@ -66,6 +73,7 @@ class UserSocialMainListTableViewController: UITableViewController {
         }else{
             cell.usernameLbl.text = s.uploaderUsername
         }
+        
         cell.captionLbl.text = s.caption
         
         cell.btnLike.tag = indexPath.row
@@ -76,17 +84,23 @@ class UserSocialMainListTableViewController: UITableViewController {
 
         cell.btnReport.tag = indexPath.row
         cell.btnReport.addTarget(self, action: #selector(actionSheetButtonPressed), for: .touchUpInside)
+        
+        
+//        cell.btnViewComments.tag = indexPath.row
+//        cell.btnViewComments.addTarget(self, action: #selector(actionViewComments), for: .touchUpInside)
+//        cell.button.addTarget(self, action: "makeSegue", forControlEvents: UIControlEvents.TouchUpInside)
 
         UserSocialProfileMasterViewController.loadImage(imageView: cell.mainListImageView, url: s.photoUrl!)
         
         UserSocialDM.retrieveAllPhotosForLikeCount(socialId: s.socialId, onComplete: {(list) in
             self.countList = list
             cell.countLikesLbl.text = String(self.countList.count)
+            //self.tableView.reloadData()
         })
-
         
         return cell
     }
+    
 
     func handleLikes(sender: AnyObject){
         UserSocialDM.updateNoOfPhotoLikes(
@@ -106,7 +120,74 @@ class UserSocialMainListTableViewController: UITableViewController {
             print("like")
             sender.setImage(UIImage(named:"LikeFilled.png"), for: .normal)
         }
+        
+        self.tableView.reloadData()
     }
+
+//    func actionViewComments(sender: AnyObject) {
+//        imgToPass = socialList[(sender.tag)]
+//        print("imgToPass - \(imgToPass!)")
+//    
+//        self.performSegue(withIdentifier: "UserSocialComments", sender: self)
+//
+//    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        
+//        if segue.identifier == "UserSocialComments"
+//        {
+//            let a = segue.destination as! UserSocialPhotosCommentsTableViewController
+//                a.socialImg = imgToPass
+//                print("The passing address is: \(a.socialImg)")
+//                print("The passing address is: \(imgToPass)")
+//        }
+////        
+////        if segue.identifier == "UserSocialComments"{
+////            let a = segue.destination as! UserSocialPhotosCommentsTableViewController
+////
+////                a.socialImg = self.imgToPass
+////                print("The passing address is: \(a.socialImg)")
+////            
+////
+//////            imgToPass = socialList[(sender?.tag)]
+////            
+//////            a.socialImg = imgToPass
+//////            print("The passing address is: \(a.socialImg)")
+//////            print("The passing address is: \(imgToPass)")
+////            
+//////            performSegue(withIdentifier: "UserSocialComments", sender: self)
+////            
+////        }
+//    }
+
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+////        var indexPath = self.tableView.indexPathForSelectedRow!
+//        
+//        if segue.identifier == "UserSocialComments"{
+//            let a = segue.destination as! UserSocialPhotosCommentsTableViewController
+//            
+////            imgToPass = socialList[(sender.tag)]
+////            print("imgToPass - \(imgToPass!)")
+//
+//            
+//            if imgToPass != nil{
+//                a.socialImg = self.imgToPass
+//                print("The passing address is: \(a.socialImg)")
+//            }
+//        }
+//    }
+    
+//    func actionViewComments(sender: AnyObject) {
+//                selectedRow = sender.tag
+//        let a = UserSocialPhotosCommentsTableViewController()
+//        
+//        a.socialImg = socialList[(sender.tag)]
+//        socialList[(indexPath as IndexPath).row]
+//
+//        
+//        //self.performSegue(withIdentifier: "UserSocialComments", sender: self)
+//    }
     
     func actionSheetButtonPressed(sender: AnyObject) {
         let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
@@ -161,5 +242,4 @@ class UserSocialMainListTableViewController: UITableViewController {
         
         self.present(alertController, animated: true) {}
     }
-    
 }

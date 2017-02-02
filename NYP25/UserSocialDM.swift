@@ -212,6 +212,74 @@ class UserSocialDM: NSObject {
         })
     }
     
+    //Retrieve all events
+    static func retrieveAllSocialByID(socialId : String, onComplete: @escaping ([Social])->Void){
+        var socialList : [Social] = []
+        var likedByList : [PhotoLike] = []
+        var commentList : [PhotoComment] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
+        
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            socialList = []
+            
+            //.reversed() - for descending order
+            for record in snapshot.children.reversed(){
+                let r = record as! FIRDataSnapshot
+                
+                let s = Social()
+                
+                s.socialId = r.key
+                s.eventId = r.childSnapshot(forPath: "eventId").value as! String
+                s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
+                s.uploader = r.childSnapshot(forPath: "uploader").value as? String
+                s.caption = r.childSnapshot(forPath: "caption").value as? String
+                s.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
+                s.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
+                s.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
+                s.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
+                
+                //Child nodes
+                likedByList = []
+                let likes = r.childSnapshot(forPath: "likedBy").children
+                for liked in likes{
+                    let l = liked as! FIRDataSnapshot
+                    
+                    let p = PhotoLike()
+                    p.adminNo = l.key
+                    p.isLike = (l.childSnapshot(forPath: "isLiked").value as? Int)!
+                    
+                    //Child nodes
+                    commentList = []
+                    let comments = l.childSnapshot(forPath: "comments").children
+                    for commented in comments{
+                        let c = commented as! FIRDataSnapshot
+                        
+                        let pc = PhotoComment()
+                        pc.commentId = c.key
+                        pc.username = c.childSnapshot(forPath: "username").value as! String
+                        pc.timestamp = c.childSnapshot(forPath: "timestamp").value as? String
+                        pc.comment = c.childSnapshot(forPath: "comment").value as! String
+                        
+                        commentList.append(pc)
+                    }
+                    
+                    p.comments = commentList
+                    likedByList.append(p)
+                }
+                
+                if(s.isFlagged == 0){
+                    s.likes = likedByList
+                    socialList.append(s)
+                }
+            }
+            
+            onComplete(socialList)
+        })
+    }
+
     
     //COUNT TOTAL AMOUNT OF LIKES FOR THE PHOTO
     static func countTotalLikesForPhoto(socialId : String, onComplete: @escaping (PhotoLike)->Void){
@@ -320,42 +388,6 @@ class UserSocialDM: NSObject {
             }
         })
     }
-    
-//    //Retrieve event names
-//    static func retrieveEventNamesByID(eventId : String, onComplete: @escaping ([Event])->Void){
-//        var eventNames : [Event] = []
-//        
-//        let ref = FIRDatabase.database().reference().child("events/\(eventId)/")
-//        
-//        ref.observe(FIRDataEventType.value, with:{
-//            (snapshot) in
-//            
-//            eventNames = []
-//            
-//            for record in snapshot.children{
-//                let r = record as! FIRDataSnapshot
-//                
-//                let e = Event()
-//                e.eventId = r.key
-//                e.name = r.childSnapshot(forPath: "name").value as? String
-//                e.address = r.childSnapshot(forPath: "address").value as? String
-//                e.imageUrl = r.childSnapshot(forPath: "image").value as? String
-//                e.badgeId = r.childSnapshot(forPath: "badge").value as? String
-//                e.desc = r.childSnapshot(forPath: "description").value as? String
-//                e.date = r.childSnapshot(forPath: "date").value as? String
-//                e.startTime = r.childSnapshot(forPath: "startTime").value as? String
-//                e.endTime = r.childSnapshot(forPath: "endTime").value as? String
-//                e.status = r.childSnapshot(forPath: "status").value as! String
-//                
-//                
-//                if(e.status == "O"){
-//                    eventNames.append(e)
-//                }
-//                
-//                onComplete(eventNames)
-//            }
-//        })
-//    }
 
     //Retrieve all images of event
     static func retrieveEventPhotosByID(eventId : String, onComplete: @escaping ([Social])->Void){
