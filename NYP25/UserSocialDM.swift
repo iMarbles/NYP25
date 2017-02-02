@@ -401,6 +401,30 @@ class UserSocialDM: NSObject {
                 }
         })
     }
+    
+    //Retrieve all images of event
+    static func retrieveEventPhotosByEventId(eventId : String, onComplete: @escaping ([Social])->Void){
+        var socialPhotos : [Social] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/")
+        
+        ref.observeSingleEvent(of: .value, with:
+            {(snapshot) in
+                for record in snapshot.children{
+                    let r = record as! FIRDataSnapshot
+                    
+                    let photo = Social()
+                    photo.eventId = r.childSnapshot(forPath: "eventId").value as! String
+                    photo.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
+                    
+                    if(photo.eventId == eventId){
+                        socialPhotos.append(photo)   
+                    }
+                    
+                    onComplete(socialPhotos)
+                }
+        })
+    }
 
     //Retrieve all images of event by ID
     static func retrieveEventAlbumCover(onComplete: @escaping ([Event])->Void){

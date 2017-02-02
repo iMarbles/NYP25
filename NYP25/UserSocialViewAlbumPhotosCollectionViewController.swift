@@ -29,16 +29,16 @@ class UserSocialViewAlbumPhotosCollectionViewController: UICollectionViewControl
         
         print("eventIdLbl - \(eventIdLbl)")
         
-        UserSocialDM.retrieveEventPhotos(onComplete: { (list) in
+        UserSocialDM.retrieveEventPhotosByEventId(eventId : eventIdLbl, onComplete: { (list) in
             self.eventAlbum = list
             self.collectionView?.reloadData()
             
             for a in self.eventAlbum{
                 print("a.eventId - \(a.eventId)")
                 print("eventIdLbl - \(self.eventIdLbl)")
-                if(a.eventId == self.eventIdLbl){
-                    self.soloEventAlbum.append(a)
-                }
+//                if(a.eventId == self.eventIdLbl){
+                self.soloEventAlbum.append(a)
+//
             }
         })
         

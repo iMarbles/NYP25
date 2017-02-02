@@ -31,12 +31,7 @@ class UserSocialMainListTableViewController: UITableViewController {
             
             
             if(self.socialList.count == 0){
-                let alert = UIAlertView(title: "",
-                                        message: "No Photos Available Currently",
-                                        delegate: nil,
-                                        cancelButtonTitle: "Ok")
-                alert.show()
-                
+                print("no photo")
             }
         }
 
@@ -64,6 +59,8 @@ class UserSocialMainListTableViewController: UITableViewController {
         
         let s = socialList[(indexPath as IndexPath).row]
         cell.dateLbl.text = s.postedDateTime
+        
+        
         if(s.uploaderUsername == nil){
             cell.usernameLbl.text = s.uploader
         }else{

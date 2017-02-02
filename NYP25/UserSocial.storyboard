@@ -519,7 +519,7 @@
         <!--Upload Event Photo-->
         <scene sceneID="LMD-eL-hxF">
             <objects>
-                <viewController id="MXi-AM-SIp" customClass="UserSocialSelectImageViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserSocialSelectImage" id="MXi-AM-SIp" customClass="UserSocialSelectImageViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="w1r-j9-o97"/>
                         <viewControllerLayoutGuide type="bottom" id="iE1-oR-1wb"/>
