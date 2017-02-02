@@ -49,24 +49,22 @@ class RegisterDM: NSObject {
 
         let ref = FIRDatabase.database().reference().child("users/")
         
+        var sList : Array<Student> = Array()
         
         ref.observeSingleEvent(of: .value, with:
             { (snapshot) in
                 for user in snapshot.children
                 {
-                    var sList : Array<Student> = Array()
                     let u = user as! FIRDataSnapshot
                     
                     let s = Student()
                     
-                    s.userId = u.key.lowercased()
+                    s.userId = u.key.uppercased()
                     s.username = (u.childSnapshot(forPath: "username").value as! String).lowercased()
-                    
                     sList.append(s)
                     
-                    
                 }
-//               onComplete(sList)
+               onComplete(sList)
         })
     }
     

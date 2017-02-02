@@ -39,11 +39,13 @@
         // Dispose of any resources that can be recreated.
     }
     
-    
     @IBAction func regBtnPressed(_ sender: Any) {
+        if !(schTf.text == "") {
+            schTf.text = schTf.text?.uppercased()
+        }
+        
         if (fnTf.text == "" ||
             admTf.text == "" ||
-            schTf.text == "" ||
             unTf.text == "" ||
             pwTf.text == "" ||
             cpwTf.text == "") {
@@ -54,15 +56,32 @@
         } else if !(schTf.text == "SIT" || schTf.text == "SIDM" || schTf.text == "SDN" || schTf.text == "SBM" || schTf.text == "SCL" || schTf.text == "SEG") {
             showAlert(title: "Oops!", message: "You have entered an invalid school!")
         } else {
-            showAlert(title: "Nice!", message: "Everything looks good.")
-            // shit works
-            //            RegisterDM.createUser(user : "hello");
             print("======");
-            // shit doesnt work
-            //            RegisterDM.getUsers(admin: admTf.text!, username: unTf.text!, onComplete: {(Array<Student>) in
-            //                
-            //            })
-        }
+    
+    
+            admTf.text = admTf.text?.uppercased()
+            unTf.text = unTf.text?.lowercased()
+            RegisterDM.getUsers(admin: admTf.text!, username: unTf.text!, onComplete: {(sList) in
+                var idmatch : Bool = false
+                var usermatch : Bool = false
+                for s in sList {
+                    if(s.userId == self.admTf.text) {
+                        idmatch = true;
+                    } else if(s.username == self.unTf.text) {
+                        usermatch = true;
+                    }
+                }
+                
+                if idmatch == true {
+                    self.showAlert(title: "Oops!", message: "Your admin number has already been registered.")
+                } else if usermatch == true {
+                    self.showAlert(title: "Oops!", message: "Your username has already been taken.")
+                } else {
+                    
+                }
+            })
+
+                                }
     }
     
     func showAlert(title: String, message: String) {
@@ -72,5 +91,13 @@
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewEventDetails"{
+//            let dest = segue.destination as! UserEventDetailsViewController
+//            dest.event = eventToPass
+        }
+    }
+
 
  }
