@@ -61,48 +61,38 @@ class UserEventDM: NSObject {
 
     
     
-    static func retrieveAllEventAttendance(adm: String, onComplete: @escaping([EventsInAttendance])->Void){
-//        var attendanceList : [EventAttendance] = []
-        var eventsInAttendanceList : [EventsInAttendance] = []
-        
-        let ref = FIRDatabase.database().reference().child("eventAttendance/")
+    static func checkIfRSVP(adm: String, eventId: String, onComplete: @escaping(String)->Void){
+        var msg = "EXIST"
+        print(adm + eventId)
+        let ref = FIRDatabase.database().reference().child("eventAttendance/\(adm)/events/\(eventId)/rsvp")
         ref.observe(FIRDataEventType.value, with:{
             (snapshot) in
-            
-//            attendanceList = []
-            eventsInAttendanceList = []
-            
-            for record in snapshot.children{
-                let r = record as! FIRDataSnapshot
+            if snapshot.exists(){
+                msg = "EXIST"
                 
-                let a = EventAttendance()
-                a.adminNo = r.key
-                a.school = r.childSnapshot(forPath: "school").value as! String
-                
-                if (a.adminNo == adm) {
-                //Child nodes of events
-                let events = r.childSnapshot(forPath: "events").children
-                for event in events{
-                    let eFromDb = event as! FIRDataSnapshot
-                    
-                    let e = EventsInAttendance()
-                    e.eventId = eFromDb.key
-                    e.checkIn = eFromDb.childSnapshot(forPath: "checkIn").value as? String
-                    e.rsvp = eFromDb.childSnapshot(forPath: "rsvp").value as? String
-                    
-                    
-                    eventsInAttendanceList.append(e)
-                }
-                
-//                a.events = eventsInAttendanceList
-//                attendanceList.append(a)
+            }else{
+                msg = "NOT"
             }
-                
-                onComplete(eventsInAttendanceList)
-            }
+            onComplete(msg)
         })
     }
     
+    
+    
+    static func addRSVP(adm: String, eventId: String) {
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYYMMDD, HH:mm:ss"
+        let ref = FIRDatabase.database().reference().child("eventAttendance/\(adm)/events/\(eventId)")
+        ref.updateChildValues(["rsvp" : formatter.string(from: now)])
+    }
+    
+    static func removeRSVP(adm: String, eventId: String) {
+        let ref = FIRDatabase.database().reference().child("eventAttendance/\(adm)/events/\(eventId)/rsvp")
+        ref.removeValue()
+    }
+    
+
     
     
     //Update event

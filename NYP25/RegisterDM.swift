@@ -95,4 +95,20 @@ class RegisterDM: NSObject {
         
         GlobalDM.CurrentUser?.password = shaHex
     }
+    
+    static func createAccount(u : User){
+        let key = FIRDatabase.database().reference().child("events").childByAutoId().key
+        let ref = FIRDatabase.database().reference().child("events/\(key)/")
+        
+        ref.setValue([
+//            "name" : event.name,
+//            "address" : event.address,
+//            "description" : event.desc,
+//            "date" : event.date,
+//            "startTime" : event.startTime,
+//            "endTime" : event.endTime,
+//            "status" : event.status
+            ])
+        
+    }
 }

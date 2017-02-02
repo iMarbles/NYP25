@@ -47,24 +47,14 @@
             unTf.text == "" ||
             pwTf.text == "" ||
             cpwTf.text == "") {
-            let alertController = UIAlertController(title: "Oops!", message: "Looks like you didn't fill in all the fields.", preferredStyle: UIAlertControllerStyle.alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
+          
+            showAlert(title: "Oops!", message: "Looks like you didn't fill in all the fields.")
         } else if (pwTf.text != cpwTf.text) {
-            let alertController = UIAlertController(title: "Oops!", message: "Your passwords do not match.", preferredStyle: UIAlertControllerStyle.alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-            
-        }else {
-            let alertController = UIAlertController(title: "Nice!", message: "Everything looks good.", preferredStyle: UIAlertControllerStyle.alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
+            showAlert(title: "Oops!", message: "Your passwords do not match.")
+        } else if !(schTf.text == "SIT" || schTf.text == "SIDM" || schTf.text == "SDN" || schTf.text == "SBM" || schTf.text == "SCL" || schTf.text == "SEG") {
+            showAlert(title: "Oops!", message: "You have entered an invalid school!")
+        } else {
+            showAlert(title: "Nice!", message: "Everything looks good.")
             // shit works
             //            RegisterDM.createUser(user : "hello");
             print("======");
@@ -74,4 +64,13 @@
             //            })
         }
     }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+
  }
