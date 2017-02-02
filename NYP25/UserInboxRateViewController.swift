@@ -96,7 +96,15 @@ class UserInboxRateViewController: UIViewController, UITextViewDelegate {
         //Do the setting of user here due to slow async
         UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {
             (student) in
-            self.feedback.username = student.username
+            self.feedback
+                .username = student.username
+            if self.commentTb.text.isEmpty {
+                self.commentTb.text = "Enter comments"
+                self.commentTb.textColor = UIColor.lightGray
+                self.feedback.comment = "No comments"
+            }else{
+                self.feedback.comment = self.commentTb.text
+            }
             
             UserInboxDM.createFeedbackFor(eventId: (self.event?.eventId)!, feedback: self.feedback, onComplete: {
                 (msg) in
