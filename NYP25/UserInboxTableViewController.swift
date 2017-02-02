@@ -21,7 +21,6 @@ class UserInboxTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
         loadEventsToFeedback()
     }
 
@@ -29,23 +28,28 @@ class UserInboxTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func loadEventsToFeedback(){
+        eventList = []
+        eventToFeedbackList = []
+
         UserInboxDM.retrieveAllEvents { (listFromDb) in
             self.eventList = listFromDb
             self.eventToFeedbackList = []
             
             UserInboxDM.retrieveAllAttendanceBy(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(stringEventId) in
-                for eventId in stringEventId{
+                for eventId in stringEventId {
                     let find = self.eventList.first(where: {$0.eventId == eventId})
                     
                     if find != nil{
                         var found = false
+                        //Check feedbacklist of the event (find)
                         for f in (find?.feedbackList)!{
                             if f.userId == GlobalDM.CurrentUser?.userId{
                                 found = true
                             }
                         }
+                        //If feedback not found, have to make person feedback
                         if !found{
                             self.eventToFeedbackList.append(find!)
                         }
@@ -53,9 +57,12 @@ class UserInboxTableViewController: UITableViewController {
                 }
                 
                 self.tableView.reloadData()
+
             })
         }
     }
+    
+    
 
     // MARK: - Table view data source
 

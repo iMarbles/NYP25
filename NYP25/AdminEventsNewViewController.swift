@@ -245,6 +245,15 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         self.view.frame.origin.y += 150
     }
     
+    //Ensuring that switch does not loose state
+    @IBAction func visibleSwitchState(sender: AnyObject){
+        if visbleSwitch.isOn{
+            event?.status = "O"
+        }else{
+            event?.status = "C"
+        }
+    }
+    
     
     //Saving of event
     @IBAction func saveEvent(){
@@ -354,7 +363,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
             errMsg += "Please select a location \n"
         }
         if badgeImage.image == nil{
-            errMsg += "Please upload a badge icon"
+            errMsg += "Please upload a badge icon \n"
         }
         if event?.desc == ""{
             errMsg += "Please enter a description"

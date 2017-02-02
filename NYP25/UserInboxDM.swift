@@ -66,6 +66,7 @@ class UserInboxDM: NSObject {
                 e.status = r.childSnapshot(forPath: "status").value as! String
                 
                 //Child node of feedbacks
+                feedbackList = []
                 let feedbacks = r.childSnapshot(forPath: "feedbacks").children
                 for feedback in feedbacks{
                     let feed = feedback as! FIRDataSnapshot
