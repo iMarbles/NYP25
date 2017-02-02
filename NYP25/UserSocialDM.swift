@@ -451,9 +451,10 @@ class UserSocialDM: NSObject {
                     
                     if(photo.eventId == eventId){
                         socialPhotos.append(photo)   
+                        onComplete(socialPhotos)
                     }
                     
-                    onComplete(socialPhotos)
+
                 }
         })
     }

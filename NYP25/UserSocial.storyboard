@@ -247,17 +247,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tpQ-gh-Nyg" firstAttribute="top" secondItem="xya-iq-Z2e" secondAttribute="bottom" constant="8" id="0wI-y7-2fn"/>
-                            <constraint firstItem="tpQ-gh-Nyg" firstAttribute="leading" secondItem="O1h-as-Bgz" secondAttribute="leading" id="84A-lY-aQc"/>
                             <constraint firstItem="xq5-i7-a2p" firstAttribute="top" secondItem="MVh-PY-ZOR" secondAttribute="bottom" constant="8" symbolic="YES" id="Kxz-fW-nx0"/>
-                            <constraint firstAttribute="trailing" secondItem="tpQ-gh-Nyg" secondAttribute="trailing" id="MQl-9T-emS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xq5-i7-a2p" secondAttribute="trailing" id="cdb-6h-PGQ"/>
+                            <constraint firstItem="tpQ-gh-Nyg" firstAttribute="leading" secondItem="O1h-as-Bgz" secondAttribute="leading" id="dTM-mv-quP"/>
                             <constraint firstItem="xya-iq-Z2e" firstAttribute="leading" secondItem="xq5-i7-a2p" secondAttribute="leading" id="dyY-GH-Ge7"/>
                             <constraint firstItem="xya-iq-Z2e" firstAttribute="top" secondItem="xq5-i7-a2p" secondAttribute="bottom" constant="8" symbolic="YES" id="heb-2v-1pI"/>
-                            <constraint firstAttribute="bottom" secondItem="tpQ-gh-Nyg" secondAttribute="bottom" id="laG-Ua-WPZ"/>
                             <constraint firstItem="xya-iq-Z2e" firstAttribute="leading" secondItem="O1h-as-Bgz" secondAttribute="leadingMargin" id="llD-Xt-JtR"/>
+                            <constraint firstItem="tpQ-gh-Nyg" firstAttribute="top" secondItem="xya-iq-Z2e" secondAttribute="bottom" constant="8" id="nsQ-iQ-iag"/>
+                            <constraint firstAttribute="bottom" secondItem="tpQ-gh-Nyg" secondAttribute="bottom" id="oKq-Oh-AHh"/>
                             <constraint firstItem="xq5-i7-a2p" firstAttribute="leading" secondItem="O1h-as-Bgz" secondAttribute="leadingMargin" id="tPP-Jp-wSW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xya-iq-Z2e" secondAttribute="trailing" id="uUa-0X-ivL"/>
+                            <constraint firstAttribute="trailing" secondItem="tpQ-gh-Nyg" secondAttribute="trailing" id="xYw-FP-R3U"/>
                             <constraint firstItem="xq5-i7-a2p" firstAttribute="leading" secondItem="O1h-as-Bgz" secondAttribute="leadingMargin" id="xgE-6W-QST"/>
                         </constraints>
                     </view>
