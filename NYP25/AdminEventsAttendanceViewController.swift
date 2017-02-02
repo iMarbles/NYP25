@@ -25,7 +25,7 @@ class AdminEventsAttendanceViewController: UIViewController, AVCaptureMetadataOu
         super.viewDidLoad()
         
         //Testing without device
-        
+        /*
         let adminNo = "142519G"
         AdminEventDM.checkIfUserExist(adminNo: adminNo, onComplete: {(student) in
             if student.userId != "" {
@@ -39,6 +39,7 @@ class AdminEventsAttendanceViewController: UIViewController, AVCaptureMetadataOu
                 self.messageLabel.text = "Invalid QR Code"
             }
         })
+ */
         
         
         // Do any additional setup after loading the view.
