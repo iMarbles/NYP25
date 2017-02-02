@@ -65,7 +65,7 @@ class UserSocialMainListTableViewController: UITableViewController {
         cell.mainListImageView.image = UIImage(named: "loading-512")
         
         let s = socialList[(indexPath as IndexPath).row]
-        cell.dateLbl.text = s.postedDateTime
+        cell.dateLbl.text = GlobalDM.getCommentDateTimeBy(stringDate: s.postedDateTime!)
         
         
         if(s.uploaderUsername == nil){

@@ -450,11 +450,9 @@ class UserSocialDM: NSObject {
                     photo.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
                     
                     if(photo.eventId == eventId){
-                        socialPhotos.append(photo)   
+                        socialPhotos.append(photo)
                         onComplete(socialPhotos)
                     }
-                    
-
                 }
         })
     }
@@ -495,7 +493,7 @@ class UserSocialDM: NSObject {
         
         let currentDate = NSDate()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd, HH:mm"
+        dateFormatter.dateFormat = "yyyyMMdd, HH:mm:ss"
         
         let result = dateFormatter.string(from: currentDate as Date)
         
@@ -579,8 +577,11 @@ class UserSocialDM: NSObject {
                         print("p.isLike - \(p.isLike)")
                         
                         if(p.isLike == 1){
+                            refLikedBy.updateChildValues([
+                                "isLiked" : 0
+                                ])
                             //Delete record
-                            refLikedBy.removeValue()
+//                            refLikedBy.removeValue()
                         }
                     }
                     

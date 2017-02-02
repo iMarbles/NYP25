@@ -34,11 +34,9 @@ class UserSocialViewAlbumPhotosCollectionViewController: UICollectionViewControl
             self.collectionView?.reloadData()
             
             for a in self.eventAlbum{
-//                if(a.eventId == self.eventIdLbl){
-                    print("a.eventId - \(a.eventId)")
-                    print("eventIdLbl - \(self.eventIdLbl)")
-                    self.soloEventAlbum.append(a)
-//                }
+                print("a.eventId - \(a.eventId)")
+                print("eventIdLbl - \(self.eventIdLbl)")
+                self.soloEventAlbum.append(a)
             }
         })
     }

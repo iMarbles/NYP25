@@ -32,6 +32,16 @@ class GlobalDM: NSObject {
         return df.string(from: date);
     }
     
+    static func getCommentDateTimeBy(stringDate: String) -> String     //Evelyn
+    {
+        let df  = DateFormatter()
+        df.dateFormat = "yyyyMMdd, HH:mm:ss"
+        
+        let date = df.date(from: stringDate)!
+        df.dateFormat = "dd MMM YYYY, HH:mm"
+        return df.string(from: date);
+    }
+    
     static func getDayNameBy(stringDate: String) -> String
     {
         let df  = DateFormatter()

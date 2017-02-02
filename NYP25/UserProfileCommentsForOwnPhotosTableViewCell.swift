@@ -12,6 +12,7 @@ class UserProfileCommentsForOwnPhotosTableViewCell: UITableViewCell {
 
     @IBOutlet weak var usernameLbl : UILabel!
     @IBOutlet weak var commentLbl : UILabel!
+    @IBOutlet weak var dateLbl : UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

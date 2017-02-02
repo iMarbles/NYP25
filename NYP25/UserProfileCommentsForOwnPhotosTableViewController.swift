@@ -55,9 +55,11 @@ class UserProfileCommentsForOwnPhotosTableViewController: UITableViewController 
         if(commentList.count != 0){
             cell.usernameLbl.text = commentList[(indexPath as IndexPath).row].username
             cell.commentLbl.text = commentList[(indexPath as IndexPath).row].comment
+            cell.dateLbl.text = GlobalDM.getCommentDateTimeBy(stringDate: commentList[(indexPath as IndexPath).row].timestamp!)
         }else{
             cell.usernameLbl.isHidden = true
             cell.commentLbl.isHidden = true
+            cell.dateLbl.isHidden = true
             
             let alert = UIAlertView(title: "",
                                     message: "No comments currently",
