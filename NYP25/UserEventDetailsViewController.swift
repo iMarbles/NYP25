@@ -12,7 +12,9 @@ import MapKit
 class UserEventDetailsViewController: UIViewController {
     
     var event: Event?
-    var exists = false;
+    var btnGreen : Bool = true
+    var eId : String?
+    let adm = GlobalDM.CurrentUser?.userId
     var eventList : [EventsInAttendance] = []
     @IBOutlet weak var eventBannerImg:UIImageView!
     @IBOutlet weak var eventLbl:UILabel!
@@ -26,8 +28,6 @@ class UserEventDetailsViewController: UIViewController {
     var matchingItems: [MKMapItem] = [MKMapItem]()
     
     func goBtn(img: AnyObject) {
-        let adm = GlobalDM.CurrentUser?.userId
-        let eId = event!.eventId
 //        UserEventDM.checkIfInterestExists(adminNo: "142519G", eventId: event!.eventId, onComplete: {(exists) in
 //            if exists == true {
 //                print("Interest exists")
@@ -36,36 +36,62 @@ class UserEventDetailsViewController: UIViewController {
 //            }
 //        })
 
-        UserEventDM.retrieveAllEventAttendance(adm: adm!, onComplete: {(att) in
-            self.eventList = att
-            self.checkEvent(eId: eId) // teh bool 'exists' cant be taken out rip
-        })
         
         
-        print(exists)
-            
-        showAlert(title : "Nice", message : "Nothing interesting happens")
         
+//        print("outside : \(self.exists)")
+        
+        if btnGreen == true {
+            showNotGoingBtn()
+            UserEventDM.addRSVP(adm: adm!, eventId: event!.eventId)
+            showAlert(title : "Success", message : "We've got you registered for this event! :)")
+        } else {
+            showGoingBtn()
+            UserEventDM.removeRSVP(adm: adm!, eventId: event!.eventId)
+            showAlert(title : "Success", message : "We're sorry you couldn't make it, you've been unregistered.")
+        }
+        refreshName()
     }
     
-    func checkEvent(eId: String) {
+    func checkEvent() {
         for i in eventList {
-            print(i.eventId + " ? " + eId)
-            if i.eventId == eId {
-                self.exists = true
-                print("Event match found")
+            print(i.eventId + " ? " + event!.eventId)
+            if i.eventId == event!.eventId {
+                showNotGoingBtn()
+//                self.exists = true
+//                print(self.exists)
+//                print("Event match found")
             } else {
                 
             }
         }
 
     }
+    
+    func refreshName() {
+        UserEventDM.checkIfRSVP(adm: adm!, eventId: event!.eventId, onComplete: { (msg) in
+            print(msg)
+            if msg == "EXIST" {
+                self.eventLbl.text = self.event!.name! + " ✅"
+            } else if msg == "NOT" {
+                self.eventLbl.text = self.event!.name
+            }
+        })
+    }
 
     
     override func viewWillAppear(_ animated: Bool) {
         let e : Event = event!
-        
         eventLbl.text = e.name
+        refreshName()
+        UserEventDM.checkIfRSVP(adm: adm!, eventId: event!.eventId, onComplete: { (msg) in
+            print(msg)
+            if msg == "EXIST" {
+                self.showNotGoingBtn()
+            } else if msg == "NOT" {
+                self.showGoingBtn()
+            }
+        })
         
         if e.date != nil && e.startTime != nil{
             let day = GlobalDM.getDayNameBy(stringDate: e.date!)
@@ -80,11 +106,12 @@ class UserEventDetailsViewController: UIViewController {
             GlobalDM.loadImage(imageView: eventBannerImg, url: e.imageUrl!)
         }
         
-        btnImg.image = UIImage(named: "btngreen")
-        btnLbl.text = "I'm going!"
+//        showGoingBtn()
         
         let request = MKLocalSearchRequest()
         request.naturalLanguageQuery = e.address;
+        
+        
         
         // Set the region to an associated map view's region
         request.region = mapWidget.region
@@ -147,6 +174,18 @@ class UserEventDetailsViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
         self.present(alertController, animated: true, completion: nil)
 
+    }
+    
+    func showGoingBtn() {
+        btnGreen = true;
+        btnImg.image = UIImage(named: "btngreen")
+        btnLbl.text = "I'm going :)"
+    }
+    
+    func showNotGoingBtn() {
+        btnGreen = false;
+        btnImg.image = UIImage(named: "btnorange")
+        btnLbl.text = "I'm not going :("
     }
 
     

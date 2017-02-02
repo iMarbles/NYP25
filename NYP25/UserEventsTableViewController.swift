@@ -11,7 +11,8 @@ import UIKit
 class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-
+    let adm = GlobalDM.CurrentUser?.userId
+    var tempName : String = "title"
     var eventsList : [Event] = []
     var eventToPass : Event = Event()
     override func viewDidLoad() {
@@ -43,6 +44,10 @@ class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITa
         // #warning Incomplete implementation, return the number of rows
         return eventsList.count
     }
+    
+    func updateCellLabel(text: String) {
+        tempName = text
+    }
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,8 +55,17 @@ class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITa
 //        cell.eventLabel.text = "Testing"
         let e = eventsList[(indexPath as IndexPath).row]
         
-        cell.eventLabel.text = e.name
-//        cell.eventLabel.text = e.name! + " ✅" // add on if user has indicated interest
+        UserEventDM.checkIfRSVP(adm: adm!, eventId: e.eventId, onComplete: { (msg) in
+            print(msg)
+            if msg == "EXIST" {
+                self.updateCellLabel(text: e.name! + " ✅")
+            } else if msg == "NOT" {
+                self.updateCellLabel(text: e.name!)
+            }
+            
+            cell.eventLabel.text = self.tempName
+        })
+//        cell.eventLabel.text = e.name
         cell.dateLabel.text = e.date
         if e.date != nil && e.startTime != nil{
             let day = GlobalDM.getDayNameBy(stringDate: e.date!)

@@ -371,6 +371,7 @@ class AdminEventDM: NSObject {
                 a.school = r.childSnapshot(forPath: "school").value as! String
                 
                 //Child nodes of events
+                eventsInAttendanceList = []
                 let events = r.childSnapshot(forPath: "events").children
                 for event in events{
                     let eFromDb = event as! FIRDataSnapshot

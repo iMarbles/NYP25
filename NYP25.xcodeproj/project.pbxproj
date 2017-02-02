@@ -103,7 +103,6 @@
 		8175B12B1DEFDE8100FCB205 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B12A1DEFDE8100FCB205 /* User.swift */; };
 		8175B12F1DEFE18000FCB205 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8175B12E1DEFE18000FCB205 /* Student.swift */; };
 		81FADAA11DE43912007D27C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAA01DE43912007D27C8 /* AppDelegate.swift */; };
-		81FADAA61DE43912007D27C8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAA41DE43912007D27C8 /* Login.storyboard */; };
 		81FADAB61DE43912007D27C8 /* NYP25Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAB51DE43912007D27C8 /* NYP25Tests.swift */; };
 		81FADAC11DE43912007D27C8 /* NYP25UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADAC01DE43912007D27C8 /* NYP25UITests.swift */; };
 		81FADADE1DE439C7007D27C8 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81FADADD1DE439C7007D27C8 /* libicucore.tbd */; };
@@ -113,6 +112,8 @@
 		81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */; };
 		81FADAFF1DE4453E007D27C8 /* AdminMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */; };
 		81FADB0F1DE44AD3007D27C8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */; };
+		9F3E94571E43651300FA9B19 /* SignUpContViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3E94561E43651300FA9B19 /* SignUpContViewController.swift */; };
+		9F3E94591E43656500FA9B19 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F3E94581E43656500FA9B19 /* Login.storyboard */; };
 		9FAD32CD1E408C8900A180A3 /* UserEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAD32CC1E408C8900A180A3 /* UserEventsTableViewController.swift */; };
 		9FAD32CF1E408DF200A180A3 /* UserEventDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAD32CE1E408DF200A180A3 /* UserEventDM.swift */; };
 		9FAD32D11E408E0300A180A3 /* UserEvents.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FAD32D01E408E0300A180A3 /* UserEvents.storyboard */; };
@@ -282,7 +283,6 @@
 		8175B12E1DEFE18000FCB205 /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		81FADA9D1DE43912007D27C8 /* NYP25.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NYP25.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FADAA01DE43912007D27C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		81FADAA51DE43912007D27C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		81FADAAC1DE43912007D27C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81FADAB11DE43912007D27C8 /* NYP25Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NYP25Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81FADAB51DE43912007D27C8 /* NYP25Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYP25Tests.swift; sourceTree = "<group>"; };
@@ -297,6 +297,8 @@
 		81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminMain.storyboard; sourceTree = "<group>"; };
 		81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9F3E94561E43651300FA9B19 /* SignUpContViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpContViewController.swift; sourceTree = "<group>"; };
+		9F3E94581E43656500FA9B19 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9FAD32CC1E408C8900A180A3 /* UserEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventsTableViewController.swift; sourceTree = "<group>"; };
 		9FAD32CE1E408DF200A180A3 /* UserEventDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventDM.swift; sourceTree = "<group>"; };
 		9FAD32D01E408E0300A180A3 /* UserEvents.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserEvents.storyboard; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 				04ED183C1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift */,
 				81FADB0E1DE44AD3007D27C8 /* LoginViewController.swift */,
 				04E93EF51E36141F0044820D /* SignupViewController.swift */,
+				9F3E94561E43651300FA9B19 /* SignUpContViewController.swift */,
 				9FE25E1D1E41A7AD00C13597 /* UserEventDetailsViewController.swift */,
 				9FAD32CC1E408C8900A180A3 /* UserEventsTableViewController.swift */,
 				04ECF5671E3F7F3E009767DE /* UserInboxRateViewController.swift */,
@@ -561,7 +564,7 @@
 				81FADAFE1DE4453E007D27C8 /* AdminMain.storyboard */,
 				81FADAA01DE43912007D27C8 /* AppDelegate.swift */,
 				81FADAF21DE443F1007D27C8 /* Launch Screen.storyboard */,
-				81FADAA41DE43912007D27C8 /* Login.storyboard */,
+				9F3E94581E43656500FA9B19 /* Login.storyboard */,
 				9FAD32D01E408E0300A180A3 /* UserEvents.storyboard */,
 				27B88D7F1DF2B9DD0045C98B /* UserInbox.storyboard */,
 				27B88D811DF2B9ED0045C98B /* UserLeaderboard.storyboard */,
@@ -721,8 +724,8 @@
 				27B88D861DF2BA040045C98B /* UserSocial.storyboard in Resources */,
 				27B88D7C1DF2B9B80045C98B /* UserMain.storyboard in Resources */,
 				81FADAF31DE443F1007D27C8 /* Launch Screen.storyboard in Resources */,
-				81FADAA61DE43912007D27C8 /* Login.storyboard in Resources */,
 				811BDA561DE8309700D2D448 /* GoogleService-Info.plist in Resources */,
+				9F3E94591E43656500FA9B19 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,6 +830,7 @@
 				8166BC431DF67E5700FAA37C /* AdminEventDM.swift in Sources */,
 				040CA30A1E38ADBC00765193 /* MIBadgeButton.swift in Sources */,
 				61B14A011E2F14F800605BCB /* UserSocialMainAlbumTableViewCell.swift in Sources */,
+				9F3E94571E43651300FA9B19 /* SignUpContViewController.swift in Sources */,
 				811DA5581DEFF34100817B71 /* LoginDM.swift in Sources */,
 				8175B12F1DEFE18000FCB205 /* Student.swift in Sources */,
 				040CA3181E39002B00765193 /* AdminEventsGalleryViewController.swift in Sources */,
@@ -869,17 +873,6 @@
 			targetProxy = 81FADABD1DE43912007D27C8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		81FADAA41DE43912007D27C8 /* Login.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				81FADAA51DE43912007D27C8 /* Base */,
-			);
-			name = Login.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		81FADAC31DE43912007D27C8 /* Debug */ = {

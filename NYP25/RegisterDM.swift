@@ -16,34 +16,55 @@ class RegisterDM: NSObject {
         return digestData
     }
     
-    static func createUser(user : String) {
-//        let ref = FIRDatabase.database().reference()
-//        ref.child("users/").child("new").setValue(user)
-    }
+//    static func createUser(user : User, student : Student) {
+////        let ref = FIRDatabase.database().reference()
+////        ref.child("users/").child("new").setValue(user)
+//            let key = FIRDatabase.database().reference().child("events").childByAutoId().key
+//            let ref = FIRDatabase.database().reference().child("events/\(key)/")
+//            
+////            ref.setValue([
+////                "name" : event.name,
+////                "address" : event.address,
+////                "description" : event.desc,
+////                "date" : event.date,
+////                "startTime" : event.startTime,
+////                "endTime" : event.endTime,
+////                "status" : event.status
+////                ])
+////            
+////            //Upload the image
+////            if(eventImage != nil){
+////                uploadEventImage(eventImage: eventImage!, eventId: key)
+////            }
+////            
+////            //Upload the badge
+////            if(eventBadge != nil){
+////                uploadEventBadge(eventBadge: eventBadge!, eventId: key)
+////            }
+//        }
+    
     
     //Login User
     static func getUsers(admin: String, username: String, onComplete: @escaping (Array<Student>) -> Void) {
 
         let ref = FIRDatabase.database().reference().child("users/")
         
+        var sList : Array<Student> = Array()
         
         ref.observeSingleEvent(of: .value, with:
             { (snapshot) in
                 for user in snapshot.children
                 {
-                    var sList : Array<Student> = Array()
                     let u = user as! FIRDataSnapshot
                     
                     let s = Student()
                     
-                    s.userId = u.key.lowercased()
+                    s.userId = u.key.uppercased()
                     s.username = (u.childSnapshot(forPath: "username").value as! String).lowercased()
-                    
                     sList.append(s)
                     
-                    
                 }
-//               onComplete(sList)
+               onComplete(sList)
         })
     }
     
@@ -71,5 +92,21 @@ class RegisterDM: NSObject {
         ref.updateChildValues(["password" : shaHex])
         
         GlobalDM.CurrentUser?.password = shaHex
+    }
+    
+    static func createAccount(u : User){
+        let key = FIRDatabase.database().reference().child("events").childByAutoId().key
+        let ref = FIRDatabase.database().reference().child("events/\(key)/")
+        
+        ref.setValue([
+//            "name" : event.name,
+//            "address" : event.address,
+//            "description" : event.desc,
+//            "date" : event.date,
+//            "startTime" : event.startTime,
+//            "endTime" : event.endTime,
+//            "status" : event.status
+            ])
+        
     }
 }

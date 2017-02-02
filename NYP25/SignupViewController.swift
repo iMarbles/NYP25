@@ -39,39 +39,74 @@
         // Dispose of any resources that can be recreated.
     }
     
-    
     @IBAction func regBtnPressed(_ sender: Any) {
+        if !(schTf.text == "") {
+            schTf.text = schTf.text?.uppercased()
+        }
+        
         if (fnTf.text == "" ||
             admTf.text == "" ||
-            schTf.text == "" ||
             unTf.text == "" ||
             pwTf.text == "" ||
             cpwTf.text == "") {
-            let alertController = UIAlertController(title: "Oops!", message: "Looks like you didn't fill in all the fields.", preferredStyle: UIAlertControllerStyle.alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
+          
+            showAlert(title: "Oops!", message: "Looks like you didn't fill in all the fields.")
         } else if (pwTf.text != cpwTf.text) {
-            let alertController = UIAlertController(title: "Oops!", message: "Your passwords do not match.", preferredStyle: UIAlertControllerStyle.alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-            
-        }else {
-            let alertController = UIAlertController(title: "Nice!", message: "Everything looks good.", preferredStyle: UIAlertControllerStyle.alert)
-            
-            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-            // shit works
-            //            RegisterDM.createUser(user : "hello");
+            showAlert(title: "Oops!", message: "Your passwords do not match.")
+        } else if !(schTf.text == "SIT" || schTf.text == "SIDM" || schTf.text == "SDN" || schTf.text == "SBM" || schTf.text == "SCL" || schTf.text == "SEG") {
+            showAlert(title: "Oops!", message: "You have entered an invalid school!")
+        } else {
             print("======");
-            // shit doesnt work
-            //            RegisterDM.getUsers(admin: admTf.text!, username: unTf.text!, onComplete: {(Array<Student>) in
-            //                
-            //            })
+    
+    
+            admTf.text = admTf.text?.uppercased()
+            unTf.text = unTf.text?.lowercased()
+            RegisterDM.getUsers(admin: admTf.text!, username: unTf.text!, onComplete: {(sList) in
+                var idmatch : Bool = false
+                var usermatch : Bool = false
+                for s in sList {
+                    if(s.userId == self.admTf.text) {
+                        idmatch = true;
+                    } else if(s.username == self.unTf.text) {
+                        usermatch = true;
+                    }
+                }
+                
+                if idmatch == true {
+                    self.showAlert(title: "Oops!", message: "Your admin number has already been registered.")
+                } else if usermatch == true {
+                    self.showAlert(title: "Oops!", message: "Your username has already been taken.")
+                } else {
+                    // perform segue if everything has been validated
+                    self.startSegue()
+                }
+            })
+
+                                }
+    }
+    
+    func startSegue() {
+        performSegue(withIdentifier: "viewSignUp2", sender: self)
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewSignUp2"{
+            let dest = segue.destination as! SignUpContViewController
+            dest.fullName = fnTf.text
+            dest.adminNumber = admTf.text
+            dest.school = schTf.text
+            dest.username = unTf.text
+            dest.password = pwTf.text // pass in plaintext first
         }
     }
+
+
  }
