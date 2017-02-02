@@ -10,11 +10,23 @@ import UIKit
 
 class SignUpContViewController: UIViewController {
     @IBOutlet weak var testLabel: UILabel!
-
+    
+    var fullName : String?
+    var adminNumber : String?
+    var school : String?
+    var username : String?
+    var password : String?
+    
+    var bio : String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        testLabel.text = "Segue Test : \(fullName!)"
     }
 
     override func didReceiveMemoryWarning() {

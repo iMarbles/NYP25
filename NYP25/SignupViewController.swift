@@ -77,11 +77,16 @@
                 } else if usermatch == true {
                     self.showAlert(title: "Oops!", message: "Your username has already been taken.")
                 } else {
-                    
+                    // perform segue if everything has been validated
+                    self.startSegue()
                 }
             })
 
                                 }
+    }
+    
+    func startSegue() {
+        performSegue(withIdentifier: "viewSignUp2", sender: self)
     }
     
     func showAlert(title: String, message: String) {
@@ -93,9 +98,13 @@
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "viewEventDetails"{
-//            let dest = segue.destination as! UserEventDetailsViewController
-//            dest.event = eventToPass
+        if segue.identifier == "viewSignUp2"{
+            let dest = segue.destination as! SignUpContViewController
+            dest.fullName = fnTf.text
+            dest.adminNumber = admTf.text
+            dest.school = schTf.text
+            dest.username = unTf.text
+            dest.password = pwTf.text // pass in plaintext first
         }
     }
 
