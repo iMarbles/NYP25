@@ -20,6 +20,7 @@ class UserSocialUploadImageViewController: UIViewController, UIPickerViewDataSou
     var comments : PhotoComment? = nil
 
     @IBOutlet weak var eventsPickerView: UIPickerView!
+    
     var eventNames : [Event] = []
     var valueSelected = "";
     

@@ -25,9 +25,7 @@ class UserSocialDetailsForSoloAlbumViewController: UIViewController {
         
         eventNameLbl.text = eventInfo?.name
         venueLbl.text = eventInfo?.address
-//        dateLbl.text = eventInfo?.date
         dateLbl.text = GlobalDM.getDateNameBy(stringDate: (eventInfo?.date)!)
-
         startTimeLbl.text = GlobalDM.getTimeInHrBy(stringTime: (eventInfo?.startTime)!)
         endTimeLbl.text = GlobalDM.getTimeInHrBy(stringTime: (eventInfo?.endTime)!)
         descLbl.text = eventInfo?.desc
