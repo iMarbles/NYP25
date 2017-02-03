@@ -8,10 +8,12 @@
 
 import UIKit
 
-class SignUpContViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
+class SignUpContViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UITextFieldDelegate {
 //    @IBOutlet weak var testLabel: UILabel!
     @IBOutlet weak var uploadBtn: UIButton!
     @IBOutlet weak var uploadImg: UIImageView!
+    @IBOutlet weak var bioTv: UITextView!
+    @IBOutlet weak var signUpBtn: UIButton!
     
     var fullName : String?
     var adminNumber : String?
@@ -23,7 +25,8 @@ class SignUpContViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        bioTv.delegate = self
+        hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
     
@@ -50,10 +53,43 @@ class SignUpContViewController: UIViewController, UIImagePickerControllerDelegat
         picker.dismiss(animated: true)
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
 //        testLabel.text = "Segue Test : \(fullName!)"
         uploadImg.layer.borderColor = UIColor.black.cgColor
         uploadImg.layer.borderWidth = 2.0
+        bioTv.text = "Say something about yourself..."
+        bioTv.textColor = UIColor.lightGray
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if bioTv.textColor == UIColor.lightGray {
+            bioTv.text = ""
+            bioTv.textColor = UIColor.black
+        }
+    }
+    
+    override func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    override func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if bioTv.text.isEmpty {
+            bioTv.text = "Say something about yourself..."
+            bioTv.textColor = UIColor.lightGray
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 
     override func didReceiveMemoryWarning() {

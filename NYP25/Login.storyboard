@@ -303,7 +303,7 @@
                                     <action selector="btnUploadPicTriggeredWithSender:" destination="V0W-vQ-rvO" eventType="touchUpInside" id="MY3-LI-MpP"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Say something about yourself..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b7C-eb-rKv">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b7C-eb-rKv">
                                 <rect key="frame" x="15" y="249" width="344" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -323,6 +323,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="bioTv" destination="b7C-eb-rKv" id="wyY-LT-rR8"/>
+                        <outlet property="signUpBtn" destination="2Ni-ey-RIS" id="NJ5-xq-7ea"/>
                         <outlet property="uploadBtn" destination="9ST-tv-Jz7" id="hch-rd-Zdt"/>
                         <outlet property="uploadImg" destination="KcA-UX-JT7" id="e1J-Tn-qxE"/>
                     </connections>
