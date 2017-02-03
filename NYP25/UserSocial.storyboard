@@ -137,13 +137,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Albums" id="Mtm-le-Dte">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="10N-Nz-BHR">
-                            <connections>
-                                <action selector="btnUploadWithSender:" destination="CcM-ZA-jhA" id="dds-Wa-b5j"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Albums" id="Mtm-le-Dte"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WsI-a1-oE8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -231,7 +225,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tmo-Hp-i7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="-367"/>
+            <point key="canvasLocation" x="857" y="-367"/>
         </scene>
         <!--Album Details-->
         <scene sceneID="Pt7-bB-z4t">
@@ -348,7 +342,7 @@
                     <navigationItem key="navigationItem" title="Album Details" id="aoM-3I-9Yb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pOh-8O-kpj">
                             <connections>
-                                <segue destination="vSa-6P-m8i" kind="show" id="0Gp-hp-fR9"/>
+                                <segue destination="vSa-6P-m8i" kind="show" identifier="fromAlbumToUpload" id="0Gp-hp-fR9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -576,179 +570,6 @@
             </objects>
             <point key="canvasLocation" x="-1137" y="-707"/>
         </scene>
-        <!--Upload Event Photo-->
-        <scene sceneID="LMD-eL-hxF">
-            <objects>
-                <viewController id="MXi-AM-SIp" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="w1r-j9-o97"/>
-                        <viewControllerLayoutGuide type="bottom" id="iE1-oR-1wb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jKJ-Wg-mv3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u3h-6d-63H">
-                                <rect key="frame" x="0.0" y="83" width="374" height="506"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J1o-gH-xEV">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="J1o-gH-xEV" firstAttribute="leading" secondItem="u3h-6d-63H" secondAttribute="leading" id="D6B-8M-x9M"/>
-                                    <constraint firstItem="J1o-gH-xEV" firstAttribute="top" secondItem="u3h-6d-63H" secondAttribute="top" id="FhS-TK-2Do"/>
-                                    <constraint firstItem="J1o-gH-xEV" firstAttribute="bottom" secondItem="u3h-6d-63H" secondAttribute="bottomMargin" constant="8" id="jg1-cy-utd"/>
-                                    <constraint firstAttribute="trailing" secondItem="J1o-gH-xEV" secondAttribute="trailing" constant="-1" id="zYr-rB-PfY"/>
-                                </constraints>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6r-Fq-eha">
-                                <rect key="frame" x="-1" y="589" width="375" height="78"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.43843642980000003" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                <state key="normal" title="CONTINUE">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="0qj-GX-TnX" kind="show" identifier="UserSocialUploadImage" id="kjK-3Z-7E9">
-                                        <nil key="action"/>
-                                    </segue>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3XV-AK-duv">
-                                <rect key="frame" x="0.0" y="20" width="375" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7v-Hz-goW">
-                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="60"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.30423266269999999" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="SLR Camera-30"/>
-                                        <connections>
-                                            <action selector="openCameraButtonWithSender:" destination="MXi-AM-SIp" eventType="touchUpInside" id="gTs-ZS-olb"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhp-B0-FAS">
-                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="60"/>
-                                        <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="0.30423266269999999" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="Stack of Photos-30"/>
-                                        <connections>
-                                            <action selector="openPhotoLibraryButtonWithSender:" destination="MXi-AM-SIp" eventType="touchUpInside" id="Qyq-u4-pJX"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="26j-JO-VdF"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="u3h-6d-63H" secondAttribute="bottom" constant="78" id="1ia-3d-zUg"/>
-                            <constraint firstItem="3XV-AK-duv" firstAttribute="leading" secondItem="jKJ-Wg-mv3" secondAttribute="leading" id="9ZB-c4-mR5"/>
-                            <constraint firstItem="3XV-AK-duv" firstAttribute="top" secondItem="w1r-j9-o97" secondAttribute="bottom" id="9f6-lr-O29"/>
-                            <constraint firstItem="3XV-AK-duv" firstAttribute="top" secondItem="w1r-j9-o97" secondAttribute="bottom" id="B5F-js-LEr"/>
-                            <constraint firstAttribute="trailing" secondItem="g6r-Fq-eha" secondAttribute="trailing" constant="1" id="Ed5-Tc-aqZ"/>
-                            <constraint firstItem="g6r-Fq-eha" firstAttribute="top" secondItem="u3h-6d-63H" secondAttribute="bottom" id="GR0-4v-PyT"/>
-                            <constraint firstItem="3XV-AK-duv" firstAttribute="top" secondItem="w1r-j9-o97" secondAttribute="bottom" id="KyV-bQ-3XV"/>
-                            <constraint firstItem="u3h-6d-63H" firstAttribute="leading" secondItem="jKJ-Wg-mv3" secondAttribute="leading" id="Mxx-2h-2re"/>
-                            <constraint firstItem="iE1-oR-1wb" firstAttribute="top" secondItem="g6r-Fq-eha" secondAttribute="bottom" id="PZe-N9-MfC"/>
-                            <constraint firstItem="g6r-Fq-eha" firstAttribute="leading" secondItem="jKJ-Wg-mv3" secondAttribute="leading" constant="-1" id="Qn0-lv-w3V"/>
-                            <constraint firstItem="3XV-AK-duv" firstAttribute="leading" secondItem="u3h-6d-63H" secondAttribute="leading" id="VDO-xk-rpM"/>
-                            <constraint firstAttribute="trailing" secondItem="u3h-6d-63H" secondAttribute="trailing" constant="1" id="WmA-aY-BME"/>
-                            <constraint firstItem="3XV-AK-duv" firstAttribute="top" secondItem="w1r-j9-o97" secondAttribute="bottom" id="Xas-3g-Y0s"/>
-                            <constraint firstAttribute="trailing" secondItem="3XV-AK-duv" secondAttribute="trailing" id="bp8-xA-5JN"/>
-                            <constraint firstItem="3XV-AK-duv" firstAttribute="top" secondItem="w1r-j9-o97" secondAttribute="bottom" id="epq-sZ-IlN"/>
-                            <constraint firstAttribute="trailing" secondItem="u3h-6d-63H" secondAttribute="trailing" constant="1" id="gsN-FK-YH8"/>
-                            <constraint firstAttribute="trailing" secondItem="u3h-6d-63H" secondAttribute="trailing" constant="1" id="hAk-SV-cRn"/>
-                            <constraint firstItem="u3h-6d-63H" firstAttribute="top" secondItem="3XV-AK-duv" secondAttribute="bottom" constant="3" id="jAm-3r-lKB"/>
-                            <constraint firstItem="u3h-6d-63H" firstAttribute="leading" secondItem="jKJ-Wg-mv3" secondAttribute="leading" id="pA2-sB-K87"/>
-                            <constraint firstItem="3XV-AK-duv" firstAttribute="leading" secondItem="jKJ-Wg-mv3" secondAttribute="leading" id="ywJ-Yg-RCd"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Upload Event Photo" id="lx1-hA-pUC"/>
-                    <connections>
-                        <outlet property="btnSave" destination="g6r-Fq-eha" id="18v-c5-y1y"/>
-                        <outlet property="imageView" destination="J1o-gH-xEV" id="tA8-6P-T2P"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tuj-72-oRm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="857" y="-367"/>
-        </scene>
-        <!--Upload-->
-        <scene sceneID="uxp-OM-31h">
-            <objects>
-                <viewController title="Upload" id="0qj-GX-TnX" customClass="UserSocialUploadImageViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5NI-9d-6lc"/>
-                        <viewControllerLayoutGuide type="bottom" id="fxF-d5-fSf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Zrv-Zq-GIJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SiH-en-Krc">
-                                <rect key="frame" x="8" y="245" width="461" height="422"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="SiH-en-Krc" secondAttribute="height" multiplier="359:329" id="yB9-Mw-UEQ"/>
-                                </constraints>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cIe-6a-zky">
-                                <rect key="frame" x="8" y="176" width="461" height="61"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="0.23606057363013699" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="UVl-b1-5ba"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AA3-AM-L3F">
-                                <rect key="frame" x="0.0" y="110" width="477" height="58"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="0qj-GX-TnX" id="o9F-8h-KiC"/>
-                                    <outlet property="delegate" destination="0qj-GX-TnX" id="bBU-KW-agp"/>
-                                </connections>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hE-oy-aw0">
-                                <rect key="frame" x="0.0" y="64" width="477" height="38"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.31288343558282211" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="686-Wf-EqN"/>
-                                </constraints>
-                                <state key="normal" title="Upload Photo"/>
-                                <connections>
-                                    <action selector="btnSaveWithSender:" destination="0qj-GX-TnX" eventType="touchUpInside" id="Fk3-Ck-2A3"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cIe-6a-zky" firstAttribute="top" secondItem="5NI-9d-6lc" secondAttribute="bottom" constant="156" id="1U1-j4-fTN"/>
-                            <constraint firstItem="9hE-oy-aw0" firstAttribute="trailing" secondItem="AA3-AM-L3F" secondAttribute="trailing" id="1uT-Oj-bBZ"/>
-                            <constraint firstItem="9hE-oy-aw0" firstAttribute="leading" secondItem="Zrv-Zq-GIJ" secondAttribute="leading" id="3w4-3m-Rmh"/>
-                            <constraint firstItem="SiH-en-Krc" firstAttribute="leading" secondItem="Zrv-Zq-GIJ" secondAttribute="leading" constant="8" id="9kO-KN-UUf"/>
-                            <constraint firstItem="cIe-6a-zky" firstAttribute="leading" secondItem="SiH-en-Krc" secondAttribute="leading" id="KYa-Sq-9ou"/>
-                            <constraint firstItem="cIe-6a-zky" firstAttribute="trailing" secondItem="SiH-en-Krc" secondAttribute="trailing" id="KbU-Jy-l4b"/>
-                            <constraint firstItem="9hE-oy-aw0" firstAttribute="leading" secondItem="AA3-AM-L3F" secondAttribute="leading" id="Ni6-a1-3uL"/>
-                            <constraint firstItem="fxF-d5-fSf" firstAttribute="top" secondItem="SiH-en-Krc" secondAttribute="bottom" id="eZS-Mp-swE"/>
-                            <constraint firstItem="9hE-oy-aw0" firstAttribute="top" secondItem="Zrv-Zq-GIJ" secondAttribute="top" constant="64" id="hBb-Ky-7KS"/>
-                            <constraint firstAttribute="trailing" secondItem="SiH-en-Krc" secondAttribute="trailing" constant="8" id="its-fm-bEX"/>
-                            <constraint firstItem="AA3-AM-L3F" firstAttribute="top" secondItem="9hE-oy-aw0" secondAttribute="bottom" constant="8" id="oyd-Qb-5fr"/>
-                            <constraint firstItem="AA3-AM-L3F" firstAttribute="centerX" secondItem="cIe-6a-zky" secondAttribute="centerX" id="taf-qS-Ouz"/>
-                            <constraint firstItem="SiH-en-Krc" firstAttribute="top" secondItem="cIe-6a-zky" secondAttribute="bottom" constant="8" symbolic="YES" id="tdV-QV-0q9"/>
-                            <constraint firstItem="SiH-en-Krc" firstAttribute="top" secondItem="AA3-AM-L3F" secondAttribute="bottom" constant="77" id="usJ-bV-FWu"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Edit Post" id="Vbi-Zb-xqH"/>
-                    <connections>
-                        <outlet property="eventsPickerView" destination="AA3-AM-L3F" id="8US-f4-3Vc"/>
-                        <outlet property="imageView" destination="SiH-en-Krc" id="GB5-YF-X3u"/>
-                        <outlet property="txtCaption" destination="cIe-6a-zky" id="hIN-6G-CIF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uOs-4h-zLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="858" y="389"/>
-        </scene>
         <!--Albums-->
         <scene sceneID="aA3-VC-Rwd">
             <objects>
@@ -940,20 +761,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpO-3Z-g37" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2573.5999999999999" y="-367.46626686656674"/>
+            <point key="canvasLocation" x="1678" y="-367"/>
         </scene>
     </scenes>
     <resources>
         <image name="Like" width="30" height="30"/>
         <image name="More Filled-30" width="30" height="30"/>
         <image name="My Topic-30" width="30" height="30"/>
-        <image name="SLR Camera-30" width="30" height="30"/>
         <image name="Stack of Photos-30" width="30" height="30"/>
         <image name="gps" width="30" height="30"/>
         <image name="time" width="30" height="30"/>
         <image name="time-1" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uCD-QF-6Xx"/>
+        <segue reference="0Gp-hp-fR9"/>
     </inferredMetricsTieBreakers>
 </document>

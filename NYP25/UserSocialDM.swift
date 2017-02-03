@@ -407,11 +407,7 @@ class UserSocialDM: NSObject {
                 e.endTime = snapshot.childSnapshot(forPath: "endTime").value as? String
                 e.status = snapshot.childSnapshot(forPath: "status").value as! String
                 
-                
-                if(e.status == "O"){
-                    onComplete(e)
-                }
-                
+                onComplete(e)
             })
     }
     
