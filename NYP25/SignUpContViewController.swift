@@ -97,6 +97,8 @@ class SignUpContViewController: UIViewController, UIImagePickerControllerDelegat
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
 
     /*
     // MARK: - Navigation

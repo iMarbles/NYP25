@@ -242,6 +242,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iFo-5o-5BY">
+                                <rect key="frame" x="-1" y="451" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -256,6 +260,7 @@
                         <outlet property="pwTf" destination="mvE-sM-gaG" id="46J-A6-2Oc"/>
                         <outlet property="schLabel" destination="Yqo-1T-W8i" id="cmx-M6-uMC"/>
                         <outlet property="schTf" destination="ebh-n2-bSP" id="ouA-fr-BvN"/>
+                        <outlet property="schoolPicker" destination="iFo-5o-5BY" id="FS9-v6-qIg"/>
                         <outlet property="unLabel" destination="3xA-7E-cNR" id="ACu-hf-g1O"/>
                         <outlet property="unTf" destination="fc3-Ig-POA" id="daE-nL-QJH"/>
                         <segue destination="V0W-vQ-rvO" kind="show" identifier="viewSignUp2" id="7hn-iG-PV8"/>

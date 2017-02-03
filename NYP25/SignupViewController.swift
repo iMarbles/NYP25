@@ -7,7 +7,8 @@
  //
  import UIKit
  
- class SignupViewController: UIViewController {
+ class SignupViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+        let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SiDM"]
     var bioSelected = false;
     @IBOutlet weak var fnLabel: UILabel!
     @IBOutlet weak var fnTf: UITextField!
@@ -15,7 +16,8 @@
     @IBOutlet weak var admTf: UITextField!
     @IBOutlet weak var schLabel: UILabel!
     @IBOutlet weak var schTf: UITextField!
-    
+    @IBOutlet var schoolPicker: UIPickerView! = UIPickerView()
+
     
     @IBOutlet weak var unLabel: UILabel!
     @IBOutlet weak var unTf: UITextField!
@@ -31,10 +33,58 @@
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        var pickerView = UIPickerView()
+        schoolPicker.isHidden = true;
+        pickerView.delegate = self
+        schTf.text = schools[0]
+        schTf.inputView = pickerView
+//        schoolPicker.delegate = self
+//        schoolPicker.isHidden = true;
+//        schTf.text = schools[0]
         fnTf.becomeFirstResponder();
+
         // Do any additional setup after loading the view.
     }
+    func numberOfComponentsInPickerView(pickerView: UIPickerView!) -> Int{
+        return 1
+    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return schools.count
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return schools[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        schTf.text = schools[row]
+    }
+    // returns the # of rows in each component..
+//    func pickerView(pickerView: UIPickerView!, numberOfRowsInComponent component: Int) -> Int{
+//        return schools.count
+//    }
+//    
+//    func pickerView(pickerView: UIPickerView!, titleForRow row: Int, forComponent component: Int) -> String! {
+//        return schools[row]
+//    }
+//    
+//    func pickerView(pickerView: UIPickerView!, didSelectRow row: Int, inComponent component: Int)
+//    {
+//        schTf.text = schools[row]
+//        schoolPicker.resignFirstResponder()
+//        self.view.endEditing(true)
+//        schoolPicker.isHidden = true;
+//    }
+//    
+//    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+//        schoolPicker.isHidden = false
+//        return false
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -90,6 +140,7 @@
     func startSegue() {
         performSegue(withIdentifier: "viewSignUp2", sender: self)
     }
+    
     
     func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
