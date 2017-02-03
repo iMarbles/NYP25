@@ -306,6 +306,7 @@
 		9FE25E1D1E41A7AD00C13597 /* UserEventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventDetailsViewController.swift; sourceTree = "<group>"; };
 		9FFC15041E350A4200037BD2 /* RegisterDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDM.swift; sourceTree = "<group>"; };
 		AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLeaderboardViewController.swift; sourceTree = "<group>"; };
+		AFE89D091E4451D70058790A /* myLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = myLocation.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -406,6 +407,7 @@
 				811BDA551DE8309700D2D448 /* GoogleService-Info.plist */,
 				81FADAAC1DE43912007D27C8 /* Info.plist */,
 				040CA30C1E38B8F700765193 /* Assets.xcassets */,
+				AFE89D091E4451D70058790A /* myLocation.gpx */,
 			);
 			path = NYP25;
 			sourceTree = "<group>";

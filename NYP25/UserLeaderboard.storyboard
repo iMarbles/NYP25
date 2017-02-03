@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,24 +24,25 @@
                             <userLayoutGuide location="4" affinity="maxX"/>
                         </userGuides>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zn2-jX-rqE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zn2-jX-rqE">
                                 <rect key="frame" x="96" y="17" width="183" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gla-mo-YUp" userLabel="Map Stats View">
-                                <rect key="frame" x="16" y="110" width="343" height="471"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gla-mo-YUp" userLabel="Map Stats View">
+                                <rect key="frame" x="16" y="110" width="343" height="500"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cmH-Lf-V33">
-                                        <rect key="frame" x="0.0" y="-12" width="343" height="500"/>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmH-Lf-V33">
+                                        <rect key="frame" x="0.0" y="-12" width="343" height="512"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </mapView>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XLb-io-BLG" userLabel="Data View">
-                                <rect key="frame" x="16" y="98" width="343" height="471"/>
+                                <rect key="frame" x="16" y="98" width="343" height="512"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blue" translatesAutoresizingMaskIntoConstraints="NO" id="G8p-h7-iPb">
@@ -61,21 +61,16 @@
                                         <rect key="frame" x="256" y="179" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="SCL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVM-f5-t24">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SCL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVM-f5-t24">
                                         <rect key="frame" x="13" y="82" width="76" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="3RT-oG-bNw"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
                                         <color key="textColor" red="0.98031270979999996" green="1" blue="0.96904681020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1st" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZh-gS-Yn2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1st" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZh-gS-Yn2">
                                         <rect key="frame" x="153" y="30" width="44" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="cFS-Be-M4N"/>
-                                            <constraint firstAttribute="width" constant="44" id="vet-2r-pcw"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -105,11 +100,9 @@
                                         <rect key="frame" x="10" y="179" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="388" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWE-Gr-CaS">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="388" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWE-Gr-CaS">
                                         <rect key="frame" x="29" y="207" width="33" height="33"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="33" id="6jR-91-zbp"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -207,8 +200,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Bpl-Bx-Qaz">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Bpl-Bx-Qaz">
                                 <rect key="frame" x="114" y="57" width="153" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Data"/>
                                     <segment title="Map Stats"/>
@@ -219,15 +213,6 @@
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="gla-mo-YUp" secondAttribute="trailing" id="PgV-2g-ARN"/>
-                            <constraint firstItem="Zn2-jX-rqE" firstAttribute="leading" secondItem="3J1-BD-HUh" secondAttribute="leadingMargin" constant="58" id="RbZ-qU-vSi"/>
-                            <constraint firstItem="VkX-yz-lAV" firstAttribute="top" secondItem="gla-mo-YUp" secondAttribute="bottom" id="Xb4-wD-ddQ"/>
-                            <constraint firstItem="Zn2-jX-rqE" firstAttribute="top" secondItem="3J1-BD-HUh" secondAttribute="topMargin" constant="17" id="Y9E-Fs-c2F"/>
-                            <constraint firstItem="Bpl-Bx-Qaz" firstAttribute="top" secondItem="3J1-BD-HUh" secondAttribute="top" constant="57" id="egE-B9-0tZ"/>
-                            <constraint firstItem="Bpl-Bx-Qaz" firstAttribute="top" secondItem="Zn2-jX-rqE" secondAttribute="bottom" constant="8" id="md2-GU-hnn"/>
-                            <constraint firstItem="gla-mo-YUp" firstAttribute="leading" secondItem="3J1-BD-HUh" secondAttribute="leadingMargin" id="xYR-Sl-CaT"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Leaderboard" image="Leaderboard-30" id="CJp-sc-kvr"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -237,7 +222,7 @@
                         <outlet property="firstLbl" destination="rZh-gS-Yn2" id="wlE-Fp-H87"/>
                         <outlet property="green" destination="YkY-Yo-MHV" id="1EQ-Jd-PGa"/>
                         <outlet property="leaderboardChart" destination="Kdn-pp-zHQ" id="ti8-9n-nSA"/>
-                        <outlet property="mapView" destination="gla-mo-YUp" id="Gy6-ir-cS3"/>
+                        <outlet property="mapView" destination="cmH-Lf-V33" id="uRQ-ok-j9m"/>
                         <outlet property="orange" destination="Xrn-Yh-nTQ" id="5gU-fx-ZhZ"/>
                         <outlet property="pink" destination="61x-zU-M8V" id="H9T-5y-23h"/>
                         <outlet property="purple" destination="dn0-Tk-Bs6" id="SLT-w2-rZK"/>
