@@ -20,10 +20,6 @@ class AdminEventsGalleryViewController: UICollectionViewController, UICollection
         // Do any additional setup after loading the view.
         loadPhotos()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        loadPhotos()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,7 +56,8 @@ class AdminEventsGalleryViewController: UICollectionViewController, UICollection
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! AdminEventGalleryCollectionViewCell
-        
+        cell.eventImage.image = UIImage(named: "loading-512")
+
         GlobalDM.loadImage(imageView: cell.eventImage, url: eventPhotos[(indexPath as IndexPath).row].photoUrl!)
             return cell
     }

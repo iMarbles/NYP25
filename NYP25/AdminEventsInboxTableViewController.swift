@@ -19,10 +19,11 @@ class AdminEventsInboxTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        loadInbox()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        loadInbox()
+        //loadInbox()
     }
     
     override func didReceiveMemoryWarning() {
