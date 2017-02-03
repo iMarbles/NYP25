@@ -45,10 +45,12 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    
+    var locationManager : CLLocationManager!
+    
     @IBOutlet weak var dataView: UIView!
     @IBOutlet weak var mapView: MKMapView!
     
-  //  @IBOutlet weak var mapView : MKMapView!
     
     @IBAction func indexChanged(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
@@ -65,7 +67,7 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         }
     }
 
-    var locationManager : CLLocationManager?
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -114,6 +116,8 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         }
     }
     
+    
+    
     func locationManager(_ manager: CLLocationManager,
                          didFailWithError error: Error) {
         print("Could not find location: \(error)");
@@ -121,8 +125,30 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        mapView.mapType = MKMapType.standard
+        
+        //configure user interactions
+        mapView.isZoomEnabled = true
+        mapView.isScrollEnabled = false
+//        mapView.delegate = self;
+        
+        var span = MKCoordinateSpan()
+        span.longitudeDelta = 0.005
+        span.latitudeDelta = 0.005
+        
+        var location = CLLocationCoordinate2D()
+        location.latitude = 1.38012
+        location.longitude = 103.85023
+        
+        var region = MKCoordinateRegion()
+        region.span = span
+        region.center = location
+        
+        //Set to the region with animated effect
+        mapView.setRegion(region, animated:true)
         
             }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
