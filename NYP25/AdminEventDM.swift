@@ -205,8 +205,9 @@ class AdminEventDM: NSObject {
         
         let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "eventId").queryStarting(atValue: eventId).queryEnding(atValue: eventId)
         
-        ref.observeSingleEvent(of: .value, with:
+        ref.observe(FIRDataEventType.value, with:
             {(snapshot) in
+                socialPhotos = []
                 for record in snapshot.children{
                     let r = record as! FIRDataSnapshot
                     
@@ -274,7 +275,7 @@ class AdminEventDM: NSObject {
         let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "isFlagged").queryStarting(atValue: 1).queryEnding(atValue: 1)
         ref.observe(FIRDataEventType.value, with:{
             (snapshot) in
-            
+            flaggedImageList = []
             for record in snapshot.children{
                 let r = record as! FIRDataSnapshot
                 
@@ -306,9 +307,9 @@ class AdminEventDM: NSObject {
                         
                         let c = PhotoComment()
                         c.commentId = com.key
-                        c.comment = com.childSnapshot(forPath: "comment").value as! String
-                        c.timestamp = com.childSnapshot(forPath: "timestamp").value as! String
-                        c.username = com.childSnapshot(forPath: "username").value as! String
+                        c.comment = com.childSnapshot(forPath: "comment").value as? String
+                        c.timestamp = com.childSnapshot(forPath: "timestamp").value as? String
+                        c.username = com.childSnapshot(forPath: "username").value as? String
                         
                         commentList.append(c)
                     }
