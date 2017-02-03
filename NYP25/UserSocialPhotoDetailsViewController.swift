@@ -27,7 +27,13 @@ class UserSocialPhotoDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GetListOfComments"{
+            let vc = segue.destination as! UserSocialPhotosCommentsTableViewController
+            vc.socialImg = socialImg
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

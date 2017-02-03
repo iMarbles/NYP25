@@ -118,7 +118,7 @@ class UserSocialMainListTableViewController: UITableViewController {
     }
 
     func actionViewComments(sender: AnyObject) {
-        let vc = UIStoryboard(name:"UserSocial", bundle:nil).instantiateViewController(withIdentifier: "PhotoDetailsList") as! UserSocialPhotosCommentsTableViewController
+        let vc = UIStoryboard(name:"UserSocial", bundle:nil).instantiateViewController(withIdentifier: "PhotoDetails") as! UserSocialPhotoDetailsViewController
         vc.socialImg = socialList[(sender.tag)]
         self.navigationController?.pushViewController(vc, animated:true)
     }

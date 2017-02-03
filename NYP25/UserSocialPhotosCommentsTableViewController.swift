@@ -19,16 +19,6 @@ class UserSocialPhotosCommentsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        testing  = "\(socialImg?.socialId)"
-        
-//        print("socialImg?.socialId - \(socialImg?.socialId)")
-        
-//        UserSocialDM.retrieveAllSocialByID(socialId: (socialImg?.socialId)!, onComplete: {(list) in
-//            self.socialList = list
-//            self.tableView.reloadData()
-//        })
-        
-
         
         for a in (socialImg?.likes)!{
             for b in a.comments!{
@@ -67,7 +57,7 @@ class UserSocialPhotosCommentsTableViewController: UITableViewController {
         if(commentList.count != 0){
             cell.usernameLbl.text = commentList[(indexPath as IndexPath).row].username
             cell.commentLbl.text = commentList[(indexPath as IndexPath).row].comment
-            cell.dateLbl.text = commentList[(indexPath as IndexPath).row].timestamp
+            cell.dateLbl.text = GlobalDM.getCommentDateTimeBy(stringDate: commentList[(indexPath as IndexPath).row].timestamp!)
         }else{
             cell.usernameLbl.isHidden = true
             cell.commentLbl.isHidden = true
