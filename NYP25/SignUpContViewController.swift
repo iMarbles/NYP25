@@ -40,6 +40,11 @@ class SignUpContViewController: UIViewController, UIImagePickerControllerDelegat
         self.present(picker, animated: true)
     }
     
+    @IBAction func btnSignUpTriggered(sender : AnyObject) {
+        showAlert(title: "nice", message: "nothing interesting happens yet")
+        // todo: make this alert let the user decide whether to login or go back to login screen
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         let chosenImage : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
@@ -95,6 +100,13 @@ class SignUpContViewController: UIViewController, UIImagePickerControllerDelegat
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
     

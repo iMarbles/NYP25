@@ -321,6 +321,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
+                                    <action selector="btnSignUpTriggeredWithSender:" destination="V0W-vQ-rvO" eventType="touchUpInside" id="6qx-m0-seb"/>
                                     <action selector="regBtnPressed:" destination="o2d-br-Bn9" eventType="touchUpInside" id="FL3-F0-Ad1"/>
                                 </connections>
                             </button>

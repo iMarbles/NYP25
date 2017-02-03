@@ -8,7 +8,7 @@
  import UIKit
  
  class SignupViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-        let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SiDM"]
+        let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SIDM"]
     var bioSelected = false;
     @IBOutlet weak var fnLabel: UILabel!
     @IBOutlet weak var fnTf: UITextField!
