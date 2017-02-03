@@ -18,8 +18,6 @@ class UserSocialMainListTableViewController: UITableViewController {
     
     var imgToPass: Social?
     
-//    var tmpString : String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -84,7 +82,6 @@ class UserSocialMainListTableViewController: UITableViewController {
         
         cell.btnViewComments.tag = indexPath.row
         cell.btnViewComments.addTarget(self, action: #selector(actionViewComments), for: .touchUpInside)
-//        cell.button.addTarget(self, action: "makeSegue", forControlEvents: UIControlEvents.TouchUpInside)
 
         UserSocialProfileMasterViewController.loadImage(imageView: cell.mainListImageView, url: s.photoUrl!)
         
@@ -119,99 +116,13 @@ class UserSocialMainListTableViewController: UITableViewController {
         
         self.tableView.reloadData()
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "UserSocialPhotoDetails"{
-//            let a = segue.destination as! UserSocialPhotoDetailsViewController
-//            if imgToPass != nil{
-//                a.socialImg = self.imgToPass
-//                print("The passing address is: \(a.socialImg)")
-//            }
-//        }
-//    }
-    
-//    func actionViewComments(sender: AnyObject) {
-//        imgToPass = socialList[(sender.tag)]
-//        print("imgToPass - \(imgToPass!)")
-//        
-//        print("didSelectRowAtIndexPath")
-//        self.performSegue(withIdentifier: "UserSocialPhotoDetails", sender: sender.tag)
-//    }
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "UserSocialPhotoDetails" {
-//            let name = imgToPass
-//            if let controller = segue.destination as? UserSocialPhotoDetailsViewController {
-//                controller.socialImg = name
-//            }
-//        }
-//    }
 
     func actionViewComments(sender: AnyObject) {
-//        imgToPass = socialList[(sender.tag)]
-//        print("imgToPass - \(imgToPass!)")
-        let vc = UIStoryboard(name:"UserSocial", bundle:nil).instantiateViewController(withIdentifier: "PhotoDetails") as! UserSocialPhotoDetailsViewController
-        
+        let vc = UIStoryboard(name:"UserSocial", bundle:nil).instantiateViewController(withIdentifier: "PhotoDetailsList") as! UserSocialPhotosCommentsTableViewController
         vc.socialImg = socialList[(sender.tag)]
         self.navigationController?.pushViewController(vc, animated:true)
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if segue.identifier == "UserSocialComments"
-//        {
-//            let a = segue.destination as! UserSocialPhotosCommentsTableViewController
-//                a.socialImg = imgToPass
-//                print("The passing address is: \(a.socialImg)")
-//                print("The passing address is: \(imgToPass)")
-//        }
-////        
-////        if segue.identifier == "UserSocialComments"{
-////            let a = segue.destination as! UserSocialPhotosCommentsTableViewController
-////
-////                a.socialImg = self.imgToPass
-////                print("The passing address is: \(a.socialImg)")
-////            
-////
-//////            imgToPass = socialList[(sender?.tag)]
-////            
-//////            a.socialImg = imgToPass
-//////            print("The passing address is: \(a.socialImg)")
-//////            print("The passing address is: \(imgToPass)")
-////            
-//////            performSegue(withIdentifier: "UserSocialComments", sender: self)
-////            
-////        }
-//    }
 
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-////        var indexPath = self.tableView.indexPathForSelectedRow!
-//        
-//        if segue.identifier == "UserSocialComments"{
-//            let a = segue.destination as! UserSocialPhotosCommentsTableViewController
-//            
-////            imgToPass = socialList[(sender.tag)]
-////            print("imgToPass - \(imgToPass!)")
-//
-//            
-//            if imgToPass != nil{
-//                a.socialImg = self.imgToPass
-//                print("The passing address is: \(a.socialImg)")
-//            }
-//        }
-//    }
-    
-//    func actionViewComments(sender: AnyObject) {
-//                selectedRow = sender.tag
-//        let a = UserSocialPhotosCommentsTableViewController()
-//        
-//        a.socialImg = socialList[(sender.tag)]
-//        socialList[(indexPath as IndexPath).row]
-//
-//        
-//        //self.performSegue(withIdentifier: "UserSocialComments", sender: self)
-//    }
     
     func actionSheetButtonPressed(sender: AnyObject) {
         if((GlobalDM.CurrentUser?.userId)! != (socialList[sender.tag].uploader)!){

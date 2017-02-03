@@ -28,30 +28,25 @@ class UserSocialPhotosCommentsTableViewController: UITableViewController {
 //            self.tableView.reloadData()
 //        })
         
-        self.tableView.delegate = self;
-        self.tableView.dataSource = self;
+
         
-        
-        UserSocialDM.retrieveAllSocial(onComplete: {(list) in
-            self.socialList = list
-            self.tableView.reloadData()
-            
-            for a in self.socialList{
-                for b in a.likes!{
-                    for c in b.comments!{
-                        self.commentList.append(c)
-                        
-                        self.commentList.sort { (a, b) -> Bool in
-                            if a.timestamp! > b.timestamp!{
-                                return true
-                            }else{
-                                return false
-                            }
-                        }
+        for a in (socialImg?.likes)!{
+            for b in a.comments!{
+                self.commentList.append(b)
+                
+                self.commentList.sort { (a, b) -> Bool in
+                    if a.timestamp! > b.timestamp!{
+                        return true
+                    }else{
+                        return false
                     }
                 }
             }
-        })
+        }
+        self.tableView.reloadData()
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
+        
 
     }
     

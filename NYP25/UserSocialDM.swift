@@ -218,7 +218,7 @@ class UserSocialDM: NSObject {
         var likedByList : [PhotoLike] = []
         var commentList : [PhotoComment] = []
         
-        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
+        let ref = FIRDatabase.database().reference().child("social/\(socialId)/")
         
         ref.observe(FIRDataEventType.value, with:{
             (snapshot) in
