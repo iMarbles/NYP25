@@ -388,7 +388,33 @@ class UserSocialDM: NSObject {
             }
         })
     }
-
+    
+    //Retrieve event names
+    static func retrieveEventInfoByID(eventId : String, onComplete: @escaping (Event)->Void){
+        let ref = FIRDatabase.database().reference().child("events/\(eventId)/")
+        
+        ref.observeSingleEvent(of: .value, with:
+            { (snapshot) in
+                let e = Event()
+                e.eventId = snapshot.key
+                e.name = snapshot.childSnapshot(forPath: "name").value as? String
+                e.address = snapshot.childSnapshot(forPath: "address").value as? String
+                e.imageUrl = snapshot.childSnapshot(forPath: "image").value as? String
+                e.badgeId = snapshot.childSnapshot(forPath: "badge").value as? String
+                e.desc = snapshot.childSnapshot(forPath: "description").value as? String
+                e.date = snapshot.childSnapshot(forPath: "date").value as? String
+                e.startTime = snapshot.childSnapshot(forPath: "startTime").value as? String
+                e.endTime = snapshot.childSnapshot(forPath: "endTime").value as? String
+                e.status = snapshot.childSnapshot(forPath: "status").value as! String
+                
+                
+                if(e.status == "O"){
+                    onComplete(e)
+                }
+                
+            })
+    }
+    
     //Retrieve all images of event
     static func retrieveEventPhotosByID(eventId : String, onComplete: @escaping ([Social])->Void){
         var socialPhotos : [Social] = []
@@ -451,8 +477,8 @@ class UserSocialDM: NSObject {
                     
                     if(photo.eventId == eventId){
                         socialPhotos.append(photo)
-                        onComplete(socialPhotos)
                     }
+                    onComplete(socialPhotos)
                 }
         })
     }
