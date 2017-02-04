@@ -16,7 +16,8 @@ class Social: NSObject {
     var caption : String?
     var postedDateTime : String?
     var isFlagged : Int = 0
-    var flagReason : String?
+    var noOfFlag : Int = 0
+    var flagReasons : [String]?
     var likes : [PhotoLike]?
     
     var uploaderUsername : String?

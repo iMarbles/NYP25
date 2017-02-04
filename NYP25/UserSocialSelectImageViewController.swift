@@ -103,7 +103,7 @@ class UserSocialSelectImageViewController: UIViewController, UIImagePickerContro
         
         //Social
         socialImg?.caption = txtCaption.text
-        socialImg?.flagReason = ""
+        //socialImg?.flagReason = ""
         socialImg?.postedDateTime = txtCaption.text
         socialImg?.uploader = GlobalDM.CurrentUser!.userId
         socialImg?.isFlagged = 0;

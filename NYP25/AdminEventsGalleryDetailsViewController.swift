@@ -112,7 +112,7 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
         
         
         if currentPhoto?.isFlagged == 1{
-            reportLbl.text = "This photo has been reported due to:\n\((currentPhoto?.flagReason)!)"
+            //reportLbl.text = "This photo has been reported due to:\n\((currentPhoto?.flagReason)!)"
             reportStackView.isHidden = false
         }else{
             reportStackView.isHidden = true

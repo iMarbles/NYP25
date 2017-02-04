@@ -170,7 +170,7 @@ class UserSocialDM: NSObject {
                 s.caption = r.childSnapshot(forPath: "caption").value as? String
                 s.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
                 s.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
-                s.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
+                //s.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
                 s.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
                 
                 //Child nodes
@@ -239,7 +239,7 @@ class UserSocialDM: NSObject {
                     s.caption = r.childSnapshot(forPath: "caption").value as? String
                     s.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
                     s.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
-                    s.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
+                    //s.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
                     s.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
                     
                     //Child nodes
@@ -537,7 +537,7 @@ class UserSocialDM: NSObject {
                     "uploader" : social.uploader!,
                     "postedDateTime" : result,
                     "isFlagged" : social.isFlagged,
-                    "flagReason" : social.flagReason!,
+                    //"flagReason" : social.flagReason!,
                     "photoUrl" : downloadURL,
                     "eventId" : social.eventId,
                     "uploaderUsername" : uploaderUsername

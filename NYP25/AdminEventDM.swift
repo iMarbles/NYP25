@@ -219,7 +219,7 @@ class AdminEventDM: NSObject {
                     photo.caption = r.childSnapshot(forPath: "caption").value as? String
                     photo.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
                     photo.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
-                    photo.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
+                    //photo.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
                     photo.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
                     
                     //Child nodes
@@ -287,7 +287,7 @@ class AdminEventDM: NSObject {
                 photo.caption = r.childSnapshot(forPath: "caption").value as? String
                 photo.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
                 photo.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
-                photo.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
+                //photo.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
                 photo.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
                 
                 //Child nodes

@@ -57,7 +57,7 @@ class AdminEventsInboxTableViewController: UITableViewController {
         // Configure the cell...
         cell.flaggedImg.image = UIImage(named: "loading-512")
         GlobalDM.loadImage(imageView: cell.flaggedImg, url: flaggedPhotoList[(indexPath as IndexPath).row].photoUrl!)
-        cell.reasonLbl.text = "\(flaggedPhotoList[(indexPath as IndexPath).row].flagReason!)"
+        //cell.reasonLbl.text = "\(flaggedPhotoList[(indexPath as IndexPath).row].flagReason!)"
 
         return cell
     }
