@@ -18,6 +18,7 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
     
     @IBOutlet weak var reportStackView : UIStackView!
     @IBOutlet weak var reportBtn : UIButton!
+    @IBOutlet weak var safeBtn : UIButton!
     
     var currentPhoto: Social?
     
@@ -113,7 +114,16 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
         
         if currentPhoto?.isFlagged != 0{
             let reportText = "This photo has been reported \((currentPhoto?.flagReasons?.count)!) time(s)"
+        
             reportBtn.setTitle(reportText, for: UIControlState.normal)
+            
+            let col = UIColor(red: 0, green: 0.749, blue: 0.0353, alpha: 1.0)
+            safeBtn.setTitleColor(UIColor.white, for: .normal)
+            safeBtn.backgroundColor = col
+            safeBtn.layer.cornerRadius = 5
+            safeBtn.layer.borderWidth = 1
+            safeBtn.layer.borderColor = col.cgColor
+            
             reportStackView.isHidden = false
         }else{
             reportStackView.isHidden = true
