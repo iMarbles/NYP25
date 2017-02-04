@@ -385,7 +385,7 @@
             <objects>
                 <tableViewController id="hXq-op-v5y" customClass="UserProfileCommentsForOwnPhotosTableViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" id="yyT-nv-6ZP">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="303"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="225"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -458,9 +458,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="isf-Cd-FrZ">
-                                <rect key="frame" x="47" y="8" width="282" height="280"/>
+                                <rect key="frame" x="7" y="8" width="361" height="359"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="280" id="BMB-5L-wqy"/>
+                                    <constraint firstAttribute="height" constant="358.99999999999977" id="BMB-5L-wqy"/>
                                 </constraints>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hidden text for own photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uh-sr-Ty7">
@@ -482,13 +482,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIA-JC-a1h">
-                                <rect key="frame" x="16" y="335" width="343" height="303"/>
+                                <rect key="frame" x="16" y="413" width="343" height="225"/>
                                 <connections>
                                     <segue destination="hXq-op-v5y" kind="embed" identifier="UserProfileDetailViewComments" id="Z4E-13-Fow"/>
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FLO-o6-aZ3">
-                                <rect key="frame" x="103.5" y="297" width="169.5" height="30"/>
+                                <rect key="frame" x="103" y="375" width="170" height="30"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Like Filled-30" translatesAutoresizingMaskIntoConstraints="NO" id="DvS-CT-nL5">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -526,13 +526,13 @@
                             <constraint firstItem="bIA-JC-a1h" firstAttribute="leading" secondItem="OgK-IH-PaP" secondAttribute="leadingMargin" id="7Ep-c9-Pf5"/>
                             <constraint firstItem="8XI-XV-TX7" firstAttribute="leading" secondItem="6Uh-sr-Ty7" secondAttribute="leading" id="Ijp-7a-GbU"/>
                             <constraint firstItem="8XI-XV-TX7" firstAttribute="leading" secondItem="OgK-IH-PaP" secondAttribute="leadingMargin" constant="-17" id="LK4-AH-CG5"/>
-                            <constraint firstItem="FLO-o6-aZ3" firstAttribute="top" secondItem="isf-Cd-FrZ" secondAttribute="bottom" constant="9" id="LUa-FX-Prv"/>
+                            <constraint firstItem="FLO-o6-aZ3" firstAttribute="top" secondItem="isf-Cd-FrZ" secondAttribute="bottom" constant="8" id="LUa-FX-Prv"/>
                             <constraint firstItem="8XI-XV-TX7" firstAttribute="top" secondItem="u2f-zr-nzl" secondAttribute="bottom" constant="112" id="RyE-ic-EZI"/>
                             <constraint firstItem="isf-Cd-FrZ" firstAttribute="top" secondItem="u2f-zr-nzl" secondAttribute="bottom" constant="8" symbolic="YES" id="Ypt-4f-3Jt"/>
                             <constraint firstItem="lmA-pt-cGt" firstAttribute="top" secondItem="8XI-XV-TX7" secondAttribute="bottom" constant="6" id="ZJG-4i-YVn"/>
                             <constraint firstItem="6Uh-sr-Ty7" firstAttribute="top" secondItem="lmA-pt-cGt" secondAttribute="bottom" constant="8" symbolic="YES" id="g6Z-MR-3b9"/>
                             <constraint firstItem="bIA-JC-a1h" firstAttribute="top" secondItem="FLO-o6-aZ3" secondAttribute="bottom" constant="8" id="h7d-Rk-DiE"/>
-                            <constraint firstItem="isf-Cd-FrZ" firstAttribute="leading" secondItem="OgK-IH-PaP" secondAttribute="leadingMargin" constant="31" id="hCL-bH-r2m"/>
+                            <constraint firstItem="isf-Cd-FrZ" firstAttribute="leading" secondItem="OgK-IH-PaP" secondAttribute="leadingMargin" constant="-8.816215182844644" id="hCL-bH-r2m"/>
                             <constraint firstItem="FLO-o6-aZ3" firstAttribute="centerX" secondItem="lmA-pt-cGt" secondAttribute="centerX" id="jjc-mB-CZc"/>
                             <constraint firstAttribute="trailing" secondItem="lmA-pt-cGt" secondAttribute="trailing" id="lke-6u-0QQ"/>
                             <constraint firstItem="lmA-pt-cGt" firstAttribute="centerX" secondItem="bIA-JC-a1h" secondAttribute="centerX" id="nm9-to-rOY"/>

@@ -778,7 +778,7 @@
         <scene sceneID="4Dg-wb-U5H">
             <objects>
                 <tableViewController id="LLW-ce-n7G" customClass="UserSocialPhotosCommentsTableViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" id="SRp-jV-W5u">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" id="SRp-jV-W5u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="485"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

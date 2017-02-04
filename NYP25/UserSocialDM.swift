@@ -213,73 +213,77 @@ class UserSocialDM: NSObject {
     }
     
     //Retrieve all events
-    static func retrieveAllSocialByID(socialId : String, onComplete: @escaping ([Social])->Void){
-        var socialList : [Social] = []
-        var likedByList : [PhotoLike] = []
-        var commentList : [PhotoComment] = []
-        
-        let ref = FIRDatabase.database().reference().child("social/\(socialId)/")
-        
-        ref.observe(FIRDataEventType.value, with:{
-            (snapshot) in
+//    static func retrieveAllSocialByID(socialId : String, onComplete: @escaping ([Social])->Void){
+        static func retrieveAllSocialByID(onComplete: @escaping ([Social])->Void){
+            var socialList : [Social] = []
+            var likedByList : [PhotoLike] = []
+            var commentList : [PhotoComment] = []
             
-            socialList = []
+            let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
             
-            //.reversed() - for descending order
-            for record in snapshot.children.reversed(){
-                let r = record as! FIRDataSnapshot
+            ref.observe(FIRDataEventType.value, with:{
+                (snapshot) in
                 
-                let s = Social()
+                socialList = []
                 
-                s.socialId = r.key
-                s.eventId = r.childSnapshot(forPath: "eventId").value as! String
-                s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
-                s.uploader = r.childSnapshot(forPath: "uploader").value as? String
-                s.caption = r.childSnapshot(forPath: "caption").value as? String
-                s.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
-                s.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
-                s.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
-                s.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
-                
-                //Child nodes
-                likedByList = []
-                let likes = r.childSnapshot(forPath: "likedBy").children
-                for liked in likes{
-                    let l = liked as! FIRDataSnapshot
+                //.reversed() - for descending order
+                for record in snapshot.children.reversed(){
+                    let r = record as! FIRDataSnapshot
                     
-                    let p = PhotoLike()
-                    p.adminNo = l.key
-                    p.isLike = (l.childSnapshot(forPath: "isLiked").value as? Int)!
+                    let s = Social()
+                    
+                    s.socialId = r.key
+                    s.eventId = r.childSnapshot(forPath: "eventId").value as! String
+                    s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
+                    s.uploader = r.childSnapshot(forPath: "uploader").value as? String
+                    s.caption = r.childSnapshot(forPath: "caption").value as? String
+                    s.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
+                    s.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
+                    s.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
+                    s.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
                     
                     //Child nodes
-                    commentList = []
-                    let comments = l.childSnapshot(forPath: "comments").children
-                    for commented in comments{
-                        let c = commented as! FIRDataSnapshot
+                    likedByList = []
+                    let likes = r.childSnapshot(forPath: "likedBy").children
+                    for liked in likes{
+                        let l = liked as! FIRDataSnapshot
                         
-                        let pc = PhotoComment()
-                        pc.commentId = c.key
-                        pc.username = c.childSnapshot(forPath: "username").value as! String
-                        pc.timestamp = c.childSnapshot(forPath: "timestamp").value as? String
-                        pc.comment = c.childSnapshot(forPath: "comment").value as! String
+                        let p = PhotoLike()
+                        p.adminNo = l.key
+                        p.isLike = (l.childSnapshot(forPath: "isLiked").value as? Int)!
                         
-                        commentList.append(pc)
+                        //Child nodes
+                        commentList = []
+                        let comments = l.childSnapshot(forPath: "comments").children
+                        for commented in comments{
+                            let c = commented as! FIRDataSnapshot
+                            
+                            let pc = PhotoComment()
+                            pc.commentId = c.key
+                            pc.username = c.childSnapshot(forPath: "username").value as! String
+                            pc.timestamp = c.childSnapshot(forPath: "timestamp").value as? String
+                            pc.comment = c.childSnapshot(forPath: "comment").value as! String
+                            
+                            commentList.append(pc)
+                        }
+                        
+                        p.comments = commentList
+                        likedByList.append(p)
                     }
                     
-                    p.comments = commentList
-                    likedByList.append(p)
+                    if(s.isFlagged == 0){
+                        if(s.uploader == (GlobalDM.CurrentUser?.userId)!){
+                            s.likes = likedByList
+                            socialList.append(s)
+                        }
+                    }
                 }
                 
-                if(s.isFlagged == 0){
-                    s.likes = likedByList
-                    socialList.append(s)
-                }
-            }
-            
-            onComplete(socialList)
-        })
-    }
-
+                onComplete(socialList)
+            })
+        }
+    
+    
     
     //COUNT TOTAL AMOUNT OF LIKES FOR THE PHOTO
     static func countTotalLikesForPhoto(socialId : String, onComplete: @escaping (PhotoLike)->Void){
@@ -586,6 +590,12 @@ class UserSocialDM: NSObject {
                     ])
                 
         })
+    }
+    
+    static func deleteComment(socialId : String, userId : String, commentId : String){
+        let refLikedBy = FIRDatabase.database().reference().child("social/\(socialId)/likedBy/\(userId)/comments/\(commentId)")
+        
+        refLikedBy.removeValue()
     }
     
     static func reportPhoto(socialId : String, currentUserId : String, flagReason : String){

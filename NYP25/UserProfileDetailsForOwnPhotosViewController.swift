@@ -59,6 +59,7 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
         
         let destroyAction = UIAlertAction(title: "Delete Post", style: .destructive) { action in
             UserProfileDM.deletePhoto(socialId: (self.socialImg?.socialId)!)
+            
             self.navigationController?.popToRootViewController(animated: true)
             print("destroy")
         }
