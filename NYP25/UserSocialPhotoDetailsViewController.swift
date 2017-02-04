@@ -14,6 +14,8 @@ class UserSocialPhotoDetailsViewController: UIViewController {
     @IBOutlet weak var testLbl : UILabel!
     @IBOutlet weak var commentField : UITextField?
     @IBOutlet weak var commentBtn : UIButton!
+    
+    var currentUsername : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,10 @@ class UserSocialPhotoDetailsViewController: UIViewController {
         
         print("socialImg?.socialId - \(socialImg?.socialId)")
         testLbl.text = (socialImg?.socialId)!
+        
+        UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(list) in
+            self.currentUsername = "\(list.username)"
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,9 +43,9 @@ class UserSocialPhotoDetailsViewController: UIViewController {
     }
     
     @IBAction func actionComment(sender: UIButton) {
-        print("button clicked")
+        UserSocialDM.postComment(socialId: (socialImg?.socialId)!, currentUserId: (GlobalDM.CurrentUser?.userId)!, currentUserName : currentUsername, commentField: (commentField?.text)!)
         
-        UserSocialDM.postComment(socialId: (socialImg?.socialId)!, currentUserId: (GlobalDM.CurrentUser?.userId)!, commentField: (commentField?.text)!)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     /*
     // MARK: - Navigation

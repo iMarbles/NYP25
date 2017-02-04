@@ -554,21 +554,38 @@ class UserSocialDM: NSObject {
 /*      END OF CREATE FUNCTIONS     */
     
 /*      START OF UPDATE FUNCTIONS     */
-    static func postComment(socialId : String, currentUserId : String, commentField : String){
+    static func postComment(socialId : String, currentUserId : String, currentUserName : String, commentField : String){
         let key = FIRDatabase.database().reference().child("social/\(socialId)/likedBy/\(currentUserId)/comments").childByAutoId().key
         let ref = FIRDatabase.database().reference().child("social/\(socialId)/likedBy/\(currentUserId)/comments/\(key)/")
+        let refLikedBy = FIRDatabase.database().reference().child("social/\(socialId)/likedBy/\(currentUserId)/")
 
         let currentDate = NSDate()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd, HH:mm:ss"
         let result = dateFormatter.string(from: currentDate as Date)
 
-
-        ref.setValue([
-            "comment" : commentField,
-            "timestamp" : result,
-            "username" : currentUserId
-            ])
+        refLikedBy.observeSingleEvent(of: .value, with:
+            { (snapshot) in
+                
+                let p = PhotoLike()
+                
+                if (snapshot.childSnapshot(forPath: "isLiked").value is NSNull ) {
+                    p.isLike = 0
+                    
+                    refLikedBy.updateChildValues([
+                        "isLiked" : p.isLike
+                        ])
+                    
+                }
+                
+                
+                ref.setValue([
+                    "comment" : commentField,
+                    "timestamp" : result,
+                    "username" : currentUserName
+                    ])
+                
+        })
     }
     
     static func reportPhoto(socialId : String, currentUserId : String, flagReason : String){
