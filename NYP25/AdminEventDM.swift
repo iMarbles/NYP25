@@ -223,6 +223,18 @@ class AdminEventDM: NSObject {
                     photo.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
                     
                     //Child nodes
+                    var flagReasonList : [SocialFlag] = []
+                    let flags = r.childSnapshot(forPath: "flagReasons").children
+                    for flag in flags{
+                        let f = flag as! FIRDataSnapshot
+                        
+                        let sf = SocialFlag()
+                        sf.userId = f.key
+                        sf.flagReason = f.value as! String
+                        
+                        flagReasonList.append(sf)
+                    }
+                    
                     var likedByList : [PhotoLike] = []
                     let likes = r.childSnapshot(forPath: "likedBy").children
                     for liked in likes{
@@ -251,6 +263,7 @@ class AdminEventDM: NSObject {
                         likedByList.append(p)
                     }
                     
+                    photo.flagReasons = flagReasonList
                     photo.likes = likedByList
                     
                     socialPhotos.append(photo)
@@ -291,6 +304,18 @@ class AdminEventDM: NSObject {
                 photo.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
                 
                 //Child nodes
+                var flagReasonList : [SocialFlag] = []
+                let flags = r.childSnapshot(forPath: "flagReasons").children
+                for flag in flags{
+                    let f = flag as! FIRDataSnapshot
+                    
+                    let sf = SocialFlag()
+                    sf.userId = f.key
+                    sf.flagReason = f.value as! String
+                    
+                    flagReasonList.append(sf)
+                }
+ 
                 var likedByList : [PhotoLike] = []
                 let likes = r.childSnapshot(forPath: "likedBy").children
                 for liked in likes{
@@ -320,6 +345,7 @@ class AdminEventDM: NSObject {
                 }
                 
                 photo.likes = likedByList
+                photo.flagReasons = flagReasonList
                 
                 flaggedImageList.append(photo)
             }
@@ -348,8 +374,8 @@ class AdminEventDM: NSObject {
     
     //Marking post as safe
     static func markSocialImageSafeWith(socialId: String){
-        FIRDatabase.database().reference().child("social/\(socialId)").updateChildValues(["isFlagged": 0, "flagReason": ""])
-        
+        FIRDatabase.database().reference().child("social/\(socialId)").updateChildValues(["isFlagged": 0])
+        FIRDatabase.database().reference().child("social/\(socialId)/flagReasons").removeValue()
     }
     
     //Admin Stats

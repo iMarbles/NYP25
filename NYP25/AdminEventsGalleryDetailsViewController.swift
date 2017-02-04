@@ -17,7 +17,7 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
     @IBOutlet weak var commentBtn : UIButton!
     
     @IBOutlet weak var reportStackView : UIStackView!
-    @IBOutlet weak var reportLbl : UILabel!
+    @IBOutlet weak var reportBtn : UIButton!
     
     var currentPhoto: Social?
     
@@ -111,8 +111,9 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
         }
         
         
-        if currentPhoto?.isFlagged == 1{
-            //reportLbl.text = "This photo has been reported due to:\n\((currentPhoto?.flagReason)!)"
+        if currentPhoto?.isFlagged != 0{
+            let reportText = "This photo has been reported \((currentPhoto?.flagReasons?.count)!) time(s)"
+            reportBtn.setTitle(reportText, for: UIControlState.normal)
             reportStackView.isHidden = false
         }else{
             reportStackView.isHidden = true
@@ -141,6 +142,14 @@ class AdminEventsGalleryDetailsViewController: UIViewController {
             
             if currentPhoto?.likes != nil{
                 vc.photoLikes = (currentPhoto?.likes)!
+            }
+        }
+        
+        if segue.identifier == "ImageReports"{
+            let vc = segue.destination as! AdminEventsGallertReportViewController
+            
+            if currentPhoto?.flagReasons != nil{
+                vc.reportList = currentPhoto?.flagReasons
             }
         }
     }

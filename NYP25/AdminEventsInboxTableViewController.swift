@@ -57,7 +57,12 @@ class AdminEventsInboxTableViewController: UITableViewController {
         // Configure the cell...
         cell.flaggedImg.image = UIImage(named: "loading-512")
         GlobalDM.loadImage(imageView: cell.flaggedImg, url: flaggedPhotoList[(indexPath as IndexPath).row].photoUrl!)
-        //cell.reasonLbl.text = "\(flaggedPhotoList[(indexPath as IndexPath).row].flagReason!)"
+        
+        var count = 0
+        if flaggedPhotoList[(indexPath as IndexPath).row].flagReasons != nil{
+            count = (flaggedPhotoList[(indexPath as IndexPath).row].flagReasons?.count)!
+        }
+        cell.reasonLbl.text = "No. of Reports: \(count)"
 
         return cell
     }
