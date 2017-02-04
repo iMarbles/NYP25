@@ -554,6 +554,23 @@ class UserSocialDM: NSObject {
 /*      END OF CREATE FUNCTIONS     */
     
 /*      START OF UPDATE FUNCTIONS     */
+    static func postComment(socialId : String, currentUserId : String, commentField : String){
+        let key = FIRDatabase.database().reference().child("social/\(socialId)/likedBy/\(currentUserId)/comments").childByAutoId().key
+        let ref = FIRDatabase.database().reference().child("social/\(socialId)/likedBy/\(currentUserId)/comments/\(key)/")
+
+        let currentDate = NSDate()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd, HH:mm:ss"
+        let result = dateFormatter.string(from: currentDate as Date)
+
+
+        ref.setValue([
+            "comment" : commentField,
+            "timestamp" : result,
+            "username" : currentUserId
+            ])
+    }
+    
     static func reportPhoto(socialId : String, currentUserId : String, flagReason : String){
         let refLikedBy = FIRDatabase.database().reference().child("social/\(socialId)/")
         

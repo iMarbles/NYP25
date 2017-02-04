@@ -12,6 +12,8 @@ class UserSocialPhotoDetailsViewController: UIViewController {
 
     var socialImg : Social?
     @IBOutlet weak var testLbl : UILabel!
+    @IBOutlet weak var commentField : UITextField?
+    @IBOutlet weak var commentBtn : UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,11 @@ class UserSocialPhotoDetailsViewController: UIViewController {
         }
     }
     
+    @IBAction func actionComment(sender: UIButton) {
+        print("button clicked")
+        
+        UserSocialDM.postComment(socialId: (socialImg?.socialId)!, currentUserId: (GlobalDM.CurrentUser?.userId)!, commentField: (commentField?.text)!)
+    }
     /*
     // MARK: - Navigation
 
