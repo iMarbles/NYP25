@@ -95,11 +95,11 @@ class UserSocialMainListTableViewController: UITableViewController {
     }
     
 
+    //like and unlike photos handler
     func handleLikes(sender: AnyObject){
         UserSocialDM.updateNoOfPhotoLikes(
             socialId: socialList[sender.tag].socialId,
             currentUserId: (GlobalDM.CurrentUser?.userId)!)
-        
         
         print("sender.tag - \(sender.tag!)")
         if likes[sender.tag] == "like" {
@@ -117,13 +117,14 @@ class UserSocialMainListTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
 
+    //comments handler
     func actionViewComments(sender: AnyObject) {
         let vc = UIStoryboard(name:"UserSocial", bundle:nil).instantiateViewController(withIdentifier: "PhotoDetails") as! UserSocialPhotoDetailsViewController
         vc.socialImg = socialList[(sender.tag)]
         self.navigationController?.pushViewController(vc, animated:true)
     }
 
-    
+    //flagegd handler
     func actionSheetButtonPressed(sender: AnyObject) {
         if((GlobalDM.CurrentUser?.userId)! != (socialList[sender.tag].uploader)!){
             print("(GlobalDM.CurrentUser?.userId)! - \(GlobalDM.CurrentUser?.userId)")
