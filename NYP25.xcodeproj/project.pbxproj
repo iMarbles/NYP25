@@ -13,6 +13,7 @@
 		040CA3131E38EF4B00765193 /* AdminEventsInboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CA3121E38EF4B00765193 /* AdminEventsInboxTableViewCell.swift */; };
 		040CA3171E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CA3151E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift */; };
 		040CA3181E39002B00765193 /* AdminEventsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CA3161E39002B00765193 /* AdminEventsGalleryViewController.swift */; };
+		042A36461E463C1700EAF544 /* SocialFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A36451E463C1700EAF544 /* SocialFlag.swift */; };
 		046C5C251E12449B001B7C61 /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C231E12449B001B7C61 /* FirebaseStorage.framework */; };
 		046C5C261E12449B001B7C61 /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */; };
 		046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */; };
@@ -192,6 +193,7 @@
 		040CA3121E38EF4B00765193 /* AdminEventsInboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsInboxTableViewCell.swift; sourceTree = "<group>"; };
 		040CA3151E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryDetailsViewController.swift; sourceTree = "<group>"; };
 		040CA3161E39002B00765193 /* AdminEventsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryViewController.swift; sourceTree = "<group>"; };
+		042A36451E463C1700EAF544 /* SocialFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialFlag.swift; sourceTree = "<group>"; };
 		046C5C231E12449B001B7C61 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = "<group>"; };
 		046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
 		046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminProfileViewController.swift; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				8166BC501DF6862100FAA37C /* Social.swift */,
 				8175B12E1DEFE18000FCB205 /* Student.swift */,
 				8175B12A1DEFDE8100FCB205 /* User.swift */,
+				042A36451E463C1700EAF544 /* SocialFlag.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 				04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */,
 				617B7DAF1E3F367B0059606A /* UserProfileCommentsForOwnPhotosTableViewCell.swift in Sources */,
 				046D01321E37A9E3004D1A25 /* AdminEventsGalleryCommentsViewController.swift in Sources */,
+				042A36461E463C1700EAF544 /* SocialFlag.swift in Sources */,
 				61B51EF41E3E2EC9009FA564 /* UserProfileDetailsForOwnPhotosViewController.swift in Sources */,
 				04ED183D1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift in Sources */,
 				04EA47391E1401E3006797D9 /* AdminEventsReviewViewController.swift in Sources */,
