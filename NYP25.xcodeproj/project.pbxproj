@@ -14,6 +14,7 @@
 		040CA3171E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CA3151E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift */; };
 		040CA3181E39002B00765193 /* AdminEventsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CA3161E39002B00765193 /* AdminEventsGalleryViewController.swift */; };
 		042A36461E463C1700EAF544 /* SocialFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A36451E463C1700EAF544 /* SocialFlag.swift */; };
+		042A364C1E464C3600EAF544 /* AdminEventsGallertReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A364B1E464C3600EAF544 /* AdminEventsGallertReportViewController.swift */; };
 		046C5C251E12449B001B7C61 /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C231E12449B001B7C61 /* FirebaseStorage.framework */; };
 		046C5C261E12449B001B7C61 /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */; };
 		046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */; };
@@ -194,6 +195,7 @@
 		040CA3151E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryDetailsViewController.swift; sourceTree = "<group>"; };
 		040CA3161E39002B00765193 /* AdminEventsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryViewController.swift; sourceTree = "<group>"; };
 		042A36451E463C1700EAF544 /* SocialFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialFlag.swift; sourceTree = "<group>"; };
+		042A364B1E464C3600EAF544 /* AdminEventsGallertReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGallertReportViewController.swift; sourceTree = "<group>"; };
 		046C5C231E12449B001B7C61 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = "<group>"; };
 		046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
 		046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminProfileViewController.swift; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 			children = (
 				04F1DBE51E3A8AD300962312 /* AdminEventsAttendanceViewController.swift */,
 				04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */,
+				042A364B1E464C3600EAF544 /* AdminEventsGallertReportViewController.swift */,
 				046D01311E37A9E3004D1A25 /* AdminEventsGalleryCommentsViewController.swift */,
 				040CA3151E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift */,
 				040CA3161E39002B00765193 /* AdminEventsGalleryViewController.swift */,
@@ -824,6 +827,7 @@
 				04ECCCCF1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift in Sources */,
 				04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */,
 				9FFC15051E350A4200037BD2 /* RegisterDM.swift in Sources */,
+				042A364C1E464C3600EAF544 /* AdminEventsGallertReportViewController.swift in Sources */,
 				619644A61E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift in Sources */,
 				04EB65381E3F3A7B0012E765 /* UserInboxTableViewController.swift in Sources */,
 				61B149FF1E2F14EB00605BCB /* UserSocialMasterForAlbumTableViewController.swift in Sources */,
