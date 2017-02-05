@@ -52,7 +52,6 @@ class UserSocialMasterForAlbumTableViewController: UITableViewController {
         cell.eventDateLbl.text = GlobalDM.getDateNameBy(stringDate: s.date!)
         
         UserSocialDM.retrieveEventPhotos(onComplete: {(list) in
-            self.albumPhotos = list
         })
         
         for a in self.albumPhotos{

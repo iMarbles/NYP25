@@ -33,11 +33,11 @@ class UserSocialViewAlbumPhotosCollectionViewController: UICollectionViewControl
             self.eventAlbum = list
             self.collectionView?.reloadData()
             
-            for a in self.eventAlbum{
-                print("a.eventId - \(a.eventId)")
-                print("eventIdLbl - \(self.eventIdLbl)")
-                self.soloEventAlbum.append(a)
-            }
+//            for a in self.eventAlbum{
+//                print("a.eventId - \(a.eventId)")
+//                print("eventIdLbl - \(self.eventIdLbl)")
+//                self.soloEventAlbum.append(a)
+//            }
         })
     }
     
@@ -48,7 +48,7 @@ class UserSocialViewAlbumPhotosCollectionViewController: UICollectionViewControl
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return soloEventAlbum.count
+        return eventAlbum.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -56,7 +56,7 @@ class UserSocialViewAlbumPhotosCollectionViewController: UICollectionViewControl
         
         cell.albumPhoto?.image = UIImage(named: "loading-512")
         
-        UserSocialProfileMasterViewController.loadImage(imageView: cell.albumPhoto, url: soloEventAlbum[(indexPath as IndexPath).row].photoUrl!)
+        UserSocialProfileMasterViewController.loadImage(imageView: cell.albumPhoto, url: eventAlbum[(indexPath as IndexPath).row].photoUrl!)
         
         return cell
     }

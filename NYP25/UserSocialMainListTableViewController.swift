@@ -150,8 +150,6 @@ class UserSocialMainListTableViewController: UITableViewController {
             print("(GlobalDM.CurrentUser?.userId)! - \(GlobalDM.CurrentUser?.userId)")
             print("(socialList[sender.tag].uploader)! - \(socialList[sender.tag].uploader)")
             
-//            check if current user alrdy reported the photo before
-            
             UserSocialDM.retrieveAllFlagReasons(socialId: socialList[sender.tag].socialId, onComplete: {(list) in
                 self.flagList = list
                 print("flagList.count - \(String(self.flagList.count))")
@@ -159,7 +157,7 @@ class UserSocialMainListTableViewController: UITableViewController {
             
             UserSocialDM.retrieveAllFlagReasonsById(socialId: socialList[sender.tag].socialId, onComplete: {(list) in
                 if(list.userId == (GlobalDM.CurrentUser?.userId)!){
-                    let alertController = UIAlertController(title: "You already reported this photo previously!",
+                    let alertController = UIAlertController(title: "You already reported this photo previously",
                                                             message: nil, preferredStyle: .alert)
                     
                     let cancelAction = UIAlertAction(title: "Ok", style: .cancel) { action in
@@ -207,7 +205,7 @@ class UserSocialMainListTableViewController: UITableViewController {
                 }
             })
         }else{
-            let alertController = UIAlertController(title: "You can't report your own photo!!", message: nil, preferredStyle: .alert)
+            let alertController = UIAlertController(title: "You can't report your own photo", message: nil, preferredStyle: .alert)
             
             let cancelAction = UIAlertAction(title: "Ok", style: .cancel) { action in
                 print("Ok")
