@@ -21,18 +21,18 @@ class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserSocialDM.retrieveAllSocial(onComplete: { (photos) in
+        UserSocialDM.retrieveAllSocialByID(onComplete: { (photos) in
             self.profileGallery = photos
             self.collectionView?.reloadData()
             
-            if(self.profileGallery.count == 0){
-                let alert = UIAlertView(title: "",
-                                        message: "No Photos Available Currently",
-                                        delegate: nil,
-                                        cancelButtonTitle: "Ok")
-                alert.show()
-                
-            }
+//            if(self.profileGallery.count == 0){
+//                let alert = UIAlertView(title: "",
+//                                        message: "No Photos Available Currently",
+//                                        delegate: nil,
+//                                        cancelButtonTitle: "Ok")
+//                alert.show()
+//                
+//            }
         })
     }
     

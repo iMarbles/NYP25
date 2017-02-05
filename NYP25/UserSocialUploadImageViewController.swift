@@ -55,7 +55,7 @@ class UserSocialUploadImageViewController: UIViewController, UIPickerViewDataSou
         
         //Social
         socialImg?.caption = txtCaption.text
-        socialImg?.flagReason = ""
+        //socialImg?.flagReason = ""
         socialImg?.postedDateTime = txtCaption.text
         socialImg?.uploader = GlobalDM.CurrentUser!.userId
         socialImg?.isFlagged = 0;

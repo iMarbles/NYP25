@@ -19,39 +19,24 @@ class UserSocialPhotosCommentsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        testing  = "\(socialImg?.socialId)"
         
-//        print("socialImg?.socialId - \(socialImg?.socialId)")
-        
-//        UserSocialDM.retrieveAllSocialByID(socialId: (socialImg?.socialId)!, onComplete: {(list) in
-//            self.socialList = list
-//            self.tableView.reloadData()
-//        })
-        
-        self.tableView.delegate = self;
-        self.tableView.dataSource = self;
-        
-        
-        UserSocialDM.retrieveAllSocial(onComplete: {(list) in
-            self.socialList = list
-            self.tableView.reloadData()
-            
-            for a in self.socialList{
-                for b in a.likes!{
-                    for c in b.comments!{
-                        self.commentList.append(c)
-                        
-                        self.commentList.sort { (a, b) -> Bool in
-                            if a.timestamp! > b.timestamp!{
-                                return true
-                            }else{
-                                return false
-                            }
-                        }
+        for a in (socialImg?.likes)!{
+            for b in a.comments!{
+                self.commentList.append(b)
+                
+                self.commentList.sort { (a, b) -> Bool in
+                    if a.timestamp! > b.timestamp!{
+                        return true
+                    }else{
+                        return false
                     }
                 }
             }
-        })
+        }
+        self.tableView.reloadData()
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
+        
 
     }
     
@@ -72,7 +57,7 @@ class UserSocialPhotosCommentsTableViewController: UITableViewController {
         if(commentList.count != 0){
             cell.usernameLbl.text = commentList[(indexPath as IndexPath).row].username
             cell.commentLbl.text = commentList[(indexPath as IndexPath).row].comment
-            cell.dateLbl.text = commentList[(indexPath as IndexPath).row].timestamp
+            cell.dateLbl.text = GlobalDM.getCommentDateTimeBy(stringDate: commentList[(indexPath as IndexPath).row].timestamp!)
         }else{
             cell.usernameLbl.isHidden = true
             cell.commentLbl.isHidden = true
@@ -86,5 +71,53 @@ class UserSocialPhotosCommentsTableViewController: UITableViewController {
         }
         
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("clicked at - \(indexPath.row)")
+        print("get the commentid - \(commentList[(indexPath as IndexPath).row].commentId!)")
+
+        for a in (socialImg?.likes)!{
+            for b in a.comments!{
+                if((commentList[(indexPath as IndexPath).row].username)! == b.username){
+                    print("hehhehe if you see this is successful - \(a.adminNo)")
+                }
+            }
+        }
+        
+//        for a in (socialImg?.likes)!{
+//            for b in a.comments!{
+//                self.commentList.append(b)
+//                
+//                self.commentList.sort { (a, b) -> Bool in
+//                    if a.timestamp! > b.timestamp!{
+//                        return true
+//                    }else{
+//                        return false
+//                    }
+//                }
+//            }
+//        }
+
+        
+        let alertController = UIAlertController(title: "You sure you wanna delete this comment?", message: nil, preferredStyle: .alert)
+        
+        let destroyAction = UIAlertAction(title: "Delete Comment", style: .destructive) { action in
+            UserSocialDM.deleteComment(
+                socialId: (self.socialImg?.socialId)!,
+                userId: (self.commentList[(indexPath as IndexPath).row].username)!,
+                commentId: (self.commentList[(indexPath as IndexPath).row].commentId)!)
+            self.navigationController?.popToRootViewController(animated: true)
+            print("destroy")
+        }
+        alertController.addAction(destroyAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            print("cancel")
+        }
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true) {}
+
     }
 }

@@ -15,10 +15,9 @@ class UserSocialMainListTableViewController: UITableViewController {
 
     var socialList : [Social] = []
     var countList : [PhotoLike] = []
+    var flagList : [SocialFlag] = []
     
     var imgToPass: Social?
-    
-//    var tmpString : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +48,6 @@ class UserSocialMainListTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         likes = [String](repeating: "like", count: socialList.count)
@@ -84,27 +81,25 @@ class UserSocialMainListTableViewController: UITableViewController {
         cell.btnReport.tag = indexPath.row
         cell.btnReport.addTarget(self, action: #selector(actionSheetButtonPressed), for: .touchUpInside)
         
-//        cell.btnViewComments.tag = indexPath.row
-//        cell.btnViewComments.addTarget(self, action: #selector(actionViewComments), for: .touchUpInside)
-//        cell.button.addTarget(self, action: "makeSegue", forControlEvents: UIControlEvents.TouchUpInside)
+        cell.btnViewComments.tag = indexPath.row
+        cell.btnViewComments.addTarget(self, action: #selector(actionViewComments), for: .touchUpInside)
 
         UserSocialProfileMasterViewController.loadImage(imageView: cell.mainListImageView, url: s.photoUrl!)
         
         UserSocialDM.retrieveAllPhotosForLikeCount(socialId: s.socialId, onComplete: {(list) in
             self.countList = list
             cell.countLikesLbl.text = String(self.countList.count)
-            //self.tableView.reloadData()
         })
         
         return cell
     }
     
 
+    //like and unlike photos handler
     func handleLikes(sender: AnyObject){
         UserSocialDM.updateNoOfPhotoLikes(
             socialId: socialList[sender.tag].socialId,
             currentUserId: (GlobalDM.CurrentUser?.userId)!)
-        
         
         print("sender.tag - \(sender.tag!)")
         if likes[sender.tag] == "like" {
@@ -122,75 +117,23 @@ class UserSocialMainListTableViewController: UITableViewController {
         self.tableView.reloadData()
     }
 
-//    func actionViewComments(sender: AnyObject) {
-//        imgToPass = socialList[(sender.tag)]
-//        print("imgToPass - \(imgToPass!)")
-//    
-//        self.performSegue(withIdentifier: "UserSocialComments", sender: self)
-//
-//    }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        
-//        if segue.identifier == "UserSocialComments"
-//        {
-//            let a = segue.destination as! UserSocialPhotosCommentsTableViewController
-//                a.socialImg = imgToPass
-//                print("The passing address is: \(a.socialImg)")
-//                print("The passing address is: \(imgToPass)")
-//        }
-////        
-////        if segue.identifier == "UserSocialComments"{
-////            let a = segue.destination as! UserSocialPhotosCommentsTableViewController
-////
-////                a.socialImg = self.imgToPass
-////                print("The passing address is: \(a.socialImg)")
-////            
-////
-//////            imgToPass = socialList[(sender?.tag)]
-////            
-//////            a.socialImg = imgToPass
-//////            print("The passing address is: \(a.socialImg)")
-//////            print("The passing address is: \(imgToPass)")
-////            
-//////            performSegue(withIdentifier: "UserSocialComments", sender: self)
-////            
-////        }
-//    }
+    //comments handler
+    func actionViewComments(sender: AnyObject) {
+        let vc = UIStoryboard(name:"UserSocial", bundle:nil).instantiateViewController(withIdentifier: "PhotoDetails") as! UserSocialPhotoDetailsViewController
+        vc.socialImg = socialList[(sender.tag)]
+        self.navigationController?.pushViewController(vc, animated:true)
+    }
 
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-////        var indexPath = self.tableView.indexPathForSelectedRow!
-//        
-//        if segue.identifier == "UserSocialComments"{
-//            let a = segue.destination as! UserSocialPhotosCommentsTableViewController
-//            
-////            imgToPass = socialList[(sender.tag)]
-////            print("imgToPass - \(imgToPass!)")
-//
-//            
-//            if imgToPass != nil{
-//                a.socialImg = self.imgToPass
-//                print("The passing address is: \(a.socialImg)")
-//            }
-//        }
-//    }
-    
-//    func actionViewComments(sender: AnyObject) {
-//                selectedRow = sender.tag
-//        let a = UserSocialPhotosCommentsTableViewController()
-//        
-//        a.socialImg = socialList[(sender.tag)]
-//        socialList[(indexPath as IndexPath).row]
-//
-//        
-//        //self.performSegue(withIdentifier: "UserSocialComments", sender: self)
-//    }
-    
+    //flagegd handler
     func actionSheetButtonPressed(sender: AnyObject) {
         if((GlobalDM.CurrentUser?.userId)! != (socialList[sender.tag].uploader)!){
             print("(GlobalDM.CurrentUser?.userId)! - \(GlobalDM.CurrentUser?.userId)")
             print("(socialList[sender.tag].uploader)! - \(socialList[sender.tag].uploader)")
+            
+            UserSocialDM.retrieveFlagReasonsCount(socialId: socialList[sender.tag].socialId, onComplete: {(list) in
+                self.flagList = list
+                print("flagList.count - \(String(self.flagList.count))")
+            })
             
             let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
             
@@ -198,8 +141,7 @@ class UserSocialMainListTableViewController: UITableViewController {
                 textField.placeholder = "Enter Flagged Reason"
                 
                 let reportAction = UIAlertAction(title: "Inappropriate / Irrelevant Post", style: .destructive) { action in
-                    UserSocialDM.reportPhoto(socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: "Inappropriate / Irrelevant Post")
-                    
+                    UserSocialDM.reportPhoto(theCount: self.flagList.count, socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: "Inappropriate / Irrelevant Post")
                 }
                 alertController.addAction(reportAction)
                 
@@ -209,7 +151,7 @@ class UserSocialMainListTableViewController: UITableViewController {
                 alertController.addAction(cancelAction)
                 
                 let postAction = UIAlertAction(title: "Submit Reason", style: .destructive) { action in
-                    UserSocialDM.reportPhoto(socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: textField.text!)
+                    UserSocialDM.reportPhoto(theCount: self.flagList.count, socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: textField.text!)
                 }
                 alertController.addAction(postAction)
                 postAction.isEnabled = false

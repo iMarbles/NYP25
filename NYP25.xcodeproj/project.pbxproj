@@ -13,6 +13,8 @@
 		040CA3131E38EF4B00765193 /* AdminEventsInboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CA3121E38EF4B00765193 /* AdminEventsInboxTableViewCell.swift */; };
 		040CA3171E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CA3151E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift */; };
 		040CA3181E39002B00765193 /* AdminEventsGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040CA3161E39002B00765193 /* AdminEventsGalleryViewController.swift */; };
+		042A36461E463C1700EAF544 /* SocialFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A36451E463C1700EAF544 /* SocialFlag.swift */; };
+		042A364C1E464C3600EAF544 /* AdminEventsGallertReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A364B1E464C3600EAF544 /* AdminEventsGallertReportViewController.swift */; };
 		046C5C251E12449B001B7C61 /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C231E12449B001B7C61 /* FirebaseStorage.framework */; };
 		046C5C261E12449B001B7C61 /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */; };
 		046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */; };
@@ -78,6 +80,7 @@
 		61B9891C1E4337D8003BDB58 /* UserSocialListCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B9891B1E4337D8003BDB58 /* UserSocialListCommentsTableViewCell.swift */; };
 		61C130C11E289901006E4191 /* UserSocialDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C130BC1E289901006E4191 /* UserSocialDM.swift */; };
 		61C130C51E289901006E4191 /* UserSocialMasterForProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C130C01E289901006E4191 /* UserSocialMasterForProfileViewController.swift */; };
+		61C14C051E44C41400D871D6 /* UserSocialPhotoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C14C041E44C41400D871D6 /* UserSocialPhotoDetailsViewController.swift */; };
 		61C265001E3D092B006C1B53 /* UserProfileDetailsForLikedPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C264FF1E3D092B006C1B53 /* UserProfileDetailsForLikedPhotosViewController.swift */; };
 		61ECAAD41E4256FF00254117 /* UserSocialViewAlbumPhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ECAAD31E4256FF00254117 /* UserSocialViewAlbumPhotosCollectionViewCell.swift */; };
 		61ECAAD61E42571300254117 /* UserSocialViewAlbumPhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ECAAD51E42571300254117 /* UserSocialViewAlbumPhotosCollectionViewController.swift */; };
@@ -192,6 +195,8 @@
 		040CA3121E38EF4B00765193 /* AdminEventsInboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsInboxTableViewCell.swift; sourceTree = "<group>"; };
 		040CA3151E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryDetailsViewController.swift; sourceTree = "<group>"; };
 		040CA3161E39002B00765193 /* AdminEventsGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGalleryViewController.swift; sourceTree = "<group>"; };
+		042A36451E463C1700EAF544 /* SocialFlag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialFlag.swift; sourceTree = "<group>"; };
+		042A364B1E464C3600EAF544 /* AdminEventsGallertReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminEventsGallertReportViewController.swift; sourceTree = "<group>"; };
 		046C5C231E12449B001B7C61 /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = "<group>"; };
 		046C5C241E12449B001B7C61 /* GoogleNetworkingUtilities.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleNetworkingUtilities.framework; sourceTree = "<group>"; };
 		046C5C291E129F2B001B7C61 /* AdminProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminProfileViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +261,7 @@
 		61B9891B1E4337D8003BDB58 /* UserSocialListCommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialListCommentsTableViewCell.swift; sourceTree = "<group>"; };
 		61C130BC1E289901006E4191 /* UserSocialDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserSocialDM.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		61C130C01E289901006E4191 /* UserSocialMasterForProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = UserSocialMasterForProfileViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		61C14C041E44C41400D871D6 /* UserSocialPhotoDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialPhotoDetailsViewController.swift; sourceTree = "<group>"; };
 		61C264FF1E3D092B006C1B53 /* UserProfileDetailsForLikedPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDetailsForLikedPhotosViewController.swift; sourceTree = "<group>"; };
 		61ECAAD31E4256FF00254117 /* UserSocialViewAlbumPhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialViewAlbumPhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		61ECAAD51E42571300254117 /* UserSocialViewAlbumPhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialViewAlbumPhotosCollectionViewController.swift; sourceTree = "<group>"; };
@@ -465,6 +471,7 @@
 				8166BC501DF6862100FAA37C /* Social.swift */,
 				8175B12E1DEFE18000FCB205 /* Student.swift */,
 				8175B12A1DEFDE8100FCB205 /* User.swift */,
+				042A36451E463C1700EAF544 /* SocialFlag.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -498,6 +505,7 @@
 			children = (
 				04F1DBE51E3A8AD300962312 /* AdminEventsAttendanceViewController.swift */,
 				04D725461E0D5CD200603CCA /* AdminEventsDetailViewController.swift */,
+				042A364B1E464C3600EAF544 /* AdminEventsGallertReportViewController.swift */,
 				046D01311E37A9E3004D1A25 /* AdminEventsGalleryCommentsViewController.swift */,
 				040CA3151E39002B00765193 /* AdminEventsGalleryDetailsViewController.swift */,
 				040CA3161E39002B00765193 /* AdminEventsGalleryViewController.swift */,
@@ -544,6 +552,7 @@
 				61ECAAD51E42571300254117 /* UserSocialViewAlbumPhotosCollectionViewController.swift */,
 				61B989171E4335D4003BDB58 /* UserSocialPhotosCommentsTableViewController.swift */,
 				617DE0451E4438AA00600A4D /* UserSocialSelectAlbumTableViewController.swift */,
+				61C14C041E44C41400D871D6 /* UserSocialPhotoDetailsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -656,6 +665,7 @@
 				TargetAttributes = {
 					81FADA9C1DE43912007D27C8 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 55JNCECNTX;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -775,6 +785,7 @@
 				04ED183B1E17FDE5009CA0CD /* AdminStatisticsOneViewController.swift in Sources */,
 				9FAD32D31E408E1100A180A3 /* UserEventsTableViewCell.swift in Sources */,
 				04E864D61E33A5CA00FD07D6 /* AdminEventsViewMasterViewController.swift in Sources */,
+				61C14C051E44C41400D871D6 /* UserSocialPhotoDetailsViewController.swift in Sources */,
 				61B25FFB1E37E13B0090A70D /* UserProfileEditPasswordViewController.swift in Sources */,
 				61B989181E4335D4003BDB58 /* UserSocialPhotosCommentsTableViewController.swift in Sources */,
 				8166BC4F1DF685AD00FAA37C /* Leaderboard.swift in Sources */,
@@ -802,6 +813,7 @@
 				04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */,
 				617B7DAF1E3F367B0059606A /* UserProfileCommentsForOwnPhotosTableViewCell.swift in Sources */,
 				046D01321E37A9E3004D1A25 /* AdminEventsGalleryCommentsViewController.swift in Sources */,
+				042A36461E463C1700EAF544 /* SocialFlag.swift in Sources */,
 				61B51EF41E3E2EC9009FA564 /* UserProfileDetailsForOwnPhotosViewController.swift in Sources */,
 				04ED183D1E17FEA0009CA0CD /* AdminStatisticsTwoViewController.swift in Sources */,
 				04EA47391E1401E3006797D9 /* AdminEventsReviewViewController.swift in Sources */,
@@ -819,6 +831,7 @@
 				04ECCCCF1E30B38700BEB70C /* AdminStatisticsMoreTableViewController.swift in Sources */,
 				04F2694D1E0D3ACA00361510 /* AdminEventTableViewCell.swift in Sources */,
 				9FFC15051E350A4200037BD2 /* RegisterDM.swift in Sources */,
+				042A364C1E464C3600EAF544 /* AdminEventsGallertReportViewController.swift in Sources */,
 				619644A61E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift in Sources */,
 				04EB65381E3F3A7B0012E765 /* UserInboxTableViewController.swift in Sources */,
 				61B149FF1E2F14EB00605BCB /* UserSocialMasterForAlbumTableViewController.swift in Sources */,
@@ -991,7 +1004,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 55JNCECNTX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NYP25",
@@ -1015,7 +1028,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 55JNCECNTX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NYP25",

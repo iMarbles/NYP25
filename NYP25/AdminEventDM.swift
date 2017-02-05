@@ -205,8 +205,9 @@ class AdminEventDM: NSObject {
         
         let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "eventId").queryStarting(atValue: eventId).queryEnding(atValue: eventId)
         
-        ref.observeSingleEvent(of: .value, with:
+        ref.observe(FIRDataEventType.value, with:
             {(snapshot) in
+                socialPhotos = []
                 for record in snapshot.children{
                     let r = record as! FIRDataSnapshot
                     
@@ -218,10 +219,22 @@ class AdminEventDM: NSObject {
                     photo.caption = r.childSnapshot(forPath: "caption").value as? String
                     photo.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
                     photo.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
-                    photo.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
+                    //photo.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
                     photo.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
                     
                     //Child nodes
+                    var flagReasonList : [SocialFlag] = []
+                    let flags = r.childSnapshot(forPath: "flagReasons").children
+                    for flag in flags{
+                        let f = flag as! FIRDataSnapshot
+                        
+                        let sf = SocialFlag()
+                        sf.userId = f.key
+                        sf.flagReason = f.value as! String
+                        
+                        flagReasonList.append(sf)
+                    }
+                    
                     var likedByList : [PhotoLike] = []
                     let likes = r.childSnapshot(forPath: "likedBy").children
                     for liked in likes{
@@ -250,6 +263,7 @@ class AdminEventDM: NSObject {
                         likedByList.append(p)
                     }
                     
+                    photo.flagReasons = flagReasonList
                     photo.likes = likedByList
                     
                     socialPhotos.append(photo)
@@ -274,7 +288,7 @@ class AdminEventDM: NSObject {
         let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "isFlagged").queryStarting(atValue: 1).queryEnding(atValue: 1)
         ref.observe(FIRDataEventType.value, with:{
             (snapshot) in
-            
+            flaggedImageList = []
             for record in snapshot.children{
                 let r = record as! FIRDataSnapshot
                 
@@ -286,10 +300,22 @@ class AdminEventDM: NSObject {
                 photo.caption = r.childSnapshot(forPath: "caption").value as? String
                 photo.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
                 photo.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
-                photo.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
+                //photo.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
                 photo.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
                 
                 //Child nodes
+                var flagReasonList : [SocialFlag] = []
+                let flags = r.childSnapshot(forPath: "flagReasons").children
+                for flag in flags{
+                    let f = flag as! FIRDataSnapshot
+                    
+                    let sf = SocialFlag()
+                    sf.userId = f.key
+                    sf.flagReason = f.value as! String
+                    
+                    flagReasonList.append(sf)
+                }
+ 
                 var likedByList : [PhotoLike] = []
                 let likes = r.childSnapshot(forPath: "likedBy").children
                 for liked in likes{
@@ -306,9 +332,9 @@ class AdminEventDM: NSObject {
                         
                         let c = PhotoComment()
                         c.commentId = com.key
-                        c.comment = com.childSnapshot(forPath: "comment").value as! String
-                        c.timestamp = com.childSnapshot(forPath: "timestamp").value as! String
-                        c.username = com.childSnapshot(forPath: "username").value as! String
+                        c.comment = com.childSnapshot(forPath: "comment").value as? String
+                        c.timestamp = com.childSnapshot(forPath: "timestamp").value as? String
+                        c.username = com.childSnapshot(forPath: "username").value as? String
                         
                         commentList.append(c)
                     }
@@ -319,6 +345,7 @@ class AdminEventDM: NSObject {
                 }
                 
                 photo.likes = likedByList
+                photo.flagReasons = flagReasonList
                 
                 flaggedImageList.append(photo)
             }
@@ -347,8 +374,8 @@ class AdminEventDM: NSObject {
     
     //Marking post as safe
     static func markSocialImageSafeWith(socialId: String){
-        FIRDatabase.database().reference().child("social/\(socialId)").updateChildValues(["isFlagged": 0, "flagReason": ""])
-        
+        FIRDatabase.database().reference().child("social/\(socialId)").updateChildValues(["isFlagged": 0])
+        FIRDatabase.database().reference().child("social/\(socialId)/flagReasons").removeValue()
     }
     
     //Admin Stats

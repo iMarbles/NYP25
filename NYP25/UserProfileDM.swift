@@ -27,6 +27,13 @@ class UserProfileDM: NSObject {
         return digestData
     }
     
+    
+    static func deletePhoto(socialId : String){
+        let ref = FIRDatabase.database().reference().child("social/\(socialId)/")
+        
+        ref.removeValue()
+    }
+
     static func updateProfileBio(currentUser : String, bio : String){
         let ref = FIRDatabase.database().reference().child("users/\(currentUser)/")
         

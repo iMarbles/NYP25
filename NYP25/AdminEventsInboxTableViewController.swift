@@ -19,10 +19,11 @@ class AdminEventsInboxTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        loadInbox()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        loadInbox()
+        //loadInbox()
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,7 +57,12 @@ class AdminEventsInboxTableViewController: UITableViewController {
         // Configure the cell...
         cell.flaggedImg.image = UIImage(named: "loading-512")
         GlobalDM.loadImage(imageView: cell.flaggedImg, url: flaggedPhotoList[(indexPath as IndexPath).row].photoUrl!)
-        cell.reasonLbl.text = "\(flaggedPhotoList[(indexPath as IndexPath).row].flagReason!)"
+        
+        var count = 0
+        if flaggedPhotoList[(indexPath as IndexPath).row].flagReasons != nil{
+            count = (flaggedPhotoList[(indexPath as IndexPath).row].flagReasons?.count)!
+        }
+        cell.reasonLbl.text = "No. of Reports: \(count)"
 
         return cell
     }
