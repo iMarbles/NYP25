@@ -45,12 +45,6 @@ class UserSocialPhotoDetailsViewController: UIViewController {
     @IBAction func actionComment(sender: UIButton) {
         UserSocialDM.postComment(socialId: (socialImg?.socialId)!, currentUserId: (GlobalDM.CurrentUser?.userId)!, currentUserName : currentUsername, commentField: (commentField?.text)!)
         
-//        let alert = UIAlertView(title: "",
-//                                message: "Successfully commented",
-//                                delegate: nil,
-//                                cancelButtonTitle: "Ok")
-//        alert.show()
-        
         let alertController = UIAlertController(title: "Successfully commented", message: nil, preferredStyle: .alert)
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { action in

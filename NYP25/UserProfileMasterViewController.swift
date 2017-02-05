@@ -58,19 +58,15 @@ class UserProfileMasterViewController: UIViewController {
             
             for a in self.studentList{
                 if(a.userId == (GlobalDM.CurrentUser?.userId)!){
-//                    if((a.badges?.count)! != 0){
-                        for b in a.badges!{
-                            if(b.isDisplay == 1){
-                                self.badgeList.append(b)
-                                UserSocialProfileMasterViewController.loadImage(
-                                    imageView: self.selectedBadge!,
-                                    url: b.icon)
-                                UserSocialProfileMasterViewController.roundedEdgePhoto(image: self.selectedBadge!)
-                            }
+                    for b in a.badges!{
+                        if(b.isDisplay == 1){
+                            self.badgeList.append(b)
+                            UserSocialProfileMasterViewController.loadImage(
+                                imageView: self.selectedBadge!,
+                                url: b.icon)
+                            UserSocialProfileMasterViewController.roundedEdgePhoto(image: self.selectedBadge!)
                         }
-//                    }else{
-//                        self.selectedBadge?.image = UIImage(named: "Delete-50")
-//                    }
+                    }
                     print("count - \(a.badges?.count)")
                     
                     self.badgeCountBtn?.setTitle("\((a.badges?.count)!)", for: .normal)
