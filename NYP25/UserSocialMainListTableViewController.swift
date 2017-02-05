@@ -89,7 +89,6 @@ class UserSocialMainListTableViewController: UITableViewController {
         UserSocialDM.retrieveAllPhotosForLikeCount(socialId: s.socialId, onComplete: {(list) in
             self.countList = list
             cell.countLikesLbl.text = String(self.countList.count)
-            //self.tableView.reloadData()
         })
         
         return cell
@@ -131,15 +130,10 @@ class UserSocialMainListTableViewController: UITableViewController {
             print("(GlobalDM.CurrentUser?.userId)! - \(GlobalDM.CurrentUser?.userId)")
             print("(socialList[sender.tag].uploader)! - \(socialList[sender.tag].uploader)")
             
-            let a = socialList[sender.tag].socialId
-            print("a - \(a)")
-            UserSocialDM.retrieveFlagReasonsCount(socialId: a, onComplete: {(list) in
+            UserSocialDM.retrieveFlagReasonsCount(socialId: socialList[sender.tag].socialId, onComplete: {(list) in
                 self.flagList = list
                 print("flagList.count - \(String(self.flagList.count))")
-//                self.countLikesLbl.text = String(self.countList.count)
             })
-            
-            
             
             let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
             
@@ -147,9 +141,7 @@ class UserSocialMainListTableViewController: UITableViewController {
                 textField.placeholder = "Enter Flagged Reason"
                 
                 let reportAction = UIAlertAction(title: "Inappropriate / Irrelevant Post", style: .destructive) { action in
-//                    UserSocialDM.reportPhoto(socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: "Inappropriate / Irrelevant Post")
                     UserSocialDM.reportPhoto(theCount: self.flagList.count, socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: "Inappropriate / Irrelevant Post")
-                    
                 }
                 alertController.addAction(reportAction)
                 
@@ -159,7 +151,6 @@ class UserSocialMainListTableViewController: UITableViewController {
                 alertController.addAction(cancelAction)
                 
                 let postAction = UIAlertAction(title: "Submit Reason", style: .destructive) { action in
-//                    UserSocialDM.reportPhoto(socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: textField.text!)
                     UserSocialDM.reportPhoto(theCount: self.flagList.count, socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: textField.text!)
                 }
                 alertController.addAction(postAction)
