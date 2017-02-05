@@ -21,7 +21,7 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserProfileDM.retrieveAllSocialUserLikedPhotos(onComplete: { (photos) in
+        UserProfileDM.retrieveAllSocial(onComplete: { (photos) in
             self.profileGallery = photos
             self.collectionView?.reloadData()
             
@@ -66,10 +66,22 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
         print("eventIdLbl - \(photoIdLbl)")
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "likedPhotosGallery" {
+//            let a = segue.destination as! UserProfileDetailsForLikedPhotosViewController
+//            a.newLbl = photoIdLbl
+//        }
+//    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "likedPhotosGallery" {
             let a = segue.destination as! UserProfileDetailsForLikedPhotosViewController
-            a.newLbl = photoIdLbl
+            
+            let cell = sender as? UserProfileViewLikedPhotosCollectionViewCell
+            let indexPath = collectionView?.indexPath(for: cell!)
+            
+            a.socialImg = profileGallery[(indexPath?.row)!]
+            
         }
     }
 }
