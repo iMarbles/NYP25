@@ -36,8 +36,6 @@ class UserSocialPhotosCommentsTableViewController: UITableViewController {
         self.tableView.reloadData()
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,52 +70,38 @@ class UserSocialPhotosCommentsTableViewController: UITableViewController {
         
         return cell
     }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("clicked at - \(indexPath.row)")
-        print("get the commentid - \(commentList[(indexPath as IndexPath).row].commentId!)")
-
-        for a in (socialImg?.likes)!{
-            for b in a.comments!{
-                if((commentList[(indexPath as IndexPath).row].username)! == b.username){
-                    print("hehhehe if you see this is successful - \(a.adminNo)")
-                }
-            }
-        }
-        
+    
+//    //to delete comment
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("clicked at - \(indexPath.row)")
+//        print("get the commentid - \(commentList[(indexPath as IndexPath).row].commentId!)")
+//
 //        for a in (socialImg?.likes)!{
 //            for b in a.comments!{
-//                self.commentList.append(b)
-//                
-//                self.commentList.sort { (a, b) -> Bool in
-//                    if a.timestamp! > b.timestamp!{
-//                        return true
-//                    }else{
-//                        return false
-//                    }
+//                if((commentList[(indexPath as IndexPath).row].username)! == b.username){
+//                    print("hehhehe if you see this is successful - \(a.adminNo)")
 //                }
 //            }
 //        }
-
-        
-        let alertController = UIAlertController(title: "You sure you wanna delete this comment?", message: nil, preferredStyle: .alert)
-        
-        let destroyAction = UIAlertAction(title: "Delete Comment", style: .destructive) { action in
-            UserSocialDM.deleteComment(
-                socialId: (self.socialImg?.socialId)!,
-                userId: (self.commentList[(indexPath as IndexPath).row].username)!,
-                commentId: (self.commentList[(indexPath as IndexPath).row].commentId)!)
-            self.navigationController?.popToRootViewController(animated: true)
-            print("destroy")
-        }
-        alertController.addAction(destroyAction)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
-            print("cancel")
-        }
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true) {}
-
-    }
+//        
+//        let alertController = UIAlertController(title: "You sure you wanna delete this comment?", message: nil, preferredStyle: .alert)
+//        
+//        let destroyAction = UIAlertAction(title: "Delete Comment", style: .destructive) { action in
+//            UserSocialDM.deleteComment(
+//                socialId: (self.socialImg?.socialId)!,
+//                userId: (self.commentList[(indexPath as IndexPath).row].username)!,
+//                commentId: (self.commentList[(indexPath as IndexPath).row].commentId)!)
+//            self.navigationController?.popToRootViewController(animated: true)
+//            print("destroy")
+//        }
+//        alertController.addAction(destroyAction)
+//        
+//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+//            print("cancel")
+//        }
+//        alertController.addAction(cancelAction)
+//        
+//        self.present(alertController, animated: true) {}
+//
+//    }
 }

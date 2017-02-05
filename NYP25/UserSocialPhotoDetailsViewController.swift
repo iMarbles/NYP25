@@ -45,7 +45,16 @@ class UserSocialPhotoDetailsViewController: UIViewController {
     @IBAction func actionComment(sender: UIButton) {
         UserSocialDM.postComment(socialId: (socialImg?.socialId)!, currentUserId: (GlobalDM.CurrentUser?.userId)!, currentUserName : currentUsername, commentField: (commentField?.text)!)
         
-        self.navigationController?.popToRootViewController(animated: true)
+        let alertController = UIAlertController(title: "Successfully commented", message: nil, preferredStyle: .alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        alertController.addAction(OKAction)
+        
+        self.present(alertController, animated: true) {}
+        
+        
     }
     /*
     // MARK: - Navigation

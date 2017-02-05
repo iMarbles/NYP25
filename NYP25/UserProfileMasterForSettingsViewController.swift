@@ -48,22 +48,41 @@ class UserProfileMasterForSettingsViewController: UIViewController, UIImagePicke
                 UserSocialProfileMasterViewController.circleFramePhoto(image: self.profilePhotoView!)
             }
         })
-        
+
+        //for badge retrieval as array
         UserProfileDM.retrieveAllStudentInfo(onComplete: {(studList) in
             self.studentList = studList
             
             for a in self.studentList{
-                for b in a.badges!{
-                    if(b.isDisplay == 1){
-                        self.badgeList.append(b)
-                        UserSocialProfileMasterViewController.loadImage(
-                            imageView: self.selectedBadge!,
-                            url: b.icon)
-                        UserSocialProfileMasterViewController.roundedEdgePhoto(image: self.selectedBadge!)
+                if(a.userId == (GlobalDM.CurrentUser?.userId)!){
+                    for b in a.badges!{
+                        if(b.isDisplay == 1){
+                            self.badgeList.append(b)
+                            UserSocialProfileMasterViewController.loadImage(
+                                imageView: self.selectedBadge!,
+                                url: b.icon)
+                            UserSocialProfileMasterViewController.roundedEdgePhoto(image: self.selectedBadge!)
+                        }
                     }
                 }
             }
         })
+        
+//        UserProfileDM.retrieveAllStudentInfo(onComplete: {(studList) in
+//            self.studentList = studList
+//            
+//            for a in self.studentList{
+//                for b in a.badges!{
+//                    if(b.isDisplay == 1){
+//                        self.badgeList.append(b)
+//                        UserSocialProfileMasterViewController.loadImage(
+//                            imageView: self.selectedBadge!,
+//                            url: b.icon)
+//                        UserSocialProfileMasterViewController.roundedEdgePhoto(image: self.selectedBadge!)
+//                    }
+//                }
+//            }
+//        })
     }
 
     override func didReceiveMemoryWarning() {

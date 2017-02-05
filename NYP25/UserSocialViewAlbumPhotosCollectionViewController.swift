@@ -16,7 +16,9 @@ class UserSocialViewAlbumPhotosCollectionViewController: UICollectionViewControl
     var soloEventAlbum : [Social] = []
     
     var eventIdLbl : String = ""
-    
+
+    @IBOutlet weak var noItemsLbl : UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +40,14 @@ class UserSocialViewAlbumPhotosCollectionViewController: UICollectionViewControl
 //                print("eventIdLbl - \(self.eventIdLbl)")
 //                self.soloEventAlbum.append(a)
 //            }
+            
+            
+            
+            self.noItemsLbl.isHidden = true
+            
+            if(self.eventAlbum.count == 0){
+                self.noItemsLbl.isHidden = false
+            }
         })
     }
     

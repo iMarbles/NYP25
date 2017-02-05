@@ -254,9 +254,55 @@ class UserProfileDM: NSObject {
         })
     }
     
-    static func retrieveAllSocialUserLikedPhotos(onComplete: @escaping ([Social])->Void){
+//    static func retrieveAllSocialUserLikedPhotos(onComplete: @escaping ([Social])->Void){
+//        var socialList : [Social] = []
+//        var likedByList : [PhotoLike] = []
+//        
+//        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
+//        
+//        ref.observe(FIRDataEventType.value, with:{
+//            (snapshot) in
+//            
+//            socialList = []
+//            likedByList = []
+//            
+//            //.reversed() - for descending order
+//            for record in snapshot.children.reversed(){
+//                let r = record as! FIRDataSnapshot
+//                
+//                let s = Social()
+//                
+//                s.socialId = r.key
+//                s.eventId = r.childSnapshot(forPath: "eventId").value as! String
+//                s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
+//                
+//                //Child nodes
+//                let likes = r.childSnapshot(forPath: "likedBy").children
+//                for liked in likes{
+//                    let l = liked as! FIRDataSnapshot
+//                    
+//                    let p = PhotoLike()
+//                    p.adminNo = l.key
+//                    p.isLike = (l.childSnapshot(forPath: "isLiked").value as? Int)!
+//                    
+//                    if((p.adminNo == (GlobalDM.CurrentUser?.userId)!) && (p.isLike == 1)){
+//                        likedByList.append(p)
+//                        s.likes = likedByList
+//                        socialList.append(s)
+//                    }
+//                }
+//                
+//            }
+//            
+//            onComplete(socialList)
+//        })
+//    }
+    
+    static func retrieveAllSocial(onComplete: @escaping ([Social])->Void){
         var socialList : [Social] = []
         var likedByList : [PhotoLike] = []
+        var commentList : [PhotoComment] = []
+        var flagReasonsList : [SocialFlag] = []
         
         let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
         
@@ -264,7 +310,6 @@ class UserProfileDM: NSObject {
             (snapshot) in
             
             socialList = []
-            likedByList = []
             
             //.reversed() - for descending order
             for record in snapshot.children.reversed(){
@@ -275,8 +320,27 @@ class UserProfileDM: NSObject {
                 s.socialId = r.key
                 s.eventId = r.childSnapshot(forPath: "eventId").value as! String
                 s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
+                s.uploader = r.childSnapshot(forPath: "uploader").value as? String
+                s.caption = r.childSnapshot(forPath: "caption").value as? String
+                s.postedDateTime = r.childSnapshot(forPath: "postedDateTime").value as? String
+                s.isFlagged = (r.childSnapshot(forPath: "isFlagged").value as? Int)!
+                //s.flagReason = r.childSnapshot(forPath: "flagReason").value as? String
+                s.uploaderUsername = r.childSnapshot(forPath: "uploaderUsername").value as? String
+                
+                flagReasonsList = []
+                let reasons = r.childSnapshot(forPath: "flagReasons").children
+                for reason in reasons{
+                    let sf = reason as! FIRDataSnapshot
+                    
+                    let f = SocialFlag()
+                    f.userId = sf.key
+                    f.flagReason = sf.value as! String
+                    
+                    flagReasonsList.append(f)
+                }
                 
                 //Child nodes
+                likedByList = []
                 let likes = r.childSnapshot(forPath: "likedBy").children
                 for liked in likes{
                     let l = liked as! FIRDataSnapshot
@@ -285,21 +349,39 @@ class UserProfileDM: NSObject {
                     p.adminNo = l.key
                     p.isLike = (l.childSnapshot(forPath: "isLiked").value as? Int)!
                     
-                    if((p.adminNo == (GlobalDM.CurrentUser?.userId)!) && (p.isLike == 1)){
-                        //                        print("p.adminNo - \(p.adminNo)")
-                        //                        print("p.isLike - \(p.isLike)")
+                    //Child nodes
+                    commentList = []
+                    let comments = l.childSnapshot(forPath: "comments").children
+                    for commented in comments{
+                        let c = commented as! FIRDataSnapshot
                         
-                        likedByList.append(p)
-                        s.likes = likedByList
-                        socialList.append(s)
+                        let pc = PhotoComment()
+                        pc.commentId = c.key
+                        pc.username = c.childSnapshot(forPath: "username").value as! String
+                        pc.timestamp = c.childSnapshot(forPath: "timestamp").value as? String
+                        pc.comment = c.childSnapshot(forPath: "comment").value as! String
+                        
+                        commentList.append(pc)
                     }
+                    
+//                    if((p.adminNo == (GlobalDM.CurrentUser?.userId)!) && (p.isLike == 1)){
+                        p.comments = commentList
+                        likedByList.append(p)
+//                    }
                 }
                 
+                if(s.isFlagged != 1){
+                    s.flagReasons = flagReasonsList
+                    s.likes = likedByList
+                    socialList.append(s)
+                }
             }
             
             onComplete(socialList)
         })
     }
+    
+
     
     static func retrieveAllSocialUserPostedPhotos(onComplete: @escaping ([Social])->Void){
         var socialList : [Social] = []

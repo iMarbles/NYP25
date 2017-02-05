@@ -36,7 +36,7 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
         pathIdLbl.text = socialImg?.photoUrl
         socialIdLbl.text = socialImg?.socialId
         
-        usernameLbl.text = socialImg?.uploader
+        usernameLbl.text = socialImg?.uploaderUsername
         timestampLbl.text = GlobalDM.getCommentDateTimeBy(stringDate: (socialImg?.postedDateTime)!)
         
         self.photoImage.image = UIImage(named: "loading-512")
