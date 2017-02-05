@@ -41,7 +41,7 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var secondLbl: UILabel!
     @IBOutlet weak var thirdLbl: UILabel!
     
-    @IBOutlet weak var leaderboardChart: HorizontalBarChartView!
+    @IBOutlet weak var leaderboardChart: PieChartView!
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -122,6 +122,10 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
                          didFailWithError error: Error) {
         print("Could not find location: \(error)");
     }
+    
+    let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SIDM"]
+    var schoolCount : [Int] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

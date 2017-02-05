@@ -126,6 +126,7 @@
 		9FE25E1E1E41A7AD00C13597 /* UserEventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE25E1D1E41A7AD00C13597 /* UserEventDetailsViewController.swift */; };
 		9FFC15051E350A4200037BD2 /* RegisterDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC15041E350A4200037BD2 /* RegisterDM.swift */; };
 		AF45108B1E35CCAD00789FD0 /* UserLeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */; };
+		AF6C5C4A1E4461D700F97B09 /* LeaderboardDM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6C5C491E4461D700F97B09 /* LeaderboardDM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -316,6 +317,7 @@
 		9FE25E1D1E41A7AD00C13597 /* UserEventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEventDetailsViewController.swift; sourceTree = "<group>"; };
 		9FFC15041E350A4200037BD2 /* RegisterDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDM.swift; sourceTree = "<group>"; };
 		AF45108A1E35CCAD00789FD0 /* UserLeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLeaderboardViewController.swift; sourceTree = "<group>"; };
+		AF6C5C491E4461D700F97B09 /* LeaderboardDM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardDM.swift; sourceTree = "<group>"; };
 		AFE89D091E4451D70058790A /* myLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = myLocation.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -380,6 +382,7 @@
 				9FFC15041E350A4200037BD2 /* RegisterDM.swift */,
 				04EB65391E3F3B8E0012E765 /* UserInboxDM.swift */,
 				9FAD32CE1E408DF200A180A3 /* UserEventDM.swift */,
+				AF6C5C491E4461D700F97B09 /* LeaderboardDM.swift */,
 			);
 			name = DataManager;
 			sourceTree = "<group>";
@@ -805,6 +808,7 @@
 				040CA3131E38EF4B00765193 /* AdminEventsInboxTableViewCell.swift in Sources */,
 				611D339A1E3A729C009AAE74 /* UserProfileMasterForSettingsViewController.swift in Sources */,
 				04E93EF61E36141F0044820D /* SignupViewController.swift in Sources */,
+				AF6C5C4A1E4461D700F97B09 /* LeaderboardDM.swift in Sources */,
 				046C5C2A1E129F2B001B7C61 /* AdminProfileViewController.swift in Sources */,
 				04D725471E0D5CD200603CCA /* AdminEventsDetailViewController.swift in Sources */,
 				617B7DAF1E3F367B0059606A /* UserProfileCommentsForOwnPhotosTableViewCell.swift in Sources */,
