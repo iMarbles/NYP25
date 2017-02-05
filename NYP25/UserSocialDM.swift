@@ -143,12 +143,11 @@ class UserSocialDM: NSObject {
         })
     }
     
-    
 //    //Retrieve all images of event
 //    static func retrieveFlagReasons(socialId : String, onComplete: @escaping ([SocialFlag])->Void){
 //        var flagReasonsList : [SocialFlag] = []
 //        
-//        let ref = FIRDatabase.database().reference().child("social/\(socialId)/")
+//        let ref = FIRDatabase.database().reference().child("social/\(socialId)/flagReasons/")
 //        
 //        ref.observeSingleEvent(of: .value, with:
 //            {(snapshot) in
@@ -163,6 +162,47 @@ class UserSocialDM: NSObject {
 //                }
 //        })
 //    }
+    
+//    //Retrieve all images of event
+//    static func countFlagReasons(socialId : String, onComplete: @escaping (SocialFlag)->Void){
+//        let ref = FIRDatabase.database().reference().child("social/\(socialId)/flagReasons/")
+//        
+//        var count = 0
+//        ref.observe(.value, with: { (snapshot: FIRDataSnapshot!) in
+//            count += Int(snapshot.childrenCount)
+//            
+//            let f = SocialFlag()
+//            f.userId = count
+//            
+//            onComplete(f)
+//        })
+//    }
+    
+    
+    static func retrieveFlagReasonsCount(socialId : String, onComplete: @escaping ([SocialFlag])->Void){
+        var flagList : [SocialFlag] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/\(socialId)/flagReasons/")
+        
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            flagList = []
+            
+            for record in snapshot.children{
+                let r = record as! FIRDataSnapshot
+                
+                let f = SocialFlag()
+                f.userId = r.key
+                f.flagReason = r.value as! String
+                
+                flagList.append(f)
+            }
+            
+            onComplete(flagList)
+        })
+    }
+
     
     //Retrieve all events
     static func retrieveAllSocial(onComplete: @escaping ([Social])->Void){
@@ -630,8 +670,8 @@ class UserSocialDM: NSObject {
         refLikedBy.removeValue()
     }
     
-//    static func reportPhoto(theCount : Int, socialId : String, currentUserId : String, flagReason : String){
-    static func reportPhoto(socialId : String, currentUserId : String, flagReason : String){
+    static func reportPhoto(theCount : Int, socialId : String, currentUserId : String, flagReason : String){
+//    static func reportPhoto(socialId : String, currentUserId : String, flagReason : String){
         let refLikedBy = FIRDatabase.database().reference().child("social/\(socialId)/")
         let refFlagReasons = FIRDatabase.database().reference().child("social/\(socialId)/flagReasons/")
         
@@ -651,12 +691,12 @@ class UserSocialDM: NSObject {
                     refFlagReasons.updateChildValues([
                         currentUserId : flagReason
                         ])                    
-//                    print("s.flagReasons?.count - \(theCount)")
-//                    if(theCount == 4){
-//                        refLikedBy.updateChildValues([
-//                            "isFlagged" : 1
-//                            ])
-//                    }
+                    print("s.flagReasons?.count - \(theCount)")
+                    if(theCount == 4){
+                        refLikedBy.updateChildValues([
+                            "isFlagged" : 1
+                            ])
+                    }
                 }
                 
         })
