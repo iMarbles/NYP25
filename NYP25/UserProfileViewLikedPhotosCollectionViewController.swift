@@ -16,6 +16,7 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
     var likedPhotos : [Social] = []
 
     var photoIdLbl : String = ""
+    @IBOutlet weak var noItemsLbl : UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,12 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
         UserProfileDM.retrieveAllSocialUserLikedPhotos(onComplete: { (photos) in
             self.profileGallery = photos
             self.collectionView?.reloadData()
+            
+            self.noItemsLbl.isHidden = true
+            
+            if(self.profileGallery.count == 0){
+                self.noItemsLbl.isHidden = false
+            }
         })
 
     }

@@ -17,6 +17,7 @@ class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewControll
     var photoIdLbl : String = ""
     var pathIdLbl : String = ""
     var socialIdLbl : String = ""
+    @IBOutlet weak var noItemsLbl : UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +26,11 @@ class UserProfileViewOwnPhotosCollectionViewController: UICollectionViewControll
             self.profileGallery = photos
             self.collectionView?.reloadData()
             
-//            if(self.profileGallery.count == 0){
-//                let alert = UIAlertView(title: "",
-//                                        message: "No Photos Available Currently",
-//                                        delegate: nil,
-//                                        cancelButtonTitle: "Ok")
-//                alert.show()
-//                
-//            }
+            self.noItemsLbl.isHidden = true
+            
+            if(self.profileGallery.count == 0){
+                self.noItemsLbl.isHidden = false
+            }
         })
     }
     

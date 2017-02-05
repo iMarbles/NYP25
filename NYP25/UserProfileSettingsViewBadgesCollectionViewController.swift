@@ -15,6 +15,7 @@ class UserProfileSettingsViewBadgesCollectionViewController: UICollectionViewCon
     var currentBadgeSelected : String = ""
     var newBadgeSelected : String = ""
     
+    @IBOutlet weak var noItemsLbl : UILabel!
     @IBOutlet var btnUpdateSelectedBadge : UIBarButtonItem?
 
     override func viewDidLoad() {
@@ -24,13 +25,10 @@ class UserProfileSettingsViewBadgesCollectionViewController: UICollectionViewCon
             self.profileGallery = badges
             self.collectionView?.reloadData()
             
+            self.noItemsLbl.isHidden = true
+            
             if(self.profileGallery.count == 0){
-                let alert = UIAlertView(title: "",
-                                        message: "No Photos Available Currently",
-                                        delegate: nil,
-                                        cancelButtonTitle: "Ok")
-                alert.show()
-                
+                self.noItemsLbl.isHidden = false
             }
         })
     }
