@@ -34,6 +34,19 @@ class UserSocialDM: NSObject {
         })
     }
     
+    static func retrieveLikeStatus(socialId : String, currentUserId: String, onComplete: @escaping (PhotoLike)->Void){
+        let refLikedBy = FIRDatabase.database().reference().child("social/\(socialId)/likedBy/\(currentUserId)/")
+        
+        refLikedBy.observeSingleEvent(of: .value, with:
+            { (snapshot) in
+                
+                let p = PhotoLike()
+                p.adminNo = snapshot.key
+                p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
+                onComplete(p)
+        })
+    }
+    
     //Retrieve all events
     static func retrieveAllSocialBySocialID(socialId : String, onComplete: @escaping ([PhotoLike])->Void){
         var likedByList : [PhotoLike] = []

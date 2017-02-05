@@ -33,6 +33,7 @@ class UserSocialMainListTableViewController: UITableViewController {
                 print("no photo")
             }
         }
+        
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -76,7 +77,7 @@ class UserSocialMainListTableViewController: UITableViewController {
         cell.btnLike.addTarget(self, action: #selector(handleLikes), for: .touchUpInside)
         
         cell.btnLike.setTitle(likes[(indexPath as IndexPath).row], for: UIControlState.normal)
-        cell.btnLike.setImage(UIImage(named:"Like.png"), for: .normal)
+//        cell.btnLike.setImage(UIImage(named:"Like.png"), for: .normal)
 
         cell.btnReport.tag = indexPath.row
         cell.btnReport.addTarget(self, action: #selector(actionSheetButtonPressed), for: .touchUpInside)
@@ -101,17 +102,24 @@ class UserSocialMainListTableViewController: UITableViewController {
             socialId: socialList[sender.tag].socialId,
             currentUserId: (GlobalDM.CurrentUser?.userId)!)
         
+        UserSocialDM.retrieveLikeStatus(socialId: socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(likeStatus) in
+            if(likeStatus.isLike == 0){
+                sender.setImage(UIImage(named:"LikeFilled"), for: .normal)
+            }else{
+                sender.setImage(UIImage(named:"Like"), for: .normal)
+            }
+        })
+
         print("sender.tag - \(sender.tag!)")
         if likes[sender.tag] == "like" {
             likes[sender.tag] = "unlike"
-            print("unlike")
-            print("sender.tag - \(sender.tag!)")
-            sender.setImage(UIImage(named:"Like.png"), for: .normal)
+//            print("unlike")
+//            print("sender.tag - \(sender.tag!)")
         }
         else {
             likes[sender.tag] = "like"
-            print("like")
-            sender.setImage(UIImage(named:"LikeFilled.png"), for: .normal)
+//            print("like")
+//            sender.setImage(UIImage(named:"LikeFilled.png"), for: .normal)
         }
         
         self.tableView.reloadData()
