@@ -12,6 +12,8 @@ class UserProfileMasterViewController: UIViewController {
     
     @IBOutlet weak var selfPhotoView : UIView?
     
+    @IBOutlet weak var badgeCountBtn : UIButton?
+    
     @IBOutlet weak var profilePhotoView : UIImageView?
     @IBOutlet weak var selectedBadge : UIImageView?
     
@@ -21,12 +23,22 @@ class UserProfileMasterViewController: UIViewController {
     
     var studentList : [Student] = []
     var badgeList : [Badge] = []
+    var profileGallery : [Badge] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
        
         self.profilePhotoView?.image = UIImage(named: "loading-512")
         self.selectedBadge?.image = UIImage(named: "loading-512")
+        
+//        UserProfileDM.retrieveAllUsersBadge(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(badges) in
+//            self.profileGallery = badges
+//            self.collectionView?.reloadData()
+//            
+//            self.noItemsLbl.isHidden = true
+//            
+//            self.profileGallery.count
+//        })
         
         UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: { (user) in
             self.title = user.username
@@ -60,6 +72,8 @@ class UserProfileMasterViewController: UIViewController {
 //                        self.selectedBadge?.image = UIImage(named: "Delete-50")
 //                    }
                     print("count - \(a.badges?.count)")
+                    
+                    self.badgeCountBtn?.setTitle("\((a.badges?.count)!)", for: .normal)
                 }
             }
         })

@@ -48,13 +48,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUT-oE-myi">
-                                <rect key="frame" x="259" y="104" width="100" height="40"/>
+                                <rect key="frame" x="259" y="134" width="100" height="40"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                                 <color key="textColor" red="0.98829740290000001" green="0.58603436789999996" blue="0.47822742019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Points" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfS-RU-f1z">
-                                <rect key="frame" x="259" y="144" width="100" height="21"/>
+                                <rect key="frame" x="259" y="112" width="100" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="rye-2m-hkC"/>
                                 </constraints>
@@ -63,7 +63,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bio" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJu-OJ-Kgh">
-                                <rect key="frame" x="0.0" y="205" width="375" height="48"/>
+                                <rect key="frame" x="0.0" y="214" width="375" height="40"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -75,7 +75,7 @@
                                 </connections>
                             </containerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="z0P-4d-S4M">
-                                <rect key="frame" x="126" y="72" width="125" height="125"/>
+                                <rect key="frame" x="126" y="81" width="125" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="z0P-4d-S4M" secondAttribute="height" multiplier="1:1" id="5gq-aD-U4i"/>
                                     <constraint firstAttribute="width" secondItem="z0P-4d-S4M" secondAttribute="height" multiplier="1:1" id="Dn5-LT-WfH"/>
@@ -84,13 +84,24 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eS5-gF-Onz">
-                                <rect key="frame" x="31" y="90" width="65" height="65"/>
+                                <rect key="frame" x="44" y="84" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="eS5-gF-Onz" secondAttribute="height" multiplier="1:1" id="Zdg-N0-E8L"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Badge" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCc-KF-Z17">
-                                <rect key="frame" x="31" y="150" width="65" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4Y-gJ-izI">
+                                <rect key="frame" x="16" y="156" width="102" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
+                                <state key="normal" title="000">
+                                    <color key="titleColor" red="0.98829740290000001" green="0.58603436789999996" blue="0.47822742019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="RnT-5t-bSp" kind="show" id="TCG-6r-eh3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Badges" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lCc-KF-Z17">
+                                <rect key="frame" x="16" y="137" width="102" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="KEA-WW-nZI"/>
                                 </constraints>
@@ -104,30 +115,30 @@
                             <constraint firstItem="PfS-RU-f1z" firstAttribute="leading" secondItem="qUT-oE-myi" secondAttribute="leading" id="1kc-Yw-Lsx"/>
                             <constraint firstItem="PfS-RU-f1z" firstAttribute="trailing" secondItem="yQL-H2-nkd" secondAttribute="trailingMargin" id="1vv-BT-Ek8"/>
                             <constraint firstItem="eS5-gF-Onz" firstAttribute="width" secondItem="eS5-gF-Onz" secondAttribute="height" multiplier="1:1" id="5uw-Mu-Xae"/>
-                            <constraint firstItem="eS5-gF-Onz" firstAttribute="leading" secondItem="yQL-H2-nkd" secondAttribute="leadingMargin" constant="15" id="94u-EZ-8yF"/>
-                            <constraint firstItem="lCc-KF-Z17" firstAttribute="firstBaseline" secondItem="PfS-RU-f1z" secondAttribute="baseline" id="9QT-Xh-Zer"/>
-                            <constraint firstItem="lCc-KF-Z17" firstAttribute="trailing" secondItem="eS5-gF-Onz" secondAttribute="trailing" id="BaO-o3-Oe5"/>
+                            <constraint firstItem="eS5-gF-Onz" firstAttribute="leading" secondItem="yQL-H2-nkd" secondAttribute="leadingMargin" constant="28" id="94u-EZ-8yF"/>
+                            <constraint firstItem="lCc-KF-Z17" firstAttribute="firstBaseline" secondItem="PfS-RU-f1z" secondAttribute="baseline" constant="18.5" id="9QT-Xh-Zer"/>
+                            <constraint firstItem="lCc-KF-Z17" firstAttribute="trailing" secondItem="eS5-gF-Onz" secondAttribute="trailing" constant="29" id="BaO-o3-Oe5"/>
                             <constraint firstItem="wwC-MG-Gm2" firstAttribute="top" secondItem="yQL-H2-nkd" secondAttribute="top" constant="253" id="ESH-Pa-hYL"/>
                             <constraint firstItem="z0P-4d-S4M" firstAttribute="width" secondItem="z0P-4d-S4M" secondAttribute="height" multiplier="1:1" id="Ea4-kb-qhr"/>
                             <constraint firstItem="CJu-OJ-Kgh" firstAttribute="leading" secondItem="yQL-H2-nkd" secondAttribute="leading" id="IX3-yb-lXz"/>
-                            <constraint firstItem="qUT-oE-myi" firstAttribute="bottom" secondItem="z0P-4d-S4M" secondAttribute="bottom" constant="-53" id="KiT-wk-ddR"/>
-                            <constraint firstItem="eS5-gF-Onz" firstAttribute="top" secondItem="wAU-JV-eEX" secondAttribute="bottom" constant="26" id="KuX-eD-uo3"/>
+                            <constraint firstItem="qUT-oE-myi" firstAttribute="bottom" secondItem="z0P-4d-S4M" secondAttribute="bottom" constant="-32" id="KiT-wk-ddR"/>
+                            <constraint firstItem="eS5-gF-Onz" firstAttribute="top" secondItem="wAU-JV-eEX" secondAttribute="bottom" constant="20" id="KuX-eD-uo3"/>
                             <constraint firstItem="qUT-oE-myi" firstAttribute="trailing" secondItem="yQL-H2-nkd" secondAttribute="trailingMargin" id="Njc-CF-zUW"/>
                             <constraint firstItem="qUT-oE-myi" firstAttribute="leading" secondItem="z0P-4d-S4M" secondAttribute="trailing" constant="8" symbolic="YES" id="SdB-T0-0L0"/>
                             <constraint firstItem="qUT-oE-myi" firstAttribute="trailing" secondItem="yQL-H2-nkd" secondAttribute="trailingMargin" id="Vng-Nj-Gt7"/>
                             <constraint firstItem="gWH-pX-j1k" firstAttribute="top" secondItem="wwC-MG-Gm2" secondAttribute="bottom" id="WGp-5Z-ufv"/>
-                            <constraint firstItem="lCc-KF-Z17" firstAttribute="leading" secondItem="eS5-gF-Onz" secondAttribute="leading" id="YSj-eN-yDt"/>
+                            <constraint firstItem="lCc-KF-Z17" firstAttribute="leading" secondItem="eS5-gF-Onz" secondAttribute="leading" constant="-28" id="YSj-eN-yDt"/>
                             <constraint firstAttribute="trailing" secondItem="wwC-MG-Gm2" secondAttribute="trailing" id="ZPu-Ha-LL4"/>
-                            <constraint firstItem="PfS-RU-f1z" firstAttribute="top" secondItem="qUT-oE-myi" secondAttribute="bottom" id="Zhf-s9-EJC"/>
-                            <constraint firstItem="z0P-4d-S4M" firstAttribute="top" secondItem="wAU-JV-eEX" secondAttribute="bottom" constant="8" symbolic="YES" id="aPp-ym-BSY"/>
-                            <constraint firstItem="z0P-4d-S4M" firstAttribute="leading" secondItem="eS5-gF-Onz" secondAttribute="trailing" constant="30" id="bxc-KF-fha"/>
+                            <constraint firstItem="PfS-RU-f1z" firstAttribute="top" secondItem="qUT-oE-myi" secondAttribute="bottom" constant="-62" id="Zhf-s9-EJC"/>
+                            <constraint firstItem="z0P-4d-S4M" firstAttribute="top" secondItem="wAU-JV-eEX" secondAttribute="bottom" constant="17" id="aPp-ym-BSY"/>
+                            <constraint firstItem="z0P-4d-S4M" firstAttribute="leading" secondItem="eS5-gF-Onz" secondAttribute="trailing" constant="37" id="bxc-KF-fha"/>
                             <constraint firstItem="CJu-OJ-Kgh" firstAttribute="top" secondItem="z0P-4d-S4M" secondAttribute="bottom" constant="8" symbolic="YES" id="dm3-vA-adK"/>
-                            <constraint firstItem="wwC-MG-Gm2" firstAttribute="top" secondItem="CJu-OJ-Kgh" secondAttribute="bottom" id="fgx-3G-Eg8"/>
+                            <constraint firstItem="wwC-MG-Gm2" firstAttribute="top" secondItem="CJu-OJ-Kgh" secondAttribute="bottom" constant="-1" id="fgx-3G-Eg8"/>
                             <constraint firstItem="wwC-MG-Gm2" firstAttribute="leading" secondItem="yQL-H2-nkd" secondAttribute="leading" id="hbY-LR-vQG"/>
                             <constraint firstItem="eS5-gF-Onz" firstAttribute="width" secondItem="eS5-gF-Onz" secondAttribute="height" multiplier="1:1" id="i9N-SB-zEy"/>
                             <constraint firstAttribute="trailing" secondItem="CJu-OJ-Kgh" secondAttribute="trailing" id="jet-0A-cjE"/>
-                            <constraint firstItem="qUT-oE-myi" firstAttribute="top" secondItem="z0P-4d-S4M" secondAttribute="top" constant="32" id="k7W-3y-O7D"/>
-                            <constraint firstItem="eS5-gF-Onz" firstAttribute="centerY" secondItem="z0P-4d-S4M" secondAttribute="centerY" constant="-12" id="zK2-jM-Ne2"/>
+                            <constraint firstItem="qUT-oE-myi" firstAttribute="top" secondItem="z0P-4d-S4M" secondAttribute="top" constant="53" id="k7W-3y-O7D"/>
+                            <constraint firstItem="eS5-gF-Onz" firstAttribute="centerY" secondItem="z0P-4d-S4M" secondAttribute="centerY" constant="-37" id="zK2-jM-Ne2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="02e-oj-sdT">
@@ -150,6 +161,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="badgeCountBtn" destination="H4Y-gJ-izI" id="1KP-8G-LEu"/>
                         <outlet property="bioLbl" destination="CJu-OJ-Kgh" id="gEa-dJ-NkW"/>
                         <outlet property="currentPoints" destination="qUT-oE-myi" id="VDF-XB-Idd"/>
                         <outlet property="profilePhotoView" destination="z0P-4d-S4M" id="cOI-8b-tSF"/>
@@ -159,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rr2-b6-0Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1764" y="118"/>
+            <point key="canvasLocation" x="1764" y="117.39130434782609"/>
         </scene>
         <!--QR Code-->
         <scene sceneID="WLQ-sL-DbM">
@@ -1155,6 +1167,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oD-nq-cEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2617" y="2521"/>
+        </scene>
+        <!--Your Badges-->
+        <scene sceneID="OHw-4c-eSq">
+            <objects>
+                <collectionViewController title="Your Badges" id="RnT-5t-bSp" customClass="UserProfileViewBadgesCollectionViewController" customModule="NYP25" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="3LP-1L-a06">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RT9-Ad-wZ1">
+                            <size key="itemSize" width="182" height="182"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="currently, there's no badge available" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n7b-rm-0S8">
+                            <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="badgeCell" id="74m-rk-cCE" userLabel="badgeCell" customClass="UserProfileViewBadgesCollectionViewCell" customModule="NYP25" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nxw-2h-Vc3">
+                                            <rect key="frame" x="0.0" y="0.0" width="182" height="182"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Ok-30" translatesAutoresizingMaskIntoConstraints="NO" id="dzu-8K-wrV">
+                                            <rect key="frame" x="144" y="8" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="badgeCheck" destination="dzu-8K-wrV" id="dTr-bM-nhb"/>
+                                    <outlet property="badgePhotos" destination="Nxw-2h-Vc3" id="mTK-bD-cDA"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="RnT-5t-bSp" id="wy1-KL-unQ"/>
+                            <outlet property="delegate" destination="RnT-5t-bSp" id="JEJ-lq-vJk"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Your Badges" id="vaS-5g-D31"/>
+                    <connections>
+                        <outlet property="noItemsLbl" destination="n7b-rm-0S8" id="UkI-va-5t7"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ig2-da-tYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2905" y="118"/>
         </scene>
     </scenes>
     <resources>
