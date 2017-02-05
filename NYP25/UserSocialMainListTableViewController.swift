@@ -77,7 +77,41 @@ class UserSocialMainListTableViewController: UITableViewController {
         cell.btnLike.addTarget(self, action: #selector(handleLikes), for: .touchUpInside)
         
         cell.btnLike.setTitle(likes[(indexPath as IndexPath).row], for: UIControlState.normal)
-//        cell.btnLike.setImage(UIImage(named:"Like.png"), for: .normal)
+        cell.btnLike.setImage(UIImage(named:"Like.png"), for: .normal)
+        
+        
+//        UserSocialDM.retrieveLikeStatus(socialId: s.socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(likeStatus) in
+////            if(likeStatus.isLike is NSNull){
+//                if(likeStatus.isLike == 0){
+//                    cell.btnLike.setImage(UIImage(named:"Like"), for: .normal)
+//                }else{
+//                    cell.btnLike.setImage(UIImage(named:"Like Filled-30"), for: .normal)
+//                }
+////            }
+//        })
+        
+        print("s - \(s.socialId)")
+        
+        for a in socialList{
+            if(s.socialId == a.socialId){
+                if(a.likes is NSNull){
+                    cell.btnLike.setImage(UIImage(named:"Like"), for: .normal)
+                }else{
+                    for b in a.likes!{
+                        if(b.adminNo == (GlobalDM.CurrentUser?.userId)!){
+                            print("b.isLike - \(b.isLike)")
+                            
+                            if(b.isLike == 0){
+                                cell.btnLike.setImage(UIImage(named:"Like"), for: .normal)
+                            }else if(b.isLike == 1){
+                                cell.btnLike.setImage(UIImage(named:"Like Filled-30"), for: .normal)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 
         cell.btnReport.tag = indexPath.row
         cell.btnReport.addTarget(self, action: #selector(actionSheetButtonPressed), for: .touchUpInside)
@@ -102,24 +136,13 @@ class UserSocialMainListTableViewController: UITableViewController {
             socialId: socialList[sender.tag].socialId,
             currentUserId: (GlobalDM.CurrentUser?.userId)!)
         
-        UserSocialDM.retrieveLikeStatus(socialId: socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(likeStatus) in
-            if(likeStatus.isLike == 0){
-                sender.setImage(UIImage(named:"LikeFilled"), for: .normal)
-            }else{
-                sender.setImage(UIImage(named:"Like"), for: .normal)
-            }
-        })
 
         print("sender.tag - \(sender.tag!)")
         if likes[sender.tag] == "like" {
             likes[sender.tag] = "unlike"
-//            print("unlike")
-//            print("sender.tag - \(sender.tag!)")
         }
         else {
             likes[sender.tag] = "like"
-//            print("like")
-//            sender.setImage(UIImage(named:"LikeFilled.png"), for: .normal)
         }
         
         self.tableView.reloadData()

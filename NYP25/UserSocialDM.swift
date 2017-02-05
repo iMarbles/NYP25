@@ -42,7 +42,13 @@ class UserSocialDM: NSObject {
                 
                 let p = PhotoLike()
                 p.adminNo = snapshot.key
-                p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
+                
+                if((p.isLike == 0) || (p.isLike == 1)){
+                    p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
+//                }else if(p.isLike == 1){
+//                    p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
+                }
+                
                 onComplete(p)
         })
     }
