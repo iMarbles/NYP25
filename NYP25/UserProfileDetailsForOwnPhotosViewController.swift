@@ -14,6 +14,9 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
     @IBOutlet weak var socialIdLbl : UILabel!
     @IBOutlet weak var photoImage : UIImageView!
     
+    @IBOutlet weak var usernameLbl : UILabel!
+    @IBOutlet weak var timestampLbl : UILabel!
+
     @IBOutlet weak var countLikesLbl : UILabel!
     @IBOutlet weak var countCommentsLbl : UILabel!
     
@@ -32,6 +35,9 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
         photoIdLbl.text = socialImg?.eventId
         pathIdLbl.text = socialImg?.photoUrl
         socialIdLbl.text = socialImg?.socialId
+        
+        usernameLbl.text = socialImg?.uploader
+        timestampLbl.text = GlobalDM.getCommentDateTimeBy(stringDate: (socialImg?.postedDateTime)!)
         
         self.photoImage.image = UIImage(named: "loading-512")
 

@@ -189,11 +189,6 @@ class UserSocialDM: NSObject {
 
         ref.observeSingleEvent(of: .value, with:
             { (snapshot) in
-
-//                let f = SocialFlag()
-//                f.userId = snapshot.key
-//                f.flagReason = snapshot.value as! String
-                
                 
                 let reasons = snapshot.childSnapshot(forPath: "flagReasons").children
                 for reason in reasons{
@@ -203,7 +198,6 @@ class UserSocialDM: NSObject {
                     f.userId = sf.key
                     f.flagReason = sf.value as! String
                     
-//                    flagReasonsList.append(f)
                     onComplete(f)
                 }
                 
