@@ -45,8 +45,6 @@ class UserSocialDM: NSObject {
                 
                 if((p.isLike == 0) || (p.isLike == 1)){
                     p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
-//                }else if(p.isLike == 1){
-//                    p.isLike = (snapshot.childSnapshot(forPath: "isLiked").value as? Int)!
                 }
                 
                 onComplete(p)
@@ -162,7 +160,7 @@ class UserSocialDM: NSObject {
         })
     }
     
-    static func retrieveFlagReasonsCount(socialId : String, onComplete: @escaping ([SocialFlag])->Void){
+    static func retrieveAllFlagReasons(socialId : String, onComplete: @escaping ([SocialFlag])->Void){
         var flagList : [SocialFlag] = []
         
         let ref = FIRDatabase.database().reference().child("social/\(socialId)/flagReasons/")
@@ -183,6 +181,32 @@ class UserSocialDM: NSObject {
             }
             
             onComplete(flagList)
+        })
+    }
+    
+    static func retrieveAllFlagReasonsById(socialId : String, onComplete: @escaping (SocialFlag)->Void){
+        let ref = FIRDatabase.database().reference().child("social/\(socialId)/")
+
+        ref.observeSingleEvent(of: .value, with:
+            { (snapshot) in
+
+//                let f = SocialFlag()
+//                f.userId = snapshot.key
+//                f.flagReason = snapshot.value as! String
+                
+                
+                let reasons = snapshot.childSnapshot(forPath: "flagReasons").children
+                for reason in reasons{
+                    let sf = reason as! FIRDataSnapshot
+                    
+                    let f = SocialFlag()
+                    f.userId = sf.key
+                    f.flagReason = sf.value as! String
+                    
+//                    flagReasonsList.append(f)
+                    onComplete(f)
+                }
+                
         })
     }
 

@@ -25,7 +25,6 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
     
     var countList : [PhotoLike] = []
     var commentList : [PhotoLike] = []
-
     
     override func viewDidLoad() {
         super.viewDidLoad()

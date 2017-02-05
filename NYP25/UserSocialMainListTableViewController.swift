@@ -78,18 +78,7 @@ class UserSocialMainListTableViewController: UITableViewController {
         
         cell.btnLike.setTitle(likes[(indexPath as IndexPath).row], for: UIControlState.normal)
         cell.btnLike.setImage(UIImage(named:"Like.png"), for: .normal)
-        
-        
-//        UserSocialDM.retrieveLikeStatus(socialId: s.socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, onComplete: {(likeStatus) in
-////            if(likeStatus.isLike is NSNull){
-//                if(likeStatus.isLike == 0){
-//                    cell.btnLike.setImage(UIImage(named:"Like"), for: .normal)
-//                }else{
-//                    cell.btnLike.setImage(UIImage(named:"Like Filled-30"), for: .normal)
-//                }
-////            }
-//        })
-        
+
         print("s - \(s.socialId)")
         
         for a in socialList{
@@ -161,44 +150,62 @@ class UserSocialMainListTableViewController: UITableViewController {
             print("(GlobalDM.CurrentUser?.userId)! - \(GlobalDM.CurrentUser?.userId)")
             print("(socialList[sender.tag].uploader)! - \(socialList[sender.tag].uploader)")
             
-            UserSocialDM.retrieveFlagReasonsCount(socialId: socialList[sender.tag].socialId, onComplete: {(list) in
+//            check if current user alrdy reported the photo before
+            
+            UserSocialDM.retrieveAllFlagReasons(socialId: socialList[sender.tag].socialId, onComplete: {(list) in
                 self.flagList = list
                 print("flagList.count - \(String(self.flagList.count))")
             })
             
-            let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
-            
-            alertController.addTextField { textField in
-                textField.placeholder = "Enter Flagged Reason"
-                
-                let reportAction = UIAlertAction(title: "Inappropriate / Irrelevant Post", style: .destructive) { action in
-                    UserSocialDM.reportPhoto(theCount: self.flagList.count, socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: "Inappropriate / Irrelevant Post")
-                }
-                alertController.addAction(reportAction)
-                
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
-                    print("cancel")
-                }
-                alertController.addAction(cancelAction)
-                
-                let postAction = UIAlertAction(title: "Submit Reason", style: .destructive) { action in
-                    UserSocialDM.reportPhoto(theCount: self.flagList.count, socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: textField.text!)
-                }
-                alertController.addAction(postAction)
-                postAction.isEnabled = false
-                
-                NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
-                    if(textField.text == ""){
-                        postAction.isEnabled = false
-                        reportAction.isEnabled = true
-                    }else{
-                        postAction.isEnabled = true
-                        reportAction.isEnabled = false
+            UserSocialDM.retrieveAllFlagReasonsById(socialId: socialList[sender.tag].socialId, onComplete: {(list) in
+                if(list.userId == (GlobalDM.CurrentUser?.userId)!){
+                    let alertController = UIAlertController(title: "You already reported this photo previously!",
+                                                            message: nil, preferredStyle: .alert)
+                    
+                    let cancelAction = UIAlertAction(title: "Ok", style: .cancel) { action in
+                        print("Ok")
                     }
+                    alertController.addAction(cancelAction)
+                    
+                    self.present(alertController, animated: true) {}
+                    
+                }else{
+                    let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
+                    
+                    alertController.addTextField { textField in
+                        textField.placeholder = "Enter Flagged Reason"
+                        
+                        let reportAction = UIAlertAction(title: "Inappropriate / Irrelevant Post", style: .destructive) { action in
+                            UserSocialDM.reportPhoto(theCount: self.flagList.count, socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: "Inappropriate / Irrelevant Post")
+                        }
+                        alertController.addAction(reportAction)
+                        
+                        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+                            print("cancel")
+                        }
+                        alertController.addAction(cancelAction)
+                        
+                        let postAction = UIAlertAction(title: "Submit Reason", style: .destructive) { action in
+                            UserSocialDM.reportPhoto(theCount: self.flagList.count, socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: textField.text!)
+                        }
+                        alertController.addAction(postAction)
+                        postAction.isEnabled = false
+                        
+                        NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
+                            if(textField.text == ""){
+                                postAction.isEnabled = false
+                                reportAction.isEnabled = true
+                            }else{
+                                postAction.isEnabled = true
+                                reportAction.isEnabled = false
+                            }
+                        }
+                    }
+                    
+                    self.present(alertController, animated: true) {}
+                    print("different")
                 }
-            }
-            
-            self.present(alertController, animated: true) {}
+            })
         }else{
             let alertController = UIAlertController(title: "You can't report your own photo!!", message: nil, preferredStyle: .alert)
             
