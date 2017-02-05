@@ -178,7 +178,7 @@
                                         <color key="textColor" red="0.98031270979999996" green="1" blue="0.96904681020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kdn-pp-zHQ" customClass="HorizontalBarChartView" customModule="Charts">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kdn-pp-zHQ" customClass="PieChartView" customModule="Charts">
                                         <rect key="frame" x="13" y="283" width="325" height="168"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -221,7 +221,7 @@
                         <outlet property="dataView" destination="XLb-io-BLG" id="D5G-PV-S8U"/>
                         <outlet property="firstLbl" destination="rZh-gS-Yn2" id="wlE-Fp-H87"/>
                         <outlet property="green" destination="YkY-Yo-MHV" id="1EQ-Jd-PGa"/>
-                        <outlet property="leaderboardChart" destination="Kdn-pp-zHQ" id="ti8-9n-nSA"/>
+                        <outlet property="leaderboardChart" destination="Kdn-pp-zHQ" id="8Mp-xE-u2d"/>
                         <outlet property="mapView" destination="cmH-Lf-V33" id="uRQ-ok-j9m"/>
                         <outlet property="orange" destination="Xrn-Yh-nTQ" id="5gU-fx-ZhZ"/>
                         <outlet property="pink" destination="61x-zU-M8V" id="H9T-5y-23h"/>
