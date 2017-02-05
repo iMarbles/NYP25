@@ -11,7 +11,7 @@ import Charts
 import CoreLocation
 import MapKit
 
-class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
     
     @IBOutlet weak var green: UIImageView!
     @IBOutlet weak var blue: UIImageView!
@@ -41,7 +41,7 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var secondLbl: UILabel!
     @IBOutlet weak var thirdLbl: UILabel!
     
-    @IBOutlet weak var leaderboardChart: PieChartView!
+    @IBOutlet weak var leaderboardChart: BarChartView!
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -51,7 +51,15 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var dataView: UIView!
     @IBOutlet weak var mapView: MKMapView!
     
+    //for bar chart 
+    let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SIDM"]
+    var schoolCount : [Int] = []
     
+    var eventList : [Event] = []
+    var attendanceList : [EventAttendance] = []
+
+    
+
     @IBAction func indexChanged(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
@@ -123,9 +131,7 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         print("Could not find location: \(error)");
     }
     
-    let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SIDM"]
-    var schoolCount : [Int] = []
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,6 +157,10 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         //Set to the region with animated effect
         mapView.setRegion(region, animated:true)
         
+        //for pie chart
+        loadEventAttendance()
+        
+                
             }
     
 
@@ -159,6 +169,129 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    func loadEventAttendance(){
+        LeaderboardDM.retrieveAllEvents(onComplete: {(listFromDb) in
+            self.eventList = listFromDb
+            
+        })
+        LeaderboardDM.retrieveAllEventAttendance(onComplete: { (attendanceFromDb) in
+            self.attendanceList = attendanceFromDb
+            
+            self.createPieChart()
+            
+        })
+    }
+    
+    func createPieChart(){
+        
+        var sbm = 0
+        var scl = 0
+        var sdn = 0
+        var seg = 0
+        var shs = 0
+        var sit = 0
+        var sidm = 0
+        
+        for attendance in attendanceList{
+            let s = attendance.school
+            var count = 0
+            for event in attendance.events{
+                if event.checkIn != nil{
+                    count += 1
+                }
+            }
+            
+            if s == "SBM"{
+                sbm += count
+            }
+            if s == "SCL"{
+                scl += count
+            }
+            if s == "SDN"{
+                sdn += count
+            }
+            if s == "SEG"{
+                seg += count
+            }
+            if s == "SHS"{
+                shs += count
+            }
+            if s == "SIT"{
+                sit += count
+            }
+            if s == "SIDM"{
+                sidm += count
+            }
+        }
+        
+        schoolCount = [sbm, scl, sdn, seg, shs, sit, sidm]
+        
+        
+   //     setPieChartFor(schools: schools, withValues: schoolCount)
+        
+        setChart(dataPoints: schools, withValues: schoolCount)
+       
+    }
+    
+    func setChart(dataPoints: [String], withValues: [Int]){
+        var dataEntries: [ChartDataEntry] = []
+        
+        for i in 0 ..< dataPoints.count{
+            let dataEntry = ChartDataEntry(x: Double(i), y: Double(withValues[i]))
+            dataEntries.append(dataEntry)
+
+        }
+        
+        let chartDataSet = PieChartDataSet(values: dataEntries, label: "Schools:")
+        let chartData = PieChartData(dataSet: chartDataSet)
+        leaderboardChart.data = chartData
+        
+        setBarChartFor(schools: schools, withValues: schoolCount)
+        
+    }
+    func setBarChartFor(schools: [String], withValues : [Int]){
+        var dataEntries : [BarChartDataEntry] = []
+        
+        for i in 0 ..< schools.count{
+            let dataEntry = BarChartDataEntry(x: Double(i), y: Double(withValues[i]))
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Schools:")
+        let chartData = BarChartData(dataSet: chartDataSet)
+        
+        leaderboardChart.data = chartData
+        
+        let colors = [LeaderboardDM.sbmColor, LeaderboardDM.sclColor, LeaderboardDM.sdnColor, LeaderboardDM.segColor, LeaderboardDM.shsColor, LeaderboardDM.sitColor, LeaderboardDM.sidmColor]
+        
+        chartDataSet.colors = colors
+        
+        leaderboardChart.xAxis.labelPosition = .bottom
+        leaderboardChart.leftAxis.axisMinimum = 0
+        leaderboardChart.legend.enabled = false
+        leaderboardChart.chartDescription?.text = ""
+        leaderboardChart.rightAxis.enabled = false
+        
+        leaderboardChart.isUserInteractionEnabled = false
+        
+        leaderboardChart.leftAxis.granularityEnabled = true
+        leaderboardChart.leftAxis.granularity = 1.0
+        
+        //leaderboardChart.xAxis.valueFormatter = self
+        //leaderboardChart.barData?.setValueFormatter(self)
+    }
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        return schools[Int(value)]
+    }
+    
+    func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
+        return ""
+    }
+
+
+        
+    
+
 
     /*
     // MARK: - Navigation
