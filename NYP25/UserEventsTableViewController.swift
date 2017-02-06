@@ -23,6 +23,7 @@ class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITa
         }
         
         tableView.reloadData()
+        
 
     }
     
@@ -80,6 +81,9 @@ class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITa
         }else{
             cell.eventBannerImg.image = UIImage(named: "loading-512")
         }
+        
+        
+        cell.selectionStyle = .none
 
         
         return cell
@@ -89,6 +93,9 @@ class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITa
         eventToPass = eventsList[indexPath.row]
 //        tableView.indexPathForSelectedRow();
         performSegue(withIdentifier: "viewEventDetails", sender: self)
+        
+        
+        // some over view controller could have changed our nav bar tint color, so reset it here
     }
     
     
