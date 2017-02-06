@@ -16,7 +16,9 @@ class UserSocialMainListTableViewController: UITableViewController {
     var socialList : [Social] = []
     var countList : [PhotoLike] = []
     var flagList : [SocialFlag] = []
-    
+    var studentList : [Student] = []
+    var badgeList : [Badge] = []
+
     var imgToPass: Social?
     
     override func viewDidLoad() {
@@ -25,11 +27,7 @@ class UserSocialMainListTableViewController: UITableViewController {
         likedBy = PhotoLike()
         
         UserSocialDM.retrieveAllSocial{(dbList) in
-            for i in dbList{
-                if(i.isFlagged == 0 || i.isFlagged == 2){
-                    self.socialList.append(i)
-                }
-            }
+            self.socialList = dbList
             self.tableView.reloadData()
             
             
@@ -65,6 +63,7 @@ class UserSocialMainListTableViewController: UITableViewController {
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.mainListImageView.image = UIImage(named: "loading-512")
+        cell.userBadge.image = UIImage(named: "loading-512")
         
         let s = socialList[(indexPath as IndexPath).row]
         cell.dateLbl.text = GlobalDM.getCommentDateTimeBy(stringDate: s.postedDateTime!)
@@ -74,6 +73,31 @@ class UserSocialMainListTableViewController: UITableViewController {
         }else{
             cell.usernameLbl.text = s.uploaderUsername
         }
+        
+//        UserProfileDM.retrieveAllStudentInfoByUserId(userId: s.uploader!, onComplete: {(studList) in
+        UserProfileDM.retrieveAllStudentInfo(onComplete: {(studList) in
+            self.studentList = studList
+            
+            for a in self.studentList{
+//                if(a.userId == (GlobalDM.CurrentUser?.userId)!){
+                if(a.userId == s.uploader){
+                    for b in a.badges!{
+                        if(b.isDisplay == 1){
+                            self.badgeList.append(b)
+                            UserSocialProfileMasterViewController.loadImage(
+                                imageView: cell.userBadge,
+                                url: b.icon!)
+                            UserSocialProfileMasterViewController.roundedEdgePhoto(image: cell.userBadge)
+                        }
+                    }
+                }
+            }
+        })
+        
+        
+//        cell.usernamebtn?.tag = indexPath.row
+//        cell.usernamebtn?.addTarget(self, action: #selector(actionUsername), for: .touchUpInside)
+//        cell.usernamebtn?.setTitle(s.uploaderUsername, for: .normal)
         
         cell.captionLbl.text = s.caption
         
@@ -159,55 +183,56 @@ class UserSocialMainListTableViewController: UITableViewController {
                 print("flagList.count - \(String(self.flagList.count))")
             })
 
-            UserSocialDM.retrieveAllFlagReasonsById(socialId: socialList[sender.tag].socialId, onComplete: {(list) in
-                if(list.userId == (GlobalDM.CurrentUser?.userId)!){
-                    let alertController = UIAlertController(title: "You already reported this photo previously",
-                                                            message: nil, preferredStyle: .alert)
-                    
-                    let cancelAction = UIAlertAction(title: "Ok", style: .cancel) { action in
-                        print("Ok")
-                    }
-                    alertController.addAction(cancelAction)
-                    
-                    self.present(alertController, animated: true) {}
-                    
-                }else {
-                    let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
-                    
-                    alertController.addTextField { textField in
-                        textField.placeholder = "Enter Flagged Reason"
-                        
-                        let reportAction = UIAlertAction(title: "Inappropriate / Irrelevant Post", style: .destructive) { action in
-                            UserSocialDM.reportPhoto(theCount: self.flagList.count, socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: "Inappropriate / Irrelevant Post")
-                        }
-                        alertController.addAction(reportAction)
-                        
-                        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
-                            print("cancel")
-                        }
-                        alertController.addAction(cancelAction)
-                        
-                        let postAction = UIAlertAction(title: "Submit Reason", style: .destructive) { action in
-                            UserSocialDM.reportPhoto(theCount: self.flagList.count, socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: textField.text!)
-                        }
-                        alertController.addAction(postAction)
-                        postAction.isEnabled = false
-                        
-                        NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
-                            if(textField.text == ""){
-                                postAction.isEnabled = false
-                                reportAction.isEnabled = true
-                            }else{
-                                postAction.isEnabled = true
-                                reportAction.isEnabled = false
-                            }
-                        }
-                    }
-                    
-                    self.present(alertController, animated: true) {}
-                    print("different")
+//                UserSocialDM.retrieveAllFlagReasonsById(socialId: socialList[sender.tag].socialId, onComplete: {(list) in
+//                    if(list.userId == (GlobalDM.CurrentUser?.userId)!){
+//                        let alertController = UIAlertController(title: "You already reported this photo previously",
+//                                                                message: nil, preferredStyle: .alert)
+//                        
+//                        let cancelAction = UIAlertAction(title: "Ok", style: .cancel) { action in
+//                            print("Ok")
+//                        }
+//                        alertController.addAction(cancelAction)
+//                        
+//                        self.present(alertController, animated: true) {}
+//                        
+//                    }else {
+            let alertController = UIAlertController(title: "Wanna report this post?", message: nil, preferredStyle: .alert)
+            
+            alertController.addTextField { textField in
+                textField.placeholder = "Enter Flagged Reason"
+                
+                let reportAction = UIAlertAction(title: "Inappropriate / Irrelevant Post", style: .destructive) { action in
+                    UserSocialDM.reportPhoto(theCount: self.flagList.count, socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: "Inappropriate / Irrelevant Post")
                 }
-            })
+                alertController.addAction(reportAction)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+                    print("cancel")
+                }
+                alertController.addAction(cancelAction)
+                
+                let postAction = UIAlertAction(title: "Submit Reason", style: .destructive) { action in
+                    UserSocialDM.reportPhoto(theCount: self.flagList.count, socialId: self.socialList[sender.tag].socialId, currentUserId: (GlobalDM.CurrentUser?.userId)!, flagReason: textField.text!)
+                }
+                alertController.addAction(postAction)
+                postAction.isEnabled = false
+                
+                NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { notification in
+                    if(textField.text == ""){
+                        postAction.isEnabled = false
+                        reportAction.isEnabled = true
+                    }else{
+                        postAction.isEnabled = true
+                        reportAction.isEnabled = false
+                    }
+                }
+            }
+            
+            self.present(alertController, animated: true) {}
+            print("different")
+//                    }
+//                })
+//            }
             
         }else{
             let alertController = UIAlertController(title: "You can't report your own photo", message: nil, preferredStyle: .alert)
@@ -221,6 +246,12 @@ class UserSocialMainListTableViewController: UITableViewController {
 
         }
     }
+
+//    @IBAction func actionUsername(sender: AnyObject) {
+//        let vc = UIStoryboard(name:"UserSocial", bundle:nil).instantiateViewController(withIdentifier: "PeopleProfile") as! UserSocialOthersProfileViewController
+//        vc.socialImg = socialList[(sender.tag)]
+//        self.navigationController?.pushViewController(vc, animated:true)
+//    }
     
     @IBAction func actionDelete(sender: UIButton) {
         let alertController = UIAlertController(title: "You sure you wanna delete this post?", message: nil, preferredStyle: .alert)

@@ -144,13 +144,13 @@ class SignUpContViewController: UIViewController, UIImagePickerControllerDelegat
     
     func showSignInAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        var viewController : UIViewController
-        viewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login") as UIViewController
-        self.present(viewController, animated: false, completion: nil)
-        self.present(alertController, animated: true, completion: {
-            print("alert hit")
-            
-        })
+        alertController.addAction(UIAlertAction(title: "Back to Login", style: UIAlertActionStyle.default,handler: { (alert: UIAlertAction!) in
+            var viewController : UIViewController
+            viewController = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "Login") as UIViewController
+            self.present(viewController, animated: false, completion: nil)
+        }))
+
+        self.present(alertController, animated: true, completion: nil)
         
     }
     

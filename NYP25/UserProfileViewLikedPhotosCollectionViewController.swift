@@ -13,6 +13,7 @@ import UIKit
 class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var profileGallery : [Social] = []
+    var socialListInfo : [Social] = []
     var likedPhotos : [Social] = []
 
     var photoIdLbl : String = ""
@@ -21,7 +22,8 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserProfileDM.retrieveAllSocial(onComplete: { (photos) in
+//        UserProfileDM.retrieveAllSocial(onComplete: { (photos) in
+        UserProfileDM.retrieveAllSocialUserLikedPhotos(onComplete: {(photos) in
             self.profileGallery = photos
             self.collectionView?.reloadData()
             
@@ -32,6 +34,12 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
             }
         })
 
+        UserProfileDM.retrieveAllSocial(onComplete: { (photos) in
+            self.socialListInfo = photos
+            self.collectionView?.reloadData()
+        })
+
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,13 +74,6 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
         print("eventIdLbl - \(photoIdLbl)")
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "likedPhotosGallery" {
-//            let a = segue.destination as! UserProfileDetailsForLikedPhotosViewController
-//            a.newLbl = photoIdLbl
-//        }
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "likedPhotosGallery" {
             let a = segue.destination as! UserProfileDetailsForLikedPhotosViewController
@@ -80,7 +81,7 @@ class UserProfileViewLikedPhotosCollectionViewController: UICollectionViewContro
             let cell = sender as? UserProfileViewLikedPhotosCollectionViewCell
             let indexPath = collectionView?.indexPath(for: cell!)
             
-            a.socialImg = profileGallery[(indexPath?.row)!]
+            a.socialImg = socialListInfo[(indexPath?.row)!]
             
         }
     }

@@ -48,7 +48,7 @@ class UserProfileSettingsViewBadgesCollectionViewController: UICollectionViewCon
         
         cell.badgePhotos.image = UIImage(named: "loading-512")
         
-        UserSocialProfileMasterViewController.loadImage(imageView: cell.badgePhotos, url: profileGallery[(indexPath as IndexPath).row].icon)
+        UserSocialProfileMasterViewController.loadImage(imageView: cell.badgePhotos, url: profileGallery[(indexPath as IndexPath).row].icon!)
         
         let p = profileGallery[(indexPath as IndexPath).row]
         

@@ -275,10 +275,18 @@ class UserSocialDM: NSObject {
                     likedByList.append(p)
                 }
                 
+//                for i in dbList{
+                    if(s.isFlagged == 0 || s.isFlagged == 2){
+                        s.flagReasons = flagReasonsList
+                        s.likes = likedByList
+                        socialList.append(s)
+                    }
+//                }
+                
 //                if(s.isFlagged != 1){
-                    s.flagReasons = flagReasonsList
-                    s.likes = likedByList
-                    socialList.append(s)
+//                    s.flagReasons = flagReasonsList
+//                    s.likes = likedByList
+//                    socialList.append(s)
 //                }
             }
             
@@ -358,7 +366,7 @@ class UserSocialDM: NSObject {
                         likedByList.append(p)
                     }
                     
-                    if(s.isFlagged != 1 && s.isFlagged != 3){
+                    if(s.isFlagged == 0 || s.isFlagged == 2){
                         if(s.uploader == (GlobalDM.CurrentUser?.userId)!){
                             s.flagReasons = flagReasonsList
                             s.likes = likedByList
@@ -440,7 +448,7 @@ class UserSocialDM: NSObject {
                     likedByList.append(p)
                 }
                 
-                if(s.isFlagged != 1 && s.isFlagged != 3){
+                if(s.isFlagged == 0 || s.isFlagged == 2){
                     if(s.uploader == userId){
                         s.flagReasons = flagReasonsList
                         s.likes = likedByList

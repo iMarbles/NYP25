@@ -1,5 +1,5 @@
 //
-//  UserProfileCommentsForOwnPhotosTableViewController.swift
+//  UserSocialCommentsForOwnPhotosTableViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 30/1/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileCommentsForOwnPhotosTableViewController: UITableViewController {
+class UserSocialCommentsForOwnPhotosTableViewController: UITableViewController {
     var socialImg : Social?
     var coList : [Social] = []
     var commentList : [PhotoComment] = []

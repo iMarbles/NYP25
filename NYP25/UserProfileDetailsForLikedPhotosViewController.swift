@@ -26,9 +26,11 @@ class UserProfileDetailsForLikedPhotosViewController: UIViewController {
     var newSocialLbl : String = ""
     
     var socialImg : Social?
+    var socialInfo : Social?
     
     var countList : [PhotoLike] = []
     var commentList : [PhotoLike] = []
+    var socialInfoList : [Social] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,7 @@ class UserProfileDetailsForLikedPhotosViewController: UIViewController {
         photoIdLbl.text = socialImg?.eventId
         pathIdLbl.text = socialImg?.photoUrl
         socialIdLbl.text = socialImg?.socialId
+        
         
 //        usernameLbl.text = socialImg?.uploaderUsername
         usernameBtn?.setTitle("\((socialImg?.uploaderUsername)!)", for: .normal)
@@ -63,12 +66,14 @@ class UserProfileDetailsForLikedPhotosViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "UserProfileDetailForLikedViewComments" {
-            let a = segue.destination as! UserProfileCommentsForLikedPhotosTableViewController
-            
-            a.photoGallery = (socialImg?.likes)!
-        }else if segue.identifier == "OtherUsersProfile" {
-            let a = segue.destination as! UserProfileOthersProfileViewController
+//        if segue.identifier == "UserProfileDetailForLikedViewComments" {
+//            let a = segue.destination as! UserProfileCommentsForLikedPhotosTableViewController
+//            
+//            a.photoGallery = (socialImg?.likes)!
+//        }else
+//            
+            if segue.identifier == "OtherUsersProfile" {
+            let a = segue.destination as! UserSocialOthersProfileViewController
             
             a.socialImg = socialImg
         }

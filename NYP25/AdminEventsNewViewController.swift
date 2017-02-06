@@ -84,7 +84,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         //badge
         if event?.badgeId != nil && isNewBadgeImg == false {
             AdminEventDM.retrieveBadgeByEventId(id: (event?.badgeId)!, onComplete: {(badge) in
-                GlobalDM.loadImage(imageView: self.badgeImage, url: badge.icon)
+                GlobalDM.loadImage(imageView: self.badgeImage, url: badge.icon!)
             })
         }
 

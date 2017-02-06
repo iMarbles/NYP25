@@ -27,6 +27,7 @@ class UserInboxRateViewController: UIViewController, UITextViewDelegate {
         // Do any additional setup after loading the view.
         if event != nil{
             eventNameLbl.text = event?.name
+            feedback.rating = 0
         }
         
         //Setting the initial feedback user
@@ -95,18 +96,35 @@ class UserInboxRateViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func submitFeedback(sneder: AnyObject){
         //Do the setting of user here due to slow async
-        UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {
-            (student) in
-            self.feedback.username = student.username
-            
-            UserInboxDM.createFeedbackFor(eventId: (self.event?.eventId)!, feedback: self.feedback, onComplete: {
-                (msg) in
+        if feedback.rating != 0{
+            if commentTb.text.isEmpty {
+                commentTb.text = "Enter comments"
+                commentTb.textColor = UIColor.lightGray
+                feedback.comment = "No comments"
+            }else if commentTb.text == "Enter comments"{
+                 feedback.comment = "No comments"
+            } else{
+                feedback.comment = commentTb.text
+            }
+            UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {
+                (student) in
+                self.feedback.username = student.username
                 
-                if msg == "OK"{
-                    self.navigationController?.popViewController(animated: true)
-                }
+                UserInboxDM.createFeedbackFor(eventId: (self.event?.eventId)!, feedback: self.feedback, onComplete: {
+                    (msg) in
+                    
+                    if msg == "OK"{
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                })
             })
-        })
+        }else{
+            let uiAlert = UIAlertController(title: "Invalid", message: "Please rate the event", preferredStyle: UIAlertControllerStyle.alert)
+            
+            uiAlert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+            
+            self.present(uiAlert, animated: true, completion: nil)
+        }
     }
 
     /*

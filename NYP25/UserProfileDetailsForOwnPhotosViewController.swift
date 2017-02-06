@@ -80,7 +80,7 @@ class UserProfileDetailsForOwnPhotosViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "UserProfileDetailViewComments" {
-            let a = segue.destination as! UserProfileCommentsForOwnPhotosTableViewController
+            let a = segue.destination as! UserSocialCommentsForOwnPhotosTableViewController
             
             a.photoGallery = (socialImg?.likes)!
         }

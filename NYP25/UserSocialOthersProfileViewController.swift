@@ -1,5 +1,5 @@
 //
-//  UserProfileOthersProfileViewController.swift
+//  UserSocialOthersProfileViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 6/2/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileOthersProfileViewController: UIViewController {
+class UserSocialOthersProfileViewController: UIViewController {
 
     @IBOutlet weak var selfPhotoView : UIView?
     @IBOutlet weak var badgeCountBtn : UIButton?
@@ -53,7 +53,7 @@ class UserProfileOthersProfileViewController: UIViewController {
                             self.badgeList.append(b)
                             UserSocialProfileMasterViewController.loadImage(
                                 imageView: self.selectedBadge!,
-                                url: b.icon)
+                                url: b.icon!)
                             UserSocialProfileMasterViewController.roundedEdgePhoto(image: self.selectedBadge!)
                         }
                     }
@@ -69,18 +69,18 @@ class UserProfileOthersProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "OtherUsersBadge" {
-            let a = segue.destination as! UserProfileOtherUsersBadgesCollectionViewController
-            
-            a.socialImg = socialImg
-        }
-        else if segue.identifier == "OtherUsersPhotos" {
-            let a = segue.destination as! UserProfileOthersProfileCollectionViewController
-            
-            a.socialImg = socialImg
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+////        if segue.identifier == "OtherUsersBadge" {
+////            let a = segue.destination as! UserSocialOtherUsersBadgesCollectionViewController
+////            
+////            a.socialImg = socialImg
+////        }
+////        else if segue.identifier == "OtherUsersPhotos" {
+////            let a = segue.destination as! UserSocialOthersProfileCollectionViewController
+////            
+////            a.socialImg = socialImg
+////        }
+//    }
     
 
     /*

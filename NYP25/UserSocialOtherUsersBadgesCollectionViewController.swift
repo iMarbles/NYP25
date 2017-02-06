@@ -1,5 +1,5 @@
 //
-//  UserProfileOtherUsersBadgesCollectionViewController.swift
+//  UserSocialOtherUsersBadgesCollectionViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 6/2/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileOtherUsersBadgesCollectionViewController: UICollectionViewController {
+class UserSocialOtherUsersBadgesCollectionViewController: UICollectionViewController {
 
     var profileGallery : [Badge] = []
     
@@ -46,11 +46,11 @@ class UserProfileOtherUsersBadgesCollectionViewController: UICollectionViewContr
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "badgeCell", for: indexPath) as! UserProfileOtherUsersBadgesCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "badgeCell", for: indexPath) as! UserSocialOtherUsersBadgesCollectionViewCell
         
         cell.badgePhotos.image = UIImage(named: "loading-512")
         
-        UserSocialProfileMasterViewController.loadImage(imageView: cell.badgePhotos, url: profileGallery[(indexPath as IndexPath).row].icon)
+        UserSocialProfileMasterViewController.loadImage(imageView: cell.badgePhotos, url: profileGallery[(indexPath as IndexPath).row].icon!)
         
         let p = profileGallery[(indexPath as IndexPath).row]
         
