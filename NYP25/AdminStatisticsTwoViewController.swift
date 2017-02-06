@@ -102,19 +102,23 @@ class AdminStatisticsTwoViewController: UIViewController, IAxisValueFormatter, I
 
             for attendee in attendanceList{
                 //Get expected turnout based on current RSVPs
-                let isPresent = attendee.events.first(where: {$0.eventId == tempListUpcoming[0].eventId})
-                
-                if isPresent != nil{
-                    if isPresent?.rsvp != nil{
-                        expectedCount += 1
+                if tempListUpcoming.count != 0{
+                    let isPresent = attendee.events.first(where: {$0.eventId == tempListUpcoming[0].eventId})
+                    
+                    if isPresent != nil{
+                        if isPresent?.rsvp != nil{
+                            expectedCount += 1
+                        }
                     }
                 }
                 
                 //Get previous event turnout
-                let isPrev = attendee.events.first(where: {$0.eventId == tempListPast[0].eventId})
-                if isPrev != nil{
-                    if isPrev?.checkIn != nil{
-                        prevCount += 1
+                if tempListPast.count != 0{
+                    let isPrev = attendee.events.first(where: {$0.eventId == tempListPast[0].eventId})
+                    if isPrev != nil{
+                        if isPrev?.checkIn != nil{
+                            prevCount += 1
+                        }
                     }
                 }
             }
