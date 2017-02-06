@@ -97,6 +97,15 @@ class UserInboxRateViewController: UIViewController, UITextViewDelegate {
     @IBAction func submitFeedback(sneder: AnyObject){
         //Do the setting of user here due to slow async
         if feedback.rating != 0{
+            if commentTb.text.isEmpty {
+                commentTb.text = "Enter comments"
+                commentTb.textColor = UIColor.lightGray
+                feedback.comment = "No comments"
+            }else if commentTb.text == "Enter comments"{
+                 feedback.comment = "No comments"
+            } else{
+                feedback.comment = commentTb.text
+            }
             UserProfileDM.retrieveUsersInfo(userId: (GlobalDM.CurrentUser?.userId)!, onComplete: {
                 (student) in
                 self.feedback.username = student.username
