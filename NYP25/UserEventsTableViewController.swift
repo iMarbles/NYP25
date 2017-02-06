@@ -30,6 +30,8 @@ class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITa
     
     func loadEvents() {
         UserEventDM.loadEvents { (eventListFromDatabase) in
+            self.eventsList = []
+            self.sortedList = []
             self.eventsList = eventListFromDatabase
             var dateString : Int = 0
             for i in self.eventsList { // homemade sorting by kenif
