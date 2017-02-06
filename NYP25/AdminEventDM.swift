@@ -207,9 +207,10 @@ class AdminEventDM: NSObject {
         
         ref.observe(FIRDataEventType.value, with:
             {(snapshot) in
+                socialPhotos = []
+                
                 for record in snapshot.children{
                     let r = record as! FIRDataSnapshot
-                    socialPhotos = []
                     let photo = Social()
                     photo.socialId = r.key
                     photo.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
