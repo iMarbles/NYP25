@@ -105,7 +105,7 @@
             showAlert(title: "Oops!", message: "Looks like you didn't fill in all the fields.")
         } else if (pwTf.text != cpwTf.text) {
             showAlert(title: "Oops!", message: "Your passwords do not match.")
-        } else if !(schTf.text == "SIT" || schTf.text == "SIDM" || schTf.text == "SDN" || schTf.text == "SBM" || schTf.text == "SCL" || schTf.text == "SEG") {
+        } else if !(schTf.text == "SIT" || schTf.text == "SIDM" || schTf.text == "SDN" || schTf.text == "SBM" || schTf.text == "SCL" || schTf.text == "SEG" || schTf.text == "SHS") {
             showAlert(title: "Oops!", message: "You have entered an invalid school!")
         } else {
             print("======");
