@@ -357,19 +357,8 @@ class AdminEventDM: NSObject {
     
     //Deleting social image
     static func deleteSocialImageBy(socialId : String){
-        let storageRef = FIRStorage.storage().reference().child("/SocialPhoto/\(socialId)")
-        storageRef.delete { error in
-            if let error = error {
-                // Uh-oh, an error occurred!
-                print(error.localizedDescription)
-            } else {
-                // File deleted successfully
-                //Delete the photo record
-                let ref = FIRDatabase.database().reference().child("social/\(socialId)")
-                ref.removeValue()
-            }
-        }
-        
+        //Have to set the social to 3
+        FIRDatabase.database().reference().child("social/\(socialId)").updateChildValues(["isFlagged": 3])
     }
     
     //Marking post as safe

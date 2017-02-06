@@ -42,7 +42,7 @@ class LoginDM: NSObject {
                     let u = user as! FIRDataSnapshot
                     print(u.key)
         
-                    if(u.key == username){
+                    if(u.key.lowercased() == username.lowercased()){
                         //Do hashing to determine password (for future)
                         if(shaHex == u.childSnapshot(forPath: "password").value as! String){
                             //Check if user is admin, save uId, password
