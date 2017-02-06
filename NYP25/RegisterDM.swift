@@ -1,6 +1,7 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class RegisterDM: NSObject {
     //SHA256
