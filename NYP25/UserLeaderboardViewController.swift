@@ -182,6 +182,7 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
             self.attendanceList = attendanceFromDb
             
             self.createPieChart()
+       //     self.getAttendance()
            
        //     self.getUniqueAttendance()
             
@@ -203,11 +204,12 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         for a in attendanceList{
             let b = a.school
             //each person attends multple events (sum them up)
-            //for e in a.events{
-                //if e.checkIn != nil{
-                  //  count += 1
-                //}
-          //  }
+            for e in a.events{
+                if e.checkIn != nil{
+                    count += 1
+                }
+          
+            }
             if b == "SBM"{
             sbmAtt += count
             }
@@ -323,7 +325,7 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     //}
     
     func createPieChart(){
-        
+        //Need to show number of attendees per school (Not unique, total)
         var sbm = 0
         var scl = 0
         var sdn = 0
@@ -368,27 +370,13 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         
         
    //     setPieChartFor(schools: schools, withValues: schoolCount)
-        
-        setChart(dataPoints: schools, withValues: schoolCount)
+        setBarChartFor(schools: schools, withValues: schoolCount)
+
+  //      setBarChartChar(dataPoints: schools, withValues: schoolCount)
        
     }
     
-    func setChart(dataPoints: [String], withValues: [Int]){
-        var dataEntries: [ChartDataEntry] = []
-        
-        for i in 0 ..< dataPoints.count{
-            let dataEntry = ChartDataEntry(x: Double(i), y: Double(withValues[i]))
-            dataEntries.append(dataEntry)
-
-        }
-        
-        let chartDataSet = PieChartDataSet(values: dataEntries, label: "Schools:")
-        let chartData = PieChartData(dataSet: chartDataSet)
-        leaderboardChart.data = chartData
-        
-        setBarChartFor(schools: schools, withValues: schoolCount)
-        
-    }
+    
     func setBarChartFor(schools: [String], withValues : [Int]){
         var dataEntries : [BarChartDataEntry] = []
         
