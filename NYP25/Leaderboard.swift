@@ -11,5 +11,7 @@ import UIKit
 class Leaderboard: NSObject {
     var school : String = ""
     var avgPoints : Double = 0.0
-    var updatedTimeStamp : String = ""
+    var updatedTimeStamp : String?
+    var colour : String?
+    
 }

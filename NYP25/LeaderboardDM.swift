@@ -62,6 +62,47 @@ class LeaderboardDM: NSObject {
         })
     }
 
+    static func retrieveAttendance(adminNum: String, onComplete: @escaping([EventAttendance])->Void){
+        var attendanceList : [EventAttendance] = []
+        var eventsInAttendanceList : [EventsInAttendance] = []
+        
+        let ref = FIRDatabase.database().reference().child("eventAttendace/\(adminNum)/school/")
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            attendanceList = []
+            eventsInAttendanceList = []
+            
+            for record in snapshot.children{
+                let r = record as! FIRDataSnapshot
+                
+                let a = EventAttendance()
+                a.adminNo = r.key
+                a.school = r.childSnapshot(forPath: "school").value as! String
+                
+                //Child nodes of events
+                eventsInAttendanceList = []
+                let events = r.childSnapshot(forPath: "events").children
+                for event in events{
+                    let eFromDb = event as! FIRDataSnapshot
+                    
+                    let e = EventsInAttendance()
+                    e.eventId = eFromDb.key
+                    e.checkIn = eFromDb.childSnapshot(forPath: "checkIn").value as? String
+                    e.rsvp = eFromDb.childSnapshot(forPath: "rsvp").value as? String
+                    
+                    eventsInAttendanceList.append(e)
+                }
+                
+                a.events = eventsInAttendanceList
+                attendanceList.append(a)
+            }
+            
+            onComplete(attendanceList)
+        })
+    }
+
+    
     static func retrieveAllEvents(onComplete: @escaping ([Event])->Void){
         var eventList : [Event] = []
         var feedbackList : [EventFeedback] = []
