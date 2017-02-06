@@ -65,6 +65,7 @@
 		6182B3511E481E8600D53545 /* UserProfileOthersProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6182B3501E481E8600D53545 /* UserProfileOthersProfileCollectionViewCell.swift */; };
 		6182B3531E48230E00D53545 /* UserProfileOtherUsersBadgesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6182B3521E48230E00D53545 /* UserProfileOtherUsersBadgesCollectionViewController.swift */; };
 		6182B3551E48231E00D53545 /* UserProfileOtherUsersBadgesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6182B3541E48231E00D53545 /* UserProfileOtherUsersBadgesCollectionViewCell.swift */; };
+		6182B3571E485B1800D53545 /* UserProfileOthersProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6182B3561E485B1800D53545 /* UserProfileOthersProfileDetailsViewController.swift */; };
 		619644A61E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619644A51E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift */; };
 		619E0B141E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619E0B131E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift */; };
 		61A7606D1E4244E8004291EE /* UserSocialDetailsForSoloAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7606C1E4244E8004291EE /* UserSocialDetailsForSoloAlbumViewController.swift */; };
@@ -252,6 +253,7 @@
 		6182B3501E481E8600D53545 /* UserProfileOthersProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileOthersProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		6182B3521E48230E00D53545 /* UserProfileOtherUsersBadgesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileOtherUsersBadgesCollectionViewController.swift; sourceTree = "<group>"; };
 		6182B3541E48231E00D53545 /* UserProfileOtherUsersBadgesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileOtherUsersBadgesCollectionViewCell.swift; sourceTree = "<group>"; };
+		6182B3561E485B1800D53545 /* UserProfileOthersProfileDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileOthersProfileDetailsViewController.swift; sourceTree = "<group>"; };
 		619644A51E3AEB3800EBE05C /* UserProfileDisplayQRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileDisplayQRViewController.swift; sourceTree = "<group>"; };
 		61985AF41E16A65600D7AB37 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Charts.xcodeproj; sourceTree = "<group>"; };
 		619E0B131E38F8AF00212FA0 /* UserSocialProfileMasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSocialProfileMasterViewController.swift; sourceTree = "<group>"; };
@@ -573,6 +575,7 @@
 				61ECAAD51E42571300254117 /* UserSocialViewAlbumPhotosCollectionViewController.swift */,
 				6182B34A1E481E1500D53545 /* UserProfileOthersProfileViewController.swift */,
 				6182B34E1E481E7000D53545 /* UserProfileOthersProfileCollectionViewController.swift */,
+				6182B3561E485B1800D53545 /* UserProfileOthersProfileDetailsViewController.swift */,
 				6182B3521E48230E00D53545 /* UserProfileOtherUsersBadgesCollectionViewController.swift */,
 			);
 			name = Controllers;
@@ -817,6 +820,7 @@
 				8166BC4B1DF6847100FAA37C /* EventFeedback.swift in Sources */,
 				61C130C51E289901006E4191 /* UserSocialMasterForProfileViewController.swift in Sources */,
 				04A4ACA81E15718000884164 /* AdminEventReviewTableViewCell.swift in Sources */,
+				6182B3571E485B1800D53545 /* UserProfileOthersProfileDetailsViewController.swift in Sources */,
 				8166BC571DF6896000FAA37C /* PhotoComment.swift in Sources */,
 				8166BC471DF6839000FAA37C /* Badge.swift in Sources */,
 				6182B3551E48231E00D53545 /* UserProfileOtherUsersBadgesCollectionViewCell.swift in Sources */,

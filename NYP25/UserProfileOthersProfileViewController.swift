@@ -79,12 +79,6 @@ class UserProfileOthersProfileViewController: UIViewController {
             let a = segue.destination as! UserProfileOthersProfileCollectionViewController
             
             a.socialImg = socialImg
-//
-//            let cell = sender as? UserProfileViewLikedPhotosCollectionViewCell
-//            let indexPath = collectionView?.indexPath(for: cell!)
-//            
-//            a.socialImg = profileGallery[(indexPath?.row)!]
-//            
         }
     }
     
