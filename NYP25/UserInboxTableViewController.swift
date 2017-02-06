@@ -66,9 +66,13 @@ class UserInboxTableViewController: UITableViewController {
     }
     
     func loadDeletedImages(){
-        reportedSocialList = []
         UserInboxDM.retrieveFlaggedSocialImage { (deletedPhotoList) in
-            self.reportedSocialList = deletedPhotoList
+            self.reportedSocialList = []
+            for photo in deletedPhotoList{
+                if photo.uploader == GlobalDM.CurrentUser?.userId{
+                    self.reportedSocialList.append(photo)
+                }
+            }
             self.tableView.reloadData()
         }
     }
