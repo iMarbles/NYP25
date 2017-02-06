@@ -183,8 +183,8 @@
                                         <color key="textColor" red="0.98031270976848894" green="1" blue="0.96904681015984262" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SHS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9t-GQ-7cE">
-                                        <rect key="frame" x="21" y="70" width="67" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SCL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9t-GQ-7cE">
+                                        <rect key="frame" x="18" y="64" width="67" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="27"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -231,7 +231,7 @@
                         <outlet property="mapView" destination="cmH-Lf-V33" id="uRQ-ok-j9m"/>
                         <outlet property="secondImg" destination="UQr-h0-JeA" id="wlF-ti-7aY"/>
                         <outlet property="secondLbl" destination="f9t-GQ-7cE" id="OKL-Yq-hSL"/>
-                        <outlet property="secondScoreLbl" destination="voo-zj-ruZ" id="LnS-WF-VGg"/>
+                        <outlet property="secondScoreLbl" destination="voo-zj-ruZ" id="IFX-Rw-TjQ"/>
                         <outlet property="segmentedControl" destination="Bpl-Bx-Qaz" id="fhW-32-B90"/>
                         <outlet property="seventhImg" destination="61x-zU-M8V" id="wFE-nv-hRU"/>
                         <outlet property="seventhLbl" destination="M0Q-bA-NJA" id="63P-fF-U19"/>
