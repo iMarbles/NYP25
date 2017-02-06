@@ -11,7 +11,7 @@ import Charts
 import CoreLocation
 import MapKit
 
-class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
+class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, IAxisValueFormatter, IValueFormatter{
     
     @IBOutlet weak var firstImg: UIImageView!
     @IBOutlet weak var secondImg: UIImageView!
@@ -44,6 +44,7 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     
     
     var locationManager : CLLocationManager!
+    
     
     @IBOutlet weak var dataView: UIView!
     @IBOutlet weak var mapView: MKMapView!
@@ -137,7 +138,9 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        mapView.mapType = MKMapType.standard
+        
         
         //configure user interactions
         mapView.isZoomEnabled = true
@@ -159,6 +162,24 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         //Set to the region with animated effect
         mapView.setRegion(region, animated:true)
         
+        
+        let sitLocation=Location(title: "SIT", coordinate: CLLocationCoordinate2D(latitude: 1.379348, longitude:103.849876))
+        let sidmLocation = Location(title: "SIDM", coordinate: CLLocationCoordinate2D(latitude: 1.3788469, longitude: 103.850058))
+        let segLocation = Location(title: "SEG", coordinate: CLLocationCoordinate2D(latitude: 1.378844, longitude: 103.848631))
+        let sclLocation = Location(title: "SCL", coordinate: CLLocationCoordinate2D(latitude: 1.3779, longitude: 103.8495))
+        let sdnLocation = Location(title: "SDN", coordinate: CLLocationCoordinate2D(latitude: 1.378297, longitude:103.848567))
+        let sbmLocation = Location(title: "SBM", coordinate: CLLocationCoordinate2D(latitude: 1.381311, longitude:103.84846))
+        let shsLocation = Location(title: "SHS", coordinate: CLLocationCoordinate2D(latitude: 1.381139, longitude:103.849865))
+        
+        mapView.addAnnotation(sitLocation)
+        mapView.addAnnotation(sidmLocation)
+        mapView.addAnnotation(segLocation)
+        mapView.addAnnotation(sclLocation)
+        mapView.addAnnotation(sdnLocation)
+        mapView.addAnnotation(sbmLocation)
+        mapView.addAnnotation(shsLocation)
+        
+        mapView.addAnnotations([sitLocation, sidmLocation, segLocation, sclLocation, sdnLocation, sbmLocation, shsLocation])
         //for pie chart
         loadEventAttendance()
         getAttendance()
@@ -172,7 +193,7 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         // Dispose of any resources that can be recreated.
     }
     
-    func loadEventAttendance(){
+        func loadEventAttendance(){
         LeaderboardDM.retrieveAllEvents(onComplete: {(listFromDb) in
             self.eventList = listFromDb
             
@@ -368,15 +389,11 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         
         schoolCount = [sbm, scl, sdn, seg, shs, sit, sidm]
         
-        
-   //     setPieChartFor(schools: schools, withValues: schoolCount)
+        //To represent as pie chart
         setBarChartFor(schools: schools, withValues: schoolCount)
-
-  //      setBarChartChar(dataPoints: schools, withValues: schoolCount)
-       
     }
     
-    
+    //Bar Chart
     func setBarChartFor(schools: [String], withValues : [Int]){
         var dataEntries : [BarChartDataEntry] = []
         
@@ -385,12 +402,14 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Schools:")
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Attendance")
         let chartData = BarChartData(dataSet: chartDataSet)
         
         leaderboardChart.data = chartData
         
+        //Customization
         let colors = [LeaderboardDM.sbmColor, LeaderboardDM.sclColor, LeaderboardDM.sdnColor, LeaderboardDM.segColor, LeaderboardDM.shsColor, LeaderboardDM.sitColor, LeaderboardDM.sidmColor]
+        
         
         chartDataSet.colors = colors
         
@@ -405,9 +424,11 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         leaderboardChart.leftAxis.granularityEnabled = true
         leaderboardChart.leftAxis.granularity = 1.0
         
-        //leaderboardChart.xAxis.valueFormatter = self
-        //leaderboardChart.barData?.setValueFormatter(self)
+        leaderboardChart.xAxis.valueFormatter = self
+        leaderboardChart.barData?.setValueFormatter(self)
     }
+    
+    //Formatting
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         return schools[Int(value)]
     }
@@ -415,9 +436,8 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
         return ""
     }
-
-
-        
+    
+    
     
 
 
