@@ -266,9 +266,6 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
             firstScoreLbl.text = String(format:"%.0f", a.avgPoints)
             firstImg.image = UIImage(named: a.colour!)
             } else if sortedCount == 1 {
-                
-            }
-            else if sortedCount == 1 {
                 secondLbl.text = a.school
                 secondScoreLbl.text = String(format:"%.0f", a.avgPoints)
                 secondImg.image = UIImage(named: a.colour!)
