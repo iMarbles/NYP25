@@ -1,5 +1,5 @@
 //
-//  UserProfileOthersProfileCollectionViewController.swift
+//  UserSocialOthersProfileCollectionViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 6/2/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileOthersProfileCollectionViewController: UICollectionViewController , UICollectionViewDelegateFlowLayout {
+class UserSocialOthersProfileCollectionViewController: UICollectionViewController , UICollectionViewDelegateFlowLayout {
     
     var profileGallery : [Social] = []
     
@@ -17,7 +17,7 @@ class UserProfileOthersProfileCollectionViewController: UICollectionViewControll
     var socialIdLbl : String = ""
     @IBOutlet weak var noItemsLbl : UILabel!
 
-    var socialImg : Social? = nil
+    var socialImg : Social?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class UserProfileOthersProfileCollectionViewController: UICollectionViewControll
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "othersUserPhotos", for: indexPath) as! UserProfileOthersProfileCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "othersUserPhotos", for: indexPath) as! UserSocialOthersProfileCollectionViewCell
         
         cell.ownPhotos?.image = UIImage(named: "loading-512")
         
@@ -57,7 +57,7 @@ class UserProfileOthersProfileCollectionViewController: UICollectionViewControll
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OtherUsersPhotosDetails" {
-            let a = segue.destination as! UserProfileOthersProfileDetailsViewController
+            let a = segue.destination as! UserSocialOthersProfileDetailsViewController
             
             a.socialImg = socialImg
         }

@@ -65,11 +65,15 @@ class UserSocialMainListTableViewController: UITableViewController {
         let s = socialList[(indexPath as IndexPath).row]
         cell.dateLbl.text = GlobalDM.getCommentDateTimeBy(stringDate: s.postedDateTime!)
         
-        if(s.uploaderUsername == nil){
-            cell.usernameLbl.text = s.uploader
-        }else{
-            cell.usernameLbl.text = s.uploaderUsername
-        }
+//        if(s.uploaderUsername == nil){
+//            cell.usernameLbl.text = s.uploader
+//        }else{
+//            cell.usernameLbl.text = s.uploaderUsername
+//        }
+        
+        cell.usernamebtn?.tag = indexPath.row
+        cell.usernamebtn?.addTarget(self, action: #selector(actionUsername), for: .touchUpInside)
+        cell.usernamebtn?.setTitle(s.uploaderUsername, for: .normal)
         
         cell.captionLbl.text = s.caption
         
@@ -217,6 +221,12 @@ class UserSocialMainListTableViewController: UITableViewController {
             self.present(alertController, animated: true) {}
 
         }
+    }
+
+    @IBAction func actionUsername(sender: AnyObject) {
+        let vc = UIStoryboard(name:"UserSocial", bundle:nil).instantiateViewController(withIdentifier: "PeopleDetails") as! UserSocialOthersProfileViewController
+        vc.socialImg = socialList[(sender.tag)]
+        self.navigationController?.pushViewController(vc, animated:true)
     }
     
     @IBAction func actionDelete(sender: UIButton) {

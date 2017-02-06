@@ -1,5 +1,5 @@
 //
-//  UserProfileOtherUsersBadgesCollectionViewCell.swift
+//  UserSocialOtherUsersBadgesCollectionViewCell.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 6/2/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileOtherUsersBadgesCollectionViewCell: UICollectionViewCell {
+class UserSocialOtherUsersBadgesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var badgePhotos : UIImageView!
     @IBOutlet weak var badgeCheck : UIImageView!
     

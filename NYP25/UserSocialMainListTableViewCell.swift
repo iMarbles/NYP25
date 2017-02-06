@@ -16,6 +16,8 @@ import Firebase
 
 class UserSocialMainListTableViewCell: UITableViewCell {    
     @IBOutlet weak var usernameLbl : UILabel!
+    @IBOutlet weak var usernamebtn : UIButton?
+    
 //    @IBOutlet weak var captionLbl : UITextView!
     @IBOutlet weak var captionLbl : UILabel!
     @IBOutlet weak var dateLbl : UILabel!

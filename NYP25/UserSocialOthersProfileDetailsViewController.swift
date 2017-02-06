@@ -1,5 +1,5 @@
 //
-//  UserProfileOthersProfileDetailsViewController.swift
+//  UserSocialOthersProfileDetailsViewController.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 6/2/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileOthersProfileDetailsViewController: UIViewController {
+class UserSocialOthersProfileDetailsViewController: UIViewController {
     @IBOutlet weak var photoIdLbl : UILabel!
     @IBOutlet weak var pathIdLbl : UILabel!
     @IBOutlet weak var socialIdLbl : UILabel!
@@ -68,7 +68,7 @@ class UserProfileOthersProfileDetailsViewController: UIViewController {
 //            
 //            a.photoGallery = (socialImg?.likes)!
 //        }else if segue.identifier == "OtherUsersProfile" {
-//            let a = segue.destination as! UserProfileOthersProfileViewController
+//            let a = segue.destination as! UserSocialOthersProfileViewController
 //            
 //            a.socialImg = socialImg
 //        }

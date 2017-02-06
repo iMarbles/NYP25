@@ -1,5 +1,5 @@
 //
-//  UserProfileOthersProfileCollectionViewCell.swift
+//  UserSocialOthersProfileCollectionViewCell.swift
 //  NYP25
 //
 //  Created by Evelyn Tan on 6/2/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserProfileOthersProfileCollectionViewCell: UICollectionViewCell {
+class UserSocialOthersProfileCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ownPhotos : UIImageView!
     
     override func prepareForReuse() {
