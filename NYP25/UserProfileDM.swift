@@ -152,6 +152,57 @@ class UserProfileDM: NSObject {
             onComplete(studList)
         })
     }
+
+    static func retrieveAllStudentInfoByUserId(userId : String, onComplete: @escaping ([Student])->Void){
+        var studList : [Student] = []
+        var badgesList : [Badge] = []
+        
+        let ref = FIRDatabase.database().reference().child("users/\(userId)/")
+        
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            studList = []
+            
+            for record in snapshot.children{
+                let r = record as! FIRDataSnapshot
+                
+                let s = Student()
+                
+                s.userId = r.key
+//                s.isAdmin = r.childSnapshot(forPath: "isAdmin").value as! Int
+//                if(s.isAdmin == 0){
+                    s.bio = r.childSnapshot(forPath: "bio").value as? String
+                    s.displayPhotoUrl = r.childSnapshot(forPath: "displayPhotoUrl").value as? String
+                    s.name = (r.childSnapshot(forPath: "name").value as? String)!
+                    s.username = (r.childSnapshot(forPath: "username").value as? String)!
+                    s.password = (r.childSnapshot(forPath: "password").value as? String)!
+                    s.points = (r.childSnapshot(forPath: "points").value as? Int)!
+                    s.school = (r.childSnapshot(forPath: "school").value as? String)!
+                    
+                    //Child nodes
+                    badgesList = []
+                    let badge = r.childSnapshot(forPath: "badges").children
+                    for badges in badge{
+                        let l = badges as! FIRDataSnapshot
+                        
+                        let u = Badge()
+                        u.badgeId = l.key
+                        u.isDisplay = l.childSnapshot(forPath: "isDisplay").value as? Int
+                        u.icon = l.childSnapshot(forPath: "icon").value as? String
+                        
+                        badgesList.append(u)
+                    }
+                    
+                    s.badges = badgesList
+                    studList.append(s)
+//                }
+                
+            }
+            
+            onComplete(studList)
+        })
+    }
     
     static func retrieveAllStudentInfo(onComplete: @escaping ([Student])->Void){
         var studList : [Student] = []

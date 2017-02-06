@@ -16,7 +16,9 @@ class UserSocialMainListTableViewController: UITableViewController {
     var socialList : [Social] = []
     var countList : [PhotoLike] = []
     var flagList : [SocialFlag] = []
-    
+    var studentList : [Student] = []
+    var badgeList : [Badge] = []
+
     var imgToPass: Social?
     
     override func viewDidLoad() {
@@ -61,19 +63,41 @@ class UserSocialMainListTableViewController: UITableViewController {
         
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         cell.mainListImageView.image = UIImage(named: "loading-512")
+        cell.userBadge.image = UIImage(named: "loading-512")
         
         let s = socialList[(indexPath as IndexPath).row]
         cell.dateLbl.text = GlobalDM.getCommentDateTimeBy(stringDate: s.postedDateTime!)
         
-//        if(s.uploaderUsername == nil){
-//            cell.usernameLbl.text = s.uploader
-//        }else{
-//            cell.usernameLbl.text = s.uploaderUsername
-//        }
+        if(s.uploaderUsername == nil){
+            cell.usernameLbl.text = s.uploader
+        }else{
+            cell.usernameLbl.text = s.uploaderUsername
+        }
         
-        cell.usernamebtn?.tag = indexPath.row
-        cell.usernamebtn?.addTarget(self, action: #selector(actionUsername), for: .touchUpInside)
-        cell.usernamebtn?.setTitle(s.uploaderUsername, for: .normal)
+//        UserProfileDM.retrieveAllStudentInfoByUserId(userId: s.uploader!, onComplete: {(studList) in
+        UserProfileDM.retrieveAllStudentInfo(onComplete: {(studList) in
+            self.studentList = studList
+            
+            for a in self.studentList{
+//                if(a.userId == (GlobalDM.CurrentUser?.userId)!){
+                if(a.userId == s.uploader){
+                    for b in a.badges!{
+                        if(b.isDisplay == 1){
+                            self.badgeList.append(b)
+                            UserSocialProfileMasterViewController.loadImage(
+                                imageView: cell.userBadge,
+                                url: b.icon!)
+                            UserSocialProfileMasterViewController.roundedEdgePhoto(image: cell.userBadge)
+                        }
+                    }
+                }
+            }
+        })
+        
+        
+//        cell.usernamebtn?.tag = indexPath.row
+//        cell.usernamebtn?.addTarget(self, action: #selector(actionUsername), for: .touchUpInside)
+//        cell.usernamebtn?.setTitle(s.uploaderUsername, for: .normal)
         
         cell.captionLbl.text = s.caption
         
@@ -223,11 +247,11 @@ class UserSocialMainListTableViewController: UITableViewController {
         }
     }
 
-    @IBAction func actionUsername(sender: AnyObject) {
-        let vc = UIStoryboard(name:"UserSocial", bundle:nil).instantiateViewController(withIdentifier: "PeopleDetails") as! UserSocialOthersProfileViewController
-        vc.socialImg = socialList[(sender.tag)]
-        self.navigationController?.pushViewController(vc, animated:true)
-    }
+//    @IBAction func actionUsername(sender: AnyObject) {
+//        let vc = UIStoryboard(name:"UserSocial", bundle:nil).instantiateViewController(withIdentifier: "PeopleProfile") as! UserSocialOthersProfileViewController
+//        vc.socialImg = socialList[(sender.tag)]
+//        self.navigationController?.pushViewController(vc, animated:true)
+//    }
     
     @IBAction func actionDelete(sender: UIButton) {
         let alertController = UIAlertController(title: "You sure you wanna delete this post?", message: nil, preferredStyle: .alert)

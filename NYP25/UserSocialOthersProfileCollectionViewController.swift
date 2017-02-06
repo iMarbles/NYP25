@@ -22,7 +22,7 @@ class UserSocialOthersProfileCollectionViewController: UICollectionViewControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("userprofile - \((socialImg?.uploader)!)")
+//        print("userprofile - \((socialImg?.uploader)!)")
         
         UserSocialDM.retrieveAllOtherPhotos(userId : (socialImg?.uploader)! , onComplete: { (photos) in
             self.profileGallery = photos
