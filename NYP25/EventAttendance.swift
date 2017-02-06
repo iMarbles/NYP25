@@ -10,6 +10,6 @@ import UIKit
 
 class EventAttendance: NSObject {
     var adminNo : String = ""
-    var school = ""
+    var school : String?
     var events : [EventsInAttendance] = []
 }

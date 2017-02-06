@@ -51,6 +51,8 @@ class LoginDM: NSObject {
                             if(u.childSnapshot(forPath: "isAdmin").value as! Int == 0){
                                 GlobalDM.CurrentUser!.userId = u.key
                                 GlobalDM.CurrentUser!.isAdmin = 0
+                                GlobalDM.CurrentUser!.password = u.childSnapshot(forPath: "password").value as! String
+                                GlobalDM.CurrentUser!.school = u.childSnapshot(forPath: "school").value as! String
                                 //Might add additional fields to load user data
                             }else if(u.childSnapshot(forPath: "isAdmin").value as! Int == 1){
                                 //Is Admin

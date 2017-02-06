@@ -23,6 +23,9 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
     var isNewEvent = false
     var isEventImage : Bool = true
     
+    var isNewEventImg : Bool = false
+    var isNewBadgeImg : Bool = false
+    
     var tapped : Bool = false
 
     override func viewDidLoad() {
@@ -69,7 +72,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
             nameTb.text = event?.name
         }
 
-        if event?.imageUrl != nil{
+        if event?.imageUrl != nil && isNewEventImg == false {
             GlobalDM.loadImage(imageView: eventImage, url: (event?.imageUrl)!)
             eventImage.isHidden = false
         }
@@ -79,7 +82,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         formatDbTimeFor(textField : endTimeTb, dbTime : event?.endTime)
         
         //badge
-        if event?.badgeId != nil{
+        if event?.badgeId != nil && isNewBadgeImg == false {
             AdminEventDM.retrieveBadgeByEventId(id: (event?.badgeId)!, onComplete: {(badge) in
                 GlobalDM.loadImage(imageView: self.badgeImage, url: badge.icon)
             })
@@ -193,6 +196,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         isEventImage = true
+        isNewEventImg = true
         
         self.present(picker, animated: true)
     }
@@ -204,6 +208,7 @@ class AdminEventsNewViewController: UIViewController, UIImagePickerControllerDel
         picker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         isEventImage = false
+        isNewBadgeImg = true
         
         self.present(picker, animated: true)
     }

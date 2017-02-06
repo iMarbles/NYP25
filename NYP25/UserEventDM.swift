@@ -83,6 +83,8 @@ class UserEventDM: NSObject {
         let now = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYYMMDD, HH:mm:ss"
+        let ref2 = FIRDatabase.database().reference().child("eventAttendance/\(adm)/")
+        ref2.updateChildValues(["school" : GlobalDM.CurrentUser?.school as Any])
         let ref = FIRDatabase.database().reference().child("eventAttendance/\(adm)/events/\(eventId)")
         ref.updateChildValues(["rsvp" : formatter.string(from: now)])
     }

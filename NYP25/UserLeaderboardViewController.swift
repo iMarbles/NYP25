@@ -13,33 +13,30 @@ import MapKit
 
 class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
     
-    @IBOutlet weak var green: UIImageView!
-    @IBOutlet weak var blue: UIImageView!
-    @IBOutlet weak var yellow: UIImageView!
-    @IBOutlet weak var purple: UIImageView!
-    @IBOutlet weak var orange: UIImageView!
-    @IBOutlet weak var red: UIImageView!
-    @IBOutlet weak var pink: UIImageView!
+    @IBOutlet weak var firstImg: UIImageView!
+    @IBOutlet weak var secondImg: UIImageView!
+    @IBOutlet weak var thirdImg: UIImageView!
+    @IBOutlet weak var fourthImg: UIImageView!
+    @IBOutlet weak var fifthImg: UIImageView!
+    @IBOutlet weak var sixthImg: UIImageView!
+    @IBOutlet weak var seventhImg: UIImageView!
     
-    @IBOutlet weak var sitLbl: UILabel!
-    @IBOutlet weak var sbmLbl: UILabel!
-    @IBOutlet weak var sidmLbl: UILabel!
-    @IBOutlet weak var shsLbl: UILabel!
-    @IBOutlet weak var sclLbl: UILabel!
-    @IBOutlet weak var segLbl: UILabel!
-    @IBOutlet weak var sdnLbl: UILabel!
     
-    @IBOutlet weak var sitScoreLbl: UILabel!
-    @IBOutlet weak var sbmScoreLbl: UILabel!
-    @IBOutlet weak var sidmScoreLbl: UILabel!
-    @IBOutlet weak var shsScoreLbl: UILabel!
-    @IBOutlet weak var sclScoreLbl: UILabel!
-    @IBOutlet weak var segScoreLbl: UILabel!
-    @IBOutlet weak var sdnScoreLbl: UILabel!
+    @IBOutlet weak var firstScoreLbl: UILabel!
+    @IBOutlet weak var secondScoreLbl: UILabel!
+    @IBOutlet weak var thirdScoreLbl: UILabel!
+    @IBOutlet weak var fourthScoreLbl: UILabel!
+    @IBOutlet weak var fifthScoreLbl: UILabel!
+    @IBOutlet weak var sixthScoreLbl: UILabel!
+    @IBOutlet weak var seventhScoreLbl: UILabel!
     
     @IBOutlet weak var firstLbl: UILabel!
     @IBOutlet weak var secondLbl: UILabel!
     @IBOutlet weak var thirdLbl: UILabel!
+    @IBOutlet weak var fourthLbl: UILabel!
+    @IBOutlet weak var fifthLbl: UILabel!
+    @IBOutlet weak var sixthLbl: UILabel!
+    @IBOutlet weak var seventhLbl: UILabel!
     
     @IBOutlet weak var leaderboardChart: BarChartView!
     
@@ -53,7 +50,12 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     
     //for bar chart 
     let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SIDM"]
+    let colour = ["yellow", "red", "pink", "green", "orange", "blue", "purple"]
+
     var schoolCount : [Int] = []
+    var sumOfAttendees = 0
+    var selectedAdminNum = ""
+    
     
     var eventList : [Event] = []
     var attendanceList : [EventAttendance] = []
@@ -159,6 +161,7 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         
         //for pie chart
         loadEventAttendance()
+        getAttendance()
         
                 
             }
@@ -174,13 +177,150 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
             self.eventList = listFromDb
             
         })
-        LeaderboardDM.retrieveAllEventAttendance(onComplete: { (attendanceFromDb) in
+        
+        LeaderboardDM.retrieveAttendance(adminNum: selectedAdminNum, onComplete: { (attendanceFromDb) in
             self.attendanceList = attendanceFromDb
             
             self.createPieChart()
+           
+       //     self.getUniqueAttendance()
             
         })
     }
+    
+    func getAttendance(){
+        
+        var sbmAtt = 0;
+        var sclAtt = 0;
+        var sdnAtt = 0;
+        var segAtt = 0;
+        var shsAtt = 0;
+        var sitAtt = 0;
+        var sidmAtt = 0;
+        var count = 0;
+        
+        //Loop through all the event attendances
+        for a in attendanceList{
+            let b = a.school
+            //each person attends multple events (sum them up)
+            //for e in a.events{
+                //if e.checkIn != nil{
+                  //  count += 1
+                //}
+          //  }
+            if b == "SBM"{
+            sbmAtt += count
+            }
+            if b == "SCL"{
+            sclAtt += count
+            }
+            if b == "SDN"{
+            sdnAtt += count
+            }
+            if b == "SEG"{
+            segAtt += count
+            }
+            if b == "SHS"{
+            shsAtt += count
+            }
+            if b == "SIT"{
+            sitAtt += count
+            }
+            if b == "SIDM"{
+            sidmAtt += count
+            }
+            
+        }
+        
+        var leaderboard = [Leaderboard]()
+    schoolCount = [sbmAtt, sclAtt, sdnAtt, segAtt, shsAtt, sitAtt, sidmAtt]
+        var ldrCount = 0;
+        for i in schoolCount {
+            let l : Leaderboard = Leaderboard()
+            l.school =  schools[ldrCount]
+            l.colour = colour [ldrCount]
+            l.avgPoints = Double(i)
+            
+            ldrCount += 1
+            leaderboard.append(l)
+        }
+        
+        var sortedBoard = [Leaderboard]()
+        var prev = 0;
+        for j in leaderboard {
+            let x = Int(j.avgPoints)
+            if x < prev {
+                sortedBoard.insert(j, at: 0)
+            } else {
+                sortedBoard.append(j)
+            }
+            prev = x
+            // sort leaderboard objects, with the 1st object having the most avgPoints, and the last having the least.
+        }
+      
+        
+        var sortedCount = 0
+        for a in sortedBoard {
+            if sortedCount == 0 {
+            firstLbl.text = a.school
+            firstScoreLbl.text = String(format:"%.0f", a.avgPoints)
+            firstImg.image = UIImage(named: a.colour!)
+            } else if sortedCount == 1 {
+                secondLbl.text = a.school
+                secondScoreLbl.text = String(format:"%.0f", a.avgPoints)
+                secondImg.image = UIImage(named: a.colour!)
+            }
+            else if sortedCount == 2 {
+                thirdLbl.text = a.school
+                thirdScoreLbl.text = String(format:"%.0f", a.avgPoints)
+                thirdImg.image = UIImage(named: a.colour!)
+            }
+            else if sortedCount == 3 {
+                fourthLbl.text = a.school
+                fourthScoreLbl.text = String(format:"%.0f", a.avgPoints)
+                fourthImg.image = UIImage(named: a.colour!)
+            }
+            else if sortedCount == 4 {
+                fifthLbl.text = a.school
+                fifthScoreLbl.text = String(format:"%.0f", a.avgPoints)
+                fifthImg.image = UIImage(named: a.colour!)
+            }
+            else if sortedCount == 5 {
+                sixthLbl.text = a.school
+                sixthScoreLbl.text = String(format:"%.0f", a.avgPoints)
+                sixthImg.image = UIImage(named: a.colour!)
+            }
+            else if sortedCount == 6 {
+                seventhLbl.text = a.school
+                seventhScoreLbl.text = String(format:"%.0f", a.avgPoints)
+                seventhImg.image = UIImage(named: a.colour!)
+            }
+
+            sortedCount += 1
+        }
+        
+        
+  
+       
+        
+        
+        
+        
+        
+      
+        
+        // do some loop and sort which leaderboard object has more points an assign into another list
+        
+        
+        
+        //Show the attendance
+   //     sumOfAttendees = count
+     //   sitLbl.text = formatNumber(toComma: count)
+    }
+    
+  //  func getUniqueAttendance(){
+    //    uniqueLbl.text = formatNumber(toComma: attendanceList.count)
+    //}
     
     func createPieChart(){
         

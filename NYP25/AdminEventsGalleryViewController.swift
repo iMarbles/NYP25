@@ -28,6 +28,7 @@ class AdminEventsGalleryViewController: UICollectionViewController, UICollection
     
     func loadPhotos(){
         AdminEventDM.retrieveEventPhotos(eventId: (event?.eventId)!, onComplete: { (photos) in
+            self.eventPhotos = []
             for photo in photos{
                 if photo.isFlagged != 3{
                     self.eventPhotos.append(photo)

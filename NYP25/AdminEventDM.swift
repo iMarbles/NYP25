@@ -208,9 +208,9 @@ class AdminEventDM: NSObject {
         ref.observe(FIRDataEventType.value, with:
             {(snapshot) in
                 socialPhotos = []
+                
                 for record in snapshot.children{
                     let r = record as! FIRDataSnapshot
-                    
                     let photo = Social()
                     photo.socialId = r.key
                     photo.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
@@ -384,7 +384,7 @@ class AdminEventDM: NSObject {
                 
                 let a = EventAttendance()
                 a.adminNo = r.key
-                a.school = r.childSnapshot(forPath: "school").value as! String
+                a.school = r.childSnapshot(forPath: "school").value as? String
                 
                 //Child nodes of events
                 eventsInAttendanceList = []
@@ -399,7 +399,6 @@ class AdminEventDM: NSObject {
                     
                     eventsInAttendanceList.append(e)
                 }
-                
                 a.events = eventsInAttendanceList
                 attendanceList.append(a)
             }
