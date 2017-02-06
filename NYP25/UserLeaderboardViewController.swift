@@ -163,13 +163,20 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         mapView.setRegion(region, animated:true)
         
         
-        let sitLocation=Location(title: "SIT", coordinate: CLLocationCoordinate2D(latitude: 1.379348, longitude:103.849876))
-        let sidmLocation = Location(title: "SIDM", coordinate: CLLocationCoordinate2D(latitude: 1.3788469, longitude: 103.850058))
-        let segLocation = Location(title: "SEG", coordinate: CLLocationCoordinate2D(latitude: 1.378844, longitude: 103.848631))
-        let sclLocation = Location(title: "SCL", coordinate: CLLocationCoordinate2D(latitude: 1.3779, longitude: 103.8495))
-        let sdnLocation = Location(title: "SDN", coordinate: CLLocationCoordinate2D(latitude: 1.378297, longitude:103.848567))
-        let sbmLocation = Location(title: "SBM", coordinate: CLLocationCoordinate2D(latitude: 1.381311, longitude:103.84846))
-        let shsLocation = Location(title: "SHS", coordinate: CLLocationCoordinate2D(latitude: 1.381139, longitude:103.849865))
+        let sitLocation = Location(title: "SIT", subtitle: "School of Information Technology", colour: UIColor.blue, coordinate: CLLocationCoordinate2D(latitude: 1.379348, longitude:103.849876))
+        
+        let sidmLocation = Location(title: "SIDM", subtitle: "School of Interactive Design & Media", colour: UIColor.purple, coordinate: CLLocationCoordinate2D(latitude: 1.3788469, longitude: 103.850058))
+        
+        let segLocation = Location(title: "SEG", subtitle: "School of Engineering", colour: UIColor.green, coordinate: CLLocationCoordinate2D(latitude: 1.378844, longitude: 103.848631))
+        
+        let sclLocation = Location(title: "SCL", subtitle: "School of Chemical Life Sciences", colour: UIColor.red, coordinate: CLLocationCoordinate2D(latitude: 1.3779, longitude: 103.8495))
+        
+        let sdnLocation = Location(title: "SDN", subtitle: "School of Design", colour: UIColor(red:0.9059, green:0, blue:0.9882, alpha:1.0), coordinate: CLLocationCoordinate2D(latitude: 1.378297, longitude:103.848567))
+        
+        let sbmLocation = Location(title: "SBM", subtitle: "School of Business Management", colour: UIColor.yellow, coordinate: CLLocationCoordinate2D(latitude: 1.381311, longitude:103.84846))
+        
+        let shsLocation = Location(title: "SHS", subtitle: "School of Health Sciences", colour: UIColor(red: 0.898, green: 0.6941, blue: 0.4471, alpha: 1.0), coordinate: CLLocationCoordinate2D(latitude: 1.381139, longitude:103.849865))
+        
         
         mapView.addAnnotation(sitLocation)
         mapView.addAnnotation(sidmLocation)
@@ -186,6 +193,8 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         
                 
             }
+ 
+    
     
 
     override func didReceiveMemoryWarning() {
