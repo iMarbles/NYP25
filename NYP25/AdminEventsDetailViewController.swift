@@ -61,7 +61,7 @@ class AdminEventsDetailViewController: UIViewController {
         
         if event?.badgeId != nil{
             AdminEventDM.retrieveBadgeByEventId(id: (event?.eventId)!, onComplete: { (badge) in
-                GlobalDM.loadImage(imageView: self.badgeImg, url: badge.icon)
+                GlobalDM.loadImage(imageView: self.badgeImg, url: badge.icon!)
                 self.badgeImg.layer.masksToBounds = false
                 self.badgeImg.layer.cornerRadius = self.badgeImg.frame.height/2
                 self.badgeImg.clipsToBounds = true
