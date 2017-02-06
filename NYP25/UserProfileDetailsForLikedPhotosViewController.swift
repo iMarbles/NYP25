@@ -15,6 +15,7 @@ class UserProfileDetailsForLikedPhotosViewController: UIViewController {
     @IBOutlet weak var photoImage : UIImageView!
     
     @IBOutlet weak var usernameLbl : UILabel!
+    @IBOutlet weak var usernameBtn : UIButton?
     @IBOutlet weak var timestampLbl : UILabel!
     
     @IBOutlet weak var countLikesLbl : UILabel!
@@ -36,7 +37,9 @@ class UserProfileDetailsForLikedPhotosViewController: UIViewController {
         pathIdLbl.text = socialImg?.photoUrl
         socialIdLbl.text = socialImg?.socialId
         
-        usernameLbl.text = socialImg?.uploaderUsername
+//        usernameLbl.text = socialImg?.uploaderUsername
+        usernameBtn?.setTitle("\((socialImg?.uploaderUsername)!)", for: .normal)
+        
         timestampLbl.text = GlobalDM.getCommentDateTimeBy(stringDate: (socialImg?.postedDateTime)!)
         
         self.photoImage.image = UIImage(named: "loading-512")
@@ -64,6 +67,10 @@ class UserProfileDetailsForLikedPhotosViewController: UIViewController {
             let a = segue.destination as! UserProfileCommentsForLikedPhotosTableViewController
             
             a.photoGallery = (socialImg?.likes)!
+        }else if segue.identifier == "OtherUsersProfile" {
+            let a = segue.destination as! UserProfileOthersProfileViewController
+            
+            a.socialImg = socialImg
         }
     }
     /*
