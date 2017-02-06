@@ -13,6 +13,8 @@ class UserInboxTableViewController: UITableViewController {
     var eventList : [Event] = []
     var eventToFeedbackList : [Event] = []
     
+    var reportedSocialList : [Social] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +24,7 @@ class UserInboxTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         loadEventsToFeedback()
+        loadDeletedImages()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,30 +65,72 @@ class UserInboxTableViewController: UITableViewController {
         }
     }
     
+    func loadDeletedImages(){
+        reportedSocialList = []
+        UserInboxDM.retrieveFlaggedSocialImage { (deletedPhotoList) in
+            self.reportedSocialList = deletedPhotoList
+            self.tableView.reloadData()
+        }
+    }
+    
     
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return eventToFeedbackList.count
+        if section == 0{
+            return eventToFeedbackList.count
+        }
+        else {
+            return reportedSocialList.count
+        }
     }
-
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0{
+            return "Rate Events"
+        }
+        else{
+         return "Reported Photos"
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InboxCell", for: indexPath) as! UserInboxMainTableViewCell
         
         let row = (indexPath as IndexPath).row
+        let section = indexPath.section
         
         // Configure the cell...
-        GlobalDM.loadImage(imageView: cell.eventImg, url: eventToFeedbackList[row].imageUrl!)
-        cell.rateLbl.text = "\(eventToFeedbackList[row].name!)"
+        cell.eventImg.image = UIImage(named: "loading-512")
+        if section == 0{
+            GlobalDM.loadImage(imageView: cell.eventImg, url: eventToFeedbackList[row].imageUrl!)
+            cell.rateLbl.text = "\(eventToFeedbackList[row].name!)"
+        }else{
+            GlobalDM.loadImage(imageView: cell.eventImg, url: reportedSocialList[row].photoUrl!)
+            cell.rateLbl.text = "This photo has been reported and removed"
+        }
+
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        let selectedSection = indexPath.section
+        
+        if selectedSection == 0 {
+            self.performSegue(withIdentifier: "RateEvent", sender: self)
+        }
+        if selectedSection == 1 {
+            self.performSegue(withIdentifier: "AcknowledgeReport", sender: self)
+        }
     }
     
 
@@ -135,6 +180,13 @@ class UserInboxTableViewController: UITableViewController {
             
             let selectedRow = tableView.indexPathForSelectedRow! as IndexPath
             vc.event = eventToFeedbackList[selectedRow.row]
+        }
+        
+        if segue.identifier == "AcknowledgeReport"{
+            let vc = segue.destination as! UserInboxAcknowledgeReportViewController
+            
+            let selectedRow = tableView.indexPathForSelectedRow! as IndexPath
+            vc.currentImg = reportedSocialList[selectedRow.row]
         }
     }
 }
