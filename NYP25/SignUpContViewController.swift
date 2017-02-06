@@ -41,7 +41,40 @@ class SignUpContViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func btnSignUpTriggered(sender : AnyObject) {
-        showAlert(title: "nice", message: "nothing interesting happens yet")
+        if(uploadImg.image == nil) {
+            showAlert(title: "Oops", message: "You didn't upload a profile picture.")
+        } else if (bioTv.text == "" || bioTv.text == "Say something about yourself...") {
+            showAlert(title: "Oops", message: "Please fill in your profile bio.")
+        } else {
+            let s : Student = Student()
+            s.userId = adminNumber!
+            s.isAdmin = 0
+            s.password = password!//sending as plaintext first, DM should hash
+            s.school = school!
+            s.name = fullName!
+            s.username = username!
+            s.points = 0
+            s.bio = bioTv.text
+            
+            var imgData : NSData?
+            
+            if(uploadImg.image != nil){
+                imgData = UIImageJPEGRepresentation(uploadImg.image!, 0.8)! as NSData
+            }
+            
+            
+            RegisterDM.createAccount(s: s, dp: imgData)
+            showSignInAlert(title: "All Done!", message: "Your account was created!")
+        }
+        
+        
+//        var eventData : NSData?
+//        if(eventImage.image != nil){
+//            eventData = UIImageJPEGRepresentation(eventImage.image!, 0.8)! as NSData
+//        }
+
+        
+        
         // todo: make this alert let the user decide whether to login or go back to login screen
     }
     
@@ -106,6 +139,24 @@ class SignUpContViewController: UIViewController, UIImagePickerControllerDelegat
         let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
         self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func showSignInAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Sign In", style: UIAlertActionStyle.default,handler: {(alert: UIAlertAction!) in
+            LoginDM.loginUser(username: self.username!, password: self.password!, onComplete: {
+                print("login completed")
+                var viewController : UIViewController
+                viewController = UIStoryboard(name: "UserMain", bundle: nil).instantiateViewController(withIdentifier: "UserMain") as UIViewController
+                self.present(viewController, animated: false, completion: nil)
+            })
+
+        }))
+        self.present(alertController, animated: true, completion: {
+            print("alert hit")
+            
+        })
         
     }
     

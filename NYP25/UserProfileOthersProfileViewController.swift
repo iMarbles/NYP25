@@ -75,7 +75,19 @@ class UserProfileOthersProfileViewController: UIViewController {
             
             a.socialImg = socialImg
         }
+        else if segue.identifier == "OtherUsersPhotos" {
+            let a = segue.destination as! UserProfileOthersProfileCollectionViewController
+            
+            a.socialImg = socialImg
+//
+//            let cell = sender as? UserProfileViewLikedPhotosCollectionViewCell
+//            let indexPath = collectionView?.indexPath(for: cell!)
+//            
+//            a.socialImg = profileGallery[(indexPath?.row)!]
+//            
+        }
     }
+    
 
     /*
     // MARK: - Navigation
