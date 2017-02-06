@@ -19,6 +19,7 @@ class UserInboxDM: NSObject {
         let ref = FIRDatabase.database().reference().child("eventAttendance/\(userId)/events/")
         ref.observe(FIRDataEventType.value, with:{
             (snapshot) in
+            eventsAttendedList = []
             if snapshot.exists(){
                 for record in snapshot.children{
                    let r = record as! FIRDataSnapshot
