@@ -25,7 +25,11 @@ class UserSocialMainListTableViewController: UITableViewController {
         likedBy = PhotoLike()
         
         UserSocialDM.retrieveAllSocial{(dbList) in
-            self.socialList = dbList
+            for i in dbList{
+                if(i.isFlagged == 0 || i.isFlagged == 2){
+                    self.socialList.append(i)
+                }
+            }
             self.tableView.reloadData()
             
             

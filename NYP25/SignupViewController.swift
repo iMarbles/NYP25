@@ -105,21 +105,20 @@
             showAlert(title: "Oops!", message: "Looks like you didn't fill in all the fields.")
         } else if (pwTf.text != cpwTf.text) {
             showAlert(title: "Oops!", message: "Your passwords do not match.")
-        } else if !(schTf.text == "SIT" || schTf.text == "SIDM" || schTf.text == "SDN" || schTf.text == "SBM" || schTf.text == "SCL" || schTf.text == "SEG") {
+        } else if !(schTf.text == "SIT" || schTf.text == "SIDM" || schTf.text == "SDN" || schTf.text == "SBM" || schTf.text == "SCL" || schTf.text == "SEG" || schTf.text == "SHS") {
             showAlert(title: "Oops!", message: "You have entered an invalid school!")
         } else {
             print("======");
     
     
             admTf.text = admTf.text?.uppercased()
-            unTf.text = unTf.text?.lowercased()
             RegisterDM.getUsers(admin: admTf.text!, username: unTf.text!, onComplete: {(sList) in
                 var idmatch : Bool = false
                 var usermatch : Bool = false
                 for s in sList {
                     if(s.userId == self.admTf.text) {
                         idmatch = true;
-                    } else if(s.username == self.unTf.text) {
+                    } else if(s.username.lowercased() == self.unTf.text?.lowercased()) {
                         usermatch = true;
                     }
                 }

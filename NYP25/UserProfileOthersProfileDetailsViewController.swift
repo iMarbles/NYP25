@@ -1,14 +1,14 @@
 //
-//  UserProfileDetailsForLikedPhotosViewController.swift
+//  UserProfileOthersProfileDetailsViewController.swift
 //  NYP25
 //
-//  Created by Evelyn Tan on 29/1/17.
+//  Created by Evelyn Tan on 6/2/17.
 //  Copyright © 2017 NYP. All rights reserved.
 //
 
 import UIKit
 
-class UserProfileDetailsForLikedPhotosViewController: UIViewController {
+class UserProfileOthersProfileDetailsViewController: UIViewController {
     @IBOutlet weak var photoIdLbl : UILabel!
     @IBOutlet weak var pathIdLbl : UILabel!
     @IBOutlet weak var socialIdLbl : UILabel!
@@ -37,8 +37,8 @@ class UserProfileDetailsForLikedPhotosViewController: UIViewController {
         pathIdLbl.text = socialImg?.photoUrl
         socialIdLbl.text = socialImg?.socialId
         
-//        usernameLbl.text = socialImg?.uploaderUsername
-        usernameBtn?.setTitle("\((socialImg?.uploaderUsername)!)", for: .normal)
+//        usernameBtn?.setTitle("\((socialImg?.uploaderUsername)!)", for: .normal)
+        usernameLbl.text = (socialImg?.uploaderUsername)!
         
         timestampLbl.text = GlobalDM.getCommentDateTimeBy(stringDate: (socialImg?.postedDateTime)!)
         
@@ -62,24 +62,16 @@ class UserProfileDetailsForLikedPhotosViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "UserProfileDetailForLikedViewComments" {
-            let a = segue.destination as! UserProfileCommentsForLikedPhotosTableViewController
-            
-            a.photoGallery = (socialImg?.likes)!
-        }else if segue.identifier == "OtherUsersProfile" {
-            let a = segue.destination as! UserProfileOthersProfileViewController
-            
-            a.socialImg = socialImg
-        }
-    }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "UserProfileDetailForLikedViewComments" {
+//            let a = segue.destination as! UserProfileCommentsForLikedPhotosTableViewController
+//            
+//            a.photoGallery = (socialImg?.likes)!
+//        }else if segue.identifier == "OtherUsersProfile" {
+//            let a = segue.destination as! UserProfileOthersProfileViewController
+//            
+//            a.socialImg = socialImg
+//        }
+//    }
+
 }
