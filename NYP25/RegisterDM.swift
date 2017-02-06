@@ -89,7 +89,11 @@ class RegisterDM: NSObject {
             ])
         
             uploadDisplayPic(dp: dp!, adm: s.userId)
-    }
+        
+        let ref2 = FIRDatabase.database().reference().child("users/\(s.userId)/badges/default")
+        ref2.updateChildValues(["icon" : "https://firebasestorage.googleapis.com/v0/b/nyp25-e7815.appspot.com/o/Badges%2FqcBBexbc5.png?alt=media&token=767798a4-e6bf-4e8e-ac99-f03714430edf", "isDisplay" : 1])
+
+            }
     
     
     //Admin checking of password
