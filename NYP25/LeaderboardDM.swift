@@ -38,7 +38,7 @@ class LeaderboardDM: NSObject {
                 
                 let a = EventAttendance()
                 a.adminNo = r.key
-                a.school = r.childSnapshot(forPath: "school").value as! String
+                a.school = r.childSnapshot(forPath: "school").value as? String
                 
                 //Child nodes of events
                 eventsInAttendanceList = []
@@ -53,7 +53,6 @@ class LeaderboardDM: NSObject {
                     
                     eventsInAttendanceList.append(e)
                 }
-                
                 a.events = eventsInAttendanceList
                 attendanceList.append(a)
             }

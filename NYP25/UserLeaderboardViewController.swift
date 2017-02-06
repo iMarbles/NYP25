@@ -51,9 +51,11 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
     
     //for bar chart 
     let schools = ["SBM", "SCL", "SDN", "SEG", "SHS", "SIT", "SIDM"]
-    let colour = ["yellow", "red", "pink", "green", "orange", "blue", "purple"]
-
     var schoolCount : [Int] = []
+    
+    //leaderboard
+    let colour = ["yellow", "red", "pink", "green", "orange", "blue", "purple"]
+    
     var sumOfAttendees = 0
     var selectedAdminNum = ""
     
@@ -187,22 +189,19 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         mapView.addAnnotation(shsLocation)
         
         mapView.addAnnotations([sitLocation, sidmLocation, segLocation, sclLocation, sdnLocation, sbmLocation, shsLocation])
+        
         //for pie chart
         loadEventAttendance()
         getAttendance()
-        
-                
             }
- 
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
         func loadEventAttendance(){
+            
         LeaderboardDM.retrieveAllEvents(onComplete: {(listFromDb) in
             self.eventList = listFromDb
             
@@ -212,10 +211,7 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
             self.attendanceList = attendanceFromDb
             
             self.createPieChart()
-       //     self.getAttendance()
-           
-       //     self.getUniqueAttendance()
-            
+       
         })
     }
     
@@ -331,31 +327,12 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
             sortedCount += 1
         }
         
-        
-  
-       
-        
-        
-        
-        
-        
-      
-        
         // do some loop and sort which leaderboard object has more points an assign into another list
         
-        
-        
-        //Show the attendance
-   //     sumOfAttendees = count
-     //   sitLbl.text = formatNumber(toComma: count)
     }
     
-  //  func getUniqueAttendance(){
-    //    uniqueLbl.text = formatNumber(toComma: attendanceList.count)
-    //}
-    
     func createPieChart(){
-        //Need to show number of attendees per school (Not unique, total)
+        
         var sbm = 0
         var scl = 0
         var sdn = 0
@@ -398,7 +375,7 @@ class UserLeaderboardViewController: UIViewController, CLLocationManagerDelegate
         
         schoolCount = [sbm, scl, sdn, seg, shs, sit, sidm]
         
-        //To represent as pie chart
+     
         setBarChartFor(schools: schools, withValues: schoolCount)
     }
     
