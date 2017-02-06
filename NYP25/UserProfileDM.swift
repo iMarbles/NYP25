@@ -246,7 +246,7 @@ class UserProfileDM: NSObject {
                 let u = Badge()
                 u.badgeId = r.key
                 u.isDisplay = r.childSnapshot(forPath: "isDisplay").value as? Int
-                u.icon = (r.childSnapshot(forPath: "icon").value as? String)!
+                u.icon = r.childSnapshot(forPath: "icon").value as? String
                 
                 badgeList.append(u)
             }
