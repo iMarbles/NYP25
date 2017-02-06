@@ -74,7 +74,16 @@ class AdminStatisticsOneViewController: UIViewController, IValueFormatter {
     }
     
     func getUniqueAttendance(){
-        uniqueLbl.text = formatNumber(toComma: attendanceList.count)
+        var count = 0
+        for attendance in attendanceList{
+            for e in attendance.events{
+                if e.checkIn != nil{
+                    count += 1
+                    break;
+                }
+            }
+        }
+        uniqueLbl.text = formatNumber(toComma: count)
     }
     
     func createPieChart(){
