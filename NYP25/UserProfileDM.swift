@@ -254,49 +254,49 @@ class UserProfileDM: NSObject {
         })
     }
     
-//    static func retrieveAllSocialUserLikedPhotos(onComplete: @escaping ([Social])->Void){
-//        var socialList : [Social] = []
-//        var likedByList : [PhotoLike] = []
-//        
-//        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
-//        
-//        ref.observe(FIRDataEventType.value, with:{
-//            (snapshot) in
-//            
-//            socialList = []
-//            likedByList = []
-//            
-//            //.reversed() - for descending order
-//            for record in snapshot.children.reversed(){
-//                let r = record as! FIRDataSnapshot
-//                
-//                let s = Social()
-//                
-//                s.socialId = r.key
-//                s.eventId = r.childSnapshot(forPath: "eventId").value as! String
-//                s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
-//                
-//                //Child nodes
-//                let likes = r.childSnapshot(forPath: "likedBy").children
-//                for liked in likes{
-//                    let l = liked as! FIRDataSnapshot
-//                    
-//                    let p = PhotoLike()
-//                    p.adminNo = l.key
-//                    p.isLike = (l.childSnapshot(forPath: "isLiked").value as? Int)!
-//                    
-//                    if((p.adminNo == (GlobalDM.CurrentUser?.userId)!) && (p.isLike == 1)){
-//                        likedByList.append(p)
-//                        s.likes = likedByList
-//                        socialList.append(s)
-//                    }
-//                }
-//                
-//            }
-//            
-//            onComplete(socialList)
-//        })
-//    }
+    static func retrieveAllSocialUserLikedPhotos(onComplete: @escaping ([Social])->Void){
+        var socialList : [Social] = []
+        var likedByList : [PhotoLike] = []
+        
+        let ref = FIRDatabase.database().reference().child("social/").queryOrdered(byChild: "postedDateTime")
+        
+        ref.observe(FIRDataEventType.value, with:{
+            (snapshot) in
+            
+            socialList = []
+            likedByList = []
+            
+            //.reversed() - for descending order
+            for record in snapshot.children.reversed(){
+                let r = record as! FIRDataSnapshot
+                
+                let s = Social()
+                
+                s.socialId = r.key
+                s.eventId = r.childSnapshot(forPath: "eventId").value as! String
+                s.photoUrl = r.childSnapshot(forPath: "photoUrl").value as? String
+                
+                //Child nodes
+                let likes = r.childSnapshot(forPath: "likedBy").children
+                for liked in likes{
+                    let l = liked as! FIRDataSnapshot
+                    
+                    let p = PhotoLike()
+                    p.adminNo = l.key
+                    p.isLike = (l.childSnapshot(forPath: "isLiked").value as? Int)!
+                    
+                    if((p.adminNo == (GlobalDM.CurrentUser?.userId)!) && (p.isLike == 1)){
+                        likedByList.append(p)
+                        s.likes = likedByList
+                        socialList.append(s)
+                    }
+                }
+                
+            }
+            
+            onComplete(socialList)
+        })
+    }
     
     static func retrieveAllSocial(onComplete: @escaping ([Social])->Void){
         var socialList : [Social] = []
@@ -364,17 +364,17 @@ class UserProfileDM: NSObject {
                         commentList.append(pc)
                     }
                     
-//                    if((p.adminNo == (GlobalDM.CurrentUser?.userId)!) && (p.isLike == 1)){
-                        p.comments = commentList
-                        likedByList.append(p)
-//                    }
+                    if((p.adminNo == (GlobalDM.CurrentUser?.userId)!)){
+                            p.comments = commentList
+                            likedByList.append(p)
+                    }
                 }
                 
-                if(s.isFlagged != 1){
+//                if(s.isFlagged == 0 || s.isFlagged == 2){
                     s.flagReasons = flagReasonsList
                     s.likes = likedByList
                     socialList.append(s)
-                }
+//                }
             }
             
             onComplete(socialList)
