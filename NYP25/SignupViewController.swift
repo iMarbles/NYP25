@@ -112,14 +112,13 @@
     
     
             admTf.text = admTf.text?.uppercased()
-            unTf.text = unTf.text?.lowercased()
             RegisterDM.getUsers(admin: admTf.text!, username: unTf.text!, onComplete: {(sList) in
                 var idmatch : Bool = false
                 var usermatch : Bool = false
                 for s in sList {
                     if(s.userId == self.admTf.text) {
                         idmatch = true;
-                    } else if(s.username == self.unTf.text) {
+                    } else if(s.username.lowercased() == self.unTf.text?.lowercased()) {
                         usermatch = true;
                     }
                 }
