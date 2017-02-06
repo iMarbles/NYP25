@@ -66,9 +66,13 @@ class UserInboxTableViewController: UITableViewController {
     }
     
     func loadDeletedImages(){
-        reportedSocialList = []
         UserInboxDM.retrieveFlaggedSocialImage { (deletedPhotoList) in
-            self.reportedSocialList = deletedPhotoList
+            self.reportedSocialList = []
+            for photo in deletedPhotoList{
+                if photo.uploader == GlobalDM.CurrentUser?.userId{
+                    self.reportedSocialList.append(photo)
+                }
+            }
             self.tableView.reloadData()
         }
     }
@@ -112,7 +116,7 @@ class UserInboxTableViewController: UITableViewController {
         if section == 0{
             GlobalDM.loadImage(imageView: cell.eventImg, url: eventToFeedbackList[row].imageUrl!)
             cell.rateLbl.text = "\(eventToFeedbackList[row].name!)"
-        }else{
+        }else if section == 1{
             GlobalDM.loadImage(imageView: cell.eventImg, url: reportedSocialList[row].photoUrl!)
             cell.rateLbl.text = "This photo has been reported and removed"
         }

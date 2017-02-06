@@ -14,6 +14,7 @@ class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITa
     let adm = GlobalDM.CurrentUser?.userId
     var tempName : String = "title"
     var eventsList : [Event] = []
+    var sortedList : [Event] = []
     var eventToPass : Event = Event()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,20 @@ class UserEventsTableViewController: UIViewController, UITableViewDelegate, UITa
     
     func loadEvents() {
         UserEventDM.loadEvents { (eventListFromDatabase) in
+            self.eventsList = []
+            self.sortedList = []
             self.eventsList = eventListFromDatabase
+            var dateString : Int = 0
+            for i in self.eventsList { // homemade sorting by kenif
+                let dbDate : Int = Int(i.date!)!
+                if dbDate < dateString {
+                    self.sortedList.insert(i, at: 0)
+                } else {
+                    self.sortedList.append(i)
+                }
+                dateString = dbDate
+            }
+            self.eventsList = self.sortedList
             self.tableView.reloadData()
         }
     }

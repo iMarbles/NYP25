@@ -112,13 +112,18 @@ class AdminStatisticsMoreTableViewController: UITableViewController, IValueForma
                 
             }else if lastEvent < secondLastEvent{
                 //Negative change
-                let diff = secondLastEvent - lastEvent
-                let change = (Double(diff)/Double(lastEvent)) * 100
-                
-                if checkIfDecimal(number: change){
-                    percentChange.text = "-" + String(format: "%.02f", change) + "%"
-                }else{
-                    percentChange.text = "-" + String(format: "%.00f", change) + "%"
+                if lastEvent != 0{
+                    let diff = secondLastEvent - lastEvent
+                    let change = (Double(diff)/Double(lastEvent)) * 100
+                    
+                    if checkIfDecimal(number: change){
+                        percentChange.text = "-" + String(format: "%.02f", change) + "%"
+                    }else{
+                        percentChange.text = "-" + String(format: "%.00f", change) + "%"
+                    }
+                }
+                else{
+                    percentChange.text = "-%"
                 }
                 
                 percentChange.textColor = UIColor.red

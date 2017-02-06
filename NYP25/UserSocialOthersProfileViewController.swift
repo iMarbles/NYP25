@@ -53,7 +53,7 @@ class UserSocialOthersProfileViewController: UIViewController {
                             self.badgeList.append(b)
                             UserSocialProfileMasterViewController.loadImage(
                                 imageView: self.selectedBadge!,
-                                url: b.icon)
+                                url: b.icon!)
                             UserSocialProfileMasterViewController.roundedEdgePhoto(image: self.selectedBadge!)
                         }
                     }
